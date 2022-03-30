@@ -55,7 +55,7 @@
         <h2>¿Olvidaste tu Contraseña?</h2>
         <p>Por favor, digite su <strong>usuario o carnet y su correo electrónico</strong> para enviar los pasos a seguir y recuperar su contraseña.</p>
         <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" action="home" method="post">
           <input type="email" class="input" id="email_r" name="email_r" placeholder="Ingresa tu correo electrónico aquí" required="">
           <input type="text" class="input" id="usuario_r" name="usuario_r" placeholder="Ingresa tu usuario o carnet aquí" required="">
 
