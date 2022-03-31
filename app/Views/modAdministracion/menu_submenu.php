@@ -221,25 +221,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($datos as $key): ?>
                         <tr>
-                            <td>Plan de Estudios</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>Expedientes Graduados</td>
+                            <td><?php echo $key->nombreMenu?></td>
                             <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Calificación Institucional</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
-                            </td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
 

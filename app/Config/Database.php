@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'baseprueba',
+        'database' => 'db_workflow',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
