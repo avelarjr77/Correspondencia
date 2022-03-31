@@ -36,6 +36,7 @@ $routes->get('/home', 'Home::index', ['as'=> 'home']);
 $routes->get('/planEstudio', 'modPlanEstudio/PlanEstudioController::planEstudio', ['as'=> 'planEstudio']);
 $routes->get('/administracion', 'modAdministracion/AdministracionController::administracion', ['as'=> 'adminRol']);
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
+$routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
 $routes->get('/expedientesGraduandos', 'modExpedientesGraduandos/ExpedientesGraduandosController::expedientesGraduandos', ['as'=> 'expedientesGr']);
 $routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasController::entidadesExternas', ['as'=> 'entidadesEx']);
 

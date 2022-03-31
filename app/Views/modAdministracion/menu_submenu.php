@@ -183,31 +183,34 @@
                         <div class="modal-body">
                             <!-- FORMULARIO PARA AGREGAR MENU -->
                             <div class="x_content">
-                                <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Menú (Categoria) <span class="required"></span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="first-name" required="required" class="form-control ">
+                                <form method="POST" action="<?php echo base_url() . '/crear' ?>">
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Menú (Categoria) <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <input type="text" id="nombreMenu" name="nombreMenu" required="required" class="form-control ">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar Icono<span class="required"></span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control">
-                                            <option>Icono 1</option>
-                                            <option>Icono 2</option>
-                                            <option>Icono 3</option>
-                                        </select>
+
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar Icono<span class="required"></span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <select class="form-control">
+                                                <option>Icono 1</option>
+                                                <option>Icono 2</option>
+                                                <option>Icono 3</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
+                                    <button class="btn btn-primary" type="submit">Agregar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <br>
+                                </form>
                             </div>
                             <!-- end FORMULARIO PARA AGREGAR MENU -->
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -221,13 +224,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($datos as $key): ?>
-                        <tr>
-                            <td><?php echo $key->nombreMenu?></td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
-                            </td>
-                        </tr>
+                        <?php foreach ($datos as $key) : ?>
+                            <tr>
+                                <td><?php echo $key->nombreMenu ?></td>
+                                <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -293,18 +296,14 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <select class="form-control">
-                                            <option>Menú 1</option>
-                                            <option>Menú 2</option>
-                                            <option>Menú 3</option>
+                                            <?php foreach ($datos as $key) : ?>
+                                                <option><?php echo $key->nombreMenu ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <!-- end FORMULARIO PARA AGREGAR MENU -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -320,20 +319,9 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr>
-                            <td>Nombre Submenu 1...</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nombre Submenu 2...</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nombre Submenu 3...</td>
+                            <td>j</td>
                             <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
                             </td>
@@ -346,6 +334,16 @@
     </div>
     <!-- End Formulario para agregar SUBMENU -->
 </div>
+
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '1') {
+        swal(':D', 'Agregado', 'success');
+    } else if (mensaje == '0') {
+        swal(':c', 'No', 'error');
+    }
+</script>
 
 
 <?= $this->endSection() ?>

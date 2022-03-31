@@ -7,4 +7,11 @@
             $co_menu = $this->db->query('SELECT*FROM co_menu');
             return $co_menu->getResult();
         }
+
+        public function insertar($datos){
+            $nombreMenu = $this->db->table('co_menu');
+            $nombreMenu->insert($datos);
+
+            return $this->db->insertID();
+        }
     }
