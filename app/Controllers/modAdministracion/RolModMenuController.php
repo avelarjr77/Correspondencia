@@ -7,23 +7,17 @@ use App\Models\modAdministracion\RolModMenuModel;
 
 class RolModMenuController extends BaseController
 {
-
     public function rolModMenu()
-    {
-        return view('modAdministracion/rolModMenu');
-    }
-
-    public function show()
     {
         $rolModMenu = new RolModMenuModel();
 
-        $dataHeader =[
-            'title' => 'Rol Módulo Menú'
-        ];
+        
 
         $data =[
             'rolModMenus' => $rolModMenu->asObject()->findAll()
         ];
+
+        return view('modAdministracion/rolModMenu',$data);
     }
 
 }

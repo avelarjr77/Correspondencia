@@ -2,7 +2,7 @@
 
 namespace App\Models\modAdministracion;
 
-use CodeIgniter\Models;
+use CodeIgniter\Model;
 
 class RolModMenuModel extends Model
 {

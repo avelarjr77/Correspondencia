@@ -1,0 +1,22 @@
+CRITICAL - 2022-03-31 11:10:28 --> Class 'App\Models\modAdministracion\Model' not found
+#0 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(264): include_once()
+#1 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#2 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\modA...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\modA...')
+#4 C:\laragon\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(12): spl_autoload_call('App\\Models\\modA...')
+#5 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->rolModMenu()
+#6 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#7 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-31 11:11:47 --> Class 'App\Models\modAdministracion\Model' not found
+#0 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(264): include_once()
+#1 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#2 C:\laragon\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\modA...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\modA...')
+#4 C:\laragon\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(12): spl_autoload_call('App\\Models\\modA...')
+#5 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->rolModMenu()
+#6 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#7 C:\laragon\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
