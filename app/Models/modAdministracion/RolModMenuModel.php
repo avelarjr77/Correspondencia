@@ -11,11 +11,12 @@ class RolModMenuModel extends Model
 
     public function get($rolModuloMenu = null)
     {
-        if ($rolModuloMenu === null){
-            return $this->findAll();
-        }
-
+        
         return $this->asArray()
+        ->select('co_rol_modulo_menu.rolModuloMenuId, wk_rol.nombreRol as rol, co_modulo.nombre as modulo')
+        ->join('wk_rol', 'co_rol_modulo_menu.rolId = wk_rol.rolId')
+        ->join('co_modulo_menu', 'co_rol_modulo_menu.moduloMenuId = co_modulo_menu.moduloMenuId')
+        ->join('co_modulo', 'co_rol_modulo_menu.moduloId= co_modulo.rolId')
         ->where(['rolModuloMenu' => $rolModuloMenu])
         ->first();
     }

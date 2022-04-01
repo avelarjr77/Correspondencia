@@ -53,7 +53,7 @@
                                                 <?php foreach ($rolModMenus as $key => $r): ?>
                                                     <tr role="row" class="odd">
                                                         <td><?= $r->rolModuloMenuId ?></td>
-                                                        <td><?= $r->rolId ?></td>
+                                                        <td><?= $r->rol ?></td>
                                                         <td><button type="submit" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Agregar Menú</button></td>
                                                     </tr>
                                                 <?php endforeach?>

@@ -14,7 +14,7 @@ class RolModMenuController extends BaseController
         
 
         $data =[
-            'rolModMenus' => $rolModMenu->asObject()->findAll()
+            'rolModMenus' => $rolModMenu->asObject()
         ];
 
         return view('modAdministracion/rolModMenu',$data);
