@@ -1,17 +1,29 @@
-<?php namespace App\Models;
+<?php
 
-    use CodeIgniter\Model;
+namespace App\Models;
 
-    class MenuSubmenuModel extends Model{
-        public function listarMenu(){
-            $co_menu = $this->db->query('SELECT*FROM co_menu');
-            return $co_menu->getResult();
-        }
+use CodeIgniter\Model;
 
-        public function insertar($datos){
-            $nombreMenu = $this->db->table('co_menu');
-            $nombreMenu->insert($datos);
+class MenuSubmenuModel extends Model
+{
 
-            return $this->db->insertID();
-        }
+    public function listarMenu()
+    {
+        $co_menu = $this->db->query('SELECT*FROM co_menu');
+        return $co_menu->getResult();
     }
+
+    public function insertar($datos)
+    {
+        $nombreMenu = $this->db->table('co_menu');
+        $nombreMenu->insert($datos);
+
+        return $this->db->insertID();
+    }
+    public function obtenerNombre($data)
+    {
+        $nombreMenu = $this->db->table('co_menu');
+        $nombreMenu->where($data);
+        return $nombreMenu->get()->getResultArray();
+    }
+}
