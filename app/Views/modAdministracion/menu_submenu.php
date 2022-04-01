@@ -138,7 +138,7 @@
                                 <!--END MODAL -->
 
                                 <!--MODAL EDITAR -->
-                                <div class="modal" id="exampleModal" tabindex="-1">
+                                <div class="modal" id="modalEdit" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -292,8 +292,8 @@
                             <tr>
                                 <td><?php echo $key->nombreMenu ?></td>
                                 <td >
-                                    <a href="<?php  echo base_url().'/obtenerNombre'.'$key->menuId'?>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                                    <a href="<?php  echo base_url().'/obtenerNombre'.'$key->menuId'?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="<?php  echo base_url().'/obtenerNombre/'.$key->menuId?>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                    <a href="<?php  echo base_url().'/obtenerNombre/'.$key->menuId?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a>
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#agregarSubmenu"><i class="fa fa-plus"></i> Agregar Subenú</button>

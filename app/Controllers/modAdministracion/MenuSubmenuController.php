@@ -1,4 +1,6 @@
-<?php namespace App\Controllers\modAdministracion;
+<?php
+
+namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
 use App\Models\MenuSubmenuModel;
@@ -23,47 +25,51 @@ class MenuSubmenuController extends BaseController
     }
 
     //Funcion para INSERTAR
-    public function crear(){
+    public function crear()
+    {
         $datos = [
             "nombreMenu"    => $_POST['nombreMenu']
         ];
         $nombreMenu = new MenuSubmenuModel();
         $respuesta = $nombreMenu->insertar($datos);
-        if ($respuesta > 0){
-            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '1');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
         } else {
-            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '0');
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
         }
-
     }
-    
+
     //Funcion para EDITAR
-    public function editar(){
+    public function editar()
+    {
         $datos = [
             "nombreMenu"    => $_POST['nombreMenu']
         ];
         $nombreMenu = new MenuSubmenuModel();
         $respuesta = $nombreMenu->insertar($datos);
-        if ($respuesta > 0){
-            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '1');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
         } else {
-            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '0');
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
         }
-
     }
 
     //Funcion para OBTENER NOMBRE
-    public function obtenerNombre($menuId){
+    public function obtenerNombre($menuId)
+    {
 
-        $data = ["menuId"=>$menuId];
+        $data = ["menuId" => $menuId];
         $MenuSubmenu = new MenuSubmenuModel();
         $respuesta = $MenuSubmenu->obtenerNombre($data);
 
         $datos = ["datos" => $respuesta];
+
+        return view('crear', $datos);
     }
 
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
-    public function listarSubmenu(){
+    public function listarSubmenu()
+    {
         $submenu = new SubmenuModel();
         var_dump($submenu->asObject()->findAll());
     }
