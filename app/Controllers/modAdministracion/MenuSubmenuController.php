@@ -4,7 +4,6 @@ namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
 use App\Models\MenuSubmenuModel;
-use App\Models\SubmenuModel;
 
 class MenuSubmenuController extends BaseController
 {
@@ -39,10 +38,22 @@ class MenuSubmenuController extends BaseController
         }
     }
 
+    public function eliminar($menuId)
+    {
+        $data = ["menuId" => $menuId];
+        $nombreMenu = new MenuSubmenuModel();
+        $respuesta = $nombreMenu->eliminar($data);
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/')->with('mensaje', '1');
+        } else {
+            return redirect()->to(base_url() . '/')->with('mensaje', '0');
+        }
+    }
+
     //Funcion para EDITAR
     public function editar()
     {
-        $datos = [
+        /* $datos = [
             "nombreMenu"    => $_POST['nombreMenu']
         ];
         $nombreMenu = new MenuSubmenuModel();
@@ -51,7 +62,7 @@ class MenuSubmenuController extends BaseController
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
         } else {
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
-        }
+        }*/
     }
 
     //Funcion para OBTENER NOMBRE
@@ -64,28 +75,45 @@ class MenuSubmenuController extends BaseController
 
         $datos = ["datos" => $respuesta];
 
-        return view('crear', $datos);
+        return view('modAdministracion/menu_submenu', $datos);
     }
 
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
     public function listarSubmenu()
     {
-        $submenu = new SubmenuModel();
+        $submenu = new MenuSubmenuModel();
         var_dump($submenu->asObject()->findAll());
     }
 
     //Funcion para MOSTRAR DATOS DE LA TABLA SUBMENU
     public function nombreSubMenu()
     {
-        $nombreSubMenu = new SubmenuModel();
-        /*$dataHeader =[
-            'title' => 'Submenus'
-        ];*/
+        $Submenu = new MenuSubmenuModel();
+        $datos = $Submenu->listarSubMenu();
+
+        $mensaje = session('mensaje');
 
         $data = [
-            'nombreSubMenu'   => $nombreSubMenu->asObject()->findAll()
+            "datos"     => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modAdministracion/menu_submenu', $data);
+    }
+
+    //Funcion para INSERTAR
+    public function crearSubmenu()
+    {
+        $datos = [
+            "nombreSubMenu"     => $_POST['nombreSubMenu'],
+            "menuId"            => $_POST['menuId']
+        ];
+        $crearSubmenu = new MenuSubmenuModel();
+        $respuesta = $crearSubmenu->crearSubmenu($datos);
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
+        } else {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
+        }
     }
 }

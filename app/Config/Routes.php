@@ -37,6 +37,9 @@ $routes->get('/planEstudio', 'modPlanEstudio/PlanEstudioController::planEstudio'
 $routes->get('/administracion', 'modAdministracion/AdministracionController::administracion', ['as'=> 'adminRol']);
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
 $routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
+$routes->post('/crearSubmenu', 'modAdministracion/MenuSubmenuController::crearSubmenu');
+$routes->post('/eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
+$routes->get('/obtenerNombre/(:any)', 'modAdministracion/MenuSubmenuController::obtenerNombre/$1');
 $routes->get('/expedientesGraduandos', 'modExpedientesGraduandos/ExpedientesGraduandosController::expedientesGraduandos', ['as'=> 'expedientesGr']);
 $routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasController::entidadesExternas', ['as'=> 'entidadesEx']);
 
@@ -48,7 +51,8 @@ $routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasContro
  *
  * There will often be times that you need additional routing and you
  * need it to be able to override any defaults in this file. Environment
- * based routes is one such time. require() additional route files here
+ * based routes 
+ * is one such time. require() additional route files here
  * to make that happen.
  *
  * You will have access to the $routes object within that file without
