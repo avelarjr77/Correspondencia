@@ -9,16 +9,22 @@ class RolModMenuModel extends Model
     protected $table = 'co_rol_modulo_menu';
     protected $primaryKey = 'rolModuloMenuId';
 
-    public function get($rolModuloMenu = null)
+    public function getRolMM()
     {
-        
-        return $this->asArray()
-        ->select('co_rol_modulo_menu.rolModuloMenuId, wk_rol.nombreRol as rol, co_modulo.nombre as modulo')
-        ->join('wk_rol', 'co_rol_modulo_menu.rolId = wk_rol.rolId')
-        ->join('co_modulo_menu', 'co_rol_modulo_menu.moduloMenuId = co_modulo_menu.moduloMenuId')
-        ->join('co_modulo', 'co_rol_modulo_menu.moduloId= co_modulo.rolId')
-        ->where(['rolModuloMenu' => $rolModuloMenu])
-        ->first();
+        $rolModMenu = $this->db->query("SELECT rmm.moduloMenuId as 'id', r.nombreRol as 'rol', m.nombre as 'modulo', me.nombreMenu as 'menu'
+                                        FROM co_rol_modulo_menu rmm
+                                        INNER JOIN wk_rol r ON rmm.rolId = r.rolId
+                                        INNER JOIN co_modulo_menu mm ON rmm.moduloMenuId = mm.moduloMenuId 
+                                        INNER JOIN co_modulo m ON mm.moduloId = m.moduloId 
+                                        INNER JOIN co_menu me ON mm.menuId = me.menuId
+                                        ORDER BY rmm.rolModuloMenuId");
+        return $rolModMenu->getResult();
     }
 
+    public function obtenerRol($data)
+    {
+        $rol = $this->db->table('co_rol_modulo_menu');
+        $rol->where($data);
+        return $rol->get()->getResultArray();
+    }
 }

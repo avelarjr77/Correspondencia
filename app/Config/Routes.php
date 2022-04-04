@@ -36,7 +36,17 @@ $routes->get('/home', 'Home::index', ['as'=> 'home']);
 $routes->get('/planEstudio', 'modPlanEstudio/PlanEstudioController::planEstudio', ['as'=> 'planEstudio']);
 $routes->get('/administracion', 'modAdministracion/AdministracionController::administracion', ['as'=> 'adminRol']);
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
+$routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
+$routes->post('/crearSubmenu', 'modAdministracion/MenuSubmenuController::crearSubmenu');
+$routes->get('/eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
+$routes->get('/obtenerNombre/(:any)', 'modAdministracion/MenuSubmenuController::obtenerNombre/$1');
+
+$routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
 $routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
+$routes->get('/editRolMM/(:any)', 'modAdministracion/RolMMController::editar/$1');
+$routes->get('/modulo', 'modAdministracion/ModuloController::modulo', ['as'=> 'modulo']);
+$routes->get('/rol', 'modAdministracion/RolController::rol', ['as'=> 'rol']);
+
 $routes->get('/expedientesGraduandos', 'modExpedientesGraduandos/ExpedientesGraduandosController::expedientesGraduandos', ['as'=> 'expedientesGr']);
 $routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasController::entidadesExternas', ['as'=> 'entidadesEx']);
 

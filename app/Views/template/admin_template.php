@@ -69,7 +69,7 @@
                     <ul class="nav child_menu">
                       <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="<?= base_url().route_to('adminRol') ?>">1. Admin. Roles</a></li>
+                          <li><a href="<?= base_url().route_to('rol') ?>">1. Admin. Roles</a></li>
                           <li><a href="<?= base_url().route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
                           <li><a href="<?= base_url().route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
                         </ul>
@@ -273,6 +273,45 @@
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+
+    <!--<script>
+      var moduloMenu = document.getElementById('moduloMenu')
+      moduloMenu.addEventListener('show.bs.modal', function (event) {
+
+      var button = event.relatedTarget 
+
+      var id = button.getAttribute('data-bs-id') 
+      var rol = button.getAttribute('data-bs-name') 
+      
+      var updateForm = moduloMenu.querySelector('#updateForm')
+      var action = updateForm.getAttribute("data-bs-action")
+
+      var modalTitle = moduloMenu.querySelector('.modal-title span')
+      modalTitle.textContent = rol
+      
+      updateForm.setAttribute("action", action+id)
+
+      })
+</script>-->
+
+<!--<script>
+    var modalEliminar = document.getElementById('modalEliminar')
+    modalEliminar.addEventListener('show.bs.modal', function(event) {
+
+        var button = envent.relatedTarget
+        var menuId = button.getAtribute('data-bs-menuId')
+        var nombre = button.getAtribute('data-bs-nombre')
+        
+        var modalTitle = modalEliminar.querySelector('.modal-title span')
+        modalTitle.textContent = nombre
+
+        var eliminarForm = modalEliminar.querySelector('$#eliminarForm')
+
+        var action = eliminarForm.getAtribute("data-bs-action")
+
+        eliminarForm.setAttribute("action", action + menuId)
+    })
+</script>-->
 	
   </body>
 </html>

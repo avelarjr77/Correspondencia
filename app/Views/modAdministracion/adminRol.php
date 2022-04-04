@@ -54,22 +54,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>USUARIO</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>ADMINISTRADOR</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DESARROLLADOR</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
+                        <?php foreach ($rols as $key): ?>
+                            <tr role="row" class="odd">
+                                <td><?php echo $key->nombreRol ?></td>
+                                <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                            </tr>
+                        <?php endforeach; ?>
+                            
+                        
                     </tbody>
                 </table>
 

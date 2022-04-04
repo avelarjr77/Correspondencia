@@ -50,41 +50,51 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($rolModMenus as $key => $r): ?>
+                                                <?php foreach ($datos as $key): ?>
                                                     <tr role="row" class="odd">
-                                                        <td><?= $r->rolModuloMenuId ?></td>
-                                                        <td><?= $r->rol ?></td>
-                                                        <td><button type="submit" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Agregar Menú</button></td>
+                                                        <td><?php echo $key->id ?></td>
+                                                        <td><?php echo $key->rol ?>/<?php echo $key->modulo ?></td>
+                                                        <td>
+                                                        <a href="<?php echo base_url().'/modAdministracion/RolMMController/editar/'.$key->id ?>" class="btn btn-info"><i class="fa fa-plus"></i> Agregar Menú</a>
+                                                        <!--<a href="<?php  echo base_url().'/editRolMM/'.$key->id?>" class="btn btn-info btn-xs"><i class="fa fa-plus"></i> Agregar Menú</a>-->
+                                                        </td>
+                                                        <!--<td><button type="submit" class="btn btn-info" href="#" data-href="<?php echo base_url() . '/rolModMenu/editar/' . $key->id ?>" data-bs-menu="<?php echo $key->menu ?>" data-toggle="modal" data-target="#modalEditar"><i class="fa fa-plus"></i>  Agregar Menú</button></td>-->
                                                     </tr>
-                                                <?php endforeach?>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
 
                                 <!--MODAL -->
-                                <div class="modal" id="exampleModal" tabindex="-1">
-                                    <div class="modal-dialog">
+                                <div class="modal" id="modalEditar" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Agregar menú</h5>
+                                                <h5 class="modal-title">Agregar menú a </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
                                                 <!-- start form for validation -->
-                                                <form id="demo-form" data-parsley-validate>
-                                                    <label for="fullname">Usuario:</label>
-                                                    <input type="text" id="fullname" class="form-control" name="fullname" placeholder="SUPER ADMINISTRADOR (Configuración General)" required /><br>
-                                                    <label>Listados de Menú:</label>
+                                                <form id="updateForm" data-bs-action="rolModMenu/update" data-parsley-validate>
+                                                    <label for="fullname">Rol:</label>
+                                                        <select name="rol" class="form-control select_rol">
+                                                            <?php foreach ($datos as $key) : ?>
+                                                                <option value="<?= $key->rol;?>"></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                        <br>
+                                                    <label>Listados de Menú en :</label>
                                                     <p style="padding: 5px;">
-                                                        <input type="checkbox" name="" id="hobby2" value="run" class="flat" /> Plan de Estudios
-                                                        <br><br>
-                                                        <input type="checkbox" name="" id="hobby3" value="eat" class="flat" /> Expedientes Graduados
-                                                        <br><br>
-                                                        <input type="checkbox" name="" id="hobby4" value="sleep" class="flat" /> Calificación Institucional
-                                                        <br><br>
+                                                        <select multiple id="select_menu" name="product_category" class="form-control">
+                                                            <option value="">-Select-</option>
+                                                            <?php foreach($datos as $key):?>
+                                                                <option value="<?php echo $key->menu ?>"></option>
+                                                            <?php endforeach;?>
+                                                        </select>
+                                                        <br>
                                                         <span class="btn btn-primary">Guardar</span>
                                                 </form>
                                                 <!-- Tabla para mostrar menus que posee el Usuario -->
@@ -131,6 +141,7 @@
         </div>
     </div>
 </div>
+
 
 
 <?= $this->endSection() ?>
