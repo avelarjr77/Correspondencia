@@ -112,7 +112,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <form id="eliminarForm" data-bs-action="menu/eliminar/" method="POST">
+                            <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/actualizar/" method="POST">
                                 <a class="btn btn-danger btn-ok">Eliminar</a>
                             </form>
                         </div>
@@ -135,7 +135,7 @@
                                 <td><?php echo $key->nombreMenu ?></td>
                                 <td>
                                     <button type="submit" class="btn btn-danger" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-bs-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
-                                    <button type="submit" class="btn btn-primary" href="#" data-href="<?php echo base_url() . '/menu_submenu/actualizar/' . $key->menuId ?>" data-bs-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalActualizar"><i class="fa fa-pencil-square-o"></i></button>
+                                    <button type="submit" class="btn btn-primary" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/editar/' . $key->menuId ?>" data-bs-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalActualizar"><i class="fa fa-pencil-square-o"></i></button>
                                     <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#tablaSubmenu" aria-label="Close"><i class="fa fa-external-link"></i></button>
                                 </td>
                             </tr>
