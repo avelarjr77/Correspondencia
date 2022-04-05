@@ -106,15 +106,23 @@
                         </div>
                         <div class="modal-body">
                             <div class="x_content">
-                                <h5>¿Deseas eliminar este Menú?</h5>
+                                <form id="editarForm" data-bs-action="/modAdministracion/MenuSubmenuController/editar/" method="POST">
+                                    <div class="item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre:<span class="required"></span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <input type="text" name="nombreMenu" required="required" minlength="3" autocomplete="off" class="form-control nombreMenu">
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 ">
+                                        <a class="btn btn-warning btn-edit">Editar</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <!-- end form for validations -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/actualizar/" method="POST">
-                                <a class="btn btn-danger btn-ok">Eliminar</a>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -134,8 +142,8 @@
                             <tr>
                                 <td><?php echo $key->nombreMenu ?></td>
                                 <td>
-                                    <button type="submit" class="btn btn-danger" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-bs-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
-                                    <button type="submit" class="btn btn-primary" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/editar/' . $key->menuId ?>" data-bs-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalActualizar"><i class="fa fa-pencil-square-o"></i></button>
+                                    <button type="submit" class="btn btn-danger" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+                                    <a type="submit" class="btn btn-primary" href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/editar/' . $key->menuId ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#tablaSubmenu" aria-label="Close"><i class="fa fa-external-link"></i></button>
                                 </td>
                             </tr>
@@ -256,6 +264,10 @@
         swal(':D', 'Agregado', 'success');
     } else if (mensaje == '0') {
         swal(':c', 'No', 'error');
+    }else if (mensaje == '2') {
+        swal(':D', 'Actualizado', 'success');
+    }else if (mensaje == '3') {
+        swal(':D', 'Falló actualización', 'error');
     }else if (mensaje == '4') {
         swal(':D', 'Eliminado', 'success');
     }else if (mensaje == '5') {
@@ -268,6 +280,39 @@
         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
     });
 </script>
+
+<!--<script>
+    $('#modalActualizar').on('show.bs.modal', function(e){
+        const nombreM = $(this).data('nombre');
+
+        $('.nombreMenu').val(nombreM);
+
+
+        $(this).find('.btn-edit').attr('href', $(e.relatedTarget).data('href'));
+    });
+</script>-->
+
+<!--<script>
+    $(document).ready(function(){
+ 
+        // get Edit Product
+        $('btn-edit').on('click',function(){
+            // get data from button edit
+            const id = $(this).data('id');
+            const name = $(this).data('name');
+            const price = $(this).data('price');
+            const category = $(this).data('category_id');
+            // Set data to Form Edit
+            $('.product_id').val(id);
+            $('.product_name').val(name);
+            $('.product_price').val(price);
+            $('.product_category').val(category).trigger('change');
+            // Call Modal Edit
+            $('#editModal').modal('show');
+        });
+         
+    });
+</script>-->
 
 
 <?= $this->endSection() ?>

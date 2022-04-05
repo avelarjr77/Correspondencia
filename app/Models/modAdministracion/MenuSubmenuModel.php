@@ -32,6 +32,22 @@ class MenuSubmenuModel extends Model
         $nombreMenu->where($data);
         return $nombreMenu->delete();
     }
+
+    //Obtenemos el registro a editar
+    public function editar($data){
+        $nombreMenu = $this->db->table('co_menu');
+        $nombreMenu->where($data);
+        return $nombreMenu->get()->getResultArray();
+    }
+
+    //Edita el registro en menu
+    public function actualizar($data, $menuId){
+        $nombreMenu = $this->db->table('co_menu');
+        $nombreMenu->set($data);
+        $nombreMenu->where('menuId', $menuId);
+        return $nombreMenu->update();
+    }
+
     public function listarSubmenu()
     {
         $co_submenu = $this->db->query('SELECT*FROM co_submenu');

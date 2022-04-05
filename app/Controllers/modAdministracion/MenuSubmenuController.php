@@ -55,26 +55,41 @@ class MenuSubmenuController extends BaseController
     }
 
     //Funcion para EDITAR
+    public function actualizar()
+    {
+        $datos = [
+            "nombreMenu" => $_POST['nombreMenu']
+        ];
+
+        $menuId = $_POST['menuId'];
+
+        $menu = new MenuSubmenuModel();
+
+        $respuesta = $menu->actualizar($datos, $menuId);
+
+        $datos = ["datos" => $respuesta];
+
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
+        } else {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
+        }
+    }
+
     public function editar($menuId)
     {
-        $Menu = new MenuSubmenuModel();
+        $menu = new MenuSubmenuModel();
 
-        $respuesta = $Menu->first();
+        $data = ["menuId" => $menuId];
+        $respuesta = $menu->editar($data);
 
-        /* $datos = [
-            "nombreMenu"    => $_POST['nombreMenu']
-        ];
-        $nombreMenu = new MenuSubmenuModel();
-        $respuesta = $nombreMenu->insertar($datos);
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
-        } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
-        }*/
+        $datos = ["datos" => $respuesta];
+
+        return view('modAdministracion/editMenu', $datos);
     }
 
     //Funcion para OBTENER NOMBRE
-    public function obtenerNombre($menuId)
+    /*public function obtenerNombre($menuId)
     {
 
         $data = ["menuId" => $menuId];
@@ -83,8 +98,8 @@ class MenuSubmenuController extends BaseController
 
         $datos = ["datos" => $respuesta];
 
-        return view('modAdministracion/menu_submenu', $datos);
-    }
+        return view('modAdministracion/editar', $datos);
+    }*/
 
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
     public function listarSubmenu()

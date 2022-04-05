@@ -32,7 +32,7 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => 'localhost:3308',
         'username' => 'root',
         'password' => '',
         'database' => 'baseprueba',
