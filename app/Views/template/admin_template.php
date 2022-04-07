@@ -69,7 +69,7 @@
                     <ul class="nav child_menu">
                       <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="<?= base_url().route_to('rol') ?>">1. Admin. Roles</a></li>
+                          <li><a href="<?= base_url().route_to('adminRol') ?>">1. Admin. Roles</a></li>
                           <li><a href="<?= base_url().route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
                           <li><a href="<?= base_url().route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
                         </ul>

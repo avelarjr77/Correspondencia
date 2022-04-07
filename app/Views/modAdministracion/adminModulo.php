@@ -1,10 +1,10 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<!-- Formulario para agregar MODULOS -->
+<!-- Formulario para agregar Modulos -->
 <div class="x_panel">
     <div class="x_title">
-        <h2>Agregar Modulos</h2>
+        <h2>Agregar<small>Modulos</small></h2>
         <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -24,52 +24,37 @@
     </div>
     <div class="x_content">
         <br>
-        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
+        <form method="POST" action="<?php echo base_url() . '/crearModulo' ?>">
             <div class="item form-group">
-                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Modulo<span class="required"></span>
+                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre de Modulo <span class="required"></span>
                 </label>
                 <div class="col-md-6 col-sm-6 ">
-                    <input type="text" id="first-name" required="required" class="form-control ">
-                </div>
+                    <input type="text" id="nombre" name="nombre" required="required" class="form-control ">
+                </div>                  
             </div>
-
-            <div class="ln_solid"></div>
-            <div class="item form-group">
-                <div class="col-md-6 col-sm-6 offset-md-3">
-                    <button class="btn btn-primary" type="button">Agregar</button>
-                    <button type="Reset" class="btn btn-success">Limpiar</button>
-                </div>
-            </div>
-            <div class="x_title">
-                <h2>Listado Modulos</h2>
-                <div class="clearfix"></div>
-            </div>
+            <button class="btn btn-primary" type="submit">Agregar</button>
             <div class="x_content">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>MODULOS</th>
+                            <th>ID</th>
+                            <th>Nombre de Modulo</th>
                             <th scope="col" colspan="2">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Plan de Estudios</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        <?php foreach($datos as $modulo): ?>
+                            <tr>
+                            <td><?php echo $modulo->moduloId ?></td>
+                            <td><?php echo $modulo->nombre ?></td>
+                            <td>
+                                <a href="<?php echo base_url().'/modAdministracion/ModuloController/obtenerModulo/'.$modulo->moduloId ?>" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="<?php echo base_url().'/modAdministracion/ModuloController/eliminar/'.$modulo->moduloId ?>" class="btn btn-danger btn-sm">Eliminar</a>
                             </td>
 
                         </tr>
-                        <tr>
-                            <td>Expedientes Graduados</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Calificación Institucional</td>
-                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>
+                        <?php endforeach; ?> 
+
                     </tbody>
                 </table>
 
@@ -77,8 +62,35 @@
 
         </form>
     </div>
-
 </div>
-<!-- End Formulario para agregar MODULOS -->
+<!-- End Formulario para agregar Modulos -->
+    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '0') {
+        swal(':D', 'Módulo agregado', 'success');
+    } else if (mensaje == '1') {
+        swal(':c', 'No se agrego', 'error');
+    }else if (mensaje == '2') {
+        swal(':D', 'Eliminado', 'success');
+    }else if (mensaje == '3') {
+        swal(':c', 'No se Elimino Registro', 'error');
+    }else if (mensaje == '4') {
+        swal(':D', 'Actualizado con exito', 'success');
+    }else if (mensaje == '5') {
+        swal(':c', 'No se actualizo', 'error');
+    }
+</script>
+
+<script>
+    $('#modalEliminar').on('show.bs.modal', function(e){
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    });
+</script>
 
 <?= $this->endSection() ?>

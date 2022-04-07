@@ -11,7 +11,7 @@ class RolModMenuModel extends Model
 
     public function getRolMM()
     {
-        $rolModMenu = $this->db->query("SELECT rmm.moduloMenuId as 'id', r.nombreRol as 'rol', m.nombre as 'modulo', me.nombreMenu as 'menu'
+        $rolModMenu = $this->db->query("SELECT rmm.rolModuloMenuId as 'rolModuloMenuId', r.nombreRol as 'rol', m.nombre as 'modulo', me.nombreMenu as 'menu'
                                         FROM co_rol_modulo_menu rmm
                                         INNER JOIN wk_rol r ON rmm.rolId = r.rolId
                                         INNER JOIN co_modulo_menu mm ON rmm.moduloMenuId = mm.moduloMenuId 
@@ -21,7 +21,17 @@ class RolModMenuModel extends Model
         return $rolModMenu->getResult();
     }
 
-    public function obtenerRol($data)
+    public function getModMenu()
+    {
+        $modMenu = $this->db->query("SELECT mm.moduloMenuId as 'moduloMenuId', m.nombre as 'modulo', me.nombreMenu as 'menu'
+                                        FROM co_modulo_menu mm
+                                        INNER JOIN co_modulo m ON mm.moduloId = m.moduloId 
+                                        INNER JOIN co_menu me ON mm.menuId = me.menuId
+                                        ORDER BY mm.moduloMenuId");
+        return $modMenu->getResult();
+    }
+
+    public function obtenerId($data)
     {
         $rol = $this->db->table('co_rol_modulo_menu');
         $rol->where($data);

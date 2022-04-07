@@ -2,8 +2,8 @@
 <?= $this->section('content') ?>
 
 <?php
-    $menuId = $datos[0]['menuId'];
-    $nombreMenu = $datos[0]['nombreMenu'];
+$moduloId = $datos[0]['moduloId'];
+$nombre = $datos[0]['nombre'];
 ?>
 
 <div class="container">
@@ -11,7 +11,7 @@
     <!-- Formulario para agregar MENÚ -->
     <div class="x_panel">
         <div class="x_title">
-            <h2>Editar menú</h2>
+            <h2>Editar Modulo</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -21,16 +21,12 @@
         <div class="x_content">
             <div class="container">
                 <div class="col-md-12 col-sm-12 offset-md-12 right">
-                    <form method="POST" action="<?php echo base_url() . '/editMenu' ?>">
+                    <form method="POST" action="<?php echo base_url() . '/modAdministracion/ModuloController/actualizarModulo' ?>">
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Menú<span class="required"></span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="menuId" name="menuId" hidden=""  class="form-control"
-                                value="<?php echo $menuId?>">
-                                <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" autocomplete="off" class="form-control"
-                                value="<?php echo $nombreMenu?>">
-                            </div>
+                                <input type="text" id="moduloId" name="moduloId" hidden=""  class="form-control"
+                                value="<?php echo $moduloId?>">
+                                <input type="text" id="nombre" name="nombre" required="required" minlength="3" autocomplete="off" class="form-control"
+                                value="<?php echo $nombre?>">
                         </div>
                         <button class="btn btn-primary" type="submit">Guardar</button>
                         <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
@@ -41,5 +37,8 @@
     </div>
 </div>
 </div>
+
+
+
 
 <?= $this->endSection() ?>

@@ -76,6 +76,8 @@ class MenuSubmenuController extends BaseController
         }
     }
 
+    //funcion para obtener el nombre del menu
+
     public function editar($menuId)
     {
         $menu = new MenuSubmenuModel();
@@ -87,19 +89,6 @@ class MenuSubmenuController extends BaseController
 
         return view('modAdministracion/editMenu', $datos);
     }
-
-    //Funcion para OBTENER NOMBRE
-    /*public function obtenerNombre($menuId)
-    {
-
-        $data = ["menuId" => $menuId];
-        $MenuSubmenu = new MenuSubmenuModel();
-        $respuesta = $MenuSubmenu->obtenerNombre($data);
-
-        $datos = ["datos" => $respuesta];
-
-        return view('modAdministracion/editar', $datos);
-    }*/
 
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
     public function listarSubmenu()

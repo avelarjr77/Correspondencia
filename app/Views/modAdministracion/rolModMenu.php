@@ -52,13 +52,10 @@
                                             <tbody>
                                                 <?php foreach ($datos as $key): ?>
                                                     <tr role="row" class="odd">
-                                                        <td><?php echo $key->id ?></td>
+                                                        <td><?php echo $key->rolModuloMenuId ?></td>
                                                         <td><?php echo $key->rol ?>/<?php echo $key->modulo ?></td>
                                                         <td>
-                                                        <a href="<?php echo base_url().'/modAdministracion/RolMMController/editar/'.$key->id ?>" class="btn btn-info"><i class="fa fa-plus"></i> Agregar Menú</a>
-                                                        <!--<a href="<?php  echo base_url().'/editRolMM/'.$key->id?>" class="btn btn-info btn-xs"><i class="fa fa-plus"></i> Agregar Menú</a>-->
-                                                        </td>
-                                                        <!--<td><button type="submit" class="btn btn-info" href="#" data-href="<?php echo base_url() . '/rolModMenu/editar/' . $key->id ?>" data-bs-menu="<?php echo $key->menu ?>" data-toggle="modal" data-target="#modalEditar"><i class="fa fa-plus"></i>  Agregar Menú</button></td>-->
+                                                        <a type="submit" class="btn btn-info" href="<?php echo base_url() . '/modAdministracion/RolModMenuController/obtenerId/' . $key->rolModuloMenuId ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>                                                        </td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

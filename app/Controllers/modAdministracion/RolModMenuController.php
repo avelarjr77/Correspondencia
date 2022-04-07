@@ -3,8 +3,9 @@
 namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
-use App\Models\modAdministracion\RolModMenuModel;
 use App\Models\modAdministracion\RolModel;
+use App\Models\modAdministracion\RolModMenuModel;
+use App\Models\modAdministracion\MenuSubmenuModel;
 
 class RolModMenuController extends BaseController
 {
@@ -22,22 +23,52 @@ class RolModMenuController extends BaseController
         return view('modAdministracion/rolModMenu',$data);
     }
 
+    //Funcion para MOSTRAR DATOS DE LA TABLA MODULO MENU
+    /*public function listarModMenu()
+    {
+        $modMenu = new RolModMenuModel();
+        $datos = $modMenu->getModMenu();
+
+        $dato = [
+            "datos"     => $datos
+        ];
+
+        return view('modAdministracion/editRolMM', $dato);
+    }*/
+
     //FUNCION PARA TRAER EL NOMBRE DEL ROL
-    public function obtenerRol($rolId)
+    public function obtenerId($rolModuloMenuId)
     {
-        $data = ["rolId" => $rolId];
+        $data = ["rolModuloMenuId" => $rolModuloMenuId];
         $rolModMenu = new RolModMenuModel();
-        $respuesta = $rolModMenu->obtenerRol();
+        $respuesta = $rolModMenu->obtenerId($data);//fun editar
 
-        $data = ["datos" =>$respuesta];
+        $datos = [
+            "datos" =>$respuesta
+        ];
 
-        return view('obtenerRol',$data);
+        return view('modAdministracion/editRolMM', $datos);
     }
 
-    //FUNCION EDITAR
-    public function update($id)
+    //Funcion para EDITAR
+    public function actualizarRolMM()
     {
-        $rol = $this->rol->findAll();
-    }
+        $datos = [
+            "nombreMenu" => $_POST['nombreMenu']
+        ];
 
+        $menuId = $_POST['menuId'];
+
+        $menu = new MenuSubmenuModel();
+
+        $respuesta = $menu->actualizar($datos, $menuId);
+
+        $datos = ["datos" => $respuesta];
+
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
+        } else {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
+        }
+    }
 }

@@ -17,7 +17,7 @@
             <div class="">
                 <div class="col-md-12 col-sm-12 offset-md-12 right">
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#agregarSubmenu"><i class="fa fa-plus"></i> Agregar Subenú</button>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#agregarSubmenu"><i class="fa fa-plus"></i> Agregar Submenú</button>
                 </div>
             </div>
 

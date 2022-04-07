@@ -1,6 +1,11 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
+<?php
+    $rolModuloMenuId = $datos[0]['rolModuloMenuId'];
+    $rol = $datos[0]['rolId'];
+?>
+
 <div class="row">
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
@@ -28,24 +33,22 @@
                             <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap no-footer">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <form id="updateForm" data-bs-action="rolModMenu/update" data-parsley-validate>
-                                            <label for="fullname">Rol:</label>
-                                                <select name="rol" class="form-control select_rol">
-                                                    <?php foreach ($datos as $key) : ?>
-                                                        <option value="<?= $key->rol;?>"></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                                <br>
-                                            <label>Listados de Menú en :</label>
-                                            <p style="padding: 5px;">
-                                                <select multiple id="select_menu" name="product_category" class="form-control">
-                                                    <option value="">-Select-</option>
-                                                    <?php foreach($datos as $key):?>
-                                                        <option value="<?php echo $key->menu ?>"></option>
-                                                    <?php endforeach;?>
-                                                </select>
-                                                <br>
-                                                <span class="btn btn-primary">Guardar</span>
+                                        <form method="POST" action="<?php echo base_url() . '/editRolMM' ?>">                                            <label for="fullname">Rol:</label>
+                                            <input type="text" id="rolModuloMenuId" name="rolModuloMenuId" hidden=""  class="form-control"
+                                            value="<?php echo $rolModuloMenuId?>">
+
+                                            <input type="text" id="rol" name="rol" required="required" minlength="3" autocomplete="off" class="form-control"
+                                            value="<?php echo $rol?>">
+                                            <br>
+                                            <label>Escoger Menú:</label>
+                                            <p style="padding: 5px;"></p>
+                                            <select id="select_menu" name="menu" class="form-select">
+                                                <option value="" selected>Escoge un menú</option>
+                                                < foreach($datos as $key):?>
+                                                    <option value="< echo $key->menu ?>"></option>
+                                                < endforeach;?>
+                                            </select><br>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
                                         </form>
                                     </div>
                                     <div class="x_content">
