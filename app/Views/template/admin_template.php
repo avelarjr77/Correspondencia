@@ -274,44 +274,9 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 
-    <!--<script>
-      var moduloMenu = document.getElementById('moduloMenu')
-      moduloMenu.addEventListener('show.bs.modal', function (event) {
-
-      var button = event.relatedTarget 
-
-      var id = button.getAttribute('data-bs-id') 
-      var rol = button.getAttribute('data-bs-name') 
-      
-      var updateForm = moduloMenu.querySelector('#updateForm')
-      var action = updateForm.getAttribute("data-bs-action")
-
-      var modalTitle = moduloMenu.querySelector('.modal-title span')
-      modalTitle.textContent = rol
-      
-      updateForm.setAttribute("action", action+id)
-
-      })
-</script>-->
-
-<!--<script>
-    var modalEliminar = document.getElementById('modalEliminar')
-    modalEliminar.addEventListener('show.bs.modal', function(event) {
-
-        var button = envent.relatedTarget
-        var menuId = button.getAtribute('data-bs-menuId')
-        var nombre = button.getAtribute('data-bs-nombre')
-        
-        var modalTitle = modalEliminar.querySelector('.modal-title span')
-        modalTitle.textContent = nombre
-
-        var eliminarForm = modalEliminar.querySelector('$#eliminarForm')
-
-        var action = eliminarForm.getAtribute("data-bs-action")
-
-        eliminarForm.setAttribute("action", action + menuId)
-    })
-</script>-->
+    <!--SweetAlert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2/sweetalert2.min.js"></script>
 	
   </body>
 </html>

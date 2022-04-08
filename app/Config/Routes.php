@@ -52,16 +52,14 @@ $routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarR
 //MODULO
 $routes->get('/adminModulo', 'modAdministracion/ModuloController::adminModulo', ['as'=> 'adminModulo']);
 $routes->post('/crearModulo', 'modAdministracion/ModuloController::crearModulo');
-$routes->get('/obtenerModulo/(:any)', 'modAdministracion/ModuloController::obtenerModulo/$1');
 $routes->post('/actualizarModulo', 'modAdministracion/ModuloController::actualizarModulo');
-$routes->get('/eliminar/(:any)', 'modAdministracion/ModuloController::eliminar/$1');
+$routes->post('/eliminarModulo', 'modAdministracion/ModuloController::eliminar');
 
 ///ROL
 $routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
 $routes->post('/crearRol', 'modAdministracion/RolController::crear');
-$routes->get('/obtenerRol/(:any)', 'modAdministracion/RolController::obtenerRol/$1');
-$routes->post('/actualizar', 'modAdministracion/RolController::actualizar');
-$routes->get('/eliminar/(:any)', 'modAdministracion/RolController::eliminar/$1');
+$routes->post('/actualizarRol', 'modAdministracion/RolController::actualizar');
+$routes->post('/eliminarRol', 'modAdministracion/RolController::eliminar');
 
 $routes->get('/expedientesGraduandos', 'modExpedientesGraduandos/ExpedientesGraduandosController::expedientesGraduandos', ['as'=> 'expedientesGr']);
 $routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasController::entidadesExternas', ['as'=> 'entidadesEx']);

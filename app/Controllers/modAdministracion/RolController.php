@@ -42,10 +42,12 @@ class RolController extends BaseController{
     
 
     //ELIMINAR ROLES
-    public function eliminar($nombres){
+    public function eliminar(){
+
+        $rolId = $_POST['rolId'];
 
         $nombreRol = new RolModel();
-        $data = ["rolId" => $nombres];
+        $data = ["rolId" => $rolId];
 
         $respuesta = $nombreRol->eliminar($data);
 
@@ -57,7 +59,7 @@ class RolController extends BaseController{
     }
 
     //Funcion para EDITAR
-    public function obtenerRol($nombres)
+    /*public function obtenerRol($nombres)
     {
         $data = [ "rolId" => $nombres];
 
@@ -67,7 +69,7 @@ class RolController extends BaseController{
         $datos = ["datos" => $respuesta];
 
         return view('modAdministracion/actualizarRol', $datos);
-    }
+    }*/
 
     public function actualizar()
     {

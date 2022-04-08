@@ -38,10 +38,12 @@ class ModuloController extends BaseController{
     } 
 
     //ELIMINAR MODULOS
-    public function eliminar($nombres){
+    public function eliminar(){
+
+        $moduloId = $_POST['moduloId'];
 
         $Modulo = new ModuloModel();
-        $data = ["moduloId" => $nombres];
+        $data = ["moduloId" => $moduloId];
 
         $respuesta = $Modulo->eliminar($data);
 
@@ -54,7 +56,7 @@ class ModuloController extends BaseController{
 
     
     //Funcion para EDITAR
-    public function obtenerModulo($nombres)
+    /*public function obtenerModulo($nombres)
     {
         $data = [ "moduloId" => $nombres];
 
@@ -64,7 +66,7 @@ class ModuloController extends BaseController{
         $datos = ["datos" => $respuesta];
 
         return view('modAdministracion/actualizarModulo', $datos);
-    }
+    }*/
 
     public function actualizarModulo()
     {
