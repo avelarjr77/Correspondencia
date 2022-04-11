@@ -15,26 +15,17 @@ class RolModMenuController extends BaseController
         $rolModMenu = new RolModMenuModel();
 
         $datos = $rolModMenu->getRolMM();
+        $modMenu = $rolModMenu->getModMenu();
 
         $data = [
-            "datos" =>$datos
+            "datos" =>$datos,
+            "modMenu" =>$modMenu
         ];
 
         return view('modAdministracion/rolModMenu',$data);
     }
 
-    //Funcion para MOSTRAR DATOS DE LA TABLA MODULO MENU
-    /*public function listarModMenu()
-    {
-        $modMenu = new RolModMenuModel();
-        $datos = $modMenu->getModMenu();
 
-        $dato = [
-            "datos"     => $datos
-        ];
-
-        return view('modAdministracion/editRolMM', $dato);
-    }*/
 
     //FUNCION PARA TRAER EL NOMBRE DEL ROL
     public function obtenerId($rolModuloMenuId)
@@ -50,25 +41,4 @@ class RolModMenuController extends BaseController
         return view('modAdministracion/editRolMM', $datos);
     }
 
-    //Funcion para EDITAR
-    public function actualizarRolMM()
-    {
-        $datos = [
-            "nombreMenu" => $_POST['nombreMenu']
-        ];
-
-        $menuId = $_POST['menuId'];
-
-        $menu = new MenuSubmenuModel();
-
-        $respuesta = $menu->actualizar($datos, $menuId);
-
-        $datos = ["datos" => $respuesta];
-
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
-        } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
-        }
-    }
 }
