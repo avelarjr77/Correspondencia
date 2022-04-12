@@ -30,11 +30,4 @@ class RolModMenuModel extends Model
                                         ORDER BY mm.moduloMenuId");
         return $modMenu->getResult();
     }
-
-    public function obtenerId($data)
-    {
-        $rol = $this->db->table('co_rol_modulo_menu');
-        $rol->where($data);
-        return $rol->get()->getResultArray();
-    }
 }
