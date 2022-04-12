@@ -77,21 +77,19 @@
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i> Plan de Estudio <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Coniguración de Usuario<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url().route_to('planEstudio') ?>">Plan de Estudio</a></li>
+                      <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="<?= base_url().route_to('cargo') ?>">1. Cargos</a></li>
+                          <li><a href="<?= base_url().route_to('departamento') ?>">2. Departamentos</a></li>
+                          <li><a href="<?= base_url().route_to('contacto') ?>">3. Contacto</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Expedientes Graduandos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?= base_url().route_to('expedientesGr') ?>">Expedientes Graduandos</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Entidades Externas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?= base_url().route_to('entidadesEx') ?>">Entidades Externas</a></li>
-                    </ul>
-                  </li>
+                  
                   <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">Chart JS</a></li>

@@ -39,8 +39,6 @@ class RolController extends BaseController{
         } 
     } 
 
-    
-
     //ELIMINAR ROLES
     public function eliminar(){
 

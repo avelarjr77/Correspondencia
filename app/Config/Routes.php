@@ -33,7 +33,6 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Login::index');
 $routes->get('/home', 'Home::index', ['as'=> 'home']);
-$routes->get('/planEstudio', 'modPlanEstudio/PlanEstudioController::planEstudio', ['as'=> 'planEstudio']);
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
@@ -46,7 +45,7 @@ $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar'
 //ROL-MODULO-MENU
 $routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
 $routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
-$routes->get('/editar/(:any)', 'modAdministracion/RolModMenuController::obtenerId/$1');
+$routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
 $routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarRolMM');
 
 //MODULO
@@ -61,9 +60,17 @@ $routes->post('/crearRol', 'modAdministracion/RolController::crear');
 $routes->post('/actualizarRol', 'modAdministracion/RolController::actualizar');
 $routes->post('/eliminarRol', 'modAdministracion/RolController::eliminar');
 
-$routes->get('/expedientesGraduandos', 'modExpedientesGraduandos/ExpedientesGraduandosController::expedientesGraduandos', ['as'=> 'expedientesGr']);
-$routes->get('/entidadesExternas', 'modEntidadesExternas/EntidadesExternasController::entidadesExternas', ['as'=> 'entidadesEx']);
+//CARGO
+$routes->get('/cargo', 'modUsuario/CargoController::cargo', ['as'=> 'cargo']);
+$routes->post('/crearCargo', 'modUsuario/CargoController::crear');
+$routes->post('/actualizarCargo', 'modUsuario/CargoController::actualizar');
+$routes->post('/eliminarCargo', 'modUsuario/CargoController::eliminar');
 
+//DEPARTAMENTO
+$routes->get('/departamento', 'modUsuario/DepartamentoController::departamento', ['as'=> 'departamento']);
+$routes->post('/crearDepartamento', 'modUsuario/DepartamentoController::crear');
+$routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::actualizar');
+$routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
 
 /*
  * --------------------------------------------------------------------

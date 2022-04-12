@@ -137,6 +137,7 @@
             $('#nomMenu').html(menu);
             // Call Modal Edit
             $('#editModal').modal('show');
+
         });
 
         // get Delete Product
