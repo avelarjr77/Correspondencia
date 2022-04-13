@@ -21,13 +21,15 @@ class RolModMenuModel extends Model
         return $rolModMenu->getResult();
     }
 
-    public function getModMenu()
+    public function getModMenu($moduloId)
     {
         $modMenu = $this->db->query("SELECT mm.moduloMenuId as 'id', m.nombre as 'nomModulo', me.nombreMenu as 'nomMenu'
                                         FROM co_modulo_menu mm
                                         INNER JOIN co_modulo m ON mm.moduloId = m.moduloId 
                                         INNER JOIN co_menu me ON mm.menuId = me.menuId
+                                        WHERE m.moduloId = $moduloId
                                         ORDER BY mm.moduloMenuId");
+        
         return $modMenu->getResult();
     }
 }

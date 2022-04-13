@@ -64,8 +64,12 @@
 
                         <div class="form-group">
                             <label>Rol:</label>
-                            <input type="text" id="rolId" name="nombreRol" class="form-control rolId" readonly>
+                            <input type="text" id="rolId" name="rolId" class="form-control rolId" readonly>
                         </div><br>
+                        
+                        <div class="form-group">
+                            <input type="text" id="modulo" name="modulo" class="form-control moduloId" hidden>
+                        </div>
 
                         <div class="form-group">
                             <label>Listado de menús en <i id="nomModulo"></i></label>
@@ -130,6 +134,27 @@
             $('.moduloId').val(modulo);
             $('.rolModuloMenuId').val(id);
             //$('.nombreRol').val(nombre);*/
+
+            $.ajax({
+                data: {
+                    moduloId: $(".moduloId").val(modulo)
+                }, 
+                type: 'POST', 
+                dataType: 'Json',
+                url: '<?php echo base_url(); ?>/rolModMenu', 
+                cache: false,
+                beforeSend: function(){ 
+                }, 
+                success: function(data){ 
+                    alert(data);
+                }, 
+                error: function(){
+                    swal('¡Error!','Error de ejecución del Ajax', 'error');
+                },
+                complete: function(){
+                   
+                } 
+            });
 
             $('#nomRol').html(rol);
             $('#nRol').html(rol);
