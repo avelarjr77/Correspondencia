@@ -17,7 +17,8 @@ class RolModMenuController extends BaseController
         //$moduloId = $_POST['mod'];
         //$mod['modulo']   = "moduloId";
 
-        $moduloId = $this->request->getPost('mod');
+        $moduloId = $this->request->getVar('mod');
+        //var_dump($moduloId);
         //$moduloId = $data['mod'];
 
         $datos = $rolModMenu->getRolMM();

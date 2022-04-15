@@ -136,20 +136,19 @@
             $('.rolModuloMenuId').val(id);
             //$('.nombreRol').val(nombre);*/
 
-           console.log(modulo);
+           //console.log(modulo);
 
             $.ajax({
                 data: {
                     'mod': modulo
                 }, 
-                type: 'POST', 
-                dataType: 'Json',
-                url: "<?php echo site_url('/rolModMenu'); ?>", 
+                type: 'GET',
+                url: "<?php echo base_url('/rolModMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
                 success: function(dato){ 
-                    alert(dato);
+                    alert(dato["modMenu"]);
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');
