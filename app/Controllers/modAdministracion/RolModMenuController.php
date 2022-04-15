@@ -5,7 +5,6 @@ namespace App\Controllers\modAdministracion;
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\RolModel;
 use App\Models\modAdministracion\RolModMenuModel;
-use App\Models\modAdministracion\MenuSubmenuModel;
 
 class RolModMenuController extends BaseController
 {
@@ -14,18 +13,22 @@ class RolModMenuController extends BaseController
     {
         $rolModMenu = new RolModMenuModel();
 
-        $moduloId = $_POST['moduloId'];
-        //$moduloId = $this->input->post('moduloId');
+       //$data = $this->input->post();
+        //$moduloId = $_POST['mod'];
+        //$mod['modulo']   = "moduloId";
+
+        $moduloId = $this->request->getPost('mod');
+        //$moduloId = $data['mod'];
 
         $datos = $rolModMenu->getRolMM();
         $modMenu = $rolModMenu->getModMenu($moduloId);
 
-        $data = [
+        $dato = [
             "datos" =>$datos,
             "modMenu" =>$modMenu
         ];
 
-        return view('modAdministracion/rolModMenu',$data);
+        return view('modAdministracion/rolModMenu',$dato);
     }
 
 

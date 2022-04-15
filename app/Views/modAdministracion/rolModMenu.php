@@ -116,16 +116,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
 <script>
     $(document).ready(function(){
 
         // get Edit Product
         $('.btn-edit').on('click',function(){
             // get data from button edit
-            const id = $(this).data('id');
-            const rol = $(this).data('rol');
-            const modulo = $(this).data('modulo');
-            const menu = $(this).data('menu');
+            var id = $(this).data('id');
+            var rol = $(this).data('rol');
+            var modulo = $(this).data('modulo');
+            var menu = $(this).data('menu');
             //const nombre = $(this).data('nombre');
 
             // Set data to Form Edit
@@ -135,18 +136,20 @@
             $('.rolModuloMenuId').val(id);
             //$('.nombreRol').val(nombre);*/
 
+           console.log(modulo);
+
             $.ajax({
                 data: {
-                    moduloId: $(".moduloId").val(modulo)
+                    'mod': modulo
                 }, 
                 type: 'POST', 
                 dataType: 'Json',
-                url: '<?php echo base_url(); ?>/rolModMenu', 
+                url: "<?php echo site_url('/rolModMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
-                success: function(data){ 
-                    alert(data);
+                success: function(dato){ 
+                    alert(dato);
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');
