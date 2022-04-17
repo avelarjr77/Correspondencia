@@ -48,11 +48,6 @@ class MenuSubmenuModel extends Model
         return $nombreMenu->update();
     }
 
-    public function listarSubmenu()
-    {
-        $co_submenu = $this->db->query('SELECT*FROM co_submenu');
-        return $co_submenu->getResult();
-    }
 
     public function crearSubmenu($datos)
     {

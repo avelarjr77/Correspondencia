@@ -70,6 +70,12 @@ $routes->post('/crearDepartamento', 'modUsuario/DepartamentoController::crear');
 $routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::actualizar');
 $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
 
+//CONTACTO
+$routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
+$routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
+$routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::actualizar');
+$routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

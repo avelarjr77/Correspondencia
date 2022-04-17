@@ -1,6 +1,7 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
+
 <div class="row">
 
     <!-- Formulario para agregar MENÚ -->
@@ -16,7 +17,7 @@
         <div class="x_content">
             <div class="">
                 <div class="col-md-12 col-sm-12 offset-md-12 right">
-                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
+                    <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#agregarSubmenu"><i class="fa fa-plus"></i> Agregar Submenú</button>
                 </div>
             </div>
@@ -46,13 +47,13 @@
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar Icono<span class="required"></span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 ">
+                                        <!--<div class="col-md-6 col-sm-6 ">
                                             <select class="form-control">
                                                 <option>Icono 1</option>
                                                 <option>Icono 2</option>
                                                 <option>Icono 3</option>
                                             </select>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <button class="btn btn-primary" type="submit">Agregar</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,45 +95,41 @@
             </div>
             <!--END MODAL -->
 
-            <!--MODAL ACTUALIZAR -->
-            <div class="modal" id="modalActualizar" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Actualizar Menú</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="x_content">
-                                <form id="editarForm" data-bs-action="/modAdministracion/MenuSubmenuController/editar/" method="POST">
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre:<span class="required"></span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" name="nombreMenu" required="required" minlength="3" autocomplete="off" class="form-control nombreMenu">
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 ">
-                                        <a class="btn btn-warning btn-edit">Editar</a>
-                                        </div>
-                                    </div>
-                                </form>
+            <!-- Modal Edit Menu-->
+            <form action="<?php echo base_url() . '/editMenu' ?>" method="POST">
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Menú</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <!-- end form for validations -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label>Nombre del Rol</label>
+                                    <input type="text" id="nombreMenu" name="nombreMenu" autocomplete="off" required="required" class="form-control nombreMenu">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" name="menuId" class="menuId">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--END MODAL -->
+            </form>
+            <!-- End Modal Edit Rol-->
 
             <div class="x_content">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Menus</th>
                             <th>Acción</th>
                         </tr>
@@ -140,10 +137,11 @@
                     <tbody>
                         <?php foreach ($datos as $key) : ?>
                             <tr>
+                                <td><?php echo $key->menuId ?></td>
                                 <td><?php echo $key->nombreMenu ?></td>
                                 <td>
                                     <button type="submit" class="btn btn-danger" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
-                                    <a type="submit" class="btn btn-primary" href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/editar/' . $key->menuId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="#" class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#tablaSubmenu" aria-label="Close"><i class="fa fa-external-link"></i></button>
                                 </td>
                             </tr>
@@ -197,12 +195,11 @@
                     </div>
                     <!-- end FORMULARIO PARA AGREGAR MENU -->
                 </div>
-                                                
+
             </div>
         </div>
     </div>
     <!--END MODAL -->
-
 
     <!--MODAL MOSTRAR DATOS DE SUB MENU -->
     <div class="modal" id="tablaSubmenu" tabindex="-1">
@@ -226,18 +223,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Plan de Estudios</td>
-                                    <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></button></td>
-                                </tr>
-                                <tr>
-                                    <td>Expedientes Graduados</td>
-                                    <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>Calificación Institucional</td>
-                                    <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></button></td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -264,19 +250,19 @@
         swal(':D', 'Agregado', 'success');
     } else if (mensaje == '0') {
         swal(':c', 'No', 'error');
-    }else if (mensaje == '2') {
+    } else if (mensaje == '2') {
         swal(':D', 'Actualizado', 'success');
-    }else if (mensaje == '3') {
+    } else if (mensaje == '3') {
         swal(':D', 'Falló actualización', 'error');
-    }else if (mensaje == '4') {
+    } else if (mensaje == '4') {
         swal(':D', 'Eliminado', 'success');
-    }else if (mensaje == '5') {
+    } else if (mensaje == '5') {
         swal(':c', 'No', 'error');
     }
 </script>
 
 <script>
-    $('#modalEliminar').on('show.bs.modal', function(e){
+    $('#modalEliminar').on('show.bs.modal', function(e) {
         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
     });
 </script>
@@ -292,27 +278,23 @@
     });
 </script>-->
 
-<!--<script>
-    $(document).ready(function(){
- 
+<script>
+    $(document).ready(function() {
+
         // get Edit Product
-        $('btn-edit').on('click',function(){
+        $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const name = $(this).data('name');
-            const price = $(this).data('price');
-            const category = $(this).data('category_id');
+            const nombre = $(this).data('nombre');
+
             // Set data to Form Edit
-            $('.product_id').val(id);
-            $('.product_name').val(name);
-            $('.product_price').val(price);
-            $('.product_category').val(category).trigger('change');
+            $('.menuId').val(id);
+            $('.nombrMenu').val(nombre);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
-         
     });
-</script>-->
+</script>
 
 
 <?= $this->endSection() ?>
