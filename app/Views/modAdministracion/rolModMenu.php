@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
+                    <form name="rolMenu" id="rolMenu" action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
                         <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
 
                         <div class="form-group">
@@ -116,7 +116,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
 <script>
     $(document).ready(function(){
 
@@ -137,18 +136,17 @@
             //$('.nombreRol').val(nombre);*/
 
            //console.log(modulo);
+           //var data = $("#rolMenu").serialize();
 
             $.ajax({
-                data: {
-                    'mod': modulo
-                }, 
+                data: {moduloId: $(this).data('modulo')}, 
                 type: 'GET',
                 url: "<?php echo base_url('/rolModMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
-                success: function(dato){ 
-                    alert(dato["modMenu"]);
+                success: function(data){ 
+                    alert(data["modMenu"]);
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');

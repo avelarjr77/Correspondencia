@@ -9,43 +9,31 @@ use App\Models\modAdministracion\RolModMenuModel;
 class RolModMenuController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
-    public function rolModMenu()
+    public function index()
     {
         $rolModMenu = new RolModMenuModel();
 
        //$data = $this->input->post();
-        //$moduloId = $_POST['mod'];
-        //$mod['modulo']   = "moduloId";
 
-        $moduloId = $this->request->getVar('mod');
-        //var_dump($moduloId);
+       /* $modulo = array
+            'moduloId' => $this->request->getGet('moduloId')
+        );*/
+        //var_dump($modulo);
         //$moduloId = $data['mod'];
+        
+        $moduloId = $this->request->getVar('moduloId');
+
+        //var_dump($moduloId);
 
         $datos = $rolModMenu->getRolMM();
         $modMenu = $rolModMenu->getModMenu($moduloId);
 
-        $dato = [
+        $data = [
             "datos" =>$datos,
             "modMenu" =>$modMenu
         ];
 
-        return view('modAdministracion/rolModMenu',$dato);
-    }
-
-
-
-    //FUNCION PARA TRAER EL NOMBRE DEL ROL
-    public function obtenerId($rolModuloMenuId)
-    {
-        $data = ["rolModuloMenuId" => $rolModuloMenuId];
-        $rolModMenu = new RolModMenuModel();
-        $respuesta = $rolModMenu->obtenerId($data);//fun editar
-
-        $datos = [
-            "datos" =>$respuesta
-        ];
-
-        return view('modAdministracion/editRolMM', $datos);
+        return view('modAdministracion/rolModMenu',$data);
     }
 
 }

@@ -43,10 +43,8 @@ $routes->get('/editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/
 $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
 
 //ROL-MODULO-MENU
-$routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
-$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
-$routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
-$routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarRolMM');
+$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
+$routes->post('/actualizarRolModMenu', 'modAdministracion/RolModMenuController::actualizar', ['as'=> 'actualizarRolMM']);
 
 //MODULO
 $routes->get('/adminModulo', 'modAdministracion/ModuloController::adminModulo', ['as'=> 'adminModulo']);
