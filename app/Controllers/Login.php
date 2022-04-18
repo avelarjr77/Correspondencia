@@ -8,4 +8,15 @@ class Login extends BaseController
     {
         return view('login');
     }
+
+    public function login_post()
+    {
+        
+    }
+
+    public function login_out()
+    {
+        
+    }
+
 }

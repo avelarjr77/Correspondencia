@@ -9,8 +9,8 @@ class ContactoController extends BaseController{
 
     public function contacto(){
 
-        $nombreDepartamento = new ContactoModel();
-        $datos = $nombreDepartamento->listarContactos();
+        $nombreContacto = new ContactoModel();
+        $datos = $nombreContacto->listarContactos();
 
         $mensaje = session('mensaje');
 
@@ -22,7 +22,7 @@ class ContactoController extends BaseController{
         return view('modUsuario/contacto', $data);
         }
 
-    //CREAR ROLES
+    //CREAR TIPO CONTACTO
     public function crear(){
 
         $datos = [
@@ -39,15 +39,15 @@ class ContactoController extends BaseController{
         } 
     } 
 
-    //ELIMINAR ROLES
+    //ELIMINAR TIPO CONTACTO
     public function eliminar(){
 
-        $departamentoId = $_POST['contactoId'];
+        $contactoId = $_POST['contactoId'];
 
-        $departamento = new ContactoModel();
-        $data = ["contactoId" => $departamentoId];
+        $contacto = new ContactoModel();
+        $data = ["contactoId" => $contactoId];
 
-        $respuesta = $departamento->eliminar($data);
+        $respuesta = $contacto->eliminar($data);
 
         if ($respuesta > 0){
             return redirect()->to(base_url(). '/contacto')->with('mensaje','2');
@@ -62,10 +62,10 @@ class ContactoController extends BaseController{
             "contacto" => $_POST['contacto']
         ];
 
-        $departamentoId = $_POST['contactoId'];
+        $contactoId = $_POST['contactoId'];
 
-        $departamento = new ContactoModel();
-        $respuesta = $departamento->actualizar($datos, $departamentoId);
+        $contacto = new ContactoModel();
+        $respuesta = $contacto->actualizar($datos, $contactoId);
 
         $datos = ["datos" => $respuesta];
 

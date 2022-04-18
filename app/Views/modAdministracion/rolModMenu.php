@@ -76,7 +76,8 @@
                             <select name="menuId[]" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
                                 <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?php echo $menu->id ?>"><?php echo $menu->nomMenu ?></option>
+                                    <option value="<?php echo $menu->id ?>" 
+                                    <?php if($menu->moduloId == $key->moduloId){ echo 'selected';} ?>><?php echo $menu->nomMenu ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>         
@@ -138,15 +139,15 @@
            //console.log(modulo);
            //var data = $("#rolMenu").serialize();
 
-            $.ajax({
-                data: {moduloId: $(this).data('modulo')}, 
-                type: 'GET',
-                url: "<?php echo base_url('/rolModMenu'); ?>", 
+            /*$.ajax(
+                data: {moduloId: modulo}, 
+                type: 'POST',
+                url: "<php echo base_url('/modAdministracion/RolModMenuController/getMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
-                success: function(data){ 
-                    alert(data["modMenu"]);
+                success: function(dato){ 
+                    alert(dato);
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');
@@ -154,7 +155,7 @@
                 complete: function(){
                    
                 } 
-            });
+            });*/
 
             $('#nomRol').html(rol);
             $('#nRol').html(rol);

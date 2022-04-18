@@ -31,8 +31,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
 $routes->get('/home', 'Home::index', ['as'=> 'home']);
+
+//LOGIN
+$routes->get('/', 'Login::index');
+$routes->get('/login', 'Login::index', ['as'=> 'login']);
+$routes->post('/login_post', 'Login::login_post', ['as'=> 'login_post']);
+$routes->post('/login_out', 'Login::login_out', ['as'=> 'login_out']);
+
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
@@ -73,8 +79,8 @@ $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::elimi
 //CONTACTO
 $routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
 $routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
-$routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::actualizar');
-$routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
+$routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
+$routes->post('/eliminarContacto', 'modUsuario/ContactoController::eliminar');
 
 /*
  * --------------------------------------------------------------------
