@@ -3,7 +3,7 @@ namespace App\Models\modUsuario;
 
 use CodeIgniter\Model;
 
-class ContactoModel extends Model{
+class TipoContactoModel extends Model{
 
     //MODELO PARA LISTAR ROLES
     public function listarTipoContactos()
@@ -26,7 +26,6 @@ class ContactoModel extends Model{
     public function eliminar($data){
         $nombres = $this->db->table('wk_tipo_contacto');
         $nombres->where($data);
-        
         return $nombres->delete();
     }
 

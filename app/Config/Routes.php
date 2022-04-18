@@ -73,10 +73,11 @@ $routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::act
 $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
 
 //CONTACTO
-$routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
+
+$routes->get('/contacto', 'modUsuario/ContactoController::tipoContacto', ['as'=> 'contacto']);
 $routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
-$routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::actualizar');
-$routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
+$routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
+$routes->post('/eliminarTipoDepartamento', 'modUsuario/ContactoController::eliminar');
 
 /*
  * --------------------------------------------------------------------

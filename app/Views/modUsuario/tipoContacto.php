@@ -1,7 +1,6 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<!---------C-O-N-T-A-C-T-O-S---------------------------------------------------------->
 <div class="x_panel">
     <div class="x_title">
         <h2>Configuración de Contactos</h2>
@@ -11,34 +10,31 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Contacto</button>
+        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Tipo Contacto</button>
         <br>
-        <!--LISTADO DE Contactos-->
+        <!--LISTADO DE DEPARTAMENTO-->
         <div class="x_content">
             <br>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Persona</th>
                         <th>Tipo Contacto</th>
-                        <th>Contacto</th>
-                        <th>Estado</th>
                         <th scope="col" colspan="2">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($datos as $key): ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $key->tipoContactoId ?></td>
+                        <td><?php echo $key->tipoContacto ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id=""><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="" data-nombre=""><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
+                    <?php endforeach; ?> 
+
                 </tbody>
             </table>
         </div>
@@ -71,9 +67,9 @@
             </div>
             </div>
         </form>
-        <!-- End Modal Agregar TIPOCONTACTO-->
+        <!-- End Modal Agregar DEPARTAMENTO-->
 
-        <!-- Modal Edit TIPOCONTACTO-->
+        <!-- Modal Edit DEPARTAMENTO-->
         <form action="<?php echo base_url() . '/actualizarContacto' ?>" method="POST">
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -88,7 +84,7 @@
                 
                     <div class="form-group">
                         <label>Tipo Contacto</label>
-                        <input type="text" id="tipoContacto" name="tipoContacto" autocomplete="off" required="required" class="form-control tipoContacto">
+                        <input type="text" id="tipoContacto" name="tipoContacto" autocomplete="off" required="required" class="form-control departamento">
                     </div>
                 
                 </div>
@@ -101,11 +97,11 @@
             </div>
             </div>
         </form>
-        <!-- End Modal Edit CONTACTO-->
+        <!-- End Modal Edit DEPARTAMENTO-->
 
-        <!-- Modal Delete CONTACTO-->
-        <form action="<?php echo base_url() . '/eliminarContacto' ?>" method="POST">
-            <div class="modal fade" id="eliminarContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal Delete DEPARTAMENTO-->
+        <form action="<?php echo base_url() . '/eliminarTipoDepartamento' ?>" method="POST">
+            <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -116,7 +112,7 @@
                 </div>
                 <div class="modal-body">
                 
-                <h4>¿Esta seguro que desea eliminar este Contacto: <b><i class="contactoN"></i></b> ?</h4>
+                <h4>¿Esta seguro que desea eliminar el Tipo de contacto: <b><i class="contactoN"></i></b> ?</h4>
                 
                 </div>
                 <div class="modal-footer">
@@ -128,15 +124,12 @@
             </div>
             </div>
         </form>
-        <!-- End Modal Delete DEPARTAMENTO-->
+        <!-- End Modal Delete TIPOCONTACTO-->
 
 
 
     </div>
 </div>
-<!------------------------------------------------------------------->
-
-    
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -171,7 +164,7 @@
 
             // Set data to Form Edit
             $('.tipoContactoId').val(id);
-            $('.tipoContacto').val(nombre);
+            $('.departamento').val(nombre);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
@@ -191,7 +184,4 @@
     });
 </script>
 
-<?= $this->endSection() ?>
-<?= $this->extend('modUsuario/tipoContacto') ?>
-<?= $this->section('content') ?>
 <?= $this->endSection() ?>

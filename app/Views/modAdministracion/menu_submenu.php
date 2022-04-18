@@ -289,7 +289,7 @@
 
             // Set data to Form Edit
             $('.menuId').val(id);
-            $('.nombrMenu').val(nombre);
+            $('.nombreMenu').val(nombre);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
