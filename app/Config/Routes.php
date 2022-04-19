@@ -31,14 +31,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/home', 'Home::index', ['as'=> 'home']);
-
-//LOGIN
 $routes->get('/', 'Login::index');
-$routes->get('/login', 'Login::index', ['as'=> 'login']);
-$routes->post('/login_post', 'Login::login_post', ['as'=> 'login_post']);
-$routes->post('/login_out', 'Login::login_out', ['as'=> 'login_out']);
-
+$routes->get('/home', 'Home::index', ['as'=> 'home']);
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
@@ -49,8 +43,10 @@ $routes->get('/editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/
 $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
 
 //ROL-MODULO-MENU
-$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
-$routes->post('/actualizarRolModMenu', 'modAdministracion/RolModMenuController::actualizar', ['as'=> 'actualizarRolMM']);
+$routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
+$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
+$routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
+$routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarRolMM');
 
 //MODULO
 $routes->get('/adminModulo', 'modAdministracion/ModuloController::adminModulo', ['as'=> 'adminModulo']);
@@ -77,10 +73,11 @@ $routes->post('/actualizarDepartamento', 'modUsuario/DepartamentoController::act
 $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::eliminar');
 
 //CONTACTO
-$routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
+
+$routes->get('/contacto', 'modUsuario/ContactoController::tipoContacto', ['as'=> 'contacto']);
 $routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
 $routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
-$routes->post('/eliminarContacto', 'modUsuario/ContactoController::eliminar');
+$routes->post('/eliminarTipoDepartamento', 'modUsuario/ContactoController::eliminar');
 
 //DIRECCIÓN
 $routes->get('/direccion', 'modUsuario/DireccionController::direccion', ['as'=> 'direccion']);

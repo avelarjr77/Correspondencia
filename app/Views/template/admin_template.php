@@ -44,7 +44,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/logo.png" alt="..." class="img-circle profile_img" >
+                <img src="images/logo.jpeg" alt="..." class="img-circle profile_img" >
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>

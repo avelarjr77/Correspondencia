@@ -24,13 +24,13 @@ class ContactoController extends BaseController{
         }
 
     //CREAR ROLES
-    public function crear(){
+    public function crearTipoContacto(){
 
         $datos = [
             "tipoContacto" => $_POST['tipoContacto']
         ];
 
-        $tipoContacto = new ContactoModel();
+        $tipoContacto = new TipoContactoModel();
         $respuesta = $tipoContacto->insertar($datos);
 
         if ($respuesta > 0){
@@ -45,7 +45,7 @@ class ContactoController extends BaseController{
 
         $tipoContacto = $_POST['tipoContactoId'];
 
-        $contacto = new ContactoModel();
+        $contacto = new TipoContactoModel();
         $data = ["tipoContactoId" => $tipoContacto];
 
         $respuesta = $contacto->eliminar($data);
@@ -65,7 +65,7 @@ class ContactoController extends BaseController{
 
         $tipoContactoId = $_POST['tipoContactoId'];
 
-        $tipoContacto = new ContactoModel();
+        $tipoContacto = new TipoContactoModel();
         $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
 
         $datos = ["datos" => $respuesta];

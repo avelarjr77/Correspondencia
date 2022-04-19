@@ -108,7 +108,7 @@
             <!-- TABS CONTENT SIGNUP -->
             <div id="signup-tab-content">
               <form class="signup-form" action="<?= base_url().route_to('login') ?>" method="post">
-                <input type="text" class="input" name="carnet" id="carnet" autocomplete="off" placeholder="Nombre de Usuario">
+                <input type="text" class="input" name="carnet" id="carnet" autocomplete="off" placeholder="Usuario / Carnet">
                 <input type="password" class="input" name="clave" id="clave" autocomplete="off" placeholder="Contraseña">
                 <button type="submit" class="btn btn-secondary source"  style="width:100%;background:#2a3f54 ">Registrarse</button>
               </form>

@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form name="rolMenu" id="rolMenu" action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
+                    <form action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
                         <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
 
                         <div class="form-group">
@@ -76,8 +76,7 @@
                             <select name="menuId" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
                                 <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?php echo $menu->id ?>" 
-                                    <?php if($menu->moduloId == $key->moduloId){ echo 'selected';} ?>><?php echo $menu->nomMenu ?></option>
+                                    <option value="<?php echo $menu->id ?>"><?php echo $menu->nomMenu ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>         
@@ -117,6 +116,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
 <script>
     $(document).ready(function(){
 
@@ -137,17 +137,18 @@
             //$('.nombreRol').val(nombre);*/
 
            //console.log(modulo);
-           //var data = $("#rolMenu").serialize();
 
-            /*$.ajax(
-                data: {moduloId: modulo}, 
-                type: 'POST',
-                url: "<php echo base_url('/modAdministracion/RolModMenuController/getMenu'); ?>", 
+            $.ajax({
+                data: {
+                    'mod': modulo
+                }, 
+                type: 'GET',
+                url: "<?php echo base_url('/rolModMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
                 success: function(dato){ 
-                    alert(dato);
+                    alert(dato["modMenu"]);
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');
@@ -155,7 +156,7 @@
                 complete: function(){
                    
                 } 
-            });*/
+            });
 
             $('#nomRol').html(rol);
             $('#nRol').html(rol);
