@@ -84,6 +84,8 @@
                           <li><a href="<?= base_url().route_to('cargo') ?>">1. Cargos</a></li>
                           <li><a href="<?= base_url().route_to('departamento') ?>">2. Departamentos</a></li>
                           <li><a href="<?= base_url().route_to('contacto') ?>">3. Contacto</a></li>
+                          <li><a href="<?= base_url().route_to('direccion') ?>">4. Dirección</a></li>
+                          <li><a href="<?= base_url().route_to('persona') ?>">5. Persona</a></li>
                         </ul>
                       </li>
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>

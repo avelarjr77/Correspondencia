@@ -73,7 +73,7 @@
 
                         <div class="form-group">
                             <label>Listado de menús en <i id="nomModulo"></i></label>
-                            <select name="menuId[]" class="form-control menuId">
+                            <select name="menuId" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
                                 <?php foreach ($modMenu as $menu): ?>
                                     <option value="<?php echo $menu->id ?>" 

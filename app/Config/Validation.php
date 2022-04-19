@@ -39,7 +39,7 @@ class Validation
 
     public $users =[
 		'usuario' => 'required|min_length[3]|max_length[20]|is_unique[wk_usuario.usuario]',
-		'password' => 'required|min_length[5]|max_length[15]'
+		'password' => 'required|min_length[5]|max_length[15]|is_unique[wk_usuario.usuario]'
 	];
 
     //--------------------------------------------------------------------

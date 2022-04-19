@@ -82,6 +82,19 @@ $routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
 $routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
 $routes->post('/eliminarContacto', 'modUsuario/ContactoController::eliminar');
 
+//DIRECCIÓN
+$routes->get('/direccion', 'modUsuario/DireccionController::direccion', ['as'=> 'direccion']);
+$routes->post('/crearDireccion', 'modUsuario/DireccionController::crearDireccion');
+$routes->post('/actualizarDireccion', 'modUsuario/DireccionController::actualizarDireccion');
+$routes->post('/eliminarDireccion', 'modUsuario/DireccionController::eliminarDireccion');
+
+//PERSONA
+$routes->get('/persona', 'modUsuario/PersonaController::persona', ['as'=> 'persona']);
+$routes->post('/crearPersona', 'modUsuario/PersonaController::crear');
+$routes->post('/actualizarPersona', 'modUsuario/PersonaController::actualizar');
+$routes->post('/eliminarPersona', 'modUsuario/PersonaController::eliminar');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
