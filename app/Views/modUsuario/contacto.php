@@ -11,7 +11,7 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Contacto</button>
+        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
         <br>
         <!--LISTADO DE Contactos-->
         <div class="x_content">
@@ -27,18 +27,19 @@
                         <th scope="col" colspan="2">Acción</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody><?php foreach($datos as $key): ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $key->contactoId ?></td>
+                        <td><?php echo $key->nombre ?></td>
+                        <td><?php echo $key->tipoContacto ?></td>
+                        <td><?php echo $key->contacto ?></td>
+                        <td><?php echo $key->estado ?></td>
                         <td>
                             <a href="#" class="btn btn-warning btn-sm btn-edit" data-id=""><i class="fa fa-pencil-square-o"></i></a>
                             <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="" data-nombre=""><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -46,7 +47,7 @@
 
         <!-- Modal Agregar TIPOCONTACTO-->
         <form action="<?php echo base_url() . '/crearContacto' ?>" method="POST">
-            <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">

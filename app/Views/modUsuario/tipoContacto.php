@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($datos as $key): ?>
+                    <?php foreach($tipoContacto as $key): ?>
                     <tr>
                         <td><?php echo $key->tipoContactoId ?></td>
                         <td><?php echo $key->tipoContacto ?></td>
