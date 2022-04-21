@@ -35,8 +35,8 @@
                         <td><?php echo $key->contacto ?></td>
                         <td><?php echo $key->estado ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id=""><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="" data-nombre=""><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre=""><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -59,14 +59,35 @@
                 <div class="modal-body">
                 
                     <div class="form-group">
-                        <label>Tipo de contacto:</label>
-                        <input type="text" id="tipoContacto" name="tipoContacto" required="required" autocomplete="off" class="form-control">
+                        <label>Seleccionar Persona:</label>
+                        <select name="personaId" class="form-control contactoN">
+                            <option value="">-Selecciona una persona-</option>
+                            <?php foreach ($persona as $pers): ?>
+                                <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres,' ', $pers->primerApellido ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
-                
+                    <div class="form-group">
+                        <label>Seleccionar Tipo Contacto:</label>
+                        <select name="tipoContactoId" class="form-control contactoN">
+                            <option value="">-Selecciona un tipo contacto-</option>
+                            <?php foreach ($tipoContacto as $key): ?>
+                                <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Contacto:</label>
+                        <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contactoN">
+                    </div>
+                    <div class="form-group">
+                        <label>Estado:</label>
+                        <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contactoN">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
                 </div>
             </div>
@@ -76,7 +97,7 @@
 
         <!-- Modal Edit TIPOCONTACTO-->
         <form action="<?php echo base_url() . '/actualizarContacto' ?>" method="POST">
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editContacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -88,13 +109,30 @@
                 <div class="modal-body">
                 
                     <div class="form-group">
-                        <label>Tipo Contacto</label>
-                        <input type="text" id="tipoContacto" name="tipoContacto" autocomplete="off" required="required" class="form-control tipoContacto">
+                        <label>Persona</label>
+                        <input readonly type="text" id="personaId" name="personaId" autocomplete="off" required="required" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Seleccionar Tipo Contacto:</label>
+                        <select name="tipoContactoId" class="form-control">
+                            <option value="">-Selecciona un tipo contacto-</option>
+                            <?php foreach ($tipoContacto as $key): ?>
+                                <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Contacto:</label>
+                        <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Estado:</label>
+                        <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control">
                     </div>
                 
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="tipoContactoId" class="tipoContactoId">
+                    <input type="hidden" name="contactoId" class="contactoId">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Editar</button>
                 </div>
@@ -110,7 +148,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Tpo Contacto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Contacto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -121,7 +159,7 @@
                 
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="tipoContactoId" class="tipoContactoId">
+                    <input type="hidden" name="contactoId" class="contactoId">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-primary">SI</button>
                 </div>
@@ -165,28 +203,28 @@
     $(document).ready(function(){
 
         // get Edit Product
-        $('.btn-edit').on('click',function(){
+        $('.btn-edit-contacto').on('click',function(){
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
 
             // Set data to Form Edit
-            $('.tipoContactoId').val(id);
-            $('.tipoContacto').val(nombre);
+            $('.contactoId').val(id);
+            $('.contactoN').val(nombre);
             // Call Modal Edit
-            $('#editModal').modal('show');
+            $('#editContacto').modal('show');
         });
 
         // get Delete Product
-        $('.btn-delete').on('click',function(){
+        $('.btn-delete-contacto').on('click',function(){
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
             // Set data to Form Edit
-            $('.tipoContactoId').val(id);
+            $('.contactoId').val(id);
             $('.contactoN').html(nombre);
             // Call Modal Edit
-            $('#eliminarModal').modal('show');
+            $('#eliminarContacto').modal('show');
         });
         
     });

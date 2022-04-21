@@ -12,7 +12,7 @@
     <div class="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Tipo Contacto</button>
         <br>
-        <!--LISTADO DE DEPARTAMENTO-->
+        <!--LISTADO DE TIPOCONTACTO-->
         <div class="x_content">
             <br>
             <table class="table table-hover">
@@ -41,7 +41,7 @@
         <!--FIN LISTADO TIPOCONTACTO-->
 
         <!-- Modal Agregar TIPOCONTACTO-->
-        <form action="<?php echo base_url() . '/crearContacto' ?>" method="POST">
+        <form action="<?php echo base_url() . '/crearTipoContacto' ?>" method="POST">
             <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -55,7 +55,7 @@
                 
                     <div class="form-group">
                         <label>Tipo de contacto:</label>
-                        <input type="text" id="tipoContacto" name="tipoContacto" required="required" autocomplete="off" class="form-control">
+                        <input type="text" id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control">
                     </div>
                 
                 </div>
@@ -67,15 +67,15 @@
             </div>
             </div>
         </form>
-        <!-- End Modal Agregar DEPARTAMENTO-->
+        <!-- End Modal Agregar TIPOCONTACTO-->
 
-        <!-- Modal Edit DEPARTAMENTO-->
-        <form action="<?php echo base_url() . '/actualizarContacto' ?>" method="POST">
+        <!-- Modal Edit TIPOCONTACTO-->
+        <form action="<?php echo base_url() . '/actualizarTipoContacto' ?>" method="POST">
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Contacto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Tipo Contacto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -84,7 +84,7 @@
                 
                     <div class="form-group">
                         <label>Tipo Contacto</label>
-                        <input type="text" id="tipoContacto" name="tipoContacto" autocomplete="off" required="required" class="form-control departamento">
+                        <input type="text" id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control tipocontacto">
                     </div>
                 
                 </div>
@@ -97,15 +97,15 @@
             </div>
             </div>
         </form>
-        <!-- End Modal Edit DEPARTAMENTO-->
+        <!-- End Modal Edit TIPOCONTACTO-->
 
-        <!-- Modal Delete DEPARTAMENTO-->
-        <form action="<?php echo base_url() . '/eliminarTipoDepartamento' ?>" method="POST">
+        <!-- Modal Delete TIPOCONTACTO-->
+        <form action="<?php echo base_url() . '/eliminarTipoContacto' ?>" method="POST">
             <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Tpo Contacto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Tipo Contacto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -164,7 +164,7 @@
 
             // Set data to Form Edit
             $('.tipoContactoId').val(id);
-            $('.departamento').val(nombre);
+            $('.tipocontacto').val(nombre);
             // Call Modal Edit
             $('#editModal').modal('show');
         });

@@ -29,8 +29,27 @@ class ContactoController extends BaseController{
         return view('modUsuario/contacto', $data);
         }
 
-    //CREAR ROLES
-    public function crear(){
+    //CREAR CONTACTO
+    public function crearContacto(){
+
+        $datos = [
+            "personaId" => $_POST['personaId'],
+            "tipoContactoId" => $_POST['tipoContactoId'],
+            "contacto" => $_POST['contacto'],
+            "estado" => $_POST['estado']
+        ];
+
+        $contacto = new ContactoModel();
+        $respuesta = $contacto->insertarContacto($datos);
+
+        if ($respuesta > 0){
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
+        } else {
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','1');
+        } 
+    } 
+        //CREAR ROLES
+    public function crearTipoContacto(){
 
         $datos = [
             "tipoContacto" => $_POST['tipoContacto']
@@ -46,6 +65,22 @@ class ContactoController extends BaseController{
         } 
     } 
 
+    //ELIMINAR Contacto
+    public function eliminarContacto(){
+
+        $contactoId = $_POST['contactoId'];
+
+        $contacto = new ContactoModel();
+        $data = ["contactoId" => $contactoId];
+
+        $respuesta = $contacto->eliminarContacto($data);
+
+        if ($respuesta > 0){
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','2');
+        } else {
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','3');
+        }
+    }
     //ELIMINAR ROLES
     public function eliminar(){
 
@@ -73,6 +108,27 @@ class ContactoController extends BaseController{
 
         $tipoContacto = new ContactoModel();
         $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
+
+        $datos = ["datos" => $respuesta];
+
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '4');
+        } else {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
+        }
+    }
+    public function actualizarContacto()
+    {
+        $datos = [
+            "tipoContactoId" => $_POST['tipoContactoId'],
+            "contacto" => $_POST['contacto'],
+            "estado" => $_POST['estado']
+        ];
+
+        $contactoId = $_POST['contactoId'];
+
+        $contacto = new ContactoModel();
+        $respuesta = $contacto->actualizarContacto($datos, $contactoId);
 
         $datos = ["datos" => $respuesta];
 

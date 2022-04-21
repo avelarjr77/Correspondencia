@@ -40,7 +40,7 @@
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Menú<span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" autocomplete="off" class="form-control ">
+                                            <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control ">
                                         </div>
                                     </div>
 
