@@ -74,7 +74,7 @@ $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::elimi
 
 //CONTACTO
 
-$routes->get('/contacto', 'modUsuario/ContactoController::tipoContacto', ['as'=> 'contacto']);
+$routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
 $routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
 $routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
 $routes->post('/eliminarTipoDepartamento', 'modUsuario/ContactoController::eliminar');

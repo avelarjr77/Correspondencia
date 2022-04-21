@@ -8,15 +8,21 @@ class ContactoController extends BaseController{
 
     //LISTAR ROLES
 
-    public function tipoContacto(){
+        //LISTAR Contactos
 
-        $nombreTipoContacto = new TipoContactoModel();
-        $datos = $nombreTipoContacto->listarTipoContactos();
+    public function contacto(){
+
+        $contacto = new ContactoModel();
+        $datos = $contacto->listarContacto();
+        $persona = $contacto->listarPersona();
+        $tipoContacto = $contacto->listarTipoContactos();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
+            "persona" => $persona,
+            "tipoContacto" => $tipoContacto,
             "mensaje" => $mensaje
         ];
 
