@@ -22,7 +22,7 @@ class RolModMenuController extends BaseController
         //$moduloId = $data['mod'];
 
         $datos = $rolModMenu->getRolMM();
-        $modMenu = $rolModMenu->getModMenu($moduloId);
+        $modMenu = $rolModMenu->getModMenu();
 
         $dato = [
             "datos" =>$datos,
