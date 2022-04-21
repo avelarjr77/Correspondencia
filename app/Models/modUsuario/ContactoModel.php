@@ -31,7 +31,7 @@ class ContactoModel extends Model
         $persona =  $this->db->query('SELECT*FROM  wk_persona');
         return $persona->getResult();
     }
-    //MODELO PARA AGREGAR ROL
+    //MODELO PARA AGREGAR Contacto
     public function insertarContacto($datos)
     {
 
