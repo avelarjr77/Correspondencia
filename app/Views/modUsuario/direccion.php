@@ -12,7 +12,10 @@
     </div>
     <div class="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Dirección</button>
+        <a href="<?= base_url().route_to('persona') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Persona</a>
+        <a href="<?= base_url().route_to('municipio') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Municipio</a>
         <br>
+
         <!--LISTADO DE DIRECCION-->
         <div class="x_content">
             <br>
@@ -35,8 +38,8 @@
                         <td><?php echo $key->direccion ?></</td>
                         <td><?php echo $key->municipio ?></</td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>" ><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -218,7 +221,7 @@
             $('#editModal').modal('show');
         });
 
-        // get Delete Tipo Direccion
+        // get Delete Direccion
         $('.btn-delete').on('click',function(){
             // get data from button edit
             const id = $(this).data('id');

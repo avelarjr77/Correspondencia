@@ -11,11 +11,15 @@ class PersonaController extends BaseController{
 
         $nombrePersona = new PersonaModel();
         $datos = $nombrePersona->listarPersona();
+        $cargo = $nombrePersona->listarCargo();
+        $departamento = $nombrePersona->listarDepartamento();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
+            "cargo" => $cargo,
+            "departamento" => $departamento,
             "mensaje" => $mensaje
         ];
 
@@ -26,53 +30,59 @@ class PersonaController extends BaseController{
     public function crear(){
 
         $datos = [
-            "cargo" => $_POST['cargo']
+            "nombres" => $_POST['nombres'],
+            "primerApellido" => $_POST['primerApellido'],
+            "segundoApellido" => $_POST['segundoApellido'],
+            "fechaNacimiento" => $_POST['fechaNacimiento'],
+            "genero" => $_POST['genero'],
+            "cargoId" => $_POST['cargoId'],
+            "departamentoId" => $_POST['departamentoId']
         ];
 
-        $cargo = new CargoModel();
-        $respuesta = $cargo->insertar($datos);
+        $persona = new PersonaModel();
+        $respuesta = $persona->insertar($datos);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/cargo')->with('mensaje','0');
+            return redirect()->to(base_url(). '/persona')->with('mensaje','0');
         } else {
-            return redirect()->to(base_url(). '/cargo')->with('mensaje','1');
+            return redirect()->to(base_url(). '/persona')->with('mensaje','1');
         } 
     } 
 
     //ELIMINAR ROLES
     public function eliminar(){
 
-        $cargoId = $_POST['cargoId'];
+        $personaId = $_POST['personaId'];
 
-        $cargo = new CargoModel();
-        $data = ["cargoId" => $cargoId];
+        $persona = new PersonaModel();
+        $data = ["personaId" => $personaId];
 
-        $respuesta = $cargo->eliminar($data);
+        $respuesta = $persona->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/cargo')->with('mensaje','2');
+            return redirect()->to(base_url(). '/persona')->with('mensaje','2');
         } else {
-            return redirect()->to(base_url(). '/cargo')->with('mensaje','3');
+            return redirect()->to(base_url(). '/persona')->with('mensaje','3');
         }
     }
 
     public function actualizar()
     {
         $datos = [
-            "cargo" => $_POST['cargo']
+            "persona" => $_POST['persona']
         ];
 
-        $cargoId = $_POST['cargoId'];
+        $personaId = $_POST['personaId'];
 
-        $cargo = new CargoModel();
-        $respuesta = $cargo->actualizar($datos, $cargoId);
+        $persona = new PersonaModel();
+        $respuesta = $persona->actualizar($datos, $personaId);
 
         $datos = ["datos" => $respuesta];
 
         if ($respuesta) {
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '4');
+            return redirect()->to(base_url() . '/persona')->with('mensaje', '4');
         } else {
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '5');
+            return redirect()->to(base_url() . '/persona')->with('mensaje', '5');
         }
     }
     

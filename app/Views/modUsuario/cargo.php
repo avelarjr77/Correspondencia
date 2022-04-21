@@ -29,8 +29,8 @@
                         <td><?php echo $key->cargoId ?></td>
                         <td><?php echo $key->cargo ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->cargoId ?>" data-nombre="<?php echo $key->cargo ?>"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->cargoId ?>" data-nombre="<?php echo $key->cargo ?>"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->cargoId ?>" data-nombre="<?php echo $key->cargo ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->cargoId ?>" data-nombre="<?php echo $key->cargo ?>"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 
