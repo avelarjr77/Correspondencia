@@ -75,9 +75,12 @@ $routes->post('/eliminarDepartamento', 'modUsuario/DepartamentoController::elimi
 //CONTACTO
 
 $routes->get('/contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
-$routes->post('/crearContacto', 'modUsuario/ContactoController::crear');
-$routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizar');
-$routes->post('/eliminarTipoDepartamento', 'modUsuario/ContactoController::eliminar');
+$routes->post('/crearContacto', 'modUsuario/ContactoController::crearContacto');
+$routes->post('/crearTipoContacto', 'modUsuario/ContactoController::crearTipoContacto');
+$routes->post('/actualizarContacto', 'modUsuario/ContactoController::actualizarContacto');
+$routes->post('/actualizarTipoContacto', 'modUsuario/ContactoController::actualizar');
+$routes->post('/eliminarTipoContacto', 'modUsuario/ContactoController::eliminar');
+$routes->post('/eliminarContacto', 'modUsuario/ContactoController::eliminarContacto');
 
 //DIRECCIÓN
 $routes->get('/direccion', 'modUsuario/DireccionController::direccion', ['as'=> 'direccion']);
