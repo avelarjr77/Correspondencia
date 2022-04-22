@@ -5,7 +5,7 @@ use App\Models\modUsuario\PersonaModel;
 
 class PersonaController extends BaseController{
 
-    //LISTAR ROLES
+    //LISTAR PERSONA
 
     public function persona(){
 
@@ -26,7 +26,7 @@ class PersonaController extends BaseController{
         return view('modUsuario/persona', $data);
         }
 
-    //CREAR ROLES
+    //CREAR PERSONA
     public function crear(){
 
         $datos = [
@@ -49,7 +49,7 @@ class PersonaController extends BaseController{
         } 
     } 
 
-    //ELIMINAR ROLES
+    //ELIMINAR PERSONA
     public function eliminar(){
 
         $personaId = $_POST['personaId'];
@@ -66,10 +66,17 @@ class PersonaController extends BaseController{
         }
     }
 
+    //ACTUALIZAR PERSONA
     public function actualizar()
     {
         $datos = [
-            "persona" => $_POST['persona']
+            "nombres" => $_POST['nombres'],
+            "primerApellido" => $_POST['primerApellido'],
+            "segundoApellido" => $_POST['segundoApellido'],
+            "fechaNacimiento" => $_POST['fechaNacimiento'],
+            "genero" => $_POST['genero'],
+            "cargoId" => $_POST['cargoId'],
+            "departamentoId" => $_POST['departamentoId']
         ];
 
         $personaId = $_POST['personaId'];

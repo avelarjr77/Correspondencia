@@ -91,6 +91,12 @@ $routes->post('/crearPersona', 'modUsuario/PersonaController::crear');
 $routes->post('/actualizarPersona', 'modUsuario/PersonaController::actualizar');
 $routes->post('/eliminarPersona', 'modUsuario/PersonaController::eliminar');
 
+//USUARIO
+$routes->get('/usuario', 'modUsuario/UsuarioController::usuario', ['as'=> 'usuario']);
+$routes->post('/crearUsuario', 'modUsuario/UsuarioController::crear');
+$routes->post('/actualizarUsuario', 'modUsuario/UsuarioController::actualizar');
+$routes->post('/eliminarUsuario', 'modUsuario/UsuarioController::eliminar');
+
 
 /*
  * --------------------------------------------------------------------
