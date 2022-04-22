@@ -295,21 +295,26 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            const apellidos = $(this).data('apellidos');
-            const fechaNacimiento = $(this).data('fechaNacimiento');
+            var apellidos = $(this).data('apellidos');
+            const fechaN = $(this).data('fechaNacimiento');
             const genero = $(this).data('genero');
-            const cargo = $(this).data('cargo');
-            const departamento = $(this).data('departamento');
-            
+            const cargo = $(this).data('cargoId');
+            const departamento = $(this).data('departamentoId');
+
+            var ape = apellidos.split(" ");
+
+            var primerApe = ape[0];
+            var segundoApe = ape[1];
 
             // Set data to Form Edit
             $('.personaId').val(id);
             $('.nombres').val(nombre);
-            $('.apellidos').val(apellidos);
-            $('.fechaNacimiento').val(fechaNacimiento);
+            $('.primerApellido').val(primerApe);
+            $('.segundoApellido').val(segundoApe);
+            $('.fechaNacimiento').val(fechaN);
             $('.genero').val(genero);
-            $('.cargoId').val(cargo);
-            $('.departamentoId').val(departamento);
+            $('.cargoId').val(cargo).trigger('change');
+            $('.departamentoId').val(departamento).trigger('change');
 
             // Call Modal Edit
             $('#editModal').modal('show');

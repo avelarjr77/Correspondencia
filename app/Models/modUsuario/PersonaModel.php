@@ -55,7 +55,7 @@ class PersonaModel extends Model{
     }
 
     //Edita el registro en DIRECCION
-    public function actualizar($data, $direccionId){
+    public function actualizar($data, $personaId){
         $nombres = $this->db->table('wk_persona');
         $nombres->set($data);
         $nombres->where('personaId', $personaId);

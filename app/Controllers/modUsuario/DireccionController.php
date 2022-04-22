@@ -68,7 +68,10 @@ class DireccionController extends BaseController{
     public function actualizarDireccion()
     {
         $datos = [
-            "direccion" => $_POST['direccion']
+            "personaId" => $_POST['personaId'],
+            "tipoDireccion" => $_POST['tipoDireccion'],
+            "nombreDireccion" => $_POST['nombreDireccion'],
+            "municipioId" => $_POST['municipioId']
         ];
 
         $direccionId = $_POST['direccionId'];

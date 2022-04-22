@@ -74,7 +74,7 @@
                     <div class="form-group">
                         <label>Tipo de Dirección:</label>
                         <select name="tipoDireccion" class="form-control tipoDireccion">
-                            <option value="">-Selecciona un tipo de dirección-</option>
+                            <option value="" disable>-Selecciona un tipo de dirección-</option>
                             <option value="P">Principal</option>
                             <option value="S">Secundaria</option>
                         </select>
@@ -120,8 +120,37 @@
                 <div class="modal-body">
                 
                     <div class="form-group">
-                        <label>Tipo Dirección</label>
-                        <input type="text" id="direccion" name="direccion" autocomplete="off" required="required" class="form-control direccion">
+                        <label>Persona: </label>
+                        <select name="personaId" class="form-control personaId">
+                            <option value="">-Selecciona una persona-</option>
+                            <?php foreach ($persona as $pers): ?>
+                                <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Dirección:</label>
+                        <select name="tipoDireccion" class="form-control tipoDireccion">
+                            <option value="" disable>-Selecciona un tipo de dirección-</option>
+                            <option value="P">Principal</option>
+                            <option value="S">Secundaria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección:</label>
+                        <input type="text" id="nombreDireccion" name="nombreDireccion" required="required" autocomplete="off" class="form-control nombreDireccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Municipio:</label>
+                        <select name="municipioId" class="form-control municipioId">
+                            <option value="">-Selecciona una persona-</option>
+                            <?php foreach ($municipio as $mun): ?>
+                                <option value="<?php echo $mun->municipioId ?>"><?php echo $mun->nombreMunicipio ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 
                 </div>
@@ -210,12 +239,12 @@
 
             // Set data to Form Edit
             $('.direccionId').val(id);
-            $('.personaId').val(nombre);
+            $('.personaId').val(nombre).trigger('change');
             $('.tipoDireccion').val(tipoDireccion);
             $('.nombreDireccion').val(direccion);
-            $('.municipio').val(municipio);
-            $('.municipioId').val(municipioId);
-            $('.personaId').val(persona);
+            $('.municipioId').val(municipio).trigger('change');
+            //$('.municipioId').val(municipioId);
+           // $('.personaId').val(persona);
 
             // Call Modal Edit
             $('#editModal').modal('show');
