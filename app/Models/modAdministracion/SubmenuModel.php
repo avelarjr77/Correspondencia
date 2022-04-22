@@ -6,20 +6,36 @@ use CodeIgniter\Model;
 
 class SubmenuModel extends Model
 {
-    protected $table = "co_submenu";
-
-    protected $primaryKey = 'subMenuId';
-
-    protected $useAutoIncrement = true;
-
-    public function get($nombreSubMenu = null)
+    public function listarMenu()
     {
-        if ($nombreSubMenu === null) {
-            return $this->findAll();
-        }
+        $co_menu = $this->db->query('SELECT*FROM co_menu');
+        return $co_menu->getResult();
+    }
 
-        return $this->asArray()
-        ->where(['nombreSubMenu' => $nombreSubMenu])
-        ->first();
+    public function listarSubMenu()
+    {
+        $submenu = $this->db->query('SELECT*FROM co_submenu');
+        return $submenu->getResult();
+    }
+    
+    public function crearSubmenu($datos)
+    {
+        $nombreSubMenu = $this->db->table('co_submenu');
+        $nombreSubMenu->insert($datos);
+
+        return $this->db->insertID();
+    }
+    public function eliminar($data){
+        $MenuSubmenu = $this->db->table('co_submenu');
+        $MenuSubmenu->where($data);
+        return $MenuSubmenu->delete();
+    }
+
+    //Edita el registro en menu
+    public function actualizarSubmenu($data, $subMenuId){
+        $MenuSubmenu = $this->db->table('co_submenu');
+        $MenuSubmenu->set($data);
+        $MenuSubmenu->where('subMenuId', $subMenuId);
+        return $MenuSubmenu->update();
     }
 }

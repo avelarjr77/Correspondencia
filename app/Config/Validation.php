@@ -37,20 +37,15 @@ class Validation
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 888ed9c279ed0ee6cb16c17bede44fca71599c0a
     public $users =[
 		'usuario' => 'required|min_length[3]|max_length[20]|is_unique[wk_usuario.usuario]',
 		'password' => 'required|min_length[5]|max_length[15]|is_unique[wk_usuario.usuario]'
 	];
 
-<<<<<<< HEAD
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
-=======
 
->>>>>>> 888ed9c279ed0ee6cb16c17bede44fca71599c0a
 }

@@ -1,0 +1,32 @@
+ERROR - 2022-04-22 09:33:22 --> Cannot delete or update a parent row: a foreign key constraint fails (`baseprueba`.`co_submenu`, CONSTRAINT `FK_SUBMENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+CRITICAL - 2022-04-22 09:33:22 --> Cannot delete or update a parent row: a foreign key constraint fails (`baseprueba`.`co_submenu`, CONSTRAINT `FK_SUBMENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `co...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `co...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `co...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `co...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\MenuSubmenuModel.php(47): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(50): App\Models\modAdministracion\MenuSubmenuModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar('2')
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-04-22 10:11:47 --> Unknown column '$menuId' in 'where clause'
+CRITICAL - 2022-04-22 10:11:47 --> Unknown column '$menuId' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(su...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(su...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(su...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\MenuSubmenuModel.php(84): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(su...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(17): App\Models\modAdministracion\MenuSubmenuModel->mostrarTotal()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->menu_submenu()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-22 10:12:05 --> Too few arguments to function App\Models\modAdministracion\MenuSubmenuModel::mostrarTotal(), 0 passed in C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php on line 17 and exactly 1 expected
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(17): App\Models\modAdministracion\MenuSubmenuModel->mostrarTotal()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->menu_submenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

@@ -13,6 +13,20 @@ class MenuSubmenuModel extends Model
         return $co_menu->getResult();
     }
 
+    public function listarSubMenu()
+    {
+        $submenu = $this->db->query('SELECT*FROM co_submenu');
+        return $submenu->getResult();
+    }
+
+
+   /* public function listarSubMenu($menuId)
+    {
+        $notificacion = $this->db->table('SELECT nombreSubMenu from co_submenu');
+        $notificacion->where('menuId', $menuId);
+        return $notificacion->get()->getResultArray();
+    }*/
+
     public function insertar($datos)
     {
         $nombreMenu = $this->db->table('co_menu');
@@ -48,11 +62,28 @@ class MenuSubmenuModel extends Model
         return $nombreMenu->update();
     }
 
+    //Edita el registro en menu
+    public function actualizarSubmenu($data, $subMenuId){
+        $MenuSubmenu = $this->db->table('co_submenu');
+        $MenuSubmenu->set($data);
+        $MenuSubmenu->where('subMenuId', $subMenuId);
+        return $MenuSubmenu->update();
+    }
+
 
     public function crearSubmenu($datos)
     {
         $nombreSubMenu = $this->db->table('co_submenu');
         $nombreSubMenu->insert($datos);
+
+        return $this->db->insertID();
     }
+
+    public function mostrarTotal()
+    {
+        $total = $this->db->query('SELECT COUNT(subMenuId) AS total FROM  co_submenu');
+        return $total->getResult();
+    }
+
 
 }
