@@ -1,16 +1,18 @@
-<?php namespace App\Controllers\modUsuario;
+<?php
+
+namespace App\Controllers\modUsuario;
 
 use App\Controllers\BaseController;
 use App\Models\modUsuario\ContactoModel;
 use App\Models\modUsuario\TipoContactoModel;
 
-class ContactoController extends BaseController{
+class ContactoController extends BaseController
+{
 
-    //LISTAR ROLES
+    //LISTAR CONTACTOS
 
-        //LISTAR Contactos
-
-    public function contacto(){
+    public function contacto()
+    {
 
         $contacto = new ContactoModel();
         $datos = $contacto->listarContacto();
@@ -27,10 +29,11 @@ class ContactoController extends BaseController{
         ];
 
         return view('modUsuario/contacto', $data);
-        }
+    }
 
     //CREAR CONTACTO
-    public function crearContacto(){
+    public function crearContacto()
+    {
 
         $datos = [
             "personaId" => $_POST['personaId'],
@@ -42,14 +45,15 @@ class ContactoController extends BaseController{
         $contacto = new ContactoModel();
         $respuesta = $contacto->insertarContacto($datos);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '0');
         } else {
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','1');
-        } 
-    } 
-        //CREAR ROLES
-    public function crearTipoContacto(){
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '1');
+        }
+    }
+    //CREAR TIPOCONTACT
+    public function crearTipoContacto()
+    {
 
         $datos = [
             "tipoContacto" => $_POST['tipoContacto']
@@ -58,15 +62,16 @@ class ContactoController extends BaseController{
         $tipoContacto = new ContactoModel();
         $respuesta = $tipoContacto->insertar($datos);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '0');
         } else {
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','1');
-        } 
-    } 
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '1');
+        }
+    }
 
     //ELIMINAR Contacto
-    public function eliminarContacto(){
+    public function eliminarContacto()
+    {
 
         $contactoId = $_POST['contactoId'];
 
@@ -75,14 +80,15 @@ class ContactoController extends BaseController{
 
         $respuesta = $contacto->eliminarContacto($data);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','2');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '2');
         } else {
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','3');
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '3');
         }
     }
-    //ELIMINAR ROLES
-    public function eliminar(){
+    //ELIMINAR TIPOCONTACTO
+    public function eliminar()
+    {
 
         $tipoContacto = $_POST['tipoContactoId'];
 
@@ -91,13 +97,13 @@ class ContactoController extends BaseController{
 
         $respuesta = $contacto->eliminar($data);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','2');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '2');
         } else {
-            return redirect()->to(base_url(). '/contacto')->with('mensaje','3');
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '3');
         }
     }
-
+    //ACTUALIZAR CONTACTO
     public function actualizar()
     {
         $datos = [
@@ -117,6 +123,7 @@ class ContactoController extends BaseController{
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
         }
     }
+    //ACTUALIZAR TIPOCONTACTO
     public function actualizarContacto()
     {
         $datos = [
@@ -138,7 +145,4 @@ class ContactoController extends BaseController{
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
         }
     }
-    
 }
-
-?>

@@ -84,7 +84,7 @@
         <div class="form-wrap">
           <!-- TABS -->
           <div class="tabs">
-            <h4 class="login-tab" ><a class="log-in active"  href="<?= base_url().route_to('login') ?>" ><span>Iniciar Sesión<span></span></span></a></h4>
+            <h4 class="login-tab" ><a class="log-in active"  href="<?= base_url().route_to('home') ?>" ><span>Iniciar Sesión<span></span></span></a></h4>
             <h4 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>Activar Usuario</span></a></h4>
             </div>
 

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ContactoModel extends Model
 {
 
-    //MODELO PARA LISTAR ROLES
+    //MODELO PARA LISTAR CONTACTO
     public function listarContacto()
     {
         $contacto = $this->db->query("SELECT d.contactoId as 'contactoId', CONCAT_WS(' ', p.nombres, p.primerApellido) as 'nombre', tc.tipoContacto as 'tipoContacto', contacto, estado

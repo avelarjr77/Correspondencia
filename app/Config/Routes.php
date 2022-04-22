@@ -32,7 +32,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Login::index');
-$routes->get('/home', 'Home::index', ['as'=> 'home']);
+$routes->post('/home', 'Home::login', ['as'=> 'home']);
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
