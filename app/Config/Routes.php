@@ -36,11 +36,13 @@ $routes->post('/home', 'Home::login', ['as'=> 'home']);
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
+$routes->get('/submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
 $routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
-$routes->post('/crearSubmenu', 'modAdministracion/MenuSubmenuController::crearSubmenu');
+$routes->post('/agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
 $routes->get('/eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
 $routes->get('/editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/$1');
 $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
+$routes->post('/actualizarSubmenu', 'modAdministracion/SubMenuController::actualizarSubmenu');
 
 //ROL-MODULO-MENU
 $routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
