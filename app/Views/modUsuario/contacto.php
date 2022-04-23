@@ -35,8 +35,8 @@
                             <td><?php echo $key->contacto ?></td>
                             <td><?php echo $key->estado ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre=""><i class="fa fa-trash"></i></a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>" ><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>" ><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <label>Seleccionar Persona:</label>
-                                <select name="personaId" class="form-control contactoM">
+                                <select name="personaId" class="form-control personaId">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers) : ?>
                                         <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres, ' ', $pers->primerApellido ?></option>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Seleccionar Tipo Contacto:</label>
-                                <select name="tipoContactoId" class="form-control contactoM">
+                                <select name="tipoContactoId" class="form-control tipoContactoId">
                                     <option value="">-Selecciona un tipo contacto-</option>
                                     <?php foreach ($tipoContacto as $key) : ?>
                                         <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto ?></option>
@@ -78,11 +78,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Contacto:</label>
-                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contactoN">
+                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contacto">
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contactoN">
+                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control estado">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -110,11 +110,11 @@
 
                             <div class="form-group">
                                 <label>Persona</label>
-                                <input readonly type="text" id="personaId" name="personaId" autocomplete="off" required="required" class="form-control contactoM">
+                                <input readonly type="text" id="personaId" name="personaId" autocomplete="off" required="required" class="form-control personaId">
                             </div>
                             <div class="form-group">
                                 <label>Seleccionar Tipo Contacto:</label>
-                                <select name="tipoContactoId" class="form-control">
+                                <select name="tipoContactoId" class="form-control tipoContactoId">
                                     <option value="">-Selecciona un tipo contacto-</option>
                                     <?php foreach ($tipoContacto as $key) : ?>
                                         <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto ?></option>
@@ -123,11 +123,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Contacto:</label>
-                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control">
+                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contacto">
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control">
+                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control estado">
                             </div>
 
                         </div>
@@ -202,27 +202,38 @@
 <script>
     $(document).ready(function() {
 
-        // get Edit Product
+        // get Edit Contacto
         $('.btn-edit-contacto').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
+            const tipoContacto = $(this).data('tipoContacto');
+            const contacto = $(this).data('contacto');
+            const estado = $(this).data('estado');
 
             // Set data to Form Edit
             $('.contactoId').val(id);
-            $('.contactoM').val(nombre);
+            $('.personaId').val(nombre);
+            $('.tipoContacto').val(tipoContacto);
+            $('.contacto').val(contacto);
+            $('.estado').val(estado);
+
             // Call Modal Edit
             $('#editContacto').modal('show');
         });
 
-        // get Delete Product
+        // get Delete Contacto
         $('.btn-delete-contacto').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
+            const tipoContacto = $(this).data('tipoContacto');
+            const contacto = $(this).data('contacto');
+            const estado = $(this).data('estado');
+
             // Set data to Form Edit
             $('.contactoId').val(id);
-            $('.contactoN').html(nombre);
+            $('.contactoN').html(contacto);
             // Call Modal Edit
             $('#eliminarContacto').modal('show');
         });

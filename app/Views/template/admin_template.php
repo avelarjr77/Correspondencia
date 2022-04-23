@@ -77,7 +77,7 @@
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Coniguración de Usuario<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Configuración de Usuario<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -92,7 +92,13 @@
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
-                  
+                  <li><a><i class="fa fa-edit"></i> Configuración de Proceso<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?= base_url().route_to('proceso') ?>">1. Proceso</a></li>
+                      <li><a href="<?= base_url().route_to('etapa') ?>">2. Etapa</a></li>
+                      <li><a href="<?= base_url().route_to('actividad') ?>">3. Actividad</a></li>
+                    </ul>
+                  </li>                  
                   <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">Chart JS</a></li>

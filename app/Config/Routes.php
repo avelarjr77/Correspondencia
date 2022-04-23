@@ -102,6 +102,30 @@ $routes->post('/crearUsuario', 'modUsuario/UsuarioController::crear');
 $routes->post('/actualizarUsuario', 'modUsuario/UsuarioController::actualizar');
 $routes->post('/eliminarUsuario', 'modUsuario/UsuarioController::eliminar');
 
+//PROCESO
+$routes->get('/proceso', 'modProceso/ProcesoController::proceso', ['as'=> 'proceso']);
+$routes->post('/crearProceso', 'modProceso/ProcesoController::crear');
+$routes->post('/actualizarProceso', 'modProceso/ProcesoController::actualizar');
+$routes->post('/eliminarProceso', 'modProceso/ProcesoController::eliminar');
+
+//TIPO PROCESO
+$routes->get('/tipoProceso', 'modProceso/TipoProcesoController::tipoProceso', ['as'=> 'tipoProceso']);
+$routes->post('/crearTipoProceso', 'modProceso/TipoProcesoController::crear');
+$routes->post('/actualizarTipoProceso', 'modProceso/TipoProcesoController::actualizar');
+$routes->post('/eliminarTipoProceso', 'modProceso/TipoProcesoController::eliminar');
+
+//ETAPA
+$routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+$routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
+$routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');
+$routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
+
+//ACTIVIDADES
+$routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
+$routes->post('/crearActividad', 'modProceso/ActividadController::crear');
+$routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
+$routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
+
 
 /*
  * --------------------------------------------------------------------
