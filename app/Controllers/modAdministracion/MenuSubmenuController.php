@@ -3,7 +3,8 @@
 namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
-use App\Models\MenuSubmenuModel;
+use App\Models\modAdministracion\MenuSubmenuModel;
+use App\Models\modAdministracion\SubmenuModel;
 
 class MenuSubmenuController extends BaseController
 {
@@ -12,11 +13,15 @@ class MenuSubmenuController extends BaseController
     {
         $MenuSubmenu = new MenuSubmenuModel();
         $datos = $MenuSubmenu->listarMenu();
+        $submenu = $MenuSubmenu->listarSubMenu();
+        $total = $MenuSubmenu->mostrarTotal();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos"     => $datos,
+            "submenu"     => $submenu,
+            "total"     => $total,
             "mensaje"   => $mensaje
         ];
 
@@ -38,82 +43,40 @@ class MenuSubmenuController extends BaseController
         }
     }
 
-    public function eliminar($menuId)
+    public function eliminar($nombreMenu)
     {
-        $data = ["menuId" => $menuId];
-        $nombreMenu = new MenuSubmenuModel();
-        $respuesta = $nombreMenu->eliminar($data);
+        $menu = new MenuSubmenuModel();
+
+        $data = ["menuId" => $nombreMenu];
+
+        $respuesta = $menu->eliminar($data);
+
         if ($respuesta) {
-            return redirect()->to(base_url() . '/')->with('mensaje', '1');
+            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '4');
         } else {
-            return redirect()->to(base_url() . '/')->with('mensaje', '0');
+            return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '5');
         }
     }
 
     //Funcion para EDITAR
-    public function editar()
+    public function actualizar()
     {
-        /* $datos = [
-            "nombreMenu"    => $_POST['nombreMenu']
+        $datos = [
+            "nombreMenu" => $_POST['nombreMenu']
         ];
-        $nombreMenu = new MenuSubmenuModel();
-        $respuesta = $nombreMenu->insertar($datos);
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
-        } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
-        }*/
-    }
 
-    //Funcion para OBTENER NOMBRE
-    public function obtenerNombre($menuId)
-    {
+        $menuId = $_POST['menuId'];
 
-        $data = ["menuId" => $menuId];
-        $MenuSubmenu = new MenuSubmenuModel();
-        $respuesta = $MenuSubmenu->obtenerNombre($data);
+        $menu = new MenuSubmenuModel();
+
+        $respuesta = $menu->actualizar($datos, $menuId);
 
         $datos = ["datos" => $respuesta];
 
-        return view('modAdministracion/menu_submenu', $datos);
-    }
-
-    //Funcion para MOSTRAR DATOS DE LA TABLA MENU
-    public function listarSubmenu()
-    {
-        $submenu = new MenuSubmenuModel();
-        var_dump($submenu->asObject()->findAll());
-    }
-
-    //Funcion para MOSTRAR DATOS DE LA TABLA SUBMENU
-    public function nombreSubMenu()
-    {
-        $Submenu = new MenuSubmenuModel();
-        $datos = $Submenu->listarSubMenu();
-
-        $mensaje = session('mensaje');
-
-        $data = [
-            "datos"     => $datos,
-            "mensaje"   => $mensaje
-        ];
-
-        return view('modAdministracion/menu_submenu', $data);
-    }
-
-    //Funcion para INSERTAR
-    public function crearSubmenu()
-    {
-        $datos = [
-            "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId']
-        ];
-        $crearSubmenu = new MenuSubmenuModel();
-        $respuesta = $crearSubmenu->crearSubmenu($datos);
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
         } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
         }
     }
 }

@@ -1,0 +1,136 @@
+<<<<<<< HEAD
+CRITICAL - 2022-04-18 16:06:01 --> syntax error, unexpected 'Principal' (T_STRING), expecting ')'
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\modU...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\modU...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(12): spl_autoload_call('App\\Models\\modU...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->direccion()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DireccionController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-04-18 18:05:54 --> Undefined variable: nombrePersona
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 14, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->direccion()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DireccionController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-04-18 18:24:27 --> Unknown column 'direccion' in 'field list'
+CRITICAL - 2022-04-18 18:24:27 --> Unknown column 'direccion' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\DireccionModel.php(39): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(38): App\Models\modUsuario\DireccionModel->insertar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->crearDireccion()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DireccionController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-04-18 18:27:09 --> Undefined index: direccion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 34, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->crearDireccion()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DireccionController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 18:34:41 --> Undefined index: tipoDireccion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(35): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 35, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->crearDireccion()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DireccionController))
+=======
+CRITICAL - 2022-04-18 10:02:18 --> Undefined index: departamentoId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DepartamentoController.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 45, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DepartamentoController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DepartamentoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 10:07:46 --> Undefined index: departamentoId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DepartamentoController.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 45, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DepartamentoController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DepartamentoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 10:12:08 --> Undefined index: contactoId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 65, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 10:13:18 --> Undefined index: tipocontacto
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 62, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 10:13:51 --> Undefined index: tipoContacto
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 62, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 10:15:41 --> Object of class App\Models\modUsuario\ContactoModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(318): strtr('UPDATE `wk_tipo...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(293): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `wk_tipo...', Array)
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#4 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1913): CodeIgniter\Database\BaseConnection->query('UPDATE `wk_tipo...', Array, false)
+#5 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\ContactoModel.php(38): CodeIgniter\Database\BaseBuilder->update()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(68): App\Models\modUsuario\ContactoModel->actualizar(Array, Object(App\Models\modUsuario\ContactoModel))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-04-18 10:17:09 --> Object of class App\Models\modUsuario\ContactoModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(318): strtr('UPDATE `wk_tipo...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(293): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `wk_tipo...', Array)
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#4 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1913): CodeIgniter\Database\BaseConnection->query('UPDATE `wk_tipo...', Array, false)
+#5 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\ContactoModel.php(38): CodeIgniter\Database\BaseBuilder->update()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(68): App\Models\modUsuario\ContactoModel->actualizar(Array, Object(App\Models\modUsuario\ContactoModel))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-04-18 10:19:06 --> Object of class App\Models\modUsuario\ContactoModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(318): strtr('UPDATE `wk_tipo...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(293): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `wk_tipo...', Array)
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#4 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1913): CodeIgniter\Database\BaseConnection->query('UPDATE `wk_tipo...', Array, false)
+#5 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\ContactoModel.php(38): CodeIgniter\Database\BaseBuilder->update()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(68): App\Models\modUsuario\ContactoModel->actualizar(Array, Object(App\Models\modUsuario\ContactoModel))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-04-18 13:06:26 --> Undefined variable: dato
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modUsuario\contacto.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 30, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modUsuario/cont...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(23): view('modUsuario/cont...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->tipoContacto()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-18 13:10:03 --> Undefined index: tipoContacto
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\ContactoController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 65, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\ContactoController->actualizar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\ContactoController))
+>>>>>>> 6d489532a2b12f19572aca2f5a8ffc11b5955388
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
