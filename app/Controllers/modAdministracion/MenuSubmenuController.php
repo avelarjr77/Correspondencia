@@ -4,7 +4,6 @@ namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\MenuSubmenuModel;
-use App\Models\modAdministracion\SubmenuModel;
 
 class MenuSubmenuController extends BaseController
 {
@@ -12,15 +11,12 @@ class MenuSubmenuController extends BaseController
     public function menu_submenu()
     {
         $menu = new MenuSubmenuModel();
-        $submenu = $menu->listarSubMenu();
-        $total = $menu->mostrarTotal();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "submenu"     => $submenu,
-            "total"     => $total,
-            "menu" => $menu->select()->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
+            "menu" => $menu->asObject()
+            ->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
             "mensaje"   => $mensaje
         ];
 

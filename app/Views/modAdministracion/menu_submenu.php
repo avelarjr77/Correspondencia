@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Seleccionar Icono:</label>
-                                <select name="iconoId" class="form-control iconoId">
+                                <select name="iconoId"  required="required" class="form-control iconoId">
                                     <option value="">-Selecciona un Icono-</option>
                                     <?php foreach ($menu as $key) : ?>
                                         <option value="<?php echo $key->iconoId ?>"> <?php echo $key->nombreIcono ?></option>
