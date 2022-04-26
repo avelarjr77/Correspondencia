@@ -11,17 +11,16 @@ class MenuSubmenuController extends BaseController
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
     public function menu_submenu()
     {
-        $MenuSubmenu = new MenuSubmenuModel();
-        $datos = $MenuSubmenu->listarMenu();
-        $submenu = $MenuSubmenu->listarSubMenu();
-        $total = $MenuSubmenu->mostrarTotal();
+        $menu = new MenuSubmenuModel();
+        $submenu = $menu->listarSubMenu();
+        $total = $menu->mostrarTotal();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "datos"     => $datos,
             "submenu"     => $submenu,
             "total"     => $total,
+            "menu" => $menu->select()->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
             "mensaje"   => $mensaje
         ];
 
@@ -32,10 +31,11 @@ class MenuSubmenuController extends BaseController
     public function crear()
     {
         $datos = [
-            "nombreMenu"    => $_POST['nombreMenu']
+            "nombreMenu"    => $_POST['nombreMenu'],
+            "iconoId"    => $_POST['iconoId']
         ];
-        $nombreMenu = new MenuSubmenuModel();
-        $respuesta = $nombreMenu->insertar($datos);
+        $menu = new MenuSubmenuModel();
+        $respuesta = $menu->insertar($datos);
         if ($respuesta > 0) {
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
         } else {
@@ -62,7 +62,8 @@ class MenuSubmenuController extends BaseController
     public function actualizar()
     {
         $datos = [
-            "nombreMenu" => $_POST['nombreMenu']
+            "nombreMenu" => $_POST['nombreMenu'],
+            "iconoId"    => $_POST['iconoId']
         ];
 
         $menuId = $_POST['menuId'];

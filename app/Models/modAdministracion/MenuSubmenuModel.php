@@ -6,6 +6,9 @@ use CodeIgniter\Model;
 
 class MenuSubmenuModel extends Model
 {
+    protected $table      = 'co_menu';
+    protected $primaryKey = 'menuId';
+    protected $allowedFiels=['nombreMenu', 'iconoId'];
 
     public function listarMenu()
     {

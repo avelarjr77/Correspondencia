@@ -6,6 +6,10 @@ use CodeIgniter\Model;
 
 class SubmenuModel extends Model
 {
+    protected $table      = 'co_submenu';
+    protected $primaryKey = 'subMenuId';
+    protected $allowedFiels=['menuId','nombreSubMenu', 'nombreArchivo'];
+
     public function listarMenu()
     {
         $co_menu = $this->db->query('SELECT*FROM co_menu');

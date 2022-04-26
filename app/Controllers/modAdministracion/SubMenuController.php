@@ -13,13 +13,12 @@ class SubMenuController extends BaseController
         $submenu = new SubmenuModel();
         
         $datos = $submenu->listarMenu();
-        $submenu = $submenu->listarSubMenu();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos"     => $datos,
-            "submenu"     => $submenu,
+            "submenu"     => $submenu->select()->asObject()->join('co_menu','co_menu.menuId = co_submenu.menuId')->findAll(),
             "mensaje"   => $mensaje
         ];
 

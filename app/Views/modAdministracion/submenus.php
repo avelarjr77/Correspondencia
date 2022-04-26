@@ -26,7 +26,9 @@
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Menú</th>
                             <th>Submenus</th>
+                            <th>Archivo</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -34,7 +36,9 @@
                         <?php foreach ($submenu as $key) : ?>
                             <tr>
                                 <td><?php echo $key->subMenuId ?></td>
+                                <td><?php echo $key->nombreMenu ?></td>
                                 <td><?php echo $key->nombreSubMenu ?></td>
+                                <td><?php echo $key->nombreArchivo ?></td>
                                 <td>
                                     <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/modAdministracion/SubMenuController/eliminarSubmenu/' . $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>

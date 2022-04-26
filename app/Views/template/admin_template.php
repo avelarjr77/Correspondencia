@@ -44,7 +44,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/logo.jpeg" alt="..." class="img-circle profile_img" >
+                <img src="images/logo.jpeg" alt="..." class="img-circle profile_img" width="70" height="80" >
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -72,6 +72,7 @@
                           <li><a href="<?= base_url().route_to('adminRol') ?>">1. Admin. Roles</a></li>
                           <li><a href="<?= base_url().route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
                           <li><a href="<?= base_url().route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
+                          <li><a href="<?= base_url().route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
                         </ul>
                       </li>
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
@@ -231,8 +232,9 @@
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            Universidad Cristiana de las Asambleas de Dios <a href="https://colorlib.com"></a>
+          <div class="text-center">
+            Sistema de Correspondencia &copy; <?= date('Y') ;?>
+            <br><p>Universidad Cristiana de las Asambleas de Dios</p> <a href="https://colorlib.com"></a>
           </div>
           <div class="clearfix"></div>
         </footer>
