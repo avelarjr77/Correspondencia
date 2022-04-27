@@ -27,11 +27,11 @@
                     <tbody>
                         <?php foreach($datos as $modulo): ?>
                             <tr>
-                            <td><?php echo $modulo->moduloId ?></td>
-                            <td><?php echo $modulo->nombre ?></td>
+                            <td><?= $modulo->moduloId ?></td>
+                            <td><?= $modulo->nombre ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $modulo->moduloId ?>" data-nombremod="<?php echo $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $modulo->moduloId ?>" data-nombremod="<?php echo $modulo->nombre ?>"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 

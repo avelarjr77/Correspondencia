@@ -28,11 +28,11 @@
                 <tbody>
                     <?php foreach($datos as $rol): ?>
                     <tr>
-                        <td><?php echo $rol->rolId ?></td>
-                        <td><?php echo $rol->nombreRol ?></td>
+                        <td><?= $rol->rolId ?></td>
+                        <td><?= $rol->nombreRol ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $rol->rolId ?>" data-nombre="<?php echo $rol->nombreRol ?>"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $rol->rolId ?>" data-nombre="<?php echo $rol->nombreRol ?>"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $rol->rolId ?>" data-nombre="<?= $rol->nombreRol ?>"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $rol->rolId ?>" data-nombre="<?= $rol->nombreRol ?>"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 

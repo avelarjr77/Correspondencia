@@ -29,15 +29,16 @@
                                             <tbody>
                                                 <?php foreach ($datos as $key): ?>
                                                     <tr role="row" class="odd">
-                                                        <td><?php echo $key->id ?></td>
-                                                        <td><?php echo $key->rol ?>/<?php echo $key->modulo ?></td>
+                                                        <td><?= $key->id ?></td>
+                                                        <td><?= $key->rol ?>/<?= $key->modulo ?></td>
                                                         <td>
-                                                            <a href="#" class="btn btn-info btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-modulo="<?php echo $key->modulo ?>" data-menu="<?php echo $key->menu ?>" data-rol="<?php echo $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
+                                                            <a href="#" class="btn btn-info btn-sm btn-edit" onclick="pasarModulo(<?= $key->modulo ?>)" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
+                                        <h1 id="ll"></h1>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +77,7 @@
                             <select name="menuId" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
                                 <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?php echo $menu->id ?>"><?php echo $menu->nomMenu ?></option>
+                                    <option value="<?= $menu->id ?>"><?= $menu->nomMenu ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>         
@@ -138,17 +139,17 @@
 
            //console.log(modulo);
 
-            $.ajax({
+            /*$.ajax(
                 data: {
                     'mod': modulo
                 }, 
                 type: 'GET',
-                url: "<?php echo base_url('/rolModMenu'); ?>", 
+                url: "<php echo base_url('/rolModMenu'); ?>", 
                 cache: false,
                 beforeSend: function(){ 
                 }, 
                 success: function(dato){ 
-                    alert(dato["modMenu"]);
+                    
                 }, 
                 error: function(){
                     swal('¡Error!','Error de ejecución del Ajax', 'error');
@@ -156,7 +157,7 @@
                 complete: function(){
                    
                 } 
-            });
+            });*/
 
             $('#nomRol').html(rol);
             $('#nRol').html(rol);
@@ -182,5 +183,18 @@
     });
 </script>
 
+<script>
+    function pasarModulo(e){
+        console.log(e);
+        $.ajax({
+            type:"POST",
+            url:"<?= base_url().route_to('rolModMenu') ?>",
+            data:{'modulo' : e},
+            success:function(dato){
+                $('#ll').html(dato);
+            }
+        });
+  }
+</script>
 
 <?= $this->endSection() ?>

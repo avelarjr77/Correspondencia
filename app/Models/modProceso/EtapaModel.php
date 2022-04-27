@@ -8,7 +8,7 @@ class EtapaModel extends Model{
     //MODELO PARA LISTAR PROCESO
     public function listarEtapa()
     {
-        $etapa =  $this->db->query("SELECT e.etapaId as 'id', e.nombreEtapa as 'nombre',e.orden as 'orden', p.nombreProceso as 'proceso'
+        $etapa =  $this->db->query("SELECT e.etapaId as 'id', e.nombreEtapa as 'nombre',e.orden as 'orden', p.nombreProceso as 'proceso', e.procesoId 
                                       FROM  wk_etapa e 
                                       INNER JOIN wk_proceso p ON e.procesoId = p.procesoId
                                       ORDER BY e.etapaId");

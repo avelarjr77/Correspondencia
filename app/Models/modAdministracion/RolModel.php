@@ -5,11 +5,17 @@ use CodeIgniter\Model;
 
 class RolModel extends Model{
 
+    protected $table = 'wk_rol';
+    protected $primaryKey = 'rolId';
+    protected $allowedFields = ['rolId', 'nombreRol'];
+
     //MODELO PARA LISTAR ROLES
     public function listarRol()
     {
-        $wk_rol =  $this->db->query('SELECT*FROM  wk_rol');
-        return $wk_rol->getResult();
+        return $this->asObject()
+        ->select("*")
+        ->orderBy('wk_rol.rolId')
+        ->findAll();
     }
 
 
@@ -28,13 +34,6 @@ class RolModel extends Model{
         $nombres->where($data);
         
         return $nombres->delete();
-    }
-
-    //OBTENER ROLES
-    public function obtenerRol($data){
-        $nombres = $this->db->table('wk_rol');
-        $nombres->where($data);
-        return $nombres->get()->getResultArray();
     }
 
     //Edita el registro en rol

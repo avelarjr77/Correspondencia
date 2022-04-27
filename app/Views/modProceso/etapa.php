@@ -34,7 +34,7 @@
                         <td><?php echo $key->orden ?></td>
                         <td><?php echo $key->proceso ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-orden="<?php echo $key->orden ?>" data-proceso="<?php echo $key->proceso ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-orden="<?php echo $key->orden ?>" data-proceso="<?php echo $key->proceso ?>" data-procesoI="<?php echo $key->procesoId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
                             <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Proceso: </label>
+                        <label>Proceso </label>
                         <select name="procesoId" class="form-control procesoId">
                             <option value="">-Selecciona un proceso-</option>
                             <?php foreach ($proceso as $p): ?>
@@ -113,8 +113,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Proceso: </label>
-                        <select name="procesoId" class="form-control procesoId">
+                        <label>Proceso </label>
+                        <select name="proceso_Id" class="form-control proceso_Id">
                             <option value="">-Selecciona un proceso-</option>
                             <?php foreach ($proceso as $p): ?>
                                 <option value="<?php echo $p->procesoId ?>"><?php echo $p->nombreProceso ?></option>
@@ -198,12 +198,13 @@
             const nombre = $(this).data('nombre');
             const orden = $(this).data('orden');
             const proceso = $(this).data('proceso');
+            const procesoId = $(this).data('procesoI');
 
             // Set data to Form Edit
             $('.etapaId').val(id);
             $('.nombreEtapa').val(nombre);
             $('.orden').val(orden);
-            $('.procesoId').val(proceso);
+            $('.proceso_Id').val(procesoId);
 
             // Call Modal Edit
             $('#editModal').modal('show');

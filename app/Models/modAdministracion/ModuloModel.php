@@ -5,11 +5,18 @@ use CodeIgniter\Model;
 
 class ModuloModel extends Model{
 
+    protected $table = 'co_modulo';
+    protected $primaryKey = 'moduloId';
+    protected $allowedFields = ['moduloId', 'nombre'];
+
     //MODELO PARA LISTAR MODULOS
     public function listarModulo()
     {
-        $Modulo =  $this->db->query('SELECT*FROM  co_modulo');
-        return $Modulo->getResult();
+        return $this->asObject()
+        ->select("*")
+        ->orderBy('co_modulo.moduloId')
+        ->findAll();
+        
     }
 
     //MODELO PARA AGREGAR MODULOS
@@ -26,13 +33,6 @@ class ModuloModel extends Model{
         $Modulo = $this->db->table('co_modulo');
         $Modulo->where($data);
         return $Modulo->delete();
-    }
-
-    //OBTENER ROLES
-    public function obtenerModulo($data){
-        $Modulo = $this->db->table('co_modulo');
-        $Modulo->where($data);
-        return $Modulo->get()->getResultArray();
     }
 
     //Edita el registro en MODULO
