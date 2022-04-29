@@ -5,11 +5,17 @@ use CodeIgniter\Model;
 
 class TipoProcesoModel extends Model{
 
+    protected $table = 'wk_tipo_proceso';
+    protected $primaryKey = 'tipoProcesoId';
+    protected $allowedFields = ['tipoProcesoId', 'tipoProceso'];
+
     //MODELO PARA LISTAR TIPO PROCESO
     public function listarTipoProceso()
     {
-        $tipoProceso =  $this->db->query('SELECT*FROM  wk_tipo_proceso');
-        return $tipoProceso->getResult();
+        return $this->asObject()
+        ->select("*")
+        ->orderBy('wk_tipo_proceso.tipoProcesoId')
+        ->findAll();
     }
 
     //MODELO PARA AGREGAR TIPO PROCESO

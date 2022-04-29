@@ -9,14 +9,16 @@ use App\Models\modAdministracion\RolModMenuModel;
 class RolModMenuController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
-    public function rolModMenu()
+    public function index()
     {
         $rolModMenu = new RolModMenuModel();
 
-        //$moduloId = $_POST['modulo'];
-        $moduloId = $this->request->getVar('modulo');
+        //$moduloId = $this->request->post();;
+        $moduloId = $this->request->getVar('moduloId');
+        //$moduloId = $POST['moduloId'];
+        //$data['users'] = $model->getUsers();
 
-        //print_r($moduloId);
+        //var_dump($moduloId);
 
         $datos = $rolModMenu->getRolMM();
         $modMenu = $rolModMenu->getModMenu($moduloId);
@@ -25,6 +27,7 @@ class RolModMenuController extends BaseController
             "datos" => $datos,
             "modMenu" => $modMenu
         ];
+        //var_dump($dato);
 
         return view('modAdministracion/rolModMenu',$dato);
     }

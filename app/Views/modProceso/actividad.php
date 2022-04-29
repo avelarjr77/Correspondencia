@@ -29,13 +29,13 @@
                 <tbody>
                     <?php foreach($datos as $key): ?>
                     <tr>
-                        <td><?php echo $key->id ?></td>
-                        <td><?php echo $key->nombre ?></td>
-                        <td><?php echo $key->descripcion ?></td>
-                        <td><?php echo $key->etapa ?></td>
+                        <td><?= $key->id ?></td>
+                        <td><?= $key->nombre ?></td>
+                        <td><?= $key->descripcion ?></td>
+                        <td><?= $key->etapa ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-descripcion="<?php echo $key->descripcion ?>" data-etapa="<?php echo $key->etapa ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-descripcion="<?= $key->descripcion ?>" data-etapa="<?= $key->etapa ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 
@@ -65,15 +65,15 @@
 
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input type="text" id="descripcion" name="descripcion" required="required" autocomplete="off" class="form-control descripcion">
+                        <input type="text" id="descripcion" name="descripcion" required="required" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Etapa </label>
-                        <select name="etapaId" class="form-control etapaId">
+                        <select name="etapaId" class="form-control">
                             <option value="">-Selecciona una etapa-</option>
                             <?php foreach ($etapa as $e): ?>
-                                <option value="<?php echo $e->etapaId ?>"><?php echo $e->nombreEtapa ?></option>
+                                <option value="<?= $e->etapaId ?>"><?= $e->nombreEtapa ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -117,7 +117,7 @@
                         <select name="etapaId" class="form-control etapaId">
                             <option value="">-Selecciona una etapa-</option>
                             <?php foreach ($etapa as $e): ?>
-                                <option value="<?php echo $e->etapaId ?>"><?php echo $e->nombreEtapa ?></option>
+                                <option value="<?= $e->etapaId ?>"><?= $e->nombreEtapa ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

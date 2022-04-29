@@ -29,13 +29,13 @@
                 <tbody>
                     <?php foreach($datos as $key): ?>
                     <tr>
-                        <td><?php echo $key->id ?></td>
-                        <td><?php echo $key->nombre ?></td>
-                        <td><?php echo $key->orden ?></td>
-                        <td><?php echo $key->proceso ?></td>
+                        <td><?= $key->id ?></td>
+                        <td><?= $key->nombre ?></td>
+                        <td><?= $key->orden ?></td>
+                        <td><?= $key->proceso ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-orden="<?php echo $key->orden ?>" data-proceso="<?php echo $key->proceso ?>" data-procesoI="<?php echo $key->procesoId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-orden="<?= $key->orden ?>" data-proceso="<?= $key->proceso ?>" data-procesoI="<?= $key->procesoId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 
@@ -65,15 +65,15 @@
 
                     <div class="form-group">
                         <label>Orden</label>
-                        <input type="number" id="orden" name="orden" required="required" autocomplete="off" class="form-control orden">
+                        <input type="number" id="orden" name="orden" required="required" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Proceso </label>
-                        <select name="procesoId" class="form-control procesoId">
+                        <select name="procesoId" class="form-control">
                             <option value="">-Selecciona un proceso-</option>
                             <?php foreach ($proceso as $p): ?>
-                                <option value="<?php echo $p->procesoId ?>"><?php echo $p->nombreProceso ?></option>
+                                <option value="<?= $p->procesoId ?>"><?= $p->nombreProceso ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -117,7 +117,7 @@
                         <select name="proceso_Id" class="form-control proceso_Id">
                             <option value="">-Selecciona un proceso-</option>
                             <?php foreach ($proceso as $p): ?>
-                                <option value="<?php echo $p->procesoId ?>"><?php echo $p->nombreProceso ?></option>
+                                <option value="<?= $p->procesoId ?>"><?= $p->nombreProceso ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

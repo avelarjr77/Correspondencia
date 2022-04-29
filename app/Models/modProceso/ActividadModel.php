@@ -5,21 +5,28 @@ use CodeIgniter\Model;
 
 class ActividadModel extends Model{
 
+    protected $table = 'wk_actividad';
+    protected $primaryKey = 'actividadId';
+    protected $allowedFields = ['actividadId', 'nombreActividad', 'descripcion', 'etapaId'];
+
     //MODELO PARA LISTAR PROCESO
     public function listarActividad()
     {
-        $actividad =  $this->db->query("SELECT a.actividadId as 'id', a.nombreActividad as 'nombre',a.descripcion as 'descripcion', p.nombreEtapa as 'etapa'
-                                      FROM  wk_actividad a 
-                                      INNER JOIN wk_etapa p ON a.etapaId = p.etapaId
-                                      ORDER BY a.actividadId");
-        return $actividad->getResult();
+        return $this->asObject()
+        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa'")
+        ->join('wk_etapa e','e.etapaId = wk_actividad.etapaId')
+        ->orderBy('wk_actividad.actividadId')
+        ->findAll();
     }
     
     //MODELO PARA LISTAR TIPO ETAPA
     public function listarEtapa()
     {
-        $etapa =  $this->db->query('SELECT*FROM  wk_etapa');
-        return $etapa->getResult();
+        return $this->asObject()
+        ->select("*")
+        ->from('wk_etapa')
+        ->orderBy('wk_etapa.etapaId')
+        ->findAll();
     }
 
     //MODELO PARA AGREGAR PROCESO

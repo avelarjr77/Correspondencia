@@ -28,12 +28,12 @@
                 <tbody>
                     <?php foreach($datos as $key): ?>
                     <tr>
-                        <td><?php echo $key->id ?></td>
-                        <td><?php echo $key->nombre ?></td>
-                        <td><?php echo $key->tipoProceso ?></td>
+                        <td><?= $key->id ?></td>
+                        <td><?= $key->nombre ?></td>
+                        <td><?= $key->tipoProceso ?></td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoProceso="<?php echo $key->tipoProceso ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                            <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-tipoProceso="<?= $key->tipoProceso ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                            <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 
@@ -66,7 +66,7 @@
                         <select name="tipoProcesoId" class="form-control tipoProcesoId">
                             <option value="">-Selecciona un tipo de proceso-</option>
                             <?php foreach ($tipoProceso as $tp): ?>
-                                <option value="<?php echo $tp->tipoProcesoId ?>"><?php echo $tp->tipoProceso ?></option>
+                                <option value="<?= $tp->tipoProcesoId ?>"><?= $tp->tipoProceso ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -105,7 +105,7 @@
                         <select name="tipoProcesoId" class="form-control tipoProcesoId">
                             <option value="">-Selecciona un tipo de proceso-</option>
                             <?php foreach ($tipoProceso as $tp): ?>
-                                <option value="<?php echo $tp->tipoProcesoId ?>"><?php echo $tp->tipoProceso ?></option>
+                                <option value="<?= $tp->tipoProcesoId ?>"><?= $tp->tipoProceso ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

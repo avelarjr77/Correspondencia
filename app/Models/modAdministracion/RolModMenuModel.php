@@ -28,7 +28,7 @@ class RolModMenuModel extends Model
         ->from("co_modulo_menu mm")
         ->join('co_modulo m','mm.moduloId = m.moduloId')
         ->join('co_menu me','mm.menuId = me.menuId')
-        ->where($moduloId = 'mm.moduloId')
+        ->where(['mm.moduloId' => $moduloId])
         ->orderBy('mm.moduloMenuId')
         ->findAll();
     }
