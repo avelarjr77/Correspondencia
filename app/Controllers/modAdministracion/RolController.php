@@ -2,6 +2,7 @@
 
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\RolModel;
+use App\Models\modAdministracion\ModuloModel;
 
 class RolController extends BaseController{
 
@@ -11,12 +12,14 @@ class RolController extends BaseController{
 
         $nombreRol = new RolModel();
         $datos = $nombreRol->listarRol();
+        $Modulo = new ModuloModel();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
-            "mensaje" => $mensaje
+            "mensaje" => $mensaje,
+            "Modulo" => $Modulo->asObject()->where( 'moduloId', '2')->findAll()
         ];
 
         return view('modAdministracion/adminRol', $data);

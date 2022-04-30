@@ -4,6 +4,9 @@ namespace App\Models\modAdministracion;
 use CodeIgniter\Model;
 
 class ModuloModel extends Model{
+    protected $table = 'co_modulo';
+    protected $primaryKey = 'moduloId';
+    protected $allowedFiels=['nombre'];
 
     //MODELO PARA LISTAR MODULOS
     public function listarModulo()

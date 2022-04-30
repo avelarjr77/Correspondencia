@@ -3,6 +3,7 @@
 namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\IconoModel;
 use App\Models\modAdministracion\MenuSubmenuModel;
 
 class MenuSubmenuController extends BaseController
@@ -11,12 +12,13 @@ class MenuSubmenuController extends BaseController
     public function menu_submenu()
     {
         $menu = new MenuSubmenuModel();
+        $icono = new IconoModel();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "menu" => $menu->asObject()
-            ->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
+            "menu" => $menu->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
+            "icono" => $icono->asObject()->findAll(),
             "mensaje"   => $mensaje
         ];
 

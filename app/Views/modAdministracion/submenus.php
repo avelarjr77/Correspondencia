@@ -66,14 +66,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- FORMULARIO PARA AGREGAR MENU -->
+                        <!-- FORMULARIO PARA EDITAR MENU -->
                         <div class="x_content">
                             <form method="POST" action="<?php echo base_url() . '/agregarSubMenu' ?>">
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú<span class="required"></span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control ">
+                                        <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -113,7 +113,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="x_content">
-                        <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="nombreSubmenu"></i></b> ?</h4>
+                        <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="menuId"></i></b> ?</h4>
                         </div>
                         <!-- end form for validations -->
                     </div>
@@ -141,6 +141,13 @@
                     <div class="modal-body">
                         <!-- FORMULARIO PARA AGREGAR MENU -->
                         <form method="POST" action="<?php echo base_url() . '/actualizarSubmenu' ?>">
+                        <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Menú<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" id="menuId" name="menuId" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control menuId " readonly>
+                                    </div>
+                                </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú <span class="required"></span>
                                 </label>
@@ -209,18 +216,7 @@
 <script>
     $(document).ready(function() {
 
-        // get Edit Product
-        $('.btn-edit').on('click', function() {
-            // get data from button edit
-            const id = $(this).data('id');
-            const nombre = $(this).data('nombre');
-
-            // Set data to Form Edit
-            $('.subMenuId').val(id);
-            $('.nombreSubmenu').val(nombre);
-            // Call Modal Edit
-            $('#editSubMenu').modal('show');
-        });
+        
 
         // get Delete Product
         $('.btn-delete').on('click', function() {
@@ -245,10 +241,12 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
+            const menuId = $(this).data('menuId');
 
             // Set data to Form Edit
             $('.subMenuId').val(id);
             $('.nombreSubmenu').val(nombre);
+            $('.menuId').val(menuId);
             // Call Modal Edit
             $('#editSubmenu').modal('show');
         });

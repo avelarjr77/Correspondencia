@@ -8,6 +8,7 @@ class RolModMenuModel extends Model
 {
     protected $table = 'co_rol_modulo_menu';
     protected $primaryKey = 'rolModuloMenuId';
+    protected $allowedFiels=['', ''];
 
     public function getRolMM()
     {

@@ -48,7 +48,7 @@
 
             <!--MODAL -->
             
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="rolModulo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -67,22 +67,20 @@
                             <input type="text" id="rolId" name="rolId" class="form-control rolId" readonly>
                         </div><br>
                         
-                        <div class="form-group">
-                            <input type="text" id="modulo" name="modulo" class="form-control moduloId" hidden>
+                        <div class="form-group ">
+                        <label>Listados de Menú en <i id="nomModulo"></label>
+                            <?php foreach ($menu as $key) : ?>
+                                <div class="checkbox">
+                                    <label class="">
+                                        <div class="icheckbox_flat-green checked" style="position: relative;"><input type="checkbox" class="flat"  style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> 
+                                        <?php echo $key->nombreMenu ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
 
                         <div class="form-group">
-                            <label>Listado de menús en <i id="nomModulo"></i></label>
-                            <select name="menuId" class="form-control menuId">
-                                <option value="">-Selecciona un menú-</option>
-                                <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?php echo $menu->id ?>"><?php echo $menu->nomMenu ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>         
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                     <br>
@@ -138,7 +136,7 @@
 
            //console.log(modulo);
 
-            $.ajax({
+           /* $.ajax({
                 data: {
                     'mod': modulo
                 }, 
@@ -156,14 +154,14 @@
                 complete: function(){
                    
                 } 
-            });
+            });*/
 
             $('#nomRol').html(rol);
             $('#nRol').html(rol);
             $('#nomModulo').html(modulo);
             $('#nomMenu').html(menu);
             // Call Modal Edit
-            $('#editModal').modal('show');
+            $('#rolModulo').modal('show');
 
         });
 

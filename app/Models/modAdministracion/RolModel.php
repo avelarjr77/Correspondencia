@@ -4,6 +4,9 @@ namespace App\Models\modAdministracion;
 use CodeIgniter\Model;
 
 class RolModel extends Model{
+    protected $table = 'co_modulo';
+    protected $primaryKey = 'moduloId';
+    protected $allowedFiels=['nombre'];
 
     //MODELO PARA LISTAR ROLES
     public function listarRol()

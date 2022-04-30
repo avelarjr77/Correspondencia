@@ -73,8 +73,8 @@
                                 <label>Seleccionar Icono:</label>
                                 <select name="iconoId"  required="required" class="form-control iconoId">
                                     <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($menu as $key) : ?>
-                                        <option value="<?php echo $key->iconoId ?>"> <?php echo $key->nombreIcono ?></option>
+                                    <?php foreach ($icono as $key) : ?>
+                                        <option value="<?php echo $key->iconoId ?>"><span><i class="<?php echo $key->nombreIcono ?>"></i></span> <?php echo $key->nombreIcono ?> </i></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -137,7 +137,7 @@
                                 <label>Seleccionar Icono:</label>
                                 <select name="iconoId" class="form-control iconoId">
                                     <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($menu as $key) : ?>
+                                    <?php foreach ($icono as $key) : ?>
                                         <option value="<?php echo $key->iconoId ?>"> <?php echo $key->nombreIcono ?></option>
                                     <?php endforeach; ?>
                                 </select>
