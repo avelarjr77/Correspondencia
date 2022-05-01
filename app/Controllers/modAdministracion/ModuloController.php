@@ -9,12 +9,11 @@ class ModuloController extends BaseController{
     public function adminModulo(){
 
         $Modulo = new ModuloModel();
-        $datos = $Modulo->listarModulo();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
+            "Modulo" => $Modulo->asObject()->findAll(),
             "mensaje" => $mensaje
         ];
 

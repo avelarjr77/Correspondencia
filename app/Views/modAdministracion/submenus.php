@@ -41,7 +41,7 @@
                                 <td><?php echo $key->nombreArchivo ?></td>
                                 <td>
                                     <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                    <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/modAdministracion/SubMenuController/eliminarSubmenu/' . $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/modAdministracion/SubMenuController/eliminarSubmenu' . $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -72,14 +72,14 @@
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú<span class="required"></span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 ">
+                                    <div class="col-md-9 col-sm-6 ">
                                         <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar el Menu<span class="required"></span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 ">
+                                    <div class="col-md-9 col-sm-6 ">
                                         <select name="menuId" class="form-control">
                                             <option value="">-Selecciona un Menú-</option>
                                             <?php foreach ($datos as $key) : ?>
@@ -88,6 +88,14 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del archivo:<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <input type="text" id="nombreArchivo" name="nombreArchivo" placeholder="/CarpetaControlador/NombreControlador" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
+                                    </div>
+                                </div>
+
                                 <button class="btn btn-primary" type="submit">Agregar</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <br>
@@ -168,6 +176,13 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del archivo:<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <input type="text" id="nombreArchivo" name="nombreArchivo" placeholder="/CarpetaControlador/NombreControlador" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
+                                    </div>
+                                </div>
                             <div class="modal-footer">
                                 <input type="hidden" name="subMenuId" class="subMenuId">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -247,6 +262,7 @@
             $('.subMenuId').val(id);
             $('.nombreSubmenu').val(nombre);
             $('.menuId').val(menuId);
+            $('.nombreArchivo').val(nombreArchivo);
             // Call Modal Edit
             $('#editSubmenu').modal('show');
         });

@@ -21,13 +21,13 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre de Modulo</th>
-                            <th scope="col" colspan="2">Acción</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($datos as $modulo): ?>
+                        <?php foreach($Modulo as $modulo): ?>
                             <tr>
-                            <td><?php echo $modulo->moduloId ?></td>
+                                <td><?php echo $modulo->moduloId ?></td>
                             <td><?php echo $modulo->nombre ?></td>
                         <td>
                             <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $modulo->moduloId ?>" data-nombremod="<?php echo $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>

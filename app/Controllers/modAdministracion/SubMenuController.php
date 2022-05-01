@@ -30,7 +30,8 @@ class SubMenuController extends BaseController
     {
         $datos = [
             "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId']
+            "menuId"            => $_POST['menuId'],
+            "nombreArchivo"     => $_POST['nombreArchivo']
         ];
 
         $submenu = new SubmenuModel();
@@ -47,7 +48,8 @@ class SubMenuController extends BaseController
     {
         $datos = [
             "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId']
+            "menuId"            => $_POST['menuId'],
+            "nombreArchivo"     => $_POST['nombreArchivo']
         ];
 
         $subMenuId = $_POST['subMenuId'];

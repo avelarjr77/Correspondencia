@@ -15,6 +15,11 @@ class RolModel extends Model{
         return $wk_rol->getResult();
     }
 
+    public function getMenu($rolId)
+    {
+        $this->builder()->where('rolId', $rolId);
+        return $this;
+    }
 
     //MODELO PARA AGREGAR ROL
     public function insertar($datos){
