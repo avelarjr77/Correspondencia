@@ -32,7 +32,7 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?></td>
                                                         <td>
-                                                            <button href="#" onclick="pasarModulo(<?= $key->modulo?>)" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</button>
+                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-moduloId="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -75,9 +75,9 @@
                             <label>Listado de menús en <i id="nomModulo"></i></label>
                             <select name="menuId" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
-                                <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?= $menu->id ?>"><?= $menu->nomMenu ?></option>
-                                <?php endforeach; ?>
+                                <!--<php foreach ($modMenu as $menu): ?>
+                                    <option value="<= $menu->id ?>"><= $menu->nomMenu ?></option>
+                                <php endforeach; ?>-->
                             </select>
                         </div>         
 
@@ -119,18 +119,6 @@
 
 <script>
 
-    /*function pasarModulo(e){
-        console.log(e);
-        $.ajax({
-            type:"GET",
-            url: "<php echo base_url() . '/modAdministracion/RolModMenuController/index' ?>",
-            data:{'moduloId' : e},
-            success:function(dato){
-                alert(dato["modMenu"]);
-            }
-        });
-    }*/
-
     $(document).ready(function(){
 
         // get Edit Product
@@ -139,6 +127,7 @@
             var id = $(this).data('id');
             var rol = $(this).data('rol');
             var modulo = $(this).data('modulo');
+            var moduloId = $(this).data('moduloId');
             var menu = $(this).data('menu');
             //const nombre = $(this).data('nombre');
 
@@ -155,12 +144,16 @@
             //let url="<php echo base_url('rolModMenu'); ?>";
             //let url="<= base_url().route_to('rolModMenu') ?>";
 
-            $.ajax(
-                type:"GET",
-                url: "<?php echo base_url() . '/modAdministracion/RolModMenuController/rolModMenu' ?>",
-                data:{'moduloId' : modulo},
-                success:function(dato){
-                    alert(dato["modMenu"]);
+            /*var data = 
+                'moduloId' : $(this).data('moduloId')
+            }*/
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url().route_to('editRolMM') ?>",
+                data: {'moduloId' : $(this).data('moduloId')},
+                success:function(data){
+                    alert(data);
                 }
             }); 
 

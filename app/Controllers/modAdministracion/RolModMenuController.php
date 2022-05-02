@@ -14,38 +14,50 @@ class RolModMenuController extends BaseController
         $rolModMenu = new RolModMenuModel();
 
         //$moduloId = $this->request->post();;
-        $moduloId = $this->request->getVar('moduloId');
+        //$moduloId = $this->request->getVar('moduloId');
         //$moduloId = $POST['moduloId'];
         //$data['users'] = $model->getUsers();
 
         //var_dump($moduloId);
 
         $datos = $rolModMenu->getRolMM();
-        $modMenu = $rolModMenu->getModMenu($moduloId);
+        //$modMenu = $rolModMenu->getModMenu($moduloId);
 
         $dato = [
-            "datos" => $datos,
-            "modMenu" => $modMenu
+            "datos" => $datos
         ];
         //var_dump($dato);
 
         return view('modAdministracion/rolModMenu',$dato);
     }
 
-
-
-    //FUNCION PARA TRAER EL NOMBRE DEL ROL
-    public function obtenerId($rolModuloMenuId)
+    public function modulo()
     {
-        $data = ["rolModuloMenuId" => $rolModuloMenuId];
-        $rolModMenu = new RolModMenuModel();
-        $respuesta = $rolModMenu->obtenerId($data);//fun editar
+        //$moduloId = $POST['moduloId'];
+        //$moduloId = $this->request->getVar('moduloId');
 
-        $datos = [
-            "datos" =>$respuesta
+        $rolMM = new RolModMenuModel();
+        /*$respuesta = $rolMM->getModMenu($moduloId);
+
+        $dato = ["modMenu" => $respuesta];
+        return view('modAdministracion/editRolMM',$dato);*/
+
+       
+        $moduloId = $this->request->getVar('moduloId');
+        //print_r($moduloId);
+
+        $modMenu = $rolMM->getModMenu($moduloId);
+
+        $id="id";
+
+        $data = [
+            "list" => $modMenu,
+            "moduloId" => $moduloId,
+            "id" =>$id
         ];
-
-        return view('modAdministracion/editRolMM', $datos);
+        
+        echo json_encode($data);
+        
     }
 
 }

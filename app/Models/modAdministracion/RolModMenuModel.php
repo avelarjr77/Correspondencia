@@ -12,7 +12,7 @@ class RolModMenuModel extends Model
 
     public function getRolMM(){
         return $this->asObject()
-        ->select("co_rol_modulo_menu.rolModuloMenuId as 'id', r.nombreRol as 'rol', mod.nombre as 'modulo', m.nombreMenu as 'menu'")
+        ->select("co_rol_modulo_menu.rolModuloMenuId as 'id', r.nombreRol as 'rol', mod.nombre as 'modulo', m.nombreMenu as 'menu', mod.moduloId as 'moduloId'")
         ->join('wk_rol r','r.rolId = co_rol_modulo_menu.rolId')
         ->join('co_modulo_menu mm','mm.moduloMenuId = co_rol_modulo_menu.moduloMenuId')
         ->join('co_modulo mod','mod.moduloId = mm.moduloId')
