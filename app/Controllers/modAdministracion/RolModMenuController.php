@@ -11,31 +11,21 @@ use App\Models\modAdministracion\MenuSubmenuModel;
 class RolModMenuController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
-    public function rolModMenu()
+    public function index()
     {
         $rolModMenu = new RolModMenuModel();
-        $Modulo = new ModuloModel();
-        $menu = new MenuSubmenuModel();
-       
-
-        $moduloId = $this->request->getVar('mod');
-        //var_dump($moduloId);
-        //$moduloId = $data['mod'];
+        $moduloId = $this->request->getVar('moduloId');
 
         $datos = $rolModMenu->getRolMM();
-        $modMenu = $rolModMenu->getModMenu();
+        $modMenu = $rolModMenu->getModMenu($moduloId);
 
         $dato = [
-            "datos" =>$datos,
-            "modMenu" =>$modMenu,
-            "Modulo" => $Modulo->asObject()->findAll(),
-            "menu" => $menu->asObject()->findAll()
+            "datos" => $datos,
+            "modMenu" => $modMenu
         ];
 
         return view('modAdministracion/rolModMenu',$dato);
     }
-
-
 
     //FUNCION PARA TRAER EL NOMBRE DEL ROL
     public function obtenerId($rolModuloMenuId)

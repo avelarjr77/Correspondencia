@@ -48,7 +48,7 @@ $routes->get('/eliminarSubmenu/(:any)', 'modAdministracion/SubMenuController::el
 
 //ROL-MODULO-MENU
 $routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
-$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
+$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
 $routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
 $routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarRolMM');
 
@@ -128,6 +128,7 @@ $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
 $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
 $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
 
+$routes->get('/admin_template', 'template/TemplateController::admin_template', ['as'=> 'admin_template']);
 
 /*
  * --------------------------------------------------------------------

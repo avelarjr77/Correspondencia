@@ -4,6 +4,7 @@ namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\SubmenuModel;
+use App\Models\modAdministracion\MenuSubmenuModel;
 
 class SubMenuController extends BaseController
 {
@@ -11,6 +12,7 @@ class SubMenuController extends BaseController
     public function submenus()
     {
         $submenu = new SubmenuModel();
+        $menu = new MenuSubmenuModel();
         
         $datos = $submenu->listarMenu();
 
@@ -19,6 +21,7 @@ class SubMenuController extends BaseController
         $data = [
             "datos"     => $datos,
             "submenu"     => $submenu->select()->asObject()->join('co_menu','co_menu.menuId = co_submenu.menuId')->findAll(),
+            "menu"     => $menu->select()->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
             "mensaje"   => $mensaje
         ];
 
