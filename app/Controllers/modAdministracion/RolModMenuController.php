@@ -10,6 +10,7 @@ class RolModMenuController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
     public function index()
+    
     {
         $rolModMenu = new RolModMenuModel();
 
