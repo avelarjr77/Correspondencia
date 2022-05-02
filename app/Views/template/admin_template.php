@@ -52,7 +52,6 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
             <br />
 
             <!-- sidebar menu -->
