@@ -32,7 +32,7 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?></td>
                                                         <td>
-                                                            <button href="#" onclick="pasarModulo(<?= $key->modulo ?>)" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i> Agregar Menú</button>
+                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-moduloId="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i> Agregar Menú</button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -75,9 +75,9 @@
                                     <label>Listado de menús en <i id="nomModulo"></i></label>
                                     <select name="menuId" class="form-control menuId">
                                         <option value="">-Selecciona un menú-</option>
-                                        <?php foreach ($modMenu as $menu) : ?>
-                                            <option value="<?= $menu->id ?>"><?= $menu->nomMenu ?></option>
-                                        <?php endforeach; ?>
+                                        <!--<php foreach ($modMenu as $menu): ?>
+                                    <option value="<= $menu->id ?>"><= $menu->nomMenu ?></option>
+                                <php endforeach; ?>-->
                                     </select>
                                 </div>
 
@@ -120,53 +120,65 @@
 <script>
     $(document).ready(function() {
 
-                // get Edit Product
-                $('.btn-edit').on('click', function() {
-                    // get data from button edit
-                    var id = $(this).data('id');
-                    var rol = $(this).data('rol');
-                    var modulo = $(this).data('modulo');
-                    var menu = $(this).data('menu');
-                    //const nombre = $(this).data('nombre');
+        // get Edit Product
+        $('.btn-edit').on('click', function() {
+            // get data from button edit
+            var id = $(this).data('id');
+            var rol = $(this).data('rol');
+            var modulo = $(this).data('modulo');
+            var moduloId = $(this).data('moduloId');
+            var menu = $(this).data('menu');
+            //const nombre = $(this).data('nombre');
 
-                    // Set data to Form Edit
-                    $('.rolId').val(rol);
-                    $('.menuId').val(menu).trigger('change');
-                    $('.moduloId').val(modulo);
-                    $('.rolModuloMenuId').val(id);
+            // Set data to Form Edit
+            $('.rolId').val(rol);
+            $('.menuId').val(menu).trigger('change');
+            $('.moduloId').val(modulo);
+            $('.rolModuloMenuId').val(id);
+            //$('.nombreRol').val(nombre);*/
 
+            //console.log(modulo);
+            //var mod = $('#mod').val();
+            //console.log(modulo);
+            //let url="<php echo base_url('rolModMenu'); ?>";
+            //let url="<= base_url().route_to('rolModMenu') ?>";
 
-                    $('#nomRol').html(rol);
-                    $('#nRol').html(rol);
-                    $('#nomModulo').html(modulo);
-                    $('#nomMenu').html(menu);
-                    // Call Modal Edit
-                    $('#editModal').modal('show');
+            /*var data = 
+                'moduloId' : $(this).data('moduloId')
+            }*/
 
-                });
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url() . route_to('editRolMM') ?>",
+                data: {
+                    'moduloId': $(this).data('moduloId')
+                },
+                success: function(data) {
+                    alert(data);
+                }
+            });
 
-                // get Delete Product
-                $('.btn-delete').on('click', function() {
-                    // get data from button edit
-                    const id = $(this).data('id');
-                    const nombre = $(this).data('nombre');
-                    // Set data to Form Edit
-                    $('.rolId').val(id);
-                    $('.rol').html(nombre);
-                    // Call Modal Edit
-                    $('#eliminarModal').modal('show');
-                });
-</script>
-<script>
-    $.ajax(
-    type: "GET",
-    url: "<?php echo base_url() . '/modAdministracion/RolModMenuController/rolModMenu' ?>",
-    data: {
-        'moduloId': modulo
-    },
-    success: function(dato) {
-        alert(dato["modMenu"]);
-    }
+            $('#nomRol').html(rol);
+            $('#nRol').html(rol);
+            $('#nomModulo').html(modulo);
+            $('#nomMenu').html(menu);
+            // Call Modal Edit
+            $('#editModal').modal('show');
+
+        });
+
+        // get Delete Product
+        $('.btn-delete').on('click', function() {
+            // get data from button edit
+            const id = $(this).data('id');
+            const nombre = $(this).data('nombre');
+            // Set data to Form Edit
+            $('.rolId').val(id);
+            $('.rol').html(nombre);
+            // Call Modal Edit
+            $('#eliminarModal').modal('show');
+        });
+
     });
 </script>
 
