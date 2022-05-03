@@ -1,0 +1,156 @@
+CRITICAL - 2022-05-02 12:04:00 --> syntax error, unexpected '$request' (T_VARIABLE), expecting function (T_FUNCTION) or const (T_CONST)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-02 12:04:20 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-05-02 12:09:14 --> Undefined variable: POST
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 37, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:34:31 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 54, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:34:55 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 54, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:35:13 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 54, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:37:01 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(55): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 55, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:37:26 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(55): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 55, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:38:22 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(55): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 55, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 13:42:06 --> Argument 1 passed to App\Controllers\modAdministracion\RolModMenuController::__construct() must be an instance of App\Controllers\modAdministracion\RequestInterface, instance of CodeIgniter\HTTP\IncomingRequest given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php on line 74
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(74): App\Controllers\modAdministracion\RolModMenuController->__construct(Object(CodeIgniter\HTTP\IncomingRequest))
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(264): include_once('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#5 [internal function]: spl_autoload_call('App\\Controllers...')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-02 13:42:26 --> Too few arguments to function App\Controllers\modAdministracion\RolModMenuController::__construct(), 0 passed in C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php on line 802 and exactly 1 expected
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(802): App\Controllers\modAdministracion\RolModMenuController->__construct()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(403): CodeIgniter\CodeIgniter->createController()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-02 13:57:02 --> Undefined variable: request
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 50, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 14:01:00 --> syntax error, unexpected ':', expecting ')'
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-02 14:01:34 --> syntax error, unexpected ''moduloId'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-02 14:47:03 --> Undefined property: App\Controllers\modAdministracion\RolModMenuController::$r
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 57, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 14:47:15 --> syntax error, unexpected '.'
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-05-02 14:50:48 --> Undefined property: App\Controllers\modAdministracion\RolModMenuController::$r
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 57, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 14:53:48 --> Undefined property: App\Controllers\modAdministracion\RolModMenuController::$r
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 57, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 14:53:55 --> Undefined property: App\Controllers\modAdministracion\RolModMenuController::$r
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 57, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->modulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-02 17:33:30 --> Undefined variable: list
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modAdministracion\rolModMenu.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 78, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(23): view('modAdministraci...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

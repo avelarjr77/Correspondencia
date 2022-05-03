@@ -12,7 +12,7 @@ class RolModMenuModel extends Model
 
     public function getRolMM(){
         return $this->asObject()
-        ->select("co_rol_modulo_menu.rolModuloMenuId as 'id', r.nombreRol as 'rol', mod.nombre as 'modulo', m.nombreMenu as 'menu', mod.moduloId as 'moduloId'")
+        ->select("co_rol_modulo_menu.rolModuloMenuId as 'id', r.nombreRol as 'rol', mod.nombre as 'modulo', m.nombreMenu as 'menu', mm.moduloId")
         ->join('wk_rol r','r.rolId = co_rol_modulo_menu.rolId')
         ->join('co_modulo_menu mm','mm.moduloMenuId = co_rol_modulo_menu.moduloMenuId')
         ->join('co_modulo mod','mod.moduloId = mm.moduloId')
@@ -24,11 +24,11 @@ class RolModMenuModel extends Model
     public function getModMenu($moduloId)
     {
         return $this->asObject()
-        ->select("mm.moduloMenuId as 'id', m.nombre as 'nomModulo', me.nombreMenu as 'nomMenu'")
+        ->select("mm.moduloMenuId as 'id', me.nombreMenu as 'nomMenu'")
         ->from("co_modulo_menu mm")
         ->join('co_modulo m','mm.moduloId = m.moduloId')
         ->join('co_menu me','mm.menuId = me.menuId')
-        ->where(['mm.moduloId' => $moduloId])
+        ->where('mm.moduloId', $moduloId)
         ->orderBy('mm.moduloMenuId')
         ->findAll();
     }

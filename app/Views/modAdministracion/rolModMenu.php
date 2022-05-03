@@ -32,7 +32,7 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?></td>
                                                         <td>
-                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-moduloId="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</button>
+                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-mod="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -73,7 +73,7 @@
 
                         <div class="form-group">
                             <label>Listado de menús en <i id="nomModulo"></i></label>
-                            <select name="menuId" class="form-control menuId">
+                            <select name="menuId" id="menuId" class="form-control menuId">
                                 <option value="">-Selecciona un menú-</option>
                                 <!--<php foreach ($modMenu as $menu): ?>
                                     <option value="<= $menu->id ?>"><= $menu->nomMenu ?></option>
@@ -125,35 +125,33 @@
         $('.btn-edit').on('click',function(){
             // get data from button edit
             var id = $(this).data('id');
-            var rol = $(this).data('rol');
             var modulo = $(this).data('modulo');
-            var moduloId = $(this).data('moduloId');
+            var moduloId = $(this).data('mod');
             var menu = $(this).data('menu');
+            var rol = $(this).data('rol');
             //const nombre = $(this).data('nombre');
 
             // Set data to Form Edit
             $('.rolId').val(rol);
-            $('.menuId').val(menu).trigger('change');
-            $('.moduloId').val(modulo);
+            //$('.menuId').val(menu).trigger('change');
             $('.rolModuloMenuId').val(id);
             //$('.nombreRol').val(nombre);*/
 
-           //console.log(modulo);
-            //var mod = $('#mod').val();
-            //console.log(modulo);
-            //let url="<php echo base_url('rolModMenu'); ?>";
-            //let url="<= base_url().route_to('rolModMenu') ?>";
-
-            /*var data = 
-                'moduloId' : $(this).data('moduloId')
-            }*/
-
+            //console.log(moduloId, id, rol, modulo, menu); 
+            var menus = $("#menuId");
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "<?= base_url().route_to('editRolMM') ?>",
-                data: {'moduloId' : $(this).data('moduloId')},
+                data: {moduloId : moduloId},
                 success:function(data){
                     alert(data);
+
+                    /*$(data).each(function(i,v){
+                        menus.append('<option value="' + v.id+ '">' + v.nomMenu + '</option>')
+                    });*/
+
+                    var select = '<option value="'+data[list]+'">'+data+'</option>';
+                    $('#menuId').html(select);
                 }
             }); 
 
