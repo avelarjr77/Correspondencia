@@ -48,11 +48,11 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>John Doe</h2>
+                <h2><?php echo session('usuario') ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
-
+            
             <br />
 
             <!-- sidebar menu -->
