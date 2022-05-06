@@ -104,6 +104,12 @@ $routes->post('/crearUsuario', 'modUsuario/UsuarioController::crear');
 $routes->post('/actualizarUsuario', 'modUsuario/UsuarioController::actualizar');
 $routes->post('/eliminarUsuario', 'modUsuario/UsuarioController::eliminar');
 
+//TIPO DE ENVIO
+$routes->get('/tipoEnvio', 'modUsuario/TipoEnvioController::tipoEnvio', ['as'=> 'tipoEnvio']);
+$routes->post('/crearTipoEnvio', 'modUsuario/TipoEnvioController::crear');
+$routes->post('/eliminarTipoEnvio', 'modUsuario/TipoEnvioController::eliminar');
+$routes->post('/actualizarTipoEnvio', 'modUsuario/TipoEnvioController::actualizar');
+
 //PROCESO
 $routes->get('/proceso', 'modProceso/ProcesoController::proceso', ['as'=> 'proceso']);
 $routes->post('/crearProceso', 'modProceso/ProcesoController::crear');
