@@ -94,7 +94,7 @@
               <!-- TABS CONTENT LOGIN -->
               <div id="login-tab-content" class="active">
                 <form class="login-form" action="<?= base_url().route_to('home') ?>" method="post">
-                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario / Carnet">
+                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario">
                   <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña">
                 <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 " >INGRESAR</button>
                 </form>

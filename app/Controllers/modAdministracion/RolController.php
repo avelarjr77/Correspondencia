@@ -56,19 +56,6 @@ class RolController extends BaseController{
         }
     }
 
-    //Funcion para EDITAR
-    /*public function obtenerRol($nombres)
-    {
-        $data = [ "rolId" => $nombres];
-
-        $nombreRol = new RolModel();
-        $respuesta = $nombreRol->obtenerRol($data);
-
-        $datos = ["datos" => $respuesta];
-
-        return view('modAdministracion/actualizarRol', $datos);
-    }*/
-
     public function actualizar()
     {
         $datos = [

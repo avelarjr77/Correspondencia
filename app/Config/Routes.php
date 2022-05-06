@@ -46,8 +46,11 @@ $routes->post('/actualizarSubmenu', 'modAdministracion/SubMenuController::actual
 
 //ROL-MODULO-MENU
 $routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
-$routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
+$routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar');
 $routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::modulo', ['as'=> 'editRolMM']);
+$routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
+$routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
+
 
 //MODULO
 $routes->get('/adminModulo', 'modAdministracion/ModuloController::adminModulo', ['as'=> 'adminModulo']);
@@ -124,6 +127,18 @@ $routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 
 $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
 $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
 $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
+
+//INSTITUCION
+$routes->get('/institucion', 'modProceso/InstitucionController::institucion', ['as'=> 'institucion']);
+$routes->post('/crearInstitucion', 'modProceso/InstitucionController::crear');
+$routes->post('/actualizarInstitucion', 'modProceso/InstitucionController::actualizar');
+$routes->post('/eliminarInstitucion', 'modProceso/InstitucionController::eliminar');
+
+//TIPO DOCUMENTO
+$routes->get('/tipoDocumento', 'modProceso/TipoDocumentoController::tipoDocumento', ['as'=> 'tipoDocumento']);
+$routes->post('/crearTipoDocumento', 'modProceso/TipoDocumentoController::crear');
+$routes->post('/actualizarTipoDocumento', 'modProceso/TipoDocumentoController::actualizar');
+$routes->post('/eliminarTipoDocumento', 'modProceso/TipoDocumentoController::eliminar');
 
 
 /*

@@ -5,7 +5,7 @@ use App\Models\modProceso\TipoProcesoModel;
 
 class TipoProcesoController extends BaseController{
 
-    //LISTAR PROCESO
+    //LISTAR TIPO PROCESO
 
     public function tipoProceso(){
 
@@ -20,9 +20,9 @@ class TipoProcesoController extends BaseController{
         ];
 
         return view('modProceso/tipoProceso', $data);
-        }
+    }
 
-    //CREAR PROCESO
+    //CREAR TIPO PROCESO
     public function crear(){
 
         $datos = [
@@ -39,7 +39,7 @@ class TipoProcesoController extends BaseController{
         } 
     } 
 
-    //ELIMINAR PROCESO
+    //ELIMINAR TIPO PROCESO
     public function eliminar(){
 
         $tipoProcesoId = $_POST['tipoProcesoId'];
@@ -56,7 +56,7 @@ class TipoProcesoController extends BaseController{
         }
     }
 
-    //ELIMINAR PROCESO
+    //EDITAR TIPO PROCESO
     public function actualizar()
     {
         $datos = [

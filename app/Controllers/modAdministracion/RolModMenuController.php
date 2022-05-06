@@ -10,12 +10,10 @@ class RolModMenuController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
     public function index()
-    
     {
         $rolModMenu = new RolModMenuModel();
 
         $datos = $rolModMenu->getRolMM();
-        //$modMenu = $rolModMenu->getModMenu($moduloId);
 
         $dato = [
             "datos" => $datos
@@ -27,20 +25,52 @@ class RolModMenuController extends BaseController
     public function modulo()
     {
         $rolMM = new RolModMenuModel();
-
        
         $moduloId = $this->request->getVar('moduloId');
-        //print_r($moduloId);
 
         $modMenu = $rolMM->getModMenu($moduloId);
-
-        $id ="id";
-
-        $data = [
-            "list" => $modMenu
-        ];
         
-        echo json_encode($data);
+        echo json_encode($modMenu);
+        
+    }
+
+    public function menu()
+    {
+        $rolM = new RolModMenuModel();
+
+        $menuId = $this->request->getVar('menuId');
+
+        $rolMenu = $rolM->getRolMenu($menuId);
+        
+        echo json_encode($rolMenu);
+        
+    }
+
+    public function editR()
+    {
+        $rolMod = new RolModMenuModel();
+
+        $rolId = $this->request->getVar('rolId');
+
+        //$rolId= 2;
+
+        $menu = $_POST['menu'];
+
+        for ($i=0; $i < count($menu); $i++) 
+        {
+            $data = array('rolId' => $rolId, 'moduloMenuId' => $menu[$i]);
+            $editar = $rolMod->insertar($data);
+        }
+
+        if ($editar> 0) {
+            $r = "Exitoso";
+        }else{
+            $r = "Falló";
+        }
+
+        return redirect()->to(base_url(). '/rolModMenu');
+        
+        echo json_encode($r);
         
     }
 
