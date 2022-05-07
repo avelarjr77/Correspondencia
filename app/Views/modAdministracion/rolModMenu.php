@@ -190,7 +190,7 @@
 
                     $.each(dataObj, function(index, val) {
                         roles.append('<td>'+val.menu+'</td>'+
-                        '<td><button id"borrar" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td>')
+                        '<td><button href"/eliminarR/'+val.id+'" id"borrar" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td>')
                         
                     });
                 }

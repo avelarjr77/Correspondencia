@@ -50,6 +50,7 @@ $routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar'
 $routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::modulo', ['as'=> 'editRolMM']);
 $routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
 $routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
+$routes->get('/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
 
 
 //MODULO
@@ -145,6 +146,12 @@ $routes->get('/tipoDocumento', 'modProceso/TipoDocumentoController::tipoDocument
 $routes->post('/crearTipoDocumento', 'modProceso/TipoDocumentoController::crear');
 $routes->post('/actualizarTipoDocumento', 'modProceso/TipoDocumentoController::actualizar');
 $routes->post('/eliminarTipoDocumento', 'modProceso/TipoDocumentoController::eliminar');
+
+///TRANSACCION
+$routes->get('/transaccion', 'modTransaccion/TransaccionController::index', ['as'=> 'transaccion']);
+$routes->post('/crearTransaccion', 'modTransaccion/TransaccionController::crear');
+$routes->post('/actualizarTransaccion', 'modTransaccion/TransaccionController::actualizar');
+$routes->post('/eliminarTransaccion', 'modTransaccion/TransaccionController::eliminar');
 
 
 /*

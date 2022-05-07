@@ -50,9 +50,9 @@ class RolModMenuController extends BaseController
     {
         $rolMod = new RolModMenuModel();
 
-        $rolId = $this->request->getVar('rolId');
+        //$rolId = $this->request->getVar('rolId');
 
-        //$rolId= 2;
+        $rolId= 2;
 
         $menu = $_POST['menu'];
 
@@ -72,6 +72,22 @@ class RolModMenuController extends BaseController
         
         echo json_encode($r);
         
+    }
+
+    public function eliminar($id){
+
+        $rolModuloMenuId = $_POST['rolModuloMenuId'];
+
+        $nombre = new RolModMenuModel();
+        $data = ["rolModuloMenuId" => $rolModuloMenuId];
+
+        $respuesta = $nombreRol->eliminar($data);
+
+        if ($respuesta > 0){
+            return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','2');
+        } else {
+            return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','3');
+        }
     }
 
 }
