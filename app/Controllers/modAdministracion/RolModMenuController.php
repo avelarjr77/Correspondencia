@@ -22,8 +22,8 @@ class RolModMenuController extends BaseController
         return view('modAdministracion/rolModMenu',$dato);
     }
 
-    public function modulo()
-    {
+    /*public function modulo)
+    
         $rolMM = new RolModMenuModel();
        
         $moduloId = $this->request->getVar('moduloId');
@@ -32,6 +32,25 @@ class RolModMenuController extends BaseController
         
         echo json_encode($modMenu);
         
+    }*/
+
+    public function editar($moduloId, $rolId)
+    {
+        $rolModMenu = new RolModMenuModel();
+
+        //$moduloId = $this->request->getVar('moduloId');
+
+        $modMenu = $rolModMenu->getModMenu($moduloId);
+        $rolMenu = $rolModMenu->getrolMenu($rolId);
+
+        $dato = [
+            "modMenu" => $modMenu,
+            "rolMenu" => $rolMenu
+        ];
+
+        //return view('template/header');
+        return view('modAdministracion/editRolModMenu', $dato);
+       // return view('template/footer');
     }
 
     public function menu()
@@ -50,11 +69,8 @@ class RolModMenuController extends BaseController
     {
         $rolMod = new RolModMenuModel();
 
-        //$rolId = $this->request->getVar('rolId');
-
-        $rolId= 2;
-
         $menu = $_POST['menu'];
+        $rolId = $_POST['rolId'];
 
         for ($i=0; $i < count($menu); $i++) 
         {
@@ -62,23 +78,15 @@ class RolModMenuController extends BaseController
             $editar = $rolMod->insertar($data);
         }
 
-        if ($editar> 0) {
-            $r = "Exitoso";
-        }else{
-            $r = "Falló";
-        }
-
         return redirect()->to(base_url(). '/rolModMenu');
-        
-        echo json_encode($r);
-        
     }
 
-    public function eliminar($id){
+    public function eliminar(){
 
         $rolModuloMenuId = $_POST['rolModuloMenuId'];
 
         $nombre = new RolModMenuModel();
+        
         $data = ["rolModuloMenuId" => $rolModuloMenuId];
 
         $respuesta = $nombreRol->eliminar($data);

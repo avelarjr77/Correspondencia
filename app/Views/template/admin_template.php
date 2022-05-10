@@ -283,8 +283,8 @@
     <script src="build/js/custom.min.js"></script>
 
     <!--SweetAlert-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="sweetalert2/sweetalert2.min.js"></script>
+    
 	
+
   </body>
 </html>

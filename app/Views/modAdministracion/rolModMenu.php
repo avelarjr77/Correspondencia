@@ -32,7 +32,7 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
                                                         <td>
-                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-rmm="<?= $key->rolId ?>" data-modulo="<?= $key->modulo ?>" data-mod="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-mn="<?= $key->menuId ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</button>
+                                                            <a href="<?= base_url()?>/editarRolModMenu/<?= $key->moduloId; ?>/<?= $key->rolId; ?> " class="btn btn-info btn-sm " ><i class="fa fa-plus"></i>  Agregar Menú</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -162,15 +162,19 @@
             var menus = $("#menuId");
             var roles = $("#rolMenu");
 
-            $.ajax({
+            /*$.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('editRolMM') ?>",
-                data: {moduloId : moduloId},
+                url: "<= base_url().route_to('editRolMM') ?>",
+                data: {moduloId : moduloId, rolId: rolId, rol: rol},
                 success:function(data){
 
                     var dataObj = JSON.parse(data);
 
-                    $.each(dataObj, function(index, val) {
+                    //alert(data);
+
+                    window.location.href="<= base_url().route_to('editarRolModMenu/'.$uno) ?>";
+
+                   /* $.each(dataObj, function(index, val) {
                         //console.log(val.idM);
                         //console.log(val.nomMenu);
 
@@ -178,11 +182,11 @@
                                 "<label class='form-check-label'>"+ val.nomMenu+"</label></div>")
                     });
                 }
-            }); 
+            });*/ 
 
-            $.ajax({
+            /*$.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('menuList') ?>",
+                url: "<= base_url().route_to('menuList') ?>",
                 data: {menuId: menuId},
                 success:function(data){
 
@@ -198,7 +202,7 @@
             
             $.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('editRol') ?>",
+                url: "<= base_url().route_to('editRol') ?>",
                 data: {rolId: rolId},
                 success:function(data){
                     
@@ -209,9 +213,9 @@
                         roles.append('<td>'+val.menu+'</td>'+
                         '<td><button id"borrar" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td>')
                         
-                    });*/
+                    });
                 }
-            });
+            });*/
 
             $('#nomRol').html(rol);
             $('#nomRol').css("font-weight","bold");
@@ -223,7 +227,7 @@
             $('#nomModulo').css("color","#010806");
             $('#nomMenu').html(menu);
             // Call Modal Edit
-            $('#editModal').modal('show');
+            //$('#editModal').modal('show');
 
         });
 

@@ -21,8 +21,8 @@ class RolModMenuModel extends Model
         ->findAll();
     }
 
-    public function getModMenu($moduloId)
-    {
+    /*public function getModMenu$moduloId)
+    
         return $this->asObject()
         ->select("mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu'")
         ->from("co_modulo_menu mm")
@@ -31,15 +31,28 @@ class RolModMenuModel extends Model
         ->where('mm.moduloId', $moduloId)
         ->orderBy('mm.moduloMenuId')
         ->findAll();
+    }*/
+
+    public function getModMenu($moduloId)
+    {
+        $modulo = $this->db->query("SELECT mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu', m.nombre as 'modulo', r.rolId as 'rolId'
+                                    FROM co_rol_modulo_menu rmm
+                                    INNER JOIN wk_rol r ON rmm.rolId = r.rolId
+                                    INNER JOIN co_modulo_menu mm ON rmm.moduloMenuId = mm.moduloMenuId 
+                                    INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
+                                    INNER JOIN co_menu me ON mm.menuId = me.menuId  
+                                    WHERE mm.moduloId = $moduloId
+                                    ORDER BY rmm.rolModuloMenuId");
+        return $modulo->getResult();
     }
 
-    public function getRolMenu($menuId){
+    public function getRolMenu($rolId){
         return $this->asObject()
         ->select("co_rol_modulo_menu.rolModuloMenuId as 'id', m.nombreMenu as 'menu'")
         ->join('wk_rol r','r.rolId = co_rol_modulo_menu.rolId')
         ->join('co_modulo_menu mm','mm.moduloMenuId = co_rol_modulo_menu.moduloMenuId')
         ->join('co_menu m','m.menuId = mm.menuId')
-        ->where('mm.menuId', $menuId)
+        ->where('r.rolId', $rolId)
         ->orderBy('co_rol_modulo_menu.rolModuloMenuId')
         ->findAll();
     }

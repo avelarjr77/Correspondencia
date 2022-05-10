@@ -50,7 +50,8 @@ $routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar'
 $routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::modulo', ['as'=> 'editRolMM']);
 $routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
 $routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
-$routes->get('/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
+$routes->get('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
+$routes->get('/editarRolModMenu/(:any)/(:any)', 'EditarRolMController::editar/$1/$2', ['as'=> 'editarRolModMenu']);
 
 
 //MODULO
