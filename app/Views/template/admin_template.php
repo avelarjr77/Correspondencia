@@ -38,7 +38,6 @@
             <div class="navbar nav_title" style="border: 0;">
               <a href="<?= base_url().route_to('home') ?>" class="site_title"><span>Correspondencia UCAD</span></a>
             </div>
-
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
