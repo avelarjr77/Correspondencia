@@ -113,6 +113,12 @@ $routes->post('/crearTipoEnvio', 'modUsuario/TipoEnvioController::crear');
 $routes->post('/eliminarTipoEnvio', 'modUsuario/TipoEnvioController::eliminar');
 $routes->post('/actualizarTipoEnvio', 'modUsuario/TipoEnvioController::actualizar');
 
+//DOCUMENTO
+$routes->get('/documento', 'modUsuario/DocumentoController::documento', ['as'=> 'documento']);
+$routes->post('/crearDocumento', 'modUsuario/DocumentoController::crear');
+$routes->post('/actualizarDocumento', 'modUsuario/DocumentoController::actualizar');
+$routes->post('/eliminarDocumento', 'modUsuario/DocumentoController::eliminar');
+
 //PROCESO
 $routes->get('/proceso', 'modProceso/ProcesoController::proceso', ['as'=> 'proceso']);
 $routes->post('/crearProceso', 'modProceso/ProcesoController::crear');

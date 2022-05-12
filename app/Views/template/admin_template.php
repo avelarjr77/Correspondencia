@@ -88,6 +88,7 @@
                           <li><a href="<?= base_url().route_to('persona') ?>">5. Persona</a></li>
                           <li><a href="<?= base_url().route_to('usuario') ?>">6. Usuarios</a></li>
                           <li><a href="<?= base_url().route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
+                          <li><a href="<?= base_url().route_to('documento') ?>">8. Documento</a></li>
                         </ul>
                       </li>
                       <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
