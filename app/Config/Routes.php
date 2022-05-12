@@ -47,11 +47,12 @@ $routes->post('/actualizarSubmenu', 'modAdministracion/SubMenuController::actual
 //ROL-MODULO-MENU
 $routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
 $routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar');
-$routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::modulo', ['as'=> 'editRolMM']);
+$routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
 $routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
 $routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
 $routes->get('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
-$routes->get('/editarRolModMenu/(:any)/(:any)', 'EditarRolMController::editar/$1/$2', ['as'=> 'editarRolModMenu']);
+//$routes->get('/editarRolModMenu/(:any)/(:any)', 'EditarRolMController::editar/$1/$2', ['as'=> 'editarRolModMenu']);
+$routes->match(['get', 'post'], '/editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
 
 
 //MODULO

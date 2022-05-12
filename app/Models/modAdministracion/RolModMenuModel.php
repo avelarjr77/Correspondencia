@@ -41,7 +41,7 @@ class RolModMenuModel extends Model
                                     INNER JOIN co_modulo_menu mm ON rmm.moduloMenuId = mm.moduloMenuId 
                                     INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
                                     INNER JOIN co_menu me ON mm.menuId = me.menuId  
-                                    WHERE mm.moduloId = $moduloId
+                                    WHERE mm.moduloId = '$moduloId'
                                     ORDER BY rmm.rolModuloMenuId");
         return $modulo->getResult();
     }

@@ -13,9 +13,10 @@ class EditarRolMController extends BaseController
         $rolModMenu = new RolModMenuModel();
 
         //$moduloId = $this->request->getVar('moduloId');
+        //$rolId = $this->request->getVar('rolId');
 
         $modMenu = $rolModMenu->getModMenu($moduloId);
-        $rolMenu = $rolModMenu->getrolMenu($rolId);
+        $rolMenu = $rolModMenu->getRolMenu($rolId);
 
         $dato = [
             "modMenu" => $modMenu,
@@ -23,7 +24,7 @@ class EditarRolMController extends BaseController
         ];
 
         //return view('template/header');
-        return view('editRolModMenu', $dato);
+        echo view('editRolModMenu', $dato);
        // return view('template/footer');
     }
 

@@ -17,7 +17,7 @@
                         <div class="card-box table-responsive">
                             <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap no-footer">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12" id="lista">
                                         <table id="datatable" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
                                             <thead>
                                                 <tr role="row">
@@ -32,7 +32,7 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
                                                         <td>
-                                                            <a href="<?= base_url()?>/editarRolModMenu/<?= $key->moduloId; ?>/<?= $key->rolId; ?> " class="btn btn-info btn-sm " ><i class="fa fa-plus"></i>  Agregar Menú</a>
+                                                            <a href="#" class="btn btn-success btn-sm btn-edit" data-id="<?= $key->id ?>" data-r="<?= $key->rolId ?>" data-rol="<?= $key->rol ?>" data-mod="<?= $key->moduloId ?>" data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -46,88 +46,73 @@
                 </div>
             </div>
 
-            <!--MODAL -->
-            
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar menú</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+            <div class="content justify-content-center" id="formulario">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <form action="<?php echo base_url() . '/editRol' ?>" method="POST">
+                            <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
 
-                    <form action="<?php echo base_url() . '/editRol' ?>" method="POST">
-                        <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
-
-                        <div class="form-group">
-                            <label>Rol: <i id="nomRol"></i></label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="modulo" name="modulo" class="form-control moduloId" hidden>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Listado de menús en <b><i id="nomModulo"></i></b></label>
-                            <div id="menuId" name="menus[]" >
-                                
+                            <div class="form-group">
+                                <label>Rol: <i id="nomRol"></i></label>
                             </div>
-                        </div> 
-                        <br>        
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Editar</button>
-                        </div>
-                    </form>
-                    <br>
+                            <div class="form-group">
+                                <input type="hidden" name="rolId" class="roli">
+                            </div>
 
-                    <label>Menús que posee <i id="nRol"></i>:</label>
-                    <table id="datatable" class="display " style="width: 100%;" role="grid">
-                        <tbody>
-                            <tr id="rolMenu" role="row">
+                            <div class="form-group">
+                                <label>Listado de menús en <b><i id="nomModulo"></i></b></label>
+                                <div id="menuId" name="menus[]" >
+                                    
+                                </div>
+                            </div> 
+                            <br>        
 
-                            </tr>
-                        </tbody>
-                    </table>
-                
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                            </div>
+                        </form>
+                        <br>
+
+                        <label>Menús que posee <i id="nRol"></i>:</label>
+                        <table id="datatable" class="display " style="width: 100%;" role="grid">
+                            <tbody id="rolMenu">
+                                <tr role="row">
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                               
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-                </div>
+            
             </div>
-            </div>
-            <!--END MODAL -->
 
             <!-- Modal Delete Rol-->
-        <form action="<?php echo base_url() . '/eliminarRolMM' ?>" method="POST">
-            <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Menú</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+            <form action="<?php echo base_url() . '/eliminarRolMM' ?>" method="POST">
+                <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Menú</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    
+                    <h4>¿Esta seguro que desea eliminar el menú: <b><i class="menuM"></i></b> ?</h4>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-primary">SI</button>
+                    </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                
-                <h4>¿Esta seguro que desea eliminar el menú: <b><i class="rol"></i></b> ?</h4>
-                
                 </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="moduloMenuId" class="moduloMenuId">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">SI</button>
-                </div>
-                </div>
-            </div>
-            </div>
-        </form>
-        <!-- End Modal Delete Rol-->
+            </form>
+            <!-- End Modal Delete Rol-->
         </div>
     </div>
 </div>
@@ -141,110 +126,84 @@
 <script>
 
     $(document).ready(function(){
-
+        $('#formulario').css("display", "none");
         // get Edit Product
         $('.btn-edit').on('click',function(){
             // get data from button edit
             var id = $(this).data('id');
-            var modulo = $(this).data('modulo');
             var moduloId = $(this).data('mod');
-            var menu = $(this).data('menu');
-            var menuId = $(this).data('mn');
+            var rolId = $(this).data('r');
             var rol = $(this).data('rol');
-            var rolId = $(this).data('rmm');
-            //const nombre = $(this).data('nombre');
+            var modulo = $(this).data('modulo');
 
-            // Set data to Form Edit
-            $('.rolId').val(rol);
-            $('.rolModuloMenuId').val(id);
+            $('.roli').val(rolId);
+            $('#nomRol').html(rol);
+            $('#nRol').html(rol);
+            $('#nomModulo').html(modulo);
 
-            //console.log(rolId, moduloId, menuId); 
             var menus = $("#menuId");
             var roles = $("#rolMenu");
 
-            /*$.ajax({
+            $.ajax({
                 type: "GET",
-                url: "<= base_url().route_to('editRolMM') ?>",
-                data: {moduloId : moduloId, rolId: rolId, rol: rol},
-                success:function(data){
-
+                url: "<?= base_url().route_to('editRolMM') ?>",
+                data: {moduloId : moduloId},
+                success: function(data){
+                    //alert(data);
                     var dataObj = JSON.parse(data);
 
-                    //alert(data);
-
-                    window.location.href="<= base_url().route_to('editarRolModMenu/'.$uno) ?>";
-
-                   /* $.each(dataObj, function(index, val) {
-                        //console.log(val.idM);
-                        //console.log(val.nomMenu);
-
-                        menus.append("<div class='form-check'><input class='form-check-input' type='checkbox' name='menu[]' value='"+val.idM+"'>"+
-                                "<label class='form-check-label'>"+ val.nomMenu+"</label></div>")
+                    $.each(dataObj, function(index, val) {
+                        menus.append("<div class='form-check'>"+
+                        "<input class='form-check-input' type='checkbox' name='menu[]' value='"+val.idM+"'>"+
+                        "<label class='form-check-label'>"+val.nomMenu+"</label></div>")
                     });
-                }
-            });*/ 
 
-            /*$.ajax({
+                    //window.location.href="<= base_url().route_to('editarRolModMenu'); ?>";
+                }
+            });
+
+            $.ajax({
                 type: "GET",
-                url: "<= base_url().route_to('menuList') ?>",
-                data: {menuId: menuId},
+                url: "<?= base_url().route_to('menuList') ?>",
+                data: {rolId: rolId},
                 success:function(data){
 
                     var dataObj = JSON.parse(data);
 
                     $.each(dataObj, function(index, val) {
-                        roles.append('<td>'+val.menu+'</td>'+
-                        '<td><button href"/eliminarR/'+val.id+'" id"borrar" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td>')
+                        roles.append("<tr><td>"+val.menu+"</td>"+
+                        "<td><button href='#' class='btn btn-danger btn-sm btn-delete' data-idr='"+val.id+"' data-nombrer='"+val.menu+"'><i class='fa fa-trash'></i></button></td></tr>")
                         
                     });
                 }
             });
+
+            $('#formulario').css("display", "block");
+            $('#lista').hide();
             
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('editRol') ?>",
-                data: {rolId: rolId},
-                success:function(data){
-                    
-                    //var dataObj = JSON.parse(data);
-                    alert(data);
 
-                    /*$.each(dataObj, function(index, val) {
-                        roles.append('<td>'+val.menu+'</td>'+
-                        '<td><button id"borrar" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td>')
-                        
-                    });
-                }
-            });*/
+            /*$'#nomRol').html(rol);
+            $'#nomRol').css("font-weight","bold");
+            $'#nomRol').css("color","#010806");
+            $'#nRol').html(rol);
+            $'#nRol').css("color","#010806");
+            $'#nRol').css("font-weight","bold");
+            $'#nomModulo').html(modulo);
+            $'#nomModulo').css("color","#010806");
+            $('#nomMenu').html(menu);*/
 
-            $('#nomRol').html(rol);
-            $('#nomRol').css("font-weight","bold");
-            $('#nomRol').css("color","#010806");
-            $('#nRol').html(rol);
-            $('#nRol').css("color","#010806");
-            $('#nRol').css("font-weight","bold");
-            $('#nomModulo').html(modulo);
-            $('#nomModulo').css("color","#010806");
-            $('#nomMenu').html(menu);
-            // Call Modal Edit
-            //$('#editModal').modal('show');
+        });    
 
-        });
-
-        // get Delete Product
-        $('#borrar').on('click',function(){
-            alert("entró");
+        $('.btn-delete').on('click',function(){
             // get data from button edit
-            //var idR = $(this).data('idr');
-            //var nombreM = $(this).data('nombrer');
+            var idR = $(this).data('idr');
+            var nombreM = $(this).data('nombrer');
             // Set data to Form Edit
-            //$('.moduloMenuId').val(idR);
-            //$('.rol').html(nombreM);
+            $('.rolModuloMenuId').val(idR);
+            $('.menuM').html(nombreM);
             // Call Modal Edit
-            //$('#editModal').modal("hide");
-            //$('#eliminarModal').modal('show');
+            $('#eliminarModal').modal('show');
         });
-        
     });
 </script>
 

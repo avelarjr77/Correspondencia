@@ -34,22 +34,23 @@ class RolModMenuController extends BaseController
         
     }*/
 
-    public function editar($moduloId, $rolId)
+    public function editar()
     {
         $rolModMenu = new RolModMenuModel();
 
-        //$moduloId = $this->request->getVar('moduloId');
+        $moduloId = $this->request->getVar('moduloId');
 
         $modMenu = $rolModMenu->getModMenu($moduloId);
-        $rolMenu = $rolModMenu->getrolMenu($rolId);
+        //$rolMenu = $rolModMenu->getRolMenu($rolId);
 
-        $dato = [
+        /*$dato = [
             "modMenu" => $modMenu,
             "rolMenu" => $rolMenu
-        ];
+        ];*/
 
+        echo json_encode($modMenu);
         //return view('template/header');
-        return view('modAdministracion/editRolModMenu', $dato);
+        //return view('modAdministracion/editRolModMenu', $dato);
        // return view('template/footer');
     }
 
@@ -57,9 +58,9 @@ class RolModMenuController extends BaseController
     {
         $rolM = new RolModMenuModel();
 
-        $menuId = $this->request->getVar('menuId');
+        $rolId = $this->request->getVar('rolId');
 
-        $rolMenu = $rolM->getRolMenu($menuId);
+        $rolMenu = $rolM->getRolMenu($rolId);
         
         echo json_encode($rolMenu);
         
