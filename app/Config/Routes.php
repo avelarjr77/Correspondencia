@@ -65,7 +65,7 @@ $routes->post('/actualizarModulo', 'modAdministracion/ModuloController::actualiz
 $routes->post('/eliminarModulo', 'modAdministracion/ModuloController::eliminar');
 
 ///ROL
-$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
+$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol', 'filter'=> 'auth:usuario,user']);
 $routes->post('/crearRol', 'modAdministracion/RolController::crear');
 $routes->post('/actualizarRol', 'modAdministracion/RolController::actualizar');
 $routes->post('/eliminarRol', 'modAdministracion/RolController::eliminar');
