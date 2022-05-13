@@ -4,6 +4,7 @@ namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\SubmenuModel;
+use App\Models\modAdministracion\MenuSubmenuModel;
 
 class SubMenuController extends BaseController
 {
@@ -11,15 +12,13 @@ class SubMenuController extends BaseController
     public function submenus()
     {
         $submenu = new SubmenuModel();
-        
-        $datos = $submenu->listarMenu();
-        $submenu = $submenu->listarSubMenu();
+        $menu = new MenuSubmenuModel();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "datos"     => $datos,
-            "submenu"     => $submenu,
+            "submenu"     => $submenu->select()->asObject()->join('co_menu', 'co_menu.menuId = co_submenu.menuId')->findAll(),
+            "menu"     => $menu->select()->asObject()->join('wk_icono', 'wk_icono.iconoId = co_menu.iconoId')->findAll(),
             "mensaje"   => $mensaje
         ];
 
@@ -31,7 +30,8 @@ class SubMenuController extends BaseController
     {
         $datos = [
             "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId']
+            "menuId"            => $_POST['menuId'],
+            "nombreArchivo"     => $_POST['nombreArchivo']
         ];
 
         $submenu = new SubmenuModel();
@@ -48,7 +48,8 @@ class SubMenuController extends BaseController
     {
         $datos = [
             "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId']
+            "menuId"            => $_POST['menuId'],
+            "nombreArchivo"     => $_POST['nombreArchivo']
         ];
 
         $subMenuId = $_POST['subMenuId'];
@@ -66,18 +67,18 @@ class SubMenuController extends BaseController
         }
     }
 
-    public function eliminarSubMenu($subMenuId)
+    public function eliminarSubmenu($subMenuId)
     {
-        $MenuSubmenu = new SubmenuModel();
+        $submenu = new SubmenuModel();
 
         $data = ["subMenuId" => $subMenuId];
 
-        $respuesta = $MenuSubmenu->eliminar($data);
+        $respuesta = $submenu->eliminar($data);
 
         if ($respuesta) {
-            return redirect()->to(base_url().'/submenus')->with('mensaje', '4');
+            return redirect()->to(base_url() . '/submenus')->with('mensaje', '4');
         } else {
-            return redirect()->to(base_url().'/submenus')->with('mensaje', '5');
+            return redirect()->to(base_url() . '/submenus')->with('mensaje', '5');
         }
     }
 }

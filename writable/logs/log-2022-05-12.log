@@ -1,0 +1,43 @@
+CRITICAL - 2022-05-12 15:21:14 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\wamp64\www\correspondencia-ucad\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(28): require('C:\\wamp64\\www\\c...')
+#4 {main}
+CRITICAL - 2022-05-12 15:21:26 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\wamp64\www\correspondencia-ucad\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(28): require('C:\\wamp64\\www\\c...')
+#4 {main}
+CRITICAL - 2022-05-12 17:42:04 --> You must set the database table to be used with your query.
+#0 C:\wamp64\www\correspondencia-ucad\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\Model.php(722): CodeIgniter\Model->builder()
+#2 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(116): CodeIgniter\Model->__call('select', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#4 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#6 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#7 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(22): view('modAdministraci...', Array)
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->index()
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-05-12 18:05:54 --> Class 'App\Models\modAdministracion\IconoModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->menu_submenu()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-12 18:16:12 --> Undefined property: stdClass::$ombreArchivo
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modAdministracion\submenus.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 43, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(25): view('modAdministraci...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->submenus()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

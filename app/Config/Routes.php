@@ -33,16 +33,21 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Login::index');
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
+$routes->get('/salir', 'Home::salir');
 
-//MENU-SUBMENU
+
+//MENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
-$routes->get('/submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
 $routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
-$routes->post('/agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
 $routes->get('/eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
 $routes->get('/editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/$1');
 $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
+
+//SUBMENU
+$routes->get('/submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
+$routes->post('/agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
 $routes->post('/actualizarSubmenu', 'modAdministracion/SubMenuController::actualizarSubmenu');
+$routes->get('/eliminarSubmenu/(:any)', 'modAdministracion/SubMenuController::eliminarSubmenu/$1');
 
 //ROL-MODULO-MENU
 $routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
@@ -50,7 +55,7 @@ $routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar'
 $routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
 $routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
 $routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
-$routes->get('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
+$routes->post('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
 //$routes->get('/editarRolModMenu/(:any)/(:any)', 'EditarRolMController::editar/$1/$2', ['as'=> 'editarRolModMenu']);
 $routes->match(['get', 'post'], '/editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
 

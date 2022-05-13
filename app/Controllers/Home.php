@@ -18,21 +18,31 @@ class Home extends BaseController
         $usuarios = model('Usuarios');
         $pass=$usuarios->obtenerUsuario('clave',$clave);
 
-        if(!$user=$usuarios->obtenerUsuario('usuario',$usuario)){
+        if($user=$usuarios->obtenerUsuario('usuario',$usuario) && isset($pass['clave'])){
 
-            return redirect()->to(base_url('/'))->with('mensaje','0');
+            $data = array(
+                'usuario' => $usuario
+            );
+                
+            $session = session();
+            $session->set($data);
 
-        }
+            return redirect()->to(base_url('/home'))->with('mensaje','0');
 
-        if(isset($pass['clave'])){
+        }else{
 
-            return redirect()->to(base_url('/home'))->with('mensaje','1');
-
-        } else{
-            return redirect()->to(base_url('/'))->with('mensaje','2');
+            return redirect()->to(base_url('/'))->with('mensaje','1');
         }
 
      }  
+
+     public function salir(){
+         $session = session();
+         $session->destroy();
+
+         return redirect()->to(base_url('/'));
+     }
+     
 }
 
 ?>

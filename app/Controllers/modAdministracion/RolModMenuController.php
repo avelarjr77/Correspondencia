@@ -84,11 +84,12 @@ class RolModMenuController extends BaseController
 
     public function eliminar(){
 
-        $rolModuloMenuId = $_POST['rolModuloMenuId'];
+        //$rolModuloMenuId = $_POST['rolModuloMenuId'];
 
         $nombre = new RolModMenuModel();
         
-        $data = ["rolModuloMenuId" => $rolModuloMenuId];
+        //$data = ["rolModuloMenuId" => $rolModuloMenuId];
+        $data = 11;
 
         $respuesta = $nombreRol->eliminar($data);
 

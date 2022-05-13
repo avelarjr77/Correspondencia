@@ -26,7 +26,9 @@
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Menú</th>
                             <th>Submenus</th>
+                            <th>Archivo</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -34,9 +36,11 @@
                         <?php foreach ($submenu as $key) : ?>
                             <tr>
                                 <td><?php echo $key->subMenuId ?></td>
+                                <td><?php echo $key->nombreMenu ?></td>
                                 <td><?php echo $key->nombreSubMenu ?></td>
+                                <td><?php echo $key->nombreArchivo ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-idmenu="<?php echo $key->nombreMenu ?>" data-archivo="<?php echo $key->nombreArchivo ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/modAdministracion/SubMenuController/eliminarSubmenu/' . $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
@@ -62,28 +66,36 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- FORMULARIO PARA AGREGAR MENU -->
+                        <!-- FORMULARIO PARA EDITAR MENU -->
                         <div class="x_content">
                             <form method="POST" action="<?php echo base_url() . '/agregarSubMenu' ?>">
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú<span class="required"></span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control ">
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar el Menu<span class="required"></span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 ">
+                                    <div class="col-md-9 col-sm-6 ">
                                         <select name="menuId" class="form-control">
                                             <option value="">-Selecciona un Menú-</option>
-                                            <?php foreach ($datos as $key) : ?>
+                                            <?php foreach ($menu as $key) : ?>
                                                 <option value="<?php echo $key->menuId ?>"><?php echo $key->nombreMenu ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del archivo:<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <input type="text" id="nombreArchivo" name="nombreArchivo" placeholder="/CarpetaControlador/NombreControlador" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
+                                    </div>
+                                </div>
+
                                 <button class="btn btn-primary" type="submit">Agregar</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <br>
@@ -109,13 +121,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="x_content">
-                        <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="nombreSubmenu"></i></b> ?</h4>
+                        <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="subMenuId"></i></b> ?</h4>
                         </div>
                         <!-- end form for validations -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <form id="modalEliminar" data-bs-action="/modAdministracion/SubMenuController/eliminarSubMenu/" method="POST">
+                        <form id="modalEliminar" data-bs-action="/modAdministracion/SubMenuController/eliminarSubmenu/" method="POST">
                             <a class="btn btn-danger btn-ok">Eliminar</a>
                         </form>
                     </div>
@@ -135,28 +147,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- FORMULARIO PARA AGREGAR MENU -->
+                        <!-- FORMULARIO PARA EDITAR SUBMENU -->
                         <form method="POST" action="<?php echo base_url() . '/actualizarSubmenu' ?>">
-                            <div class="item form-group">
+                        <div class="item form-group menuId">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Menú<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" id="menuId" name="menuId" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control menuId " readonly>
+                                    </div>
+                                </div>
+                            <div class="item form-group nombreSubmenu">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú <span class="required"></span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" class="form-control nombreSubmenu">
                                 </div>
                             </div>
-
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar el Menu<span class="required"></span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <select name="menuId" class="form-control nombreSubmenu">
-                                        <option class="form-control nombreSubmenu" value="">-Selecciona un Menú-</option>
-                                        <?php foreach ($datos as $key) : ?>
-                                            <option value="<?php echo $key->menuId ?>"><?php echo $key->nombreMenu ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del archivo:<span class="required"></span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <input type="text" id="nombreArchivo" name="nombreArchivo"  required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control nombreArchivo">
+                                    </div>
                                 </div>
-                            </div>
                             <div class="modal-footer">
                                 <input type="hidden" name="subMenuId" class="subMenuId">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -205,25 +218,14 @@
 <script>
     $(document).ready(function() {
 
-        // get Edit Product
-        $('.btn-edit').on('click', function() {
-            // get data from button edit
-            const id = $(this).data('id');
-            const nombre = $(this).data('nombre');
-
-            // Set data to Form Edit
-            $('.subMenuId').val(id);
-            $('.nombreSubmenu').val(nombre);
-            // Call Modal Edit
-            $('#editSubMenu').modal('show');
-        });
+        
 
         // get Delete Product
         $('.btn-delete').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            // Set data to Form Edit
+            // Set data to Form EditnombreMenu
             $('.subMenuId').val(id);
             $('.nombreSubmenu').html(nombre);
             // Call Modal Edit
@@ -241,10 +243,14 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
+            const idMenu = $(this).data('idmenu');
+            const archivo = $(this).data('archivo');
 
             // Set data to Form Edit
             $('.subMenuId').val(id);
             $('.nombreSubmenu').val(nombre);
+            $('.menuId').val(idMenu);
+            $('.nombreArchivo').val(archivo);
             // Call Modal Edit
             $('#editSubmenu').modal('show');
         });

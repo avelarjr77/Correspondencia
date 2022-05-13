@@ -6,18 +6,10 @@ use CodeIgniter\Model;
 
 class SubmenuModel extends Model
 {
-    public function listarMenu()
-    {
-        $co_menu = $this->db->query('SELECT*FROM co_menu');
-        return $co_menu->getResult();
-    }
+    protected $table      = 'co_submenu';
+    protected $primaryKey = 'subMenuId';
+    protected $allowedFiels=['menuId','nombreSubMenu', 'nombreArchivo'];
 
-    public function listarSubMenu()
-    {
-        $submenu = $this->db->query('SELECT*FROM co_submenu');
-        return $submenu->getResult();
-    }
-    
     public function crearSubmenu($datos)
     {
         $nombreSubMenu = $this->db->table('co_submenu');

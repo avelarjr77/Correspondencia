@@ -16,6 +16,7 @@
             <div class="">
                 <div class="col-md-12 col-sm-12 offset-md-12 right">
                     <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
+                    <a type="button" href="<?= base_url() . route_to('submenus') ?>" class="btn btn-outline-success"><i class="fa fa-angle-double-right"></i> Menu Detalle</a>
                 </div>
             </div>
             <div class="x_content">
@@ -24,23 +25,21 @@
                         <tr>
                             <th>ID</th>
                             <th>Menus</th>
+                            <th>Icono</th>
+                            <th>Identificador</th>
                             <th>Acción</th>
-                            <th>Menú Detalle</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($datos as $key) : ?>
+                        <?php foreach ($menu as $key) : ?>
                             <tr>
                                 <td><?php echo $key->menuId ?></td>
                                 <td><?php echo $key->nombreMenu ?></td>
+                                <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
+                                <td><?php echo $key->identificador ?></td>
                                 <td>
-                                    <button type="submit" class="btn btn-danger" href="#" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+                                    <a href="#" class="btn btn-danger btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></a>
                                     <a href="#" class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-primary" href="<?= base_url() . route_to('submenus') ?>"  data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>">
-                                    <span class="badge bg-blue"><?php foreach ($total as $key) : ?><?php echo $key->total?><?php endforeach; ?>
-                                </span> Menú Detalle</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -56,37 +55,40 @@
     <!--MODALS AGREGAR, EDITAR, ELIMINAR -->
     <div>
         <!--MODAL AGREGAR-->
-        <div class="modal" id="agregarMenu" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Agregar menú</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- FORMULARIO PARA AGREGAR MENU -->
-                        <div class="x_content">
-                            <form method="POST" action="<?php echo base_url() . '/crear' ?>">
-                                <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Menú<span class="required"></span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control ">
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" type="submit">Agregar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <br>
-                            </form>
+        <form action="<?php echo base_url() . '/crear' ?>" method="POST">
+            <div class="modal fade" id="agregarMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar Menú</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <!-- end FORMULARIO PARA AGREGAR MENU -->
-                    </div>
+                        <div class="modal-body">
 
+                            <div class="form-group">
+                                <label>Agregar Menú:</label>
+                                <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control ">
+                            </div>
+                            <div class="form-group">
+                                <label>Seleccionar Icono:</label>
+                                <select name="iconoId"  required="required" class="form-control iconoId">
+                                    <option value="">-Selecciona un Icono-</option>
+                                    <?php foreach ($icono as $key) : ?>
+                                        <option value="<?php echo $key->iconoId ?>"><span><i class="<?php echo $key->nombreIcono ?>"></i></span> <?php echo $key->nombreIcono ?> </i></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
         <!--END MODAL -->
 
         <!--MODAL ELIMINAR -->
@@ -101,7 +103,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="x_content">
-                            <h5>¿Deseas eliminar este Menú?</h5>
+                            <h4>¿Esta seguro que desea eliminar el menú: <b><i class="nombreMenu"></i></b> ?</h4>
                         </div>
                         <!-- end form for validations -->
                     </div>
@@ -132,6 +134,15 @@
                             <div class="form-group">
                                 <label>Nombre del Menu</label>
                                 <input type="text" id="nombreMenu" name="nombreMenu" autocomplete="off" required="required" class="form-control nombreMenu">
+                            </div>
+                            <div class="form-group">
+                                <label>Seleccionar Icono:</label>
+                                <select name="iconoId" required="required" class="form-control ">
+                                    <option value="">-Selecciona un Icono-</option>
+                                    <?php foreach ($icono as $key) : ?>
+                                        <option value="<?php echo $key->iconoId ?>"> <?php echo $key->nombreIcono ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
 
                         </div>
@@ -187,10 +198,11 @@
             const nombre = $(this).data('nombre');
 
             // Set data to Form Edit
-            $('.tipoContactoId').val(id);
-            $('.tipocontacto').val(nombre);
+            $('.menuId').val(id);
+            $('.nombreMenu').val(nombre);
+            $('.nombreIcono').val(nombre);
             // Call Modal Edit
-            $('#editSubMenu').modal('show');
+            $('#editModal').modal('show');
         });
 
         // get Delete Product
@@ -199,13 +211,13 @@
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
             // Set data to Form Edit
-            $('.tipoContactoId').val(id);
-            $('.contactoN').html(nombre);
+            $('.menuId').val(id);
+            $('.nombreMenu').html(nombre);
             // Call Modal Edit
             $('#eliminarModal').modal('show');
-        });
-
+            });
     });
+    
 </script>
 
 <script>
@@ -220,6 +232,7 @@
             // Set data to Form Edit
             $('.menuId').val(id);
             $('.nombreMenu').val(nombre);
+            $('.nombreIcono').val(nombre);
             // Call Modal Edit
             $('#editModal').modal('show');
         });

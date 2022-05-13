@@ -5,7 +5,7 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Listado<b> de Rol-Módulo</b></h2>
+                <h2>Configuración de Rol-Módulo-Menú</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
@@ -18,12 +18,12 @@
                             <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap no-footer">
                                 <div class="row">
                                     <div class="col-sm-12" id="lista">
-                                        <table id="datatable" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+                                        <table class="table table-hover">
                                             <thead>
-                                                <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5px;"></th>
-                                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 266px;">ROL/MÓDULO/MENÚ</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 80px;">ADMIN MENÚ</th>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>ROL/MÓDULO/MENÚ</th>
+                                                    <th>ADMIN MENÚ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -32,10 +32,10 @@
                                                         <td><?= $key->id ?></td>
                                                         <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
                                                         <td>
-                                                            <a href="#" class="btn btn-success btn-sm btn-edit" data-id="<?= $key->id ?>" data-r="<?= $key->rolId ?>" data-rol="<?= $key->rol ?>" data-mod="<?= $key->moduloId ?>" data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
+                                                            <a href="#" class="btn btn-outline-success btn-sm btn-edit" data-id="<?= $key->id ?>" data-r="<?= $key->rolId ?>" data-rol="<?= $key->rol ?>" data-mod="<?= $key->moduloId ?>" data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
                                                         </td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php endforeach; ?> 
                                             </tbody>
                                         </table>
                                     </div>
@@ -46,22 +46,24 @@
                 </div>
             </div>
 
-            <div class="content justify-content-center" id="formulario">
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
+            <div class="container" id="formulario" style="display: none">
+                <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-5">
                         <form action="<?php echo base_url() . '/editRol' ?>" method="POST">
                             <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
 
-                            <div class="form-group">
-                                <label>Rol: <i id="nomRol"></i></label>
-                            </div>
+                            <!--<div class="form-group">
+                                <label>Rol: <b><i id="nomRol"></i></b></label>
+                            </div>-->
 
                             <div class="form-group">
                                 <input type="hidden" name="rolId" class="roli">
                             </div>
 
                             <div class="form-group">
-                                <label>Listado de menús en <b><i id="nomModulo"></i></b></label>
+                                <label>Listado de menús en <b><i id="nomModulo"></i></b></label><br><br>
                                 <div id="menuId" name="menus[]" >
                                     
                                 </div>
@@ -69,12 +71,14 @@
                             <br>        
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                                <button type="submit" class="btn btn-outline-primary btn-sm">Agregar</button>
                             </div>
                         </form>
-                        <br>
-
-                        <label>Menús que posee <i id="nRol"></i>:</label>
+                        
+                    </div>  
+                    <div class="col-md-4">
+                        <label>Menús que posee <b><i id="nRol"></i></b> :</label>
+                        <br><br>
                         <table id="datatable" class="display " style="width: 100%;" role="grid">
                             <tbody id="rolMenu">
                                 <tr role="row">
@@ -84,11 +88,13 @@
                         </table>
                     </div>                               
                 </div>
+                <br>
+                <a href="<?= base_url().route_to('rolModMenu') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
             
             </div>
 
             <!-- Modal Delete Rol-->
-            <form action="<?php echo base_url() . '/eliminarRolMM' ?>" method="POST">
+            <form action="<?php echo base_url() . '/eliminarR' ?>" method="POST">
                 <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -117,16 +123,16 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
 
 <script>
 
     $(document).ready(function(){
-        $('#formulario').css("display", "none");
+        //$('#formulario').css("display", "none");
         // get Edit Product
         $('.btn-edit').on('click',function(){
             // get data from button edit
@@ -171,12 +177,15 @@
                     var dataObj = JSON.parse(data);
 
                     $.each(dataObj, function(index, val) {
-                        roles.append("<tr><td>"+val.menu+"</td>"+
-                        "<td><button href='#' class='btn btn-danger btn-sm btn-delete' data-idr='"+val.id+"' data-nombrer='"+val.menu+"'><i class='fa fa-trash'></i></button></td></tr>")
+                        roles.append('<tr><td id="la">'+val.menu+'</td>'+
+                        '<td><button href="#" id="btn-delete" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td></tr>')
                         
                     });
                 }
             });
+
+            $('#formulario').css("color","#010806");
+            $('#formulario').css("font-size",14);
 
             $('#formulario').css("display", "block");
             $('#lista').hide();
@@ -196,6 +205,7 @@
 
         $('.btn-delete').on('click',function(){
             // get data from button edit
+            console.log("entró");
             var idR = $(this).data('idr');
             var nombreM = $(this).data('nombrer');
             // Set data to Form Edit

@@ -59,56 +59,83 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Menú</h3>
+                <?php
+
+                use App\Models\modAdministracion\SubmenuModel;
+                use App\Models\modAdministracion\MenuSubmenuModel;
+                use App\Models\modAdministracion\RolModMenuModel;
+                ?>
                 <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i>Inicio <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i>Inicio <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url().route_to('home') ?>">Inicio</a></li>
+                      <li><a href="<?= base_url() . route_to('home') ?>">Inicio</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Administración <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="<?= base_url().route_to('adminRol') ?>">1. Admin. Roles</a></li>
-                          <li><a href="<?= base_url().route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
-                          <li><a href="<?= base_url().route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
+                          <li><a href="<?= base_url() . route_to('adminRol') ?>">1. Admin. Roles</a></li>
+                          <li><a href="<?= base_url() . route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
+                          <li><a href="<?= base_url() . route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
+                          <li><a href="<?= base_url() . route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
                         </ul>
                       </li>
-                      <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
+                      <li><a href="<?= base_url() . route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Configuración de Usuario<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="<?= base_url().route_to('cargo') ?>">1. Cargos</a></li>
-                          <li><a href="<?= base_url().route_to('departamento') ?>">2. Departamentos</a></li>
-                          <li><a href="<?= base_url().route_to('contacto') ?>">3. Contacto</a></li>
-                          <li><a href="<?= base_url().route_to('direccion') ?>">4. Dirección</a></li>
-                          <li><a href="<?= base_url().route_to('persona') ?>">5. Persona</a></li>
-                          <li><a href="<?= base_url().route_to('usuario') ?>">6. Usuarios</a></li>
-                          <li><a href="<?= base_url().route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
-                          <li><a href="<?= base_url().route_to('documento') ?>">8. Documento</a></li>
+                        <li><a href="<?= base_url().route_to('cargo') ?>">1. Cargos</a></li>
+                            <li><a href="<?= base_url().route_to('departamento') ?>">2. Departamentos</a></li>
+                            <li><a href="<?= base_url().route_to('contacto') ?>">3. Contacto</a></li>
+                            <li><a href="<?= base_url().route_to('direccion') ?>">4. Dirección</a></li>
+                            <li><a href="<?= base_url().route_to('persona') ?>">5. Persona</a></li>
+                            <li><a href="<?= base_url().route_to('usuario') ?>">6. Usuarios</a></li>
+                            <li><a href="<?= base_url().route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
+                            <li><a href="<?= base_url().route_to('documento') ?>">8. Documento</a></li>
                         </ul>
                       </li>
-                      <li><a href="<?= base_url().route_to('ad') ?>">Administración</a></li>
+                      <li><a href="<?= base_url() . route_to('ad') ?>">Administración</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Configuración de Proceso<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url().route_to('proceso') ?>">1. Proceso</a></li>
-                      <li><a href="<?= base_url().route_to('etapa') ?>">2. Etapa</a></li>
-                      <li><a href="<?= base_url().route_to('actividad') ?>">3. Actividad</a></li>
-                    </ul>
-                  </li>                  
-                  <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
+                      <li><a href="<?= base_url() . route_to('proceso') ?>">1. Proceso</a></li>
+                      <li><a href="<?= base_url() . route_to('etapa') ?>">2. Etapa</a></li>
+                      <li><a href="<?= base_url() . route_to('actividad') ?>">3. Actividad</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <?php
+                      $menu     = new MenuSubmenuModel();
+                      $submenu  = new SubmenuModel();
+                      $menu     = $menu->asObject()->select('menuId, nombreMenu, nombreIcono')
+                        ->join('wk_icono', 'wk_icono.iconoId = co_menu.iconoId')->orderBy('menuId','asc')
+                        ->findAll();
+                        
+                        foreach ($menu as $key =>$u) :
+                          $submenus     = $submenu->asObject()->select()->where('menuId',$u->menuId)->findAll(); 
+                          ?>
+                      <?php if ($u->nombreMenu): ?>
+                        <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+                        <?php endif ?>
+                        <ul class="nav child_menu">
+                            <?php foreach ($submenus as $s) : ?>
+                              <li><a href=<?=$s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
+                            <?php endforeach; ?>
+                          </ul>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                  </li>
+
                 </ul>
               </div>
-              
+
 
             </div>
             <!-- /sidebar menu -->
@@ -142,7 +169,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                  <img src="images/img.jpg" alt=""><?php echo session('usuario'); ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -151,9 +178,9 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
-                </li>
+                </li> 
 
                 <li role="presentation" class="nav-item dropdown open">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
