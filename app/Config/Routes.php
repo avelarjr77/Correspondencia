@@ -31,7 +31,9 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
+
+                                    //['filter'=> 'auth']
+$routes->get('/', 'Login::index' ) ;
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 
@@ -67,7 +69,7 @@ $routes->post('/actualizarModulo', 'modAdministracion/ModuloController::actualiz
 $routes->post('/eliminarModulo', 'modAdministracion/ModuloController::eliminar');
 
 ///ROL
-$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
+$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol', 'filter'=> 'auth:usuario,user']);
 $routes->post('/crearRol', 'modAdministracion/RolController::crear');
 $routes->post('/actualizarRol', 'modAdministracion/RolController::actualizar');
 $routes->post('/eliminarRol', 'modAdministracion/RolController::eliminar');
