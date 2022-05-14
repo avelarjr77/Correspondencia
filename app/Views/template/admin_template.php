@@ -18,6 +18,7 @@
     <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
 	
     <!-- bootstrap-progressbar -->
     <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -28,6 +29,8 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="vendors/sweetalert2/sweetalert2.css" rel="stylesheet">
+
   </head>
 
   <body class="nav-md">
@@ -168,7 +171,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt=""><?php echo session('usuario'); ?>
+                    <img src="images/img.jpg" alt=""><?php echo session('usuario'); ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -310,7 +313,13 @@
     <script src="build/js/custom.min.js"></script>
 
     <!--SweetAlert-->
-    
+    <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+    <script src="vendors/sweetalert2/sweetalert.min.js"></script>
+
+    <!-- HOLA SOY UNA PRUEBA-->
+
+    <!--<script src="vendors/popper/umd/popper.min.js"></script>-->
+
 	
 
   </body>

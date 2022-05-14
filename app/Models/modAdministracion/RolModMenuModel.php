@@ -64,4 +64,11 @@ class RolModMenuModel extends Model
 
         return $this->db->insertID();
     }
+
+    public function eliminarR($id){
+        $nombres = $this->db->table('co_rol_modulo_menu');
+        $nombres->where($id);
+        
+        return $nombres->delete();
+    }
 }

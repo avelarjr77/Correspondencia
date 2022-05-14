@@ -85,19 +85,20 @@ class RolModMenuController extends BaseController
     public function eliminar(){
 
         //$rolModuloMenuId = $_POST['rolModuloMenuId'];
+        $id = $this->request->getVar('id');
 
         $nombre = new RolModMenuModel();
         
         //$data = ["rolModuloMenuId" => $rolModuloMenuId];
-        $data = 11;
 
-        $respuesta = $nombreRol->eliminar($data);
+        $respuesta = $nombre->eliminarR($id);
 
-        if ($respuesta > 0){
+        /*if ($respuesta > 0)
             return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','3');
-        }
+        }*/
+        echo json_encode($respuesta);
     }
 
 }
