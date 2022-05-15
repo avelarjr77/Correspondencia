@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\modAdministracion\IconoModel;
 use App\Models\modAdministracion\SubmenuModel;
 use App\Models\modAdministracion\MenuSubmenuModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
+use mysqli;
 
 class MenuSubmenuController extends BaseController
 {
@@ -28,20 +30,34 @@ class MenuSubmenuController extends BaseController
         return view('modAdministracion/menu_submenu', $data);
     }
 
+    //Funcion para validar el Menú
+    public function new()
+    {
+        session('mensaje');
+        $validation = \Config\Services::validation();
+
+        var_dump($validation->listErrors());
+        return view('modAdministracion/menu_submenu');
+    }
+
     //Funcion para INSERTAR
     public function crear()
     {
-        $datos = [
-            "nombreMenu"    => $_POST['nombreMenu'],
-            "iconoId"    => $_POST['iconoId']
-        ];
         $menu = new MenuSubmenuModel();
-        $respuesta = $menu->insertar($datos);
-        if ($respuesta > 0) {
+
+        if ($this->validate('menuValidation')) {
+            $menu->insertar(
+                [
+                    'nombreMenu' => $this->request->getPost('nombreMenu'),
+                    'iconoId' => $this->request->getPost('iconoId'),
+                    'identificador' => $this->request->getPost('identificador'),
+                ]
+            );
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
-        } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '0');
         }
+
+        //Mensaje si el registro esta duplicado
+        return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '6');
     }
 
     public function eliminar($nombreMenu)
@@ -59,26 +75,47 @@ class MenuSubmenuController extends BaseController
         }
     }
 
-    //Funcion para EDITAR
-    public function actualizar()
+    //Funcion para validar Editar Menú
+    public function edit($menuId = null)
     {
-        $datos = [
-            "nombreMenu" => $_POST['nombreMenu'],
-            "iconoId"    => $_POST['iconoId']
-        ];
-
-        $menuId = $_POST['menuId'];
 
         $menu = new MenuSubmenuModel();
 
-        $respuesta = $menu->actualizar($datos, $menuId);
+        if ($menu->find($menuId) == null) {
+            throw PageNotFoundException::forPageNotFound();
+        }
 
-        $datos = ["datos" => $respuesta];
+        session('message');
 
-        if ($respuesta) {
+        $validation =  \Config\Services::validation();
+        var_dump($validation->listErrors());
+        return view('modAdministracion/menu_submenu');
+    }
+
+    //Funcion para EDITAR
+    public function actualizar($menuId = null)
+    {
+        $menu = new MenuSubmenuModel();
+        if ($this->validate([
+            'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]',
+            'iconoId' => 'required',
+            'identificador' => 'required'
+        ])) {
+            $datos = [
+                "nombreMenu" => $_POST['nombreMenu'],
+                "iconoId"    => $_POST['iconoId'],
+                "identificador"    => $_POST['identificador']
+            ];
+
+            $menuId = $_POST['menuId'];
+
+
+            $respuesta = $menu->actualizar($datos, $menuId);
+            $datos = ["datos" => $respuesta];
+
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
         } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '6');
         }
     }
 }
