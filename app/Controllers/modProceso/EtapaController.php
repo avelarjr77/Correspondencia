@@ -10,19 +10,22 @@ class EtapaController extends BaseController{
     public function etapa(){
 
         $nombreEtapa = new EtapaModel();
-        $datos = $nombreEtapa->listarEtapa();
-        $proceso = $nombreEtapa->listarProceso();
+        $procesoId = $this->request->getVar('procesoId');
+        $datos = $nombreEtapa->listarEtapa($procesoId);
+        //$proceso = $nombreEtapa->listarProceso();
 
-        $mensaje = session('mensaje');
+        //$mensaje = session('mensaje');
 
-        $data = [
+        /*$data = 
             "datos" => $datos,
             "proceso" => $proceso,
             "mensaje" => $mensaje
-        ];
+        ];*/
 
-        return view('modProceso/etapa', $data);
-        }
+        //return view('modProceso/etapa', $data);
+        echo json_encode($datos);
+    }
+
 
     //CREAR PROCESO
     public function crear(){

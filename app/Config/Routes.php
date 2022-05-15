@@ -127,6 +127,10 @@ $routes->post('/crearDocumento', 'modUsuario/DocumentoController::crear');
 $routes->post('/actualizarDocumento', 'modUsuario/DocumentoController::actualizar');
 $routes->post('/eliminarDocumento', 'modUsuario/DocumentoController::eliminar');
 
+/////////////
+//CONFIGURACIÓN DE PROCESO
+//$routes->get('/confProceso', 'modProceso/ProcesoController::index', ['as'=> 'confProceso']);
+
 //PROCESO
 $routes->get('/proceso', 'modProceso/ProcesoController::proceso', ['as'=> 'proceso']);
 $routes->post('/crearProceso', 'modProceso/ProcesoController::crear');
@@ -141,6 +145,7 @@ $routes->post('/eliminarTipoProceso', 'modProceso/TipoProcesoController::elimina
 
 //ETAPA
 $routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+$routes->get('/listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
 $routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
 $routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');
 $routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
