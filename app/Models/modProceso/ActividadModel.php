@@ -17,18 +17,22 @@ class ActividadModel extends Model{
         ->join('wk_etapa e','e.etapaId = wk_actividad.etapaId')
         ->join('wk_persona pe','pe.personaId = wk_actividad.personaId')
         ->where('e.etapaId',$etapaId)
-        ->orderBy('wk_actividad.actividadId')
         ->findAll();
     }
     
-    //MODELO PARA LISTAR TIPO ETAPA
-    public function listarEtapa()
+    //MODELO PARA LISTAR PERSONA
+    public function listarPersona()
     {
-        return $this->asObject()
-        ->select("*")
-        ->from('wk_etapa')
-        ->orderBy('wk_etapa.etapaId')
-        ->findAll();
+        $cargo =  $this->db->query('SELECT*FROM  wk_persona');
+        return $cargo->getResult();
+    }
+
+    public function etapaL($etapaId)
+    {
+        $etapa = $this->db->query("SELECT  e.nombreEtapa as 'etapa'
+                                    FROM wk_etapa e
+                                    WHERE e.etapaId = $etapaId");
+        return $etapa->getResult();
     }
 
     //MODELO PARA AGREGAR PROCESO

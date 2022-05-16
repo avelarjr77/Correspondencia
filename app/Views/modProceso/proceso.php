@@ -293,7 +293,7 @@
     </div>
 
     <div class="container" id="actividad" style="display: none">
-        <!--LISTADO DE ETAPA-->
+        <!--LISTADO DE ACTIVIDAD-->
         <div class="x_content">
             <button type="button" class="btn btn-outline-success mb-2 btn-agregarActividad" data-toggle="modal" data-target="#agregarActividadModal"><i class="fa fa-plus"></i> Agregar Actividad</button>
             <br><br>
@@ -313,7 +313,137 @@
                 </tbody>
             </table>
         </div>
-        <!--FIN LISTADO ETAPA-->
+        <!--FIN LISTADO ACTIVIDAD-->
+
+        <!-- Modal Agregar ACTIVIDAD-->
+        <form action="<?php echo base_url() . '/crearActividad' ?>" method="POST">
+            <div class="modal fade" id="agregarActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar una nueva Actividad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="form-group">
+                        <label>Nombre de la Actividad</label>
+                        <input type="text" id="nombreActividad" name="nombreActividad" required="required" autocomplete="off" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" id="descripcion" name="descripcion" required="required" autocomplete="off" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Etapa</label>
+                        <input type="text" id="actividadEtapa" name="etapa" required="required" autocomplete="off" class="form-control"  readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Encargado/a </label>
+                        <select name="personaId" id="personaData" class="form-control">
+                            <option value="" disable>-Selecciona un encargado-</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" id="actividadE" name="etapaId" class="form-control"  hidden>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </form>
+        <!-- End Modal Agregar ACTIVIDAD-->
+
+        <!-- Modal Edit ACTIVIDAD-->
+        <form action="<?php echo base_url() . '/actualizarActividad' ?>" method="POST">
+            <div class="modal fade" id="editActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Actividad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="form-group">
+                        <label>Nombre de la Actividad</label>
+                        <input type="text" id="nombreActividadA" name="nombreActividad" autocomplete="off" required="required" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" id="descripcionA" name="descripcion" required="required" autocomplete="off" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Etapa</label>
+                        <input type="text" id="actividadEtapaN" name="etapa" required="required" autocomplete="off" class="form-control"  readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" id="actEtapa" name="etapaId" class="form-control"  hidden>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Encargado/a </label>
+                        <select name="personaId" id="personaDataA" class="form-control">
+                            <option value="" disable>-Selecciona un encargado-</option>
+                            
+                        </select>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="actividadId" id="actividadIdA">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </form>
+        <!-- End Modal Edit ACTIVIDAD-->
+
+        <!-- Modal Delete ACTIVIDAD-->
+        <form action="<?php echo base_url() . '/eliminarActividad' ?>" method="POST">
+            <div class="modal fade" id="eliminarActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Actividad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                <h4>¿Esta seguro que desea eliminar la Actividad: <b><i class="actividadN"></i></b> ?</h4>
+                
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="actividadId" id="actividadIdE">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">SI</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </form>
+        <!-- End Modal Delete ACTIVIDAD-->
 
         <br>
         <a href="<?= base_url().route_to('proceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
@@ -384,6 +514,8 @@
             // Set data to Form Edit
             $('.procesoId').val(idE);
             $('.nombreProceso').val(nombreE);
+            $('#procesoEtapa').val(nombreE);
+            $('#procesoE').val(idE);
 
             var eData = $("#etapaData");;
 
@@ -398,11 +530,6 @@
                     //console.log(dataEtapa[0]['proceso']);
                     //console.log(dataEtapa.length);
 
-                    var proceso = dataEtapa[0]['proceso'];
-                    //console.log(proceso);
-                    $('#procesoEtapa').val(proceso);
-                    $('#procesoE').val(dataEtapa[0]['procesoId']);
-
                     $.each(dataEtapa, function(index, val) {
                         eData.append("<tr><td>"+val.id+"</td>"+
                         "<td>"+val.nombre+"</td>"+
@@ -410,7 +537,7 @@
                         "<td>"+val.proceso+"</td>"+
                         "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
                         "<a href='#' onclick='borrarEtapa("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-idac='"+val.id+"' data-nombreac='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
                         "</td></tr>")
                     });
                 }
@@ -421,7 +548,6 @@
             $('#etapa').css("display", "block");
             $('#proceso').hide();
         });
-
         
     });
 
@@ -437,7 +563,7 @@
     function actualizarEtapa(idA, idE) { 
         //$('.etapaId').val(id);
        // console.log(idE);
-
+        //idA es de id actualizar y trae procesoId
         $.ajax({
                 type: "GET",
                 url: "<?= base_url().route_to('etapaList') ?>",
@@ -453,8 +579,8 @@
                         //console.log(i);
                     } 
                     
-                    console.log(dataA);
-                    console.log(i);
+                    //console.log(dataA);
+                    //console.log(i);
                     //console.log(dataA.length);
 
                     $('#procesoA').val(dataA[i]['proceso']);
@@ -472,10 +598,12 @@
 
     function actividad(idAC) { 
         // Set data to Form Edit
-        $('.etapaId').val(idAC);
-        //$('.nombreEtapa').val(nombreE); 
+        //idAC trae etapaId
+        //$('#actividadEtapa').val(dataActividad[i]['etapa']);
+        $('#actividadE').val(idAC);
 
-        var aData = $("#actividadData");;
+        var aData = $("#actividadData");
+        var pData = $("#personaData");
 
         $.ajax({
             type: "GET",
@@ -484,14 +612,6 @@
             success:function(data){
 
                 var dataActividad = JSON.parse(data);
-                
-                //console.log(dataEtapa[0]['proceso']);
-                //console.log(dataEtapa.length);
-
-                /* var proceso = dataEtapa[0]['proceso'];
-                //console.log(proceso);
-                $('#procesoEtapa').val(proceso);
-                $('#procesoE').val(dataEtapa[0]['procesoId']); */
 
                 $.each(dataActividad, function(index, val) {
                     aData.append("<tr><td>"+val.id+"</td>"+
@@ -499,9 +619,42 @@
                     "<td>"+val.descripcion+"</td>"+
                     "<td>"+val.etapa+"</td>"+
                     "<td>"+val.persona+"</td>"+
-                    "<td><a href='#' onclick='actualizarActividad("+val.etapaId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
-                    "<a href='#' onclick='borrarActividad("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
                     "</td></tr>")
+                });
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('etapaL') ?>",
+            data: {etapaId: idAC},
+            success:function(data){
+
+                var dataE = JSON.parse(data);
+                console.log(dataE);
+
+                $('#actividadEtapa').val(dataE[0]['etapa']);
+
+                
+                //console.log(dataE[0]['etapa']);
+            }
+        });
+        
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('personaList') ?>",
+            success:function(data){
+
+                var dataPersona = JSON.parse(data);
+                
+                //console.log(dataPersona[0]['personaId']);
+                //console.log(proceso);
+
+                $.each(dataPersona, function(index, val) {
+                    pData.append("<option value="+val.personaId+">"+val.nombres+"</option>")
                 });
             }
         });
@@ -509,6 +662,70 @@
         // Call Modal Edit
         $('#actividad').css("display", "block");
         $('#etapa').hide();
+    }
+
+    function borrarActividad(id) { 
+        $('#actividadIdE').val(id);
+        $('.actividadN').html(id);
+
+        // Call Modal Edit
+        $('#eliminarActividadModal').modal('show');
+        
+    }
+
+    function actualizarActividad(idActividad, idEtapa) { 
+        //$('.etapaId').val(id);
+       // console.log(idE);
+        //idA es de id actualizar y trae procesoId
+        $.ajax({
+                type: "GET",
+                url: "<?= base_url().route_to('actList') ?>",
+                data: {etapaId: idEtapa},
+                success:function(data){
+
+                    var dataAct = JSON.parse(data);
+
+                    for(var k in dataAct) {
+                        if(dataAct[k]['id'] == idActividad) {
+                            var i = k;
+                        };
+                        //console.log(i);
+                    } 
+                    
+                    //console.log(dataA);
+                    //console.log(i);
+                    //console.log(dataA.length);
+
+                    $('#actividadEtapaN').val(dataAct[i]['etapa']);
+                    $('#actEtapa').val(dataAct[i]['etapaId']);
+                    $('#nombreActividadA').val(dataAct[i]['nombre']);
+                    $('#descripcionA').val(dataAct[i]['descripcion']);
+                    $('#personaDataA').val(dataAct[i]['personaId']);
+                    $('#actividadIdA').val(dataAct[i]['id']);
+
+                }
+            });
+
+            var pDataA = $("#personaDataA");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url().route_to('personaListA') ?>",
+                success:function(data){
+
+                    var dataP = JSON.parse(data);
+                    
+                //console.log(dataPersona[0]['personaId']);
+                //console.log(proceso);
+
+                $.each(dataP, function(index, val) {
+                    pDataA.append("<option value="+val.personaId+">"+val.nombres+"</option>")
+                });
+                }
+            }); 
+
+        // Call Modal Edit
+        $('#editActividadModal').modal('show');
     }
 
 </script>

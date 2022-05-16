@@ -153,6 +153,10 @@ $routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
 
 //ACTIVIDADES
 $routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
+$routes->get('/actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
+$routes->get('/personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
+$routes->get('/personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
+$routes->get('/etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
 $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
 $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
 $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');

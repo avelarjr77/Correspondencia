@@ -15,15 +15,47 @@ class ActividadController extends BaseController{
 
         $datos = $nombreActividad->listarActividad($etapaId);
 
-        /* $mensaje = session('mensaje');
+        echo json_encode($datos);
+    }
 
-        $data = [
-            "datos" => $datos,
-            "etapa" => $etapa,
-            "mensaje" => $mensaje
-        ];
+    //list
+    public function actList(){
 
-        return view('modProceso/actividad', $data); */
+        $nombreActividad = new ActividadModel();
+
+        $etapaId = $this->request->getVar('etapaId');
+
+        $datos = $nombreActividad->listarActividad($etapaId);
+
+        echo json_encode($datos);
+    }
+
+    public function personaList(){
+
+        $actividad = new ActividadModel();
+
+        $datos = $actividad->listarPersona();
+
+        echo json_encode($datos);
+    }
+
+    public function personaListA(){
+
+        $actividad = new ActividadModel();
+
+        $datos = $actividad->listarPersona();
+
+        echo json_encode($datos);
+    }
+
+    public function etapaL(){
+
+        $etapa = new ActividadModel();
+
+        $etapaId = $this->request->getVar('etapaId');
+
+        $datos = $etapa->etapaL($etapaId);
+
         echo json_encode($datos);
     }
 
@@ -33,16 +65,17 @@ class ActividadController extends BaseController{
         $datos = [
             "nombreActividad" => $_POST['nombreActividad'],
             "descripcion" => $_POST['descripcion'],
-            "etapaId" => $_POST['etapaId']
+            "etapaId" => $_POST['etapaId'],
+            "personaId" => $_POST['personaId']
         ];
 
         $actividad = new ActividadModel();
         $respuesta = $actividad->insertar($datos);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/actividad')->with('mensaje','0');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','0');
         } else {
-            return redirect()->to(base_url(). '/actividad')->with('mensaje','1');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','1');
         } 
     } 
 
@@ -57,9 +90,9 @@ class ActividadController extends BaseController{
         $respuesta = $actividad->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/actividad')->with('mensaje','2');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','2');
         } else {
-            return redirect()->to(base_url(). '/actividad')->with('mensaje','3');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','3');
         }
     }
 
@@ -69,7 +102,8 @@ class ActividadController extends BaseController{
         $datos = [
             "nombreActividad" => $_POST['nombreActividad'],
             "descripcion" => $_POST['descripcion'],
-            "etapaId" => $_POST['etapaId']
+            "etapaId" => $_POST['etapaId'],
+            "personaId" => $_POST['personaId']
         ];
 
         $actividadId = $_POST['actividadId'];
@@ -80,9 +114,9 @@ class ActividadController extends BaseController{
         $datos = ["datos" => $respuesta];
 
         if ($respuesta) {
-            return redirect()->to(base_url() . '/actividad')->with('mensaje', '4');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '4');
         } else {
-            return redirect()->to(base_url() . '/actividad')->with('mensaje', '5');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '5');
         }
     }
     
