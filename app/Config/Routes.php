@@ -57,7 +57,7 @@ $routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar'
 $routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
 $routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
 $routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
-$routes->get('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
+$routes->post('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
 //$routes->match(['get', 'post'], '/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
 $routes->match(['get', 'post'], '/editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
 
@@ -145,6 +145,7 @@ $routes->post('/eliminarTipoProceso', 'modProceso/TipoProcesoController::elimina
 
 //ETAPA
 $routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+$routes->get('/etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
 $routes->get('/listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
 $routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
 $routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');

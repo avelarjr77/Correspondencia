@@ -177,7 +177,7 @@
 
                     $.each(dataObj, function(index, val) {
                         roles.append('<tr><td id="la">'+val.menu+'</td>'+
-                        '<td><button href="#" onclick="holaRebeca('+val.id+')" class="btn btn-danger btn-sm" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td></tr>')
+                        '<td><button href="#" onclick="eliminar('+val.id+')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>')
                         
                     });
                 }
@@ -208,43 +208,17 @@
         
     });
 
-    function holaRebeca(idEliminar){
+    function eliminar(idEliminar){
         // get data from button edit
         //alert(idEliminar);
-        /* var idR = $(this).data('idr');
-        var nombreM = $(this).data('nombrer');
+        //var idR = $(this).data('idr');
+        //var nombreM = $(this).data('nombrer');
         // Set data to Form Edit
-        $('.rolModuloMenuId').val(idR);
-        $('.menuM').html(nombreM); */
+        $('.rolModuloMenuId').val(idEliminar);
+        $('.menuM').html(idEliminar); 
         // Call Modal Edit
-        /* $('#eliminarModal').modal('show'); */
+        $('#eliminarModal').modal('show'); 
 
-        Swal.fire({
-            title: '¿Esta seguro que desea eliminar el registro?',
-            text: "No será posible revertir este cambio",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, borrar'
-            }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "GET",
-                    url: "<?= base_url().route_to('eliminarR') ?>",
-                    data: {id: idEliminar},
-                    success:function(data){
-
-                        var dataObj = JSON.parse(data);
-                        alert(data);
-                        Swal.fire(
-                            'Borrado',
-                            'El registro ha sido eliminado'
-                        )
-                    }
-                });
-            }
-        })
     }
 </script>
 

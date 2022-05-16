@@ -26,6 +26,16 @@ class EtapaController extends BaseController{
         echo json_encode($datos);
     }
 
+    //list
+    public function etapaList(){
+
+        $nombreEtapa = new EtapaModel();
+        $procesoId = $this->request->getVar('procesoId');
+        $datos = $nombreEtapa->listarEtapa($procesoId);
+
+        echo json_encode($datos);
+    }
+
 
     //CREAR PROCESO
     public function crear(){
@@ -40,9 +50,9 @@ class EtapaController extends BaseController{
         $respuesta = $etapa->insertar($datos);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/etapa')->with('mensaje','0');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','0');
         } else {
-            return redirect()->to(base_url(). '/etapa')->with('mensaje','1');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','1');
         } 
     } 
 
@@ -57,9 +67,9 @@ class EtapaController extends BaseController{
         $respuesta = $etapa->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/etapa')->with('mensaje','2');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','2');
         } else {
-            return redirect()->to(base_url(). '/etapa')->with('mensaje','3');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','3');
         }
     }
 
@@ -80,9 +90,9 @@ class EtapaController extends BaseController{
         $datos = ["datos" => $respuesta];
 
         if ($respuesta) {
-            return redirect()->to(base_url() . '/etapa')->with('mensaje', '4');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '4');
         } else {
-            return redirect()->to(base_url() . '/etapa')->with('mensaje', '5');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '5');
         }
     }
     

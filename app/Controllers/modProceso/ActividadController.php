@@ -10,10 +10,12 @@ class ActividadController extends BaseController{
     public function actividad(){
 
         $nombreActividad = new ActividadModel();
-        $datos = $nombreActividad->listarActividad();
-        $etapa = $nombreActividad->listarEtapa();
 
-        $mensaje = session('mensaje');
+        $etapaId = $this->request->getVar('etapaId');
+
+        $datos = $nombreActividad->listarActividad($etapaId);
+
+        /* $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
@@ -21,8 +23,9 @@ class ActividadController extends BaseController{
             "mensaje" => $mensaje
         ];
 
-        return view('modProceso/actividad', $data);
-        }
+        return view('modProceso/actividad', $data); */
+        echo json_encode($datos);
+    }
 
     //CREAR PROCESO
     public function crear(){

@@ -198,7 +198,11 @@
 
                     <div class="form-group">
                         <label>Proceso</label>
-                        <input type="text" id="procesoEtapa" name="procesoId" required="required" autocomplete="off" class="form-control"  readonly>
+                        <input type="text" id="procesoEtapa" name="proceso" required="required" autocomplete="off" class="form-control"  readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="procesoE" name="procesoId" class="form-control"  hidden>
                     </div>
 
                 
@@ -212,6 +216,50 @@
             </div>
         </form>
         <!-- End Modal Agregar ETAPA-->
+
+        <!-- Modal Edit ETAPA-->
+        <form action="<?php echo base_url() . '/actualizarEtapa' ?>" method="POST">
+            <div class="modal fade" id="actualizarEtapaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Etapa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="form-group">
+                        <label>Nombre del Etapa</label>
+                        <input type="text" id="nombreEtapaA" name="nombreEtapa" autocomplete="off" required="required" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Orden</label>
+                        <input type="number" id="ordenA" name="orden" required="required" autocomplete="off" class="form-control ">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proceso</label>
+                        <input type="text" id="procesoA" name="proceso" required="required" autocomplete="off" class="form-control"  readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="procesoIdA" name="procesoId" class="form-control"  hidden>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="etapaId" class="etapaId">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </form>
+        <!-- End Modal Edit ETAPA-->
 
         <!-- Modal Delete ETAPA-->
         <form action="<?php echo base_url() . '/eliminarEtapa' ?>" method="POST">
@@ -243,6 +291,34 @@
         <br>
         <a href="<?= base_url().route_to('proceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
+
+    <div class="container" id="actividad" style="display: none">
+        <!--LISTADO DE ETAPA-->
+        <div class="x_content">
+            <button type="button" class="btn btn-outline-success mb-2 btn-agregarActividad" data-toggle="modal" data-target="#agregarActividadModal"><i class="fa fa-plus"></i> Agregar Actividad</button>
+            <br><br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre de la Actividad</th>
+                        <th>Descripción</th>
+                        <th>Etapa</th>
+                        <th>Encargado</th>
+                        <th scope="col" colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="actividadData">
+                    
+                </tbody>
+            </table>
+        </div>
+        <!--FIN LISTADO ETAPA-->
+
+        <br>
+        <a href="<?= base_url().route_to('proceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
+    </div>
+
 </div>
 
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
@@ -319,21 +395,22 @@
 
                     var dataEtapa = JSON.parse(data);
                     
-                    console.log(dataEtapa[0]['proceso']);
-                    console.log(dataEtapa);
+                    //console.log(dataEtapa[0]['proceso']);
+                    //console.log(dataEtapa.length);
 
                     var proceso = dataEtapa[0]['proceso'];
                     //console.log(proceso);
                     $('#procesoEtapa').val(proceso);
+                    $('#procesoE').val(dataEtapa[0]['procesoId']);
 
                     $.each(dataEtapa, function(index, val) {
                         eData.append("<tr><td>"+val.id+"</td>"+
                         "<td>"+val.nombre+"</td>"+
                         "<td>"+val.orden+"</td>"+
                         "<td>"+val.proceso+"</td>"+
-                        "<td><a href='#' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                        "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
                         "<a href='#' onclick='borrarEtapa("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                        "<a href='#' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-trash'></i> Actividades</a>"+
+                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-idac='"+val.id+"' data-nombreac='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
                         "</td></tr>")
                     });
                 }
@@ -350,12 +427,90 @@
 
     function borrarEtapa(id) { 
         $('.etapaId').val(id);
-        //$('.etapaN').html(nombre);
+        $('.etapaN').html(id);
 
         // Call Modal Edit
         $('#eliminarEtapaModal').modal('show');
         
     }
+
+    function actualizarEtapa(idA, idE) { 
+        //$('.etapaId').val(id);
+       // console.log(idE);
+
+        $.ajax({
+                type: "GET",
+                url: "<?= base_url().route_to('etapaList') ?>",
+                data: {procesoId: idA},
+                success:function(data){
+
+                    var dataA = JSON.parse(data);
+
+                    for(var k in dataA) {
+                        if(dataA[k]['id'] == idE) {
+                            var i = k;
+                        };
+                        //console.log(i);
+                    } 
+                    
+                    console.log(dataA);
+                    console.log(i);
+                    //console.log(dataA.length);
+
+                    $('#procesoA').val(dataA[i]['proceso']);
+                    $('#nombreEtapaA').val(dataA[i]['nombre']);
+                    $('#ordenA').val(dataA[i]['orden']);
+                    $('#procesoIdA').val(dataA[i]['procesoId']);
+                    $('.etapaId').val(dataA[i]['id']);
+
+                }
+            });
+
+        // Call Modal Edit
+        $('#actualizarEtapaModal').modal('show');
+    }
+
+    function actividad(idAC) { 
+        // Set data to Form Edit
+        $('.etapaId').val(idAC);
+        //$('.nombreEtapa').val(nombreE); 
+
+        var aData = $("#actividadData");;
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('actividad') ?>",
+            data: {etapaId: idAC},
+            success:function(data){
+
+                var dataActividad = JSON.parse(data);
+                
+                //console.log(dataEtapa[0]['proceso']);
+                //console.log(dataEtapa.length);
+
+                /* var proceso = dataEtapa[0]['proceso'];
+                //console.log(proceso);
+                $('#procesoEtapa').val(proceso);
+                $('#procesoE').val(dataEtapa[0]['procesoId']); */
+
+                $.each(dataActividad, function(index, val) {
+                    aData.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.etapa+"</td>"+
+                    "<td>"+val.persona+"</td>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.etapaId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                    "</td></tr>")
+                });
+            }
+        });
+
+        // Call Modal Edit
+        $('#actividad').css("display", "block");
+        $('#etapa').hide();
+    }
+
 </script>
 
 <?= $this->endSection() ?>

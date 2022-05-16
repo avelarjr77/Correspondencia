@@ -10,11 +10,13 @@ class ActividadModel extends Model{
     protected $allowedFields = ['actividadId', 'nombreActividad', 'descripcion', 'etapaId'];
 
     //MODELO PARA LISTAR PROCESO
-    public function listarActividad()
+    public function listarActividad($etapaId)
     {
         return $this->asObject()
-        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa'")
+        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa', wk_actividad.etapaId, pe.nombres as 'persona', wk_actividad.personaId")
         ->join('wk_etapa e','e.etapaId = wk_actividad.etapaId')
+        ->join('wk_persona pe','pe.personaId = wk_actividad.personaId')
+        ->where('e.etapaId',$etapaId)
         ->orderBy('wk_actividad.actividadId')
         ->findAll();
     }
