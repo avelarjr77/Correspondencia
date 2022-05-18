@@ -10,23 +10,29 @@ class ActividadModel extends Model{
     protected $allowedFields = ['actividadId', 'nombreActividad', 'descripcion', 'etapaId'];
 
     //MODELO PARA LISTAR PROCESO
-    public function listarActividad()
+    public function listarActividad($etapaId)
     {
         return $this->asObject()
-        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa'")
+        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa', wk_actividad.etapaId, pe.nombres as 'persona', wk_actividad.personaId")
         ->join('wk_etapa e','e.etapaId = wk_actividad.etapaId')
-        ->orderBy('wk_actividad.actividadId')
+        ->join('wk_persona pe','pe.personaId = wk_actividad.personaId')
+        ->where('e.etapaId',$etapaId)
         ->findAll();
     }
     
-    //MODELO PARA LISTAR TIPO ETAPA
-    public function listarEtapa()
+    //MODELO PARA LISTAR PERSONA
+    public function listarPersona()
     {
-        return $this->asObject()
-        ->select("*")
-        ->from('wk_etapa')
-        ->orderBy('wk_etapa.etapaId')
-        ->findAll();
+        $cargo =  $this->db->query('SELECT*FROM  wk_persona');
+        return $cargo->getResult();
+    }
+
+    public function etapaL($etapaId)
+    {
+        $etapa = $this->db->query("SELECT  e.nombreEtapa as 'etapa'
+                                    FROM wk_etapa e
+                                    WHERE e.etapaId = $etapaId");
+        return $etapa->getResult();
     }
 
     //MODELO PARA AGREGAR PROCESO
