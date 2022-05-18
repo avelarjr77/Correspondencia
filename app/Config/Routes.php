@@ -188,25 +188,25 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 //ETAPA
 $routes->group('/',['filter'=>'auth'],function($routes){
-    $routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
-    $routes->get('/etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
-    $routes->get('/listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
-    $routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
-    $routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');
-    $routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
+    $routes->get('etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+    $routes->get('etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
+    $routes->get('listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
+    $routes->post('crearEtapa', 'modProceso/EtapaController::crear');
+    $routes->post('actualizarEtapa', 'modProceso/EtapaController::actualizar');
+    $routes->post('eliminarEtapa', 'modProceso/EtapaController::eliminar');
 
 });
 
 //ACTIVIDADES
 $routes->group('/',['filter'=>'auth'],function($routes){
-    $routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
-    $routes->get('/actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
-    $routes->get('/personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
-    $routes->get('/personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
-    $routes->get('/etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
-    $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
-    $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
-    $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
+    $routes->get('actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
+    $routes->get('actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
+    $routes->get('personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
+    $routes->get('personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
+    $routes->get('etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
+    $routes->post('crearActividad', 'modProceso/ActividadController::crear');
+    $routes->post('actualizarActividad', 'modProceso/ActividadController::actualizar');
+    $routes->post('eliminarActividad', 'modProceso/ActividadController::eliminar');
 
 });
 
