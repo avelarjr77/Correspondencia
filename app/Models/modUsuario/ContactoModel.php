@@ -6,6 +6,9 @@ use CodeIgniter\Model;
 
 class ContactoModel extends Model
 {
+    protected $table 			= 'wk_contacto';
+	protected $primaryKey 		= 'contactoId';
+	protected $allowedFields 	= ['contactoId', 'personaId', 'tipoContacto', 'uuid', 'contacto', 'estado'];
 
     //MODELO PARA LISTAR CONTACTO
     public function listarContacto()

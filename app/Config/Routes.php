@@ -37,6 +37,10 @@ $routes->get('/', 'Login::index' ) ;
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 
+$routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
+$routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
+
+$routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
 
 //MENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
