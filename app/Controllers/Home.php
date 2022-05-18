@@ -6,8 +6,12 @@ class Home extends BaseController
 {
     public function index()
     {
-        $mensaje = session('mensaje');
-        return view('home',["mensaje"=> $mensaje]);
+        if(!session()->is_logged){
+            return redirect()->to(base_url('/'));
+        }
+            $mensaje = session('mensaje');
+            return view('home',["mensaje"=> $mensaje]);
+        
     }
 
     public function login(){
@@ -21,7 +25,8 @@ class Home extends BaseController
         if($user=$usuarios->obtenerUsuario('usuario',$usuario) && isset($pass['clave'])){
 
             $data = array(
-                'usuario' => $usuario
+                'usuario' => $usuario,
+                'is_logged' => true
             );
                 
             $session = session();

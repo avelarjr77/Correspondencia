@@ -10,11 +10,11 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(!session()->get('isLoggedIn')){
-            return redirect()->to('/');
+        if(!session()->is_logged){
+            return redirect()->route('/');
         } 
 
-        $usuarios = model('Usuarios');
+     /*   $usuarios = model('Usuarios');
         if(!$user=$usuarios->obtenerUsuario('usuario', session()->usuarioId)){
 
             $data = array(
@@ -27,7 +27,7 @@ class Auth implements FilterInterface
             return redirect()->to(base_url('/Login'))->with('mensaje','0');
 
         }
-        dd($user);
+        dd($user); */
 
     }
 
