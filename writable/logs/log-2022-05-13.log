@@ -1,0 +1,59 @@
+CRITICAL - 2022-05-13 15:12:17 --> Undefined variable: nombreRol
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 95, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-13 15:13:09 --> Undefined variable: nombreRol
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 95, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-13 15:14:06 --> Undefined variable: nombreRol
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 95, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-13 15:15:04 --> Call to undefined method App\Models\modAdministracion\RolModMenuModel::eliminar
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(95): CodeIgniter\Model->__call('eliminar', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-13 16:27:32 --> syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';'
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(22): view('modAdministraci...', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->index()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-05-13 16:31:18 --> Use of undefined constant idEliminar - assumed 'idEliminar' (this will throw an Error in a future version of PHP)
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modAdministracion\rolModMenu.php(234): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'C:\\wamp64\\www\\c...', 234, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(22): view('modAdministraci...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-13 16:32:37 --> Undefined variable: idEliminar
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modAdministracion\rolModMenu.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 234, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(22): view('modAdministraci...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolModMenuController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

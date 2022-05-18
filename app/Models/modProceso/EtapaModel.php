@@ -7,15 +7,16 @@ class EtapaModel extends Model{
 
     protected $table = 'wk_etapa';
     protected $primaryKey = 'etapaId';
-    protected $allowedFields = ['etapaId', 'nombreEtapa', 'orden', 'procesoId'];
+    protected $allowedFields = ['etapaId', 'nombreEtapa', 'orden', 'procesoId', 'personaId'];
 
     //MODELO PARA LISTAR PROCESO
-    public function listarEtapa()
+    public function listarEtapa($procesoId)
     {
         return $this->asObject()
         ->select("wk_etapa.etapaId as 'id', wk_etapa.nombreEtapa as 'nombre', wk_etapa.orden as 'orden', p.nombreProceso as 'proceso', p.procesoId as 'procesoId'")
         ->join('wk_proceso p','p.procesoId = wk_etapa.procesoId')
-        ->orderBy('wk_etapa.etapaId')
+        ->orderBy('wk_etapa.orden')
+        ->where('p.procesoId',$procesoId)
         ->findAll();
     }
     

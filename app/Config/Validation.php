@@ -37,6 +37,11 @@ class Validation
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+    public $menuValidation = [
+        'nombreMenu'   => 'required|is_unique[co_menu.nombreMenu]',
+        'identificador' => 'required|min_length[2]',
+    ];
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

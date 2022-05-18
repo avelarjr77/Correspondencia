@@ -35,14 +35,12 @@ class RolModMenuModel extends Model
 
     public function getModMenu($moduloId)
     {
-        $modulo = $this->db->query("SELECT mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu', m.nombre as 'modulo', r.rolId as 'rolId'
-                                    FROM co_rol_modulo_menu rmm
-                                    INNER JOIN wk_rol r ON rmm.rolId = r.rolId
-                                    INNER JOIN co_modulo_menu mm ON rmm.moduloMenuId = mm.moduloMenuId 
+        $modulo = $this->db->query("SELECT mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu', m.nombre as 'modulo'
+                                    FROM co_modulo_menu mm
                                     INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
                                     INNER JOIN co_menu me ON mm.menuId = me.menuId  
                                     WHERE mm.moduloId = '$moduloId'
-                                    ORDER BY rmm.rolModuloMenuId");
+                                    ORDER BY mm.moduloMenuId");
         return $modulo->getResult();
     }
 
@@ -63,5 +61,12 @@ class RolModMenuModel extends Model
         $nombre->insert($data);
 
         return $this->db->insertID();
+    }
+
+    public function eliminarR($id){
+        $nombres = $this->db->table('co_rol_modulo_menu');
+        $nombres->where($id);
+        
+        return $nombres->delete();
     }
 }

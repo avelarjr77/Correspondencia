@@ -22,11 +22,8 @@ class ProcesoModel extends Model{
     //MODELO PARA LISTAR TIPO PROCESO
     public function listarTipoProceso()
     {
-        return $this->asObject()
-        ->select("*")
-        ->from('wk_tipo_proceso')
-        ->orderBy('wk_tipo_proceso.tipoProcesoId')
-        ->findAll();
+        $cargo =  $this->db->query('SELECT*FROM  wk_tipo_proceso');
+        return $cargo->getResult();
     }
 
     //MODELO PARA AGREGAR PROCESO

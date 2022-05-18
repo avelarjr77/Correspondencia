@@ -1,6 +1,5 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
-
 <div class="row">
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
@@ -126,7 +125,7 @@
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/sweetalert2/sweetalert.min.js"></script>
+
 
 
 <script>
@@ -178,7 +177,7 @@
 
                     $.each(dataObj, function(index, val) {
                         roles.append('<tr><td id="la">'+val.menu+'</td>'+
-                        '<td><button href="#" id="btn-delete" class="btn btn-danger btn-sm btn-delete" data-idr="'+val.id+'" data-nombrer="'+val.menu+'"><i class="fa fa-trash"></i></button></td></tr>')
+                        '<td><button href="#" onclick="eliminar('+val.id+')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>')
                         
                     });
                 }
@@ -203,18 +202,24 @@
 
         });    
 
-        $('.btn-delete').on('click',function(){
-            // get data from button edit
-            console.log("entró");
-            var idR = $(this).data('idr');
-            var nombreM = $(this).data('nombrer');
-            // Set data to Form Edit
-            $('.rolModuloMenuId').val(idR);
-            $('.menuM').html(nombreM);
-            // Call Modal Edit
-            $('#eliminarModal').modal('show');
-        });
+        /* $('.holaRebeca').click(function(){
+            alert('Exelente.... =)');
+        }); */
+        
     });
+
+    function eliminar(idEliminar){
+        // get data from button edit
+        //alert(idEliminar);
+        //var idR = $(this).data('idr');
+        //var nombreM = $(this).data('nombrer');
+        // Set data to Form Edit
+        $('.rolModuloMenuId').val(idEliminar);
+        $('.menuM').html(idEliminar); 
+        // Call Modal Edit
+        $('#eliminarModal').modal('show'); 
+
+    }
 </script>
 
 
