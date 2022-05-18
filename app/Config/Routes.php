@@ -58,14 +58,15 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 });
 
 //ROL-MODULO-MENU
-$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
-$routes->get('/actualizar', 'modAdministracion/RolModMenuController::actualizar');
-$routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
-$routes->match(['get', 'post'], '/menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
-$routes->match(['get', 'post'], '/editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
-$routes->post('/eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
-//$routes->match(['get', 'post'], '/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
-$routes->match(['get', 'post'], '/editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
+    $routes->get('actualizar', 'modAdministracion/RolModMenuController::actualizar');
+    $routes->match(['get', 'post'], 'editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
+    $routes->match(['get', 'post'], 'menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
+    $routes->match(['get', 'post'], 'editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
+    $routes->post('eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
+    //$routes->match(['get', 'post'], '/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
+    $routes->match(['get', 'post'], 'editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
 
 });
 
@@ -79,11 +80,14 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 });
 
 ///ROL
-$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
-//$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol', 'filter'=> 'auth:usuario,user']);
-$routes->post('/crearRol', 'modAdministracion/RolController::crear');
-$routes->post('/actualizarRol', 'modAdministracion/RolController::actualizar');
-$routes->post('/eliminarRol', 'modAdministracion/RolController::eliminar');
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
+    //$routes->get('/adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol', 'filter'=> 'auth:usuario,user']);
+    $routes->post('crearRol', 'modAdministracion/RolController::crear');
+    $routes->post('actualizarRol', 'modAdministracion/RolController::actualizar');
+    $routes->post('eliminarRol', 'modAdministracion/RolController::eliminar');
+
+});
 
 //CARGO
 $routes->group('/',['filter'=>'auth'],function($routes){
@@ -183,22 +187,28 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 });
 
 //ETAPA
-$routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
-$routes->get('/etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
-$routes->get('/listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
-$routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
-$routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');
-$routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('/etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+    $routes->get('/etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
+    $routes->get('/listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
+    $routes->post('/crearEtapa', 'modProceso/EtapaController::crear');
+    $routes->post('/actualizarEtapa', 'modProceso/EtapaController::actualizar');
+    $routes->post('/eliminarEtapa', 'modProceso/EtapaController::eliminar');
+
+});
 
 //ACTIVIDADES
-$routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
-$routes->get('/actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
-$routes->get('/personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
-$routes->get('/personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
-$routes->get('/etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
-$routes->post('/crearActividad', 'modProceso/ActividadController::crear');
-$routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
-$routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('/actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
+    $routes->get('/actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
+    $routes->get('/personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
+    $routes->get('/personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
+    $routes->get('/etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
+    $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
+    $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
+    $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
+
+});
 
 //INSTITUCION
 $routes->group('/',['filter'=>'auth'],function($routes){
