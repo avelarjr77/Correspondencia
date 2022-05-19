@@ -73,9 +73,9 @@ class ActividadController extends BaseController{
         $respuesta = $actividad->insertar($datos);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','0');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','12');
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','1');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','13');
         } 
     } 
 
@@ -90,9 +90,9 @@ class ActividadController extends BaseController{
         $respuesta = $actividad->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','2');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','14');
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','3');
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','15');
         }
     }
 
@@ -114,9 +114,9 @@ class ActividadController extends BaseController{
         $datos = ["datos" => $respuesta];
 
         if ($respuesta) {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '4');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '16');
         } else {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '5');
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '17');
         }
     }
     

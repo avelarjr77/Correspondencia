@@ -22,7 +22,7 @@ class ProcesoController extends BaseController{
         ];
 
         return view('modProceso/proceso', $data);
-        }
+    }
 
     //CREAR PROCESO
     public function crear(){

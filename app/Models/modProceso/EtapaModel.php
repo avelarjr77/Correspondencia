@@ -12,12 +12,12 @@ class EtapaModel extends Model{
     //MODELO PARA LISTAR PROCESO
     public function listarEtapa($procesoId)
     {
-        return $this->asObject()
-        ->select("wk_etapa.etapaId as 'id', wk_etapa.nombreEtapa as 'nombre', wk_etapa.orden as 'orden', p.nombreProceso as 'proceso', p.procesoId as 'procesoId'")
-        ->join('wk_proceso p','p.procesoId = wk_etapa.procesoId')
-        ->orderBy('wk_etapa.orden')
-        ->where('p.procesoId',$procesoId)
-        ->findAll();
+        $etapa = $this->db->query("SELECT e.etapaId as 'id', e.nombreEtapa as 'nombre', e.orden as 'orden', p.nombreProceso as 'proceso', p.procesoId as 'procesoId'
+                                        FROM wk_etapa e
+                                        INNER JOIN wk_proceso p ON p.procesoId = e.procesoId
+                                        WHERE p.procesoId = $procesoId
+                                        ORDER BY e.orden");
+        return $etapa->getResult();
     }
     
     //MODELO PARA LISTAR TIPO PROCESO

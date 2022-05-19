@@ -1,6 +1,8 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
+<link rel="stylesheet" href="vendors/select2/dist/css/select2.min.css">
+
 <div class="x_panel">
     <div class="x_title">
         <h2>Configuración de Proceso</h2>
@@ -9,7 +11,7 @@
         </ul>
         <div class="clearfix"></div>
     </div>
-    <div class="x_content" id="proceso">
+    <div class="x_content" id="proceso" style="display: none">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Proceso</button>
         <a href="<?= base_url().route_to('tipoProceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Tipo Proceso</a>
         <br>
@@ -154,7 +156,20 @@
     <div class="container" id="etapa" style="display: none">
         <!--LISTADO DE ETAPA-->
         <div class="x_content">
-            <button type="button" class="btn btn-outline-success mb-2 btn-agregar" data-toggle="modal" data-target="#agregarEtapaModal"><i class="fa fa-plus"></i> Agregar Etapa</button>
+            
+            <div class="row">
+                <div class="col-md-1">
+                    <h4 id="tituloP">Proceso:</h4>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="procesoNom" name="proceso" class="form-control"  readonly>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-outline-success mb-2 btn-agregar" data-toggle="modal" data-target="#agregarEtapaModal"><i class="fa fa-plus"></i> Agregar Etapa</button>
+                </div>
+            </div>
+    
             <br><br>
             <table class="table table-hover">
                 <thead>
@@ -289,13 +304,25 @@
         <!-- End Modal Delete ETAPA-->
 
         <br>
-        <a href="<?= base_url().route_to('proceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
+        <a href="#" class="btn btn-outline-secondary mb-2 volver-proceso"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 
     <div class="container" id="actividad" style="display: none">
         <!--LISTADO DE ACTIVIDAD-->
         <div class="x_content">
-            <button type="button" class="btn btn-outline-success mb-2 btn-agregarActividad" data-toggle="modal" data-target="#agregarActividadModal"><i class="fa fa-plus"></i> Agregar Actividad</button>
+            <div class="row">
+                <div class="col-md-1">
+                    <h4 id="tituloE">Etapa:</h4>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="etapaNom" name="etapa" class="form-control"  readonly>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-outline-success mb-2 btn-agregarActividad" data-toggle="modal" data-target="#agregarActividadModal"><i class="fa fa-plus"></i> Agregar Actividad</button>
+                </div>
+            </div>
+    
             <br><br>
             <table class="table table-hover">
                 <thead>
@@ -367,7 +394,7 @@
         <!-- End Modal Agregar ACTIVIDAD-->
 
         <!-- Modal Edit ACTIVIDAD-->
-        <form action="<?php echo base_url() . '/actualizarActividad' ?>" method="POST">
+        <form action="<?php echo base_url() . '/actualizarActividad' ?>" method="POST" id="frm-actividad">
             <div class="modal fade" id="editActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -446,7 +473,7 @@
         <!-- End Modal Delete ACTIVIDAD-->
 
         <br>
-        <a href="<?= base_url().route_to('proceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-angle-double-left"></i> Volver</a>
+        <a href="#" class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 
 </div>
@@ -454,24 +481,8 @@
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-
-<script type="text/javascript">
-    let mensaje = '<?php echo $mensaje ?>';
-
-    if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
-    } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
-    }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
-    }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
-    }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
-    }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
-    }
-</script>
+<script src="vendors/select2/dist/js/select2.min.js"></script>
+<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -515,9 +526,13 @@
             $('.procesoId').val(idE);
             $('.nombreProceso').val(nombreE);
             $('#procesoEtapa').val(nombreE);
+            $('#procesoNom').val(nombreE);
             $('#procesoE').val(idE);
+            $('#tituloP').css("color","#010806");
+            $('#tituloP').css("font-size",16);
+            //$("#etapaData").find("tr:gt(0)").remove();
 
-            var eData = $("#etapaData");;
+            var eData = $("#etapaData");
 
             $.ajax({
                 type: "GET",
@@ -529,6 +544,7 @@
                     
                     //console.log(dataEtapa[0]['proceso']);
                     //console.log(dataEtapa.length);
+                    $("#etapaData").empty();
 
                     $.each(dataEtapa, function(index, val) {
                         eData.append("<tr><td>"+val.id+"</td>"+
@@ -613,6 +629,11 @@
 
                 var dataActividad = JSON.parse(data);
 
+                $('#etapaNom').val(dataActividad[0]['etapa']);
+                $('#tituloE').css("color","#010806");
+                $('#tituloE').css("font-size",16);
+                $("#actividadData").empty();
+
                 $.each(dataActividad, function(index, val) {
                     aData.append("<tr><td>"+val.id+"</td>"+
                     "<td>"+val.nombre+"</td>"+
@@ -674,6 +695,7 @@
     }
 
     function actualizarActividad(idActividad, idEtapa) { 
+
         //$('.etapaId').val(id);
        // console.log(idE);
         //idA es de id actualizar y trae procesoId
@@ -717,6 +739,7 @@
                     
                 //console.log(dataPersona[0]['personaId']);
                 //console.log(proceso);
+                $('#personaDataA').empty();
 
                 $.each(dataP, function(index, val) {
                     pDataA.append("<option value="+val.personaId+">"+val.nombres+"</option>")
@@ -726,6 +749,83 @@
 
         // Call Modal Edit
         $('#editActividadModal').modal('show');
+    }
+
+     // volver a proceso 
+     $('.volver-proceso').on('click',function(){
+            
+        $('#proceso').css("display", "block");
+        $('#etapa').hide();
+    });
+
+    // volver a etapa 
+    $('.volver-etapa').on('click',function(){
+        
+        $('#etapa').css("display", "block");
+        $('#actividad').hide();
+    });
+
+</script>
+
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    console.log(mensaje);
+
+    /* switch (mensaje) {
+        case '0' ||'1' || '2' || '3' || '4' || '5':
+            $('#proceso').css("display", "block");
+            $('#etapa').hide();
+            $('#actividad').hide();
+            break;
+        case '6' ||'7' || '8' || '9' || '10' || '11':
+            $('#etapa').css("display", "block");
+            $('#proceso').hide();
+            $('#actividad').hide();
+            break;
+        case '12' ||'13' || '14' || '15' || '16' || '17':
+            $('#actividad').css("display", "block");
+            $('#proceso').hide();
+            $('#etapa').hide();
+            break;
+    
+        default:
+            $('#proceso').css("display", "block");
+            $('#etapa').hide();
+            $('#actividad').hide();
+            break;
+    } */
+
+    if (mensaje == '0' || mensaje == '1' || mensaje == '2' || mensaje == '3' || mensaje == '4' || mensaje == '5') {
+        $('#proceso').css("display", "block");
+        $('#etapa').hide();
+        $('#actividad').hide();
+    } else if (mensaje == '6' || mensaje == '7' || mensaje == '8' || mensaje == '9' || mensaje == '10' || mensaje == '11') {
+        $('#etapa').css("display", "block");
+        $('#proceso').hide();
+        $('#actividad').hide();
+    }else if (mensaje == '12' || mensaje == '13' || mensaje == '14' || mensaje == '15' || mensaje == '16' || mensaje == '17') {
+        $('#actividad').css("display", "block");
+        $('#proceso').hide();
+        $('#etapa').hide();
+    }else{
+        $('#proceso').css("display", "block");
+        $('#etapa').hide();
+        $('#actividad').hide();
+    }
+
+    if (mensaje == '0' || mensaje == '6' || mensaje == '12') {
+        swal('', 'Agregado', 'success');
+    } else if (mensaje == '1' || mensaje == '7' || mensaje == '13') {
+        swal('', 'Falló Agregar', 'error');
+    }else if (mensaje == '2' || mensaje == '8' || mensaje == '14') {
+        swal('', 'Eliminado', 'success');
+    }else if (mensaje == '3' || mensaje == '9' || mensaje == '15') {
+        swal('', 'Falló Eliminar Registro', 'error');
+    }else if (mensaje == '4' || mensaje == '10' || mensaje == '16') {
+        swal('', 'Actualizado con exito', 'success');
+    }else if (mensaje == '5' || mensaje == '11' || mensaje == '17') {
+        swal('', 'Falló actualizar', 'error');
     }
 
 </script>

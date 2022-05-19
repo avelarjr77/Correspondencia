@@ -12,11 +12,11 @@ class ProcesoModel extends Model{
     //MODELO PARA LISTAR PROCESO
     public function listarProceso()
     {
-        return $this->asObject()
-        ->select("wk_proceso.procesoId as 'id', wk_proceso.nombreProceso as 'nombre', tp.tipoProceso as 'tipoProceso'")
-        ->join('wk_tipo_proceso tp','tp.tipoProcesoId = wk_proceso.tipoProcesoId')
-        ->orderBy('wk_proceso.procesoId')
-        ->findAll();
+        $proceso = $this->db->query("SELECT p.procesoId as 'id', p.nombreProceso as 'nombre', tp.tipoProceso as 'tipoProceso'
+                                        FROM wk_proceso p
+                                        INNER JOIN wk_tipo_proceso tp ON tp.tipoProcesoId = p.tipoProcesoId
+                                        ORDER BY p.procesoId");
+        return $proceso->getResult();
     }
     
     //MODELO PARA LISTAR TIPO PROCESO
