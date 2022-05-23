@@ -11,7 +11,7 @@
         </ul>
         <div class="clearfix"></div>
     </div>
-    <div class="x_content" id="proceso" style="display: none">
+    <div class="x_content" id="proceso">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Proceso</button>
         <a href="<?= base_url().route_to('tipoProceso') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Tipo Proceso</a>
         <br>
@@ -189,7 +189,7 @@
         <!--FIN LISTADO ETAPA-->
 
         <!-- Modal Agregar ETAPA-->
-        <form action="<?php echo base_url() . '/crearEtapa' ?>" method="POST">
+        <form action="" id="frmCrearEtapa" method="POST">
             <div class="modal fade" id="agregarEtapaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -203,12 +203,12 @@
                 
                     <div class="form-group">
                         <label>Nombre del Etapa</label>
-                        <input type="text" id="nombreEtapa" name="nombreEtapa" required="required" autocomplete="off" class="form-control">
+                        <input type="text" id="nE" name="nombreEtapa" required="required" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Orden</label>
-                        <input type="number" id="orden" name="orden" required="required" autocomplete="off" class="form-control">
+                        <input type="number" id="od" name="orden" required="required" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -224,7 +224,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary btn-crearEtapa">Guardar</button>
                 </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@
         <!-- End Modal Agregar ETAPA-->
 
         <!-- Modal Edit ETAPA-->
-        <form action="<?php echo base_url() . '/actualizarEtapa' ?>" method="POST">
+        <form action="" id="frmEditarEtapa" method="POST">
             <div class="modal fade" id="actualizarEtapaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -266,9 +266,9 @@
                 
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="etapaId" class="etapaId">
+                    <input type="hidden" name="etapaId" id="etapaIdAc" class="etapaId">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <button type="button" class="btn btn-primary btn-editarEtapa">Editar</button>
                 </div>
                 </div>
             </div>
@@ -277,7 +277,7 @@
         <!-- End Modal Edit ETAPA-->
 
         <!-- Modal Delete ETAPA-->
-        <form action="<?php echo base_url() . '/eliminarEtapa' ?>" method="POST">
+        <form action="" id="frmEliminarEtapa" method="POST">
             <div class="modal fade" id="eliminarEtapaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -290,12 +290,13 @@
                 <div class="modal-body">
                 
                 <h4>¿Esta seguro que desea eliminar la Etapa: <b><i class="etapaN"></i></b> ?</h4>
+                <input type="hidden" id="procesoIdEP" class="etapaId">
                 
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="etapaId" class="etapaId">
+                    <input type="hidden" name="etapaId"  id="etapaIdE" class="etapaId">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">SI</button>
+                    <button type="button" class="btn btn-primary btn-eliminarEtapa">SI</button>
                 </div>
                 </div>
             </div>
@@ -343,7 +344,7 @@
         <!--FIN LISTADO ACTIVIDAD-->
 
         <!-- Modal Agregar ACTIVIDAD-->
-        <form action="<?php echo base_url() . '/crearActividad' ?>" method="POST">
+        <form action="" id="frmCrearActividad" method="POST">
             <div class="modal fade" id="agregarActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -385,7 +386,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary btn-crearActividad">Guardar</button>
                 </div>
                 </div>
             </div>
@@ -394,7 +395,7 @@
         <!-- End Modal Agregar ACTIVIDAD-->
 
         <!-- Modal Edit ACTIVIDAD-->
-        <form action="<?php echo base_url() . '/actualizarActividad' ?>" method="POST" id="frm-actividad">
+        <form action="" id="frmEditarActividad" method="POST">
             <div class="modal fade" id="editActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -437,7 +438,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="actividadId" id="actividadIdA">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <button type="button" class="btn btn-primary btn-editarActividad">Editar</button>
                 </div>
                 </div>
             </div>
@@ -446,7 +447,7 @@
         <!-- End Modal Edit ACTIVIDAD-->
 
         <!-- Modal Delete ACTIVIDAD-->
-        <form action="<?php echo base_url() . '/eliminarActividad' ?>" method="POST">
+        <form action="" id="frmEliminarActividad" method="POST">
             <div class="modal fade" id="eliminarActividadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -459,12 +460,13 @@
                 <div class="modal-body">
                 
                 <h4>¿Esta seguro que desea eliminar la Actividad: <b><i class="actividadN"></i></b> ?</h4>
+                <input type="hidden" id="EtapaIdAE">
                 
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="actividadId" id="actividadIdE">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">SI</button>
+                    <button type="button" class="btn btn-primary btn-eliminarActividad">SI</button>
                 </div>
                 </div>
             </div>
@@ -482,7 +484,7 @@
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/select2/dist/js/select2.min.js"></script>
-<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+<!-- <script src="vendors/sweetalert/dist/sweetalert.min.js"></script -->
 
 <script>
     $(document).ready(function(){
@@ -552,7 +554,7 @@
                         "<td>"+val.orden+"</td>"+
                         "<td>"+val.proceso+"</td>"+
                         "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
-                        "<a href='#' onclick='borrarEtapa("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                        "<a href='#' onclick='borrarEtapa("+val.id+" , "+val.procesoId+" )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
                         "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
                         "</td></tr>")
                     });
@@ -567,14 +569,164 @@
         
     });
 
-    function borrarEtapa(id) { 
+    $('.btn-crearEtapa').on('click',function(){
+
+        var idProcesoC = $('#procesoE').val();
+        //var datosC = $("#etapaData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('crearEtapa') ?>",
+            data: $("#frmCrearEtapa").serialize(),
+            success:function(data){
+
+                var dataEEtapaC = JSON.parse(data);
+
+                if (dataEEtapaC == '6') {
+                    Swal.fire(
+                    '¡Agregado!',
+                    'Etapa aregada con éxito',
+                    'success'
+                    )
+                } else if (dataEEtapaC == '7') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló agregar etapa',
+                    'error'
+                    )
+                }
+                console.log(dataEEtapaC);
+                $('#nE').val('');
+                $('#od').val('');
+
+                recargarEtapa(idProcesoC);
+            }
+        });     
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('etapaC') ?>",
+            data: {procesoId: idProcesoC},
+            success:function(data){
+
+                var dataEtapaCE = JSON.parse(data);
+                console.log(dataEtapaCE);
+                
+                $("#etapaData").empty();
+
+                $.each(dataEtapaCE, function(index, val) {
+                    datosC.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.orden+"</td>"+
+                    "<td>"+val.proceso+"</td>"+
+                    "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                    "<a href='#' onclick='borrarEtapa("+val.id+", "+val.procesoId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                    "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+
+        //recargarEtapa(idProcesoC);
+
+        $('#agregarEtapaModal').modal('hide');
+    });
+
+    function recargarEtapa(idPP){
+        var datosC = $("#etapaData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('etapaC') ?>",
+            data: {procesoId: idPP},
+            success:function(data){
+
+                var dataEtapaCE = JSON.parse(data);
+                console.log(dataEtapaCE);
+                
+                $("#etapaData").empty();
+
+                $.each(dataEtapaCE, function(index, val) {
+                    datosC.append("<tr><td>"+val.id+"</td>"+
+                        "<td>"+val.nombre+"</td>"+
+                        "<td>"+val.orden+"</td>"+
+                        "<td>"+val.proceso+"</td>"+
+                        "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                        "<a href='#' onclick='borrarEtapa("+val.id+" , "+val.procesoId+" )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                        "</td></tr>")
+                });
+            }
+        });
+    }
+
+    function borrarEtapa(id, idP) { 
         $('.etapaId').val(id);
+        $('#procesoIdEP').val(idP);
         $('.etapaN').html(id);
 
         // Call Modal Edit
         $('#eliminarEtapaModal').modal('show');
-        
     }
+
+    $('.btn-eliminarEtapa').on('click',function(){
+
+        var idProceso = $('#procesoIdEP').val();
+        //var datos = $("#etapaData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('eliminarEtapa') ?>",
+            data: $("#frmEliminarEtapa").serialize(),
+            success:function(data){
+
+                var dataEEtapa = JSON.parse(data);
+
+                if (dataEEtapa == '8') {
+                    Swal.fire(
+                    '¡Eliminado!',
+                    'Etapa eliminada con éxito',
+                    'success'
+                    )
+                } else if (dataEEtapa == '9') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló eliminar etapa',
+                    'error'
+                    )
+                }
+
+                console.log(dataEEtapa);
+                recargarEtapa(idProceso);
+            }
+        }); 
+        $('#eliminarEtapaModal').modal('hide');
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('etapaLN') ?>",
+            data: {procesoId: idProceso},
+            success:function(data){
+
+                var dataEtapa = JSON.parse(data);
+                
+                $("#etapaData").empty();
+
+                $.each(dataEtapa, function(index, val) {
+                    datos.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.orden+"</td>"+
+                    "<td>"+val.proceso+"</td>"+
+                    "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                    "<a href='#' onclick='borrarEtapa("+val.id+", "+val.procesoId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                    "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+
+        //recargarEtapa(idProceso);
+    });
 
     function actualizarEtapa(idA, idE) { 
         //$('.etapaId').val(id);
@@ -594,10 +746,6 @@
                         };
                         //console.log(i);
                     } 
-                    
-                    //console.log(dataA);
-                    //console.log(i);
-                    //console.log(dataA.length);
 
                     $('#procesoA').val(dataA[i]['proceso']);
                     $('#nombreEtapaA').val(dataA[i]['nombre']);
@@ -612,10 +760,71 @@
         $('#actualizarEtapaModal').modal('show');
     }
 
+    $('.btn-editarEtapa').on('click',function(){
+
+        var idPA = $('#procesoIdA').val();
+        //var datosActualizar = $("#etapaData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('actualizarEtapa') ?>",
+            data: $("#frmEditarEtapa").serialize(),
+            success:function(data){
+
+                var dataEAtapa = JSON.parse(data);
+
+                if (dataEAtapa == '10') {
+                    Swal.fire(
+                    '¡Actualizado!',
+                    'Etapa actualizada con éxito',
+                    'success'
+                    )
+                } else if (dataEAtapa == '11') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló actualizar etapa',
+                    'error'
+                    )
+                }
+
+                console.log(dataEAtapa);
+                recargarEtapa(idPA);
+            }
+        }); 
+
+        $('#actualizarEtapaModal').modal('hide');
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('etapaLNA') ?>",
+            data: {procesoId: idPA},
+            success:function(data){
+
+                var dataEtapaAC = JSON.parse(data);
+
+                console.log(dataEtapaAC)
+                
+                $("#etapaData").empty();
+
+                $.each(dataEtapaAC, function(index, val) {
+                    datosActualizar.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.orden+"</td>"+
+                    "<td>"+val.proceso+"</td>"+
+                    "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
+                    "<a href='#' onclick='borrarEtapa("+val.id+", "+val.procesoId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
+                    "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+
+        //recargarEtapa(idPA);
+    });
+
     function actividad(idAC) { 
         // Set data to Form Edit
         //idAC trae etapaId
-        //$('#actividadEtapa').val(dataActividad[i]['etapa']);
         $('#actividadE').val(idAC);
 
         var aData = $("#actividadData");
@@ -641,12 +850,13 @@
                     "<td>"+val.etapa+"</td>"+
                     "<td>"+val.persona+"</td>"+
                     "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
-                    "<a href='#' onclick='borrarActividad("+val.id+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
                     "</td></tr>")
                 });
             }
         });
 
+        //ajax para traer nombre de etapa
         $.ajax({
             type: "GET",
             url: "<?= base_url().route_to('etapaL') ?>",
@@ -657,13 +867,11 @@
                 console.log(dataE);
 
                 $('#actividadEtapa').val(dataE[0]['etapa']);
-
-                
-                //console.log(dataE[0]['etapa']);
+                $('#etapaNom').val(dataE[0]['etapa']);
             }
         });
-        
 
+        //ajax para listar persona
         $.ajax({
             type: "GET",
             url: "<?= base_url().route_to('personaList') ?>",
@@ -685,20 +893,186 @@
         $('#etapa').hide();
     }
 
-    function borrarActividad(id) { 
+    function recargarActividad(idA){
+        var datosACC = $("#actividadData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('actividadC') ?>", 
+            data: {etapaId: idA},
+            success:function(data){
+
+                var dataACList = JSON.parse(data);
+                
+                $("#actividadData").empty();
+
+                $.each(dataACList, function(index, val) {
+                    datosACC.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.etapa+"</td>"+
+                    "<td>"+val.persona+"</td>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                    "</td></tr>")
+                });
+            }
+        });
+    }
+
+    $('.btn-crearActividad').on('click',function(){
+
+        var dEtapAC = $('#actividadE').val();
+        //var datosACC = $("#actividadData");
+        console.log(dEtapAC);
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('crearActividad') ?>",
+            data: $("#frmCrearActividad").serialize(),
+            success:function(data){
+
+                var dataActividadCCN = JSON.parse(data);
+
+                if (dataActividadCCN == '12') {
+                    Swal.fire(
+                    '¡Agregado!',
+                    'Actividad aregada con éxito',
+                    'success'
+                    )
+                } else if (dataActividadCCN == '13') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló agregar actividad',
+                    'error'
+                    )
+                }
+
+                console.log(dataActividadCCN);
+                $('#nombreActividad').val('');
+                $('#descripcion').val('');
+                $('#personaData').val('');
+                //listadoPersona();
+                recargarActividad(dEtapAC);
+            }
+        }); 
+
+
+        $('#agregarActividadModal').modal('hide');
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('actividadC') ?>", 
+            data: {etapaId: dEtapAC},
+            success:function(data){
+
+                var dataACList = JSON.parse(data);
+                
+                $("#actividadData").empty();
+
+                $.each(dataACList, function(index, val) {
+                    datosACC.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.etapa+"</td>"+
+                    "<td>"+val.persona+"</td>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+    });
+
+    function listadoPersona(){
+        var pDataCrear = $("#personaData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('personaListC') ?>",
+            success:function(data){
+
+                var dataPCrear = JSON.parse(data);
+                
+            $('#personaData').empty();
+
+            $.each(dataPCrear, function(index, val) {
+                pDataCrear.append("<option value="+val.personaId+">"+val.nombres+"</option>")
+            });
+            }
+        }); 
+    }
+
+    function borrarActividad(id, idEAc) { 
         $('#actividadIdE').val(id);
+        $('#EtapaIdAE').val(idEAc);
         $('.actividadN').html(id);
 
         // Call Modal Edit
         $('#eliminarActividadModal').modal('show');
-        
     }
+
+    $('.btn-eliminarActividad').on('click',function(){
+
+        var idEtapaActNew = $('#EtapaIdAE').val();
+        //var datosAN = $("#actividadData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('eliminarActividad') ?>",
+            data: $("#frmEliminarActividad").serialize(),
+            success:function(data){
+
+                var dataActividadEl = JSON.parse(data);
+
+                if (dataActividadEl == '14') {
+                    Swal.fire(
+                    '¡Eliminado!',
+                    'Actividad eliminada con éxito',
+                    'success'
+                    )
+                } else if (dataActividadEl == '15') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló eliminar actividad',
+                    'error'
+                    )
+                }
+
+                console.log(dataActividadEl);
+                recargarActividad(idEtapaActNew);
+            }
+        }); 
+        $('#eliminarActividadModal').modal('hide');
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('actividadLN') ?>",
+            data: {etapaId: idEtapaActNew},
+            success:function(data){
+
+                var dataEtapaANew = JSON.parse(data);
+                
+                $("#actividadData").empty();
+
+                $.each(dataEtapaANew, function(index, val) {
+                    datosAN.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.etapa+"</td>"+
+                    "<td>"+val.persona+"</td>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+
+        //recargarActividad(idEtapaActNew);
+    });
 
     function actualizarActividad(idActividad, idEtapa) { 
 
-        //$('.etapaId').val(id);
-       // console.log(idE);
-        //idA es de id actualizar y trae procesoId
         $.ajax({
                 type: "GET",
                 url: "<?= base_url().route_to('actList') ?>",
@@ -713,10 +1087,6 @@
                         };
                         //console.log(i);
                     } 
-                    
-                    //console.log(dataA);
-                    //console.log(i);
-                    //console.log(dataA.length);
 
                     $('#actividadEtapaN').val(dataAct[i]['etapa']);
                     $('#actEtapa').val(dataAct[i]['etapaId']);
@@ -737,8 +1107,6 @@
 
                     var dataP = JSON.parse(data);
                     
-                //console.log(dataPersona[0]['personaId']);
-                //console.log(proceso);
                 $('#personaDataA').empty();
 
                 $.each(dataP, function(index, val) {
@@ -751,19 +1119,82 @@
         $('#editActividadModal').modal('show');
     }
 
-     // volver a proceso 
-     $('.volver-proceso').on('click',function(){
-            
-        $('#proceso').css("display", "block");
-        $('#etapa').hide();
+    $('.btn-editarActividad').on('click',function(){
+
+        var idANew = $('#actEtapa').val();
+        //var datosActualizarNN = $("#actividadData");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url().route_to('actualizarActividad') ?>",
+            data: $("#frmEditarActividad").serialize(),
+            success:function(data){
+
+                var dataEActividadN = JSON.parse(data);
+
+                if (dataEActividadN == '16') {
+                    Swal.fire(
+                    '¡Actualizado!',
+                    'Actividad actualizada con éxito',
+                    'success'
+                    )
+                } else if (dataEActividadN == '17') {
+                    Swal.fire(
+                    '¡Error!',
+                    'Falló actualizar actividad',
+                    'error'
+                    )
+                }
+
+                console.log(dataEActividadN);
+                recargarActividad(idANew);
+            }
+        }); 
+
+        $('#editActividadModal').modal('hide');
+
+        /* $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('actividadLNA') ?>",
+            data: {etapaId: idANew},
+            success:function(data){
+
+                var dataActividadNAC = JSON.parse(data);
+
+                console.log(dataActividadNAC)
+                
+                $("#actividadData").empty();
+
+                $.each(dataActividadNAC, function(index, val) {
+                    datosActualizarNN.append("<tr><td>"+val.id+"</td>"+
+                    "<td>"+val.nombre+"</td>"+
+                    "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.etapa+"</td>"+
+                    "<td>"+val.persona+"</td>"+
+                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                    "</td></tr>")
+                });
+            }
+        }); */
+
+        //recargarActividad(idANew);
     });
 
-    // volver a etapa 
-    $('.volver-etapa').on('click',function(){
+
+    // volver a proceso 
+$('.volver-proceso').on('click',function(){
         
-        $('#etapa').css("display", "block");
-        $('#actividad').hide();
-    });
+    $('#proceso').css("display", "block");
+    $('#etapa').hide();
+});
+
+// volver a etapa 
+$('.volver-etapa').on('click',function(){
+    
+    $('#etapa').css("display", "block");
+    $('#actividad').hide();
+});
 
 </script>
 
@@ -772,59 +1203,17 @@
 
     console.log(mensaje);
 
-    /* switch (mensaje) {
-        case '0' ||'1' || '2' || '3' || '4' || '5':
-            $('#proceso').css("display", "block");
-            $('#etapa').hide();
-            $('#actividad').hide();
-            break;
-        case '6' ||'7' || '8' || '9' || '10' || '11':
-            $('#etapa').css("display", "block");
-            $('#proceso').hide();
-            $('#actividad').hide();
-            break;
-        case '12' ||'13' || '14' || '15' || '16' || '17':
-            $('#actividad').css("display", "block");
-            $('#proceso').hide();
-            $('#etapa').hide();
-            break;
-    
-        default:
-            $('#proceso').css("display", "block");
-            $('#etapa').hide();
-            $('#actividad').hide();
-            break;
-    } */
-
-    if (mensaje == '0' || mensaje == '1' || mensaje == '2' || mensaje == '3' || mensaje == '4' || mensaje == '5') {
-        $('#proceso').css("display", "block");
-        $('#etapa').hide();
-        $('#actividad').hide();
-    } else if (mensaje == '6' || mensaje == '7' || mensaje == '8' || mensaje == '9' || mensaje == '10' || mensaje == '11') {
-        $('#etapa').css("display", "block");
-        $('#proceso').hide();
-        $('#actividad').hide();
-    }else if (mensaje == '12' || mensaje == '13' || mensaje == '14' || mensaje == '15' || mensaje == '16' || mensaje == '17') {
-        $('#actividad').css("display", "block");
-        $('#proceso').hide();
-        $('#etapa').hide();
-    }else{
-        $('#proceso').css("display", "block");
-        $('#etapa').hide();
-        $('#actividad').hide();
-    }
-
-    if (mensaje == '0' || mensaje == '6' || mensaje == '12') {
+    if (mensaje == '0') {
         swal('', 'Agregado', 'success');
-    } else if (mensaje == '1' || mensaje == '7' || mensaje == '13') {
+    } else if (mensaje == '1') {
         swal('', 'Falló Agregar', 'error');
-    }else if (mensaje == '2' || mensaje == '8' || mensaje == '14') {
+    }else if (mensaje == '2') {
         swal('', 'Eliminado', 'success');
-    }else if (mensaje == '3' || mensaje == '9' || mensaje == '15') {
+    }else if (mensaje == '3') {
         swal('', 'Falló Eliminar Registro', 'error');
-    }else if (mensaje == '4' || mensaje == '10' || mensaje == '16') {
+    }else if (mensaje == '4') {
         swal('', 'Actualizado con exito', 'success');
-    }else if (mensaje == '5' || mensaje == '11' || mensaje == '17') {
+    }else if (mensaje == '5') {
         swal('', 'Falló actualizar', 'error');
     }
 
