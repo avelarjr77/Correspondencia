@@ -42,6 +42,10 @@ $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
 $routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
 

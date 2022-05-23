@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class ResetsModel extends Model{
 	protected $table 			= 'wk_restablecer';
 	protected $primaryKey 		= 'id_res';
-	protected $allowedFields 	= ['id_res', 'fc_res', 'correo', 'uuid', 'fe_res', 'edo_res', 'ip_res', 'usuario'];
+	protected $allowedFields 	= ['id_res', 'fc_res', 'uuid', 'fe_res', 'edo_res', 'ip_res', 'email', 'usuarioId'];
 	//protected $returnType 		= 'object';
 	protected $useTimestamps 	= false;
 	protected $beforeInsert 	= ['beforeInsert'];
