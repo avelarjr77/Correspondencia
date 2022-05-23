@@ -31,26 +31,26 @@
     <meta name="robots" content="noindex">
 
     <!-- LOGIN -->
-    <div class="login">
+    <div class="login"><br>
       <!-- Verificar correo y usuario -->
 
-      <?php if (isset($validation)): ?>
-				<div class="alert alert-danger">
-        <?= $validation->listErrors() ?>
-				</div>
-			<?php endif; ?>
+      <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
 
-      <?php if (session()->getTempdata('error')): ?>
-				<div class="alert alert-danger">
-				<?= session()->getTempdata('error') ?>
-				</div>
-			<?php endif; ?>
+          <?php if (session()->get('success')) : ?>
+            <div class="alert alert-success">
+              <?= session()->get('success') ?>
+            </div>
+          <?php endif; ?>
 
-			<?php if (session()->getTempdata('success')): ?>
-				<div class="alert alert-success">
-				<?= session()->getTempdata('success') ?>
-				</div>
-			<?php endif; ?>
+          <?php if (session()->get('danger')) : ?>
+            <div class="alert alert-danger">
+              <?= session()->get('danger') ?>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
 
       <div class="wrap">
         <!-- TOGGLE -->
@@ -78,7 +78,7 @@
           <p>Por favor, digite <strong> su correo electrónico</strong> para enviar los pasos a seguir y recuperar su contraseña.</p>
           <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
           <form class="login-form" action="<?= base_url() . '/recuperarContraseña' ?>" method="POST">
-            <input  class="input" id="correo"   name="correo"   placeholder="Ingresa tu correo electrónico aquí" >
+            <input  class="input" id="email"   name="email"   placeholder="Ingresa tu correo electrónico aquí" >
             <input type="text"  class="input" id="usuario" name="usuario" placeholder="Ingresa tu usuario/carnet aquí" required="">
             <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">ENVIAR SOLICITUD</button>
           </form>
@@ -93,9 +93,9 @@
           <!-- SLIDESHOW -->
           <div id="slideshow">
 
-            <div class="one" style="display: block; opacity: 1;">
-              <h2><span>UCAD</span></h2>
-              <h3>SISTEMA DE CORRESPONDENCIA</h3>
+          <div class="one" style="display: block; opacity: 1;">
+              <h2 style="font-size:3.6vw;"><span>UCAD</span></h2><br>
+              <h3 style="font-size:3vh; ">SISTEMA DE CORRESPONDENCIA</h3>
             </div>
           </div>
         </div>

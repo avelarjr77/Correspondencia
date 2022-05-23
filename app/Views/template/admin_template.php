@@ -39,18 +39,18 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?= base_url().route_to('home') ?>" class="site_title"><span>Correspondencia UCAD</span></a>
+              <a href="<?= base_url().route_to('home') ?>" class="site_title"><span><P style="font-size:19px;">Correspondencia <b>UCAD</b></P></span></a>
             </div>
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/logo.jpeg" alt="..." class="img-circle profile_img" >
+              <div class="profile_pic center">
+                <img src="images/logo.jpeg" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2><?php echo session('usuario'); ?>
+                <h2 style="font-size: 20px;"><?php echo session('usuario'); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

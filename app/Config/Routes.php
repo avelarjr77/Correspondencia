@@ -37,14 +37,12 @@ $routes->get('/', 'Login::index' ) ;
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 
-<<<<<<< HEAD
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
 $routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
 
-=======
->>>>>>> ddb285d02f27bd2d0f215bc455457e0eaa5ce688
+
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
 
