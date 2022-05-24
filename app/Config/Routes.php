@@ -34,6 +34,9 @@ $routes->setAutoRoute(true);
 
                                     //['filter'=> 'auth']
 $routes->get('/', 'Login::index' ) ;
+
+$routes->post('/homeUser', 'HomeUser::index');
+
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 

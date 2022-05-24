@@ -1,9 +1,8 @@
 <?php  namespace App\Controllers;
 
-use App\Models\RolModel;
 use App\Models\Usuarios;
 
-class Home extends BaseController
+class HomeUser extends BaseController
 {
     public function index()
     {
@@ -11,7 +10,7 @@ class Home extends BaseController
             return redirect()->to(base_url('/'));
         }
             $mensaje = session('mensaje');
-            return view('home',["mensaje"=> $mensaje]);
+            return view('homeUser',["mensaje"=> $mensaje]);
         
     }
 
@@ -23,10 +22,6 @@ class Home extends BaseController
         $usuarios = model('Usuarios');
         $pass=$usuarios->obtenerUsuario('clave',$clave);
 
-        #Seleccionar el rolId de l usuario logueado
-        /* $rolId = $this->db->query("SELECT rolId FROM wk_usuario WHERE usuario='Mar97' LIMIT 1");*/
-        print_r($usuarios); 
-
         if($user=$usuarios->obtenerUsuario('usuario',$usuario) && isset($pass['clave'])){
 
             $data = array(
@@ -37,7 +32,7 @@ class Home extends BaseController
             $session = session();
             $session->set($data);
 
-            return redirect()->to(base_url('/home'))->with('mensaje','0');
+            return redirect()->to(base_url('/homeUser'))->with('mensaje','0');
 
         }else{
             return redirect()->to(base_url('/'))->with('mensaje','1');
