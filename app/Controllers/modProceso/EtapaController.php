@@ -12,17 +12,16 @@ class EtapaController extends BaseController{
         $nombreEtapa = new EtapaModel();
         $procesoId = $this->request->getVar('procesoId');
         $datos = $nombreEtapa->listarEtapa($procesoId);
-        //$proceso = $nombreEtapa->listarProceso();
+        
+        echo json_encode($datos);
+    }
 
-        //$mensaje = session('mensaje');
+    public function etapaC(){
 
-        /*$data = 
-            "datos" => $datos,
-            "proceso" => $proceso,
-            "mensaje" => $mensaje
-        ];*/
-
-        //return view('modProceso/etapa', $data);
+        $nombreEtapa = new EtapaModel();
+        $procesoId = $this->request->getVar('procesoId');
+        $datos = $nombreEtapa->listarEtapaC($procesoId);
+        
         echo json_encode($datos);
     }
 
@@ -40,62 +39,79 @@ class EtapaController extends BaseController{
     //CREAR PROCESO
     public function crear(){
 
+        $etapa = new EtapaModel();
+
+        $nombreEtapa = $this->request->getVar('nombreEtapa');
+        $orden = $this->request->getVar('orden');
+        $procesoId = $this->request->getVar('procesoId');
+
         $datos = [
-            "nombreEtapa" => $_POST['nombreEtapa'],
-            "orden" => $_POST['orden'],
-            "procesoId" => $_POST['procesoId']
+            "nombreEtapa" => $nombreEtapa,
+            "orden" => $orden,
+            "procesoId" => $procesoId
         ];
 
-        $etapa = new EtapaModel();
         $respuesta = $etapa->insertar($datos);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','0');
+            $mensaje = 6;
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','1');
-        } 
+            $mensaje = 7;
+        }
+
+        echo json_encode($mensaje); 
     } 
 
     //ELIMINAR PROCESO
     public function eliminar(){
 
-        $etapaId = $_POST['etapaId'];
-
         $etapa = new EtapaModel();
+
+        $etapaId = $this->request->getVar('etapaId');
+
         $data = ["etapaId" => $etapaId];
 
         $respuesta = $etapa->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','2');
+            $mensaje = 8;
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','3');
+            $mensaje = 9;
         }
+
+        echo json_encode($mensaje);
     }
 
     //ELIMINAR PROCESO
     public function actualizar()
     {
+        $etapa = new EtapaModel();
+
+        $etapaId = $this->request->getVar('etapaId');
+        $nombreEtapa = $this->request->getVar('nombreEtapa');
+        $orden = $this->request->getVar('orden');
+        $procesoId = $this->request->getVar('procesoId');
+
         $datos = [
-            "nombreEtapa" => $_POST['nombreEtapa'],
-            "orden" => $_POST['orden'],
-            "procesoId" => $_POST['procesoId']
+            "nombreEtapa" => $nombreEtapa,
+            "orden" => $orden,
+            "procesoId" => $procesoId
         ];
 
-        $etapaId = $_POST['etapaId'];
+        $etapaId = $etapaId;
 
-        $etapa = new EtapaModel();
         $respuesta = $etapa->actualizar($datos, $etapaId);
 
         $datos = ["datos" => $respuesta];
 
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '4');
+        if ($respuesta){
+            $mensaje = 10;
         } else {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '5');
+            $mensaje = 11;
         }
+
+        echo json_encode($mensaje);
     }
-    
 }
 
 ?>

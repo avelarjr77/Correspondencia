@@ -40,6 +40,15 @@ $routes->post('/homeUser', 'HomeUser::index');
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 
+$routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
+$routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
+
+$routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
 
@@ -169,7 +178,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 /////////////
 //CONFIGURACIÓN DE PROCESO
-//$routes->get('/confProceso', 'modProceso/ProcesoController::index', ['as'=> 'confProceso']);
 
 //PROCESO
 $routes->group('/',['filter'=>'auth'],function($routes){
@@ -192,24 +200,30 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 //ETAPA
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('etapa', 'modProceso/EtapaController::etapa', ['as'=> 'etapa']);
+    $routes->get('etapaC', 'modProceso/EtapaController::etapaC', ['as'=> 'etapaC']);
+    $routes->get('etapaLN', 'modProceso/EtapaController::etapa', ['as'=> 'etapaLN']);
+    $routes->get('etapaLNA', 'modProceso/EtapaController::etapa', ['as'=> 'etapaLNA']);
     $routes->get('etapaList', 'modProceso/EtapaController::etapaList', ['as'=> 'etapaList']);
     $routes->get('listEtapa', 'modProceso/EtapaController::listEtapa', ['as'=> 'listEtapa']);
-    $routes->post('crearEtapa', 'modProceso/EtapaController::crear');
-    $routes->post('actualizarEtapa', 'modProceso/EtapaController::actualizar');
-    $routes->post('eliminarEtapa', 'modProceso/EtapaController::eliminar');
-
+    $routes->match(['get', 'post'], 'crearEtapa', 'modProceso/EtapaController::crear', ['as'=> 'crearEtapa']);
+    $routes->match(['get', 'post'], 'actualizarEtapa', 'modProceso/EtapaController::actualizar', ['as'=> 'actualizarEtapa']);
+    $routes->match(['get', 'post'],'eliminarEtapa', 'modProceso/EtapaController::eliminar', ['as'=> 'eliminarEtapa']);
 });
 
 //ACTIVIDADES
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('actividad', 'modProceso/ActividadController::actividad', ['as'=> 'actividad']);
+    $routes->get('actividadC', 'modProceso/ActividadController::actividad', ['as'=> 'actividadC']);
+    $routes->get('actividadLN', 'modProceso/ActividadController::actividad', ['as'=> 'actividadLN']);
+    $routes->get('actividadLNA', 'modProceso/ActividadController::actividad', ['as'=> 'actividadLNA']);
     $routes->get('actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
     $routes->get('personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
     $routes->get('personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
+    $routes->get('personaListC', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListC']);
     $routes->get('etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
-    $routes->post('crearActividad', 'modProceso/ActividadController::crear');
-    $routes->post('actualizarActividad', 'modProceso/ActividadController::actualizar');
-    $routes->post('eliminarActividad', 'modProceso/ActividadController::eliminar');
+    $routes->match(['get', 'post'], 'crearActividad', 'modProceso/ActividadController::crear', ['as'=> 'crearActividad']);
+    $routes->match(['get', 'post'], 'actualizarActividad', 'modProceso/ActividadController::actualizar', ['as'=> 'actualizarActividad']);
+    $routes->match(['get', 'post'],'eliminarActividad', 'modProceso/ActividadController::eliminar', ['as'=> 'eliminarActividad']);
 
 });
 
