@@ -1,48 +1,52 @@
-<?php  namespace App\Controllers;
+<?php
 
-use App\Models\modAdministracion\RolModMenuModel;
+namespace App\Controllers;
+
 use App\Models\Usuarios;
+use App\Models\modAdministracion\RolModMenuModel;
 
 class Home extends BaseController
 {
     public function index()
     {
-        if(!session()->is_logged){
+        if (!session()->is_logged) {
             return redirect()->to(base_url('/'));
         }
-            $mensaje = session('mensaje');
-            return view('home',["mensaje"=> $mensaje]);
-        
+        $mensaje = session('mensaje');
+        return view('home', ["mensaje" => $mensaje]);
     }
 
-    public function login(){
+    public function login()
+    {
         //dd($this->request->getPost());
         $usuario = trim($this->request->getVar('usuario'));
         $clave = $this->request->getVar('clave');
 
         $usuarios = model('Usuarios');
-        $pass=$usuarios->obtenerUsuario('clave',$clave);
+        $pass = $usuarios->obtenerUsuario('clave', $clave);
 
-        if($user=$usuarios->obtenerUsuario('usuario',$usuario) && isset($pass['clave'])){
+        #Seleccionar el rolId de l usuario logueado
+        /* $rolId = $this->db->query("SELECT rolId FROM wk_usuario WHERE usuario='Mar97' LIMIT 1");*/
+        print_r($usuarios);
+
+        if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
 
             $data = array(
                 'usuario' => $usuario,
                 'is_logged' => true
             );
-                
+
             $session = session();
             $session->set($data);
 
-            return redirect()->to(base_url('/home'))->with('mensaje','0');
-
-        }else{
-
-            return redirect()->to(base_url('/'))->with('mensaje','1');
+            return redirect()->to(base_url('/home'))->with('mensaje', '0');
+        } else {
+            return redirect()->to(base_url('/'))->with('mensaje', '1');
         }
+    }
 
-     }
-
-     public function modulo(){
+    public function modulo()
+    {
         $modulo = new RolModMenuModel();
         $datos = $modulo->listarModulos();
         $mensaje = session('mensaje');
@@ -53,15 +57,13 @@ class Home extends BaseController
         ];
 
         return view('home', $data);
-     }
+    }
 
-     public function salir(){
-         $session = session();
-         $session->destroy();
+    public function salir()
+    {
+        $session = session();
+        $session->destroy();
 
-         return redirect()->to(base_url('/'));
-     }
-     
+        return redirect()->to(base_url('/'));
+    }
 }
-
-?>

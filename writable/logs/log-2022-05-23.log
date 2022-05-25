@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+ERROR - 2022-05-23 11:05:58 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+CRITICAL - 2022-05-23 11:05:58 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ActividadModel.php(42): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(79): App\Models\modProceso\ActividadModel->insertar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->crear()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-05-23 11:07:42 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+CRITICAL - 2022-05-23 11:07:42 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ActividadModel.php(42): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(79): App\Models\modProceso\ActividadModel->insertar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->crear()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+=======
 CRITICAL - 2022-05-23 03:42:04 --> syntax error, unexpected '<<' (T_SL), expecting end of file
 #0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
@@ -8,6 +36,7 @@ CRITICAL - 2022-05-23 03:42:11 --> syntax error, unexpected '<<' (T_SL), expecti
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #2 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #3 {main}
+<<<<<<< HEAD
 CRITICAL - 2022-05-23 16:25:35 --> Invalid file: modAdministracion/home.php
 #0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('modAdministraci...')
 #1 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
@@ -340,3 +369,6 @@ CRITICAL - 2022-05-23 23:55:24 --> Cannot add or update a child row: a foreign k
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+=======
+>>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
+>>>>>>> 6e7b0dce91127995cfa0abb597c8d1eb3fdcb587

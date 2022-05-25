@@ -5,7 +5,7 @@ use App\Models\modProceso\ActividadModel;
 
 class ActividadController extends BaseController{
 
-    //LISTAR PROCESO
+    //LISTAR ACTIVIDAD
 
     public function actividad(){
 
@@ -59,65 +59,83 @@ class ActividadController extends BaseController{
         echo json_encode($datos);
     }
 
-    //CREAR PROCESO
+    //CREAR ACTIVIDAD
     public function crear(){
 
+        $actividad = new ActividadModel();
+
+        $etapaId = $this->request->getVar('etapaId');
+        $nombreActividad = $this->request->getVar('nombreActividad');
+        $descripcion = $this->request->getVar('descripcion');
+        $personaId = $this->request->getVar('personaId');
+
         $datos = [
-            "nombreActividad" => $_POST['nombreActividad'],
-            "descripcion" => $_POST['descripcion'],
-            "etapaId" => $_POST['etapaId'],
-            "personaId" => $_POST['personaId']
+            "nombreActividad" => $nombreActividad,
+            "descripcion" => $descripcion,
+            "etapaId" => $etapaId,
+            "personaId" => $personaId
         ];
 
-        $actividad = new ActividadModel();
         $respuesta = $actividad->insertar($datos);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','12');
+        if ($respuesta){
+            $mensaje = 12;
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','13');
-        } 
+            $mensaje = 13;
+        }
+
+        echo json_encode($mensaje);
     } 
 
-    //ELIMINAR PROCESO
+    //ELIMINAR ACTIVIDAD
     public function eliminar(){
 
-        $actividadId = $_POST['actividadId'];
-
         $actividad = new ActividadModel();
+
+        $actividadId = $this->request->getVar('actividadId');
+
         $data = ["actividadId" => $actividadId];
 
         $respuesta = $actividad->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','14');
+            $mensaje = 14;
         } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','15');
+            $mensaje = 15;
         }
+
+        echo json_encode($mensaje);
     }
 
-    //ELIMINAR PROCESO
+    //ELIMINAR ACTIVIDAD
     public function actualizar()
     {
+        $actividad = new ActividadModel();
+
+        $actividadId = $this->request->getVar('actividadId');
+        $etapaId = $this->request->getVar('etapaId');
+        $nombreActividad = $this->request->getVar('nombreActividad');
+        $descripcion = $this->request->getVar('descripcion');
+        $personaId = $this->request->getVar('personaId');
+
         $datos = [
-            "nombreActividad" => $_POST['nombreActividad'],
-            "descripcion" => $_POST['descripcion'],
-            "etapaId" => $_POST['etapaId'],
-            "personaId" => $_POST['personaId']
+            "nombreActividad" => $nombreActividad,
+            "descripcion" => $descripcion,
+            "etapaId" => $etapaId,
+            "personaId" => $personaId
         ];
 
-        $actividadId = $_POST['actividadId'];
-
-        $actividad = new ActividadModel();
         $respuesta = $actividad->actualizar($datos, $actividadId);
 
         $datos = ["datos" => $respuesta];
 
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '16');
+        if ($respuesta){
+            $mensaje = 16;
         } else {
-            return redirect()->to(base_url() . '/proceso')->with('mensaje', '17');
+            $mensaje = 17;
         }
+
+        echo json_encode($mensaje);
     }
     
 }
