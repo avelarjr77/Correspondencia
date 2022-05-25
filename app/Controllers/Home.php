@@ -48,8 +48,9 @@ class Home extends BaseController
 
             return redirect()->to(base_url('/home'))->with('mensaje', '0');
 
-        }else{
+            }else{
             return redirect()->to(base_url('/'))->with('mensaje','1');
+            }
         }
     }
 
