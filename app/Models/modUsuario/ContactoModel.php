@@ -13,11 +13,12 @@ class ContactoModel extends Model
     //MODELO PARA LISTAR CONTACTO
     public function listarContacto()
     {
-        $contacto = $this->db->query("SELECT d.contactoId as 'contactoId', CONCAT_WS(' ', p.nombres, p.primerApellido) as 'nombre', tc.tipoContacto as 'tipoContacto', contacto, estado
-                                                FROM wk_contacto d
-                                                INNER JOIN wk_persona p ON d.personaId = p.personaId
-                                                INNER JOIN wk_tipo_contacto tc ON d.tipoContactoId = tc.tipoContactoId
-                                                ORDER BY d.contactoId");
+        $contacto = $this->db->query("SELECT  CONCAT_WS(' ', p.nombres, p.primerApellido) as 'nombre', tc.tipoContacto as 'tipoContacto',c.contactoId as 'contactoId', c.contacto, c.estado
+        FROM wk_persona p
+        INNER JOIN wk_contacto c ON p.personaId = c.personaId
+        INNER JOIN wk_tipo_contacto tc ON c.tipoContactoId = tc.tipoContactoId
+        INNER JOIN wk_usuario rr ON p.personaId = rr.personaId
+        group by contacto");
         return $contacto->getResult();
     }
 

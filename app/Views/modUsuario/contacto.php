@@ -1,5 +1,9 @@
+
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
+<?= $this->extend('modUsuario/tipoContacto') ?>
+<?= $this->section('content') ?>
+<?= $this->endSection() ?>
 
 <!---------C-O-N-T-A-C-T-O-S---------------------------------------------------------->
 <div class="x_panel">
@@ -13,37 +17,32 @@
     <div class="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
         <br>
-        <!--LISTADO DE Contactos-->
-        <div class="x_content">
-            <br>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Persona</th>
-                        <th>Tipo Contacto</th>
-                        <th>Contacto</th>
-                        <th>Estado</th>
-                        <th scope="col" colspan="2">Acción</th>
-                    </tr>
-                </thead>
-                <tbody><?php foreach ($datos as $key) : ?>
-                        <tr>
-                            <td><?php echo $key->contactoId ?></td>
-                            <td><?php echo $key->nombre ?></td>
-                            <td><?php echo $key->tipoContacto ?></td>
-                            <td><?php echo $key->contacto ?></td>
-                            <td><?php echo $key->estado ?></td>
-                            <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>" ><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>" ><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        <!--FIN LISTADO TIPOCONTACTO-->
+        <!--LISTADO DE Contactos -->
+       <div class="row">
+       <?php foreach ($datos as $key) : ?>
+                <div class="col-md-4 col-sm-4  profile_details">
+                    <div class="well profile_view">
+                        <div class="col-sm-12">
+                            <h4 class="brief"><i>Departamento: </i></h4>
+                            <div class="left col-sm-7">
+                                <h2><?php echo $key->nombre ?></h2>
+                                <p><strong>Tipo Contacto: </strong><br><?php echo $key->tipoContacto ?> </p>
+                                <ul class="list-unstyled">
+                                    <p><strong>Contacto:</strong><br><i class=" fa fa-caret-right "></i> <?php echo $key->contacto ?></p>
+                                </ul>
+                            </div>
+                            <div class="right col-sm-5 text-center">
+                                <img src="images/user.png" alt="" class="img-circle img-fluid"><br><br>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+
+            </div>
+        <!-- FIN LISTADO TIPOCONTACTO -->
 
         <!-- Modal Agregar CONTACTO-->
         <form action="<?php echo base_url() . '/crearContacto' ?>" method="POST">
@@ -123,7 +122,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Contacto:</label>
-                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contacto">
+                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control contacto">
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
@@ -170,9 +169,9 @@
         <!-- End Modal Delete CONTACTO-->
 
 
-
     </div>
 </div>
+
 <!------------------------------------------------------------------->
 
 
@@ -241,7 +240,4 @@
     });
 </script>
 
-<?= $this->endSection() ?>
-<?= $this->extend('modUsuario/tipoContacto') ?>
-<?= $this->section('content') ?>
 <?= $this->endSection() ?>

@@ -21,6 +21,20 @@ class RolModMenuModel extends Model
         ->findAll();
     }
 
+    public function listarModulos()
+    {
+        $contacto = $this->db->query("SELECT rolModuloMenuId, r.nombreRol AS rol, cmm.moduloMenuId, mm.nombre AS modulo, i.nombreIcono as icono, mm.descripcion, mm.archivo
+        from co_rol_modulo_menu m
+        INNER JOIN wk_rol r ON m.rolId=r.rolId
+        INNER JOIN co_modulo_menu cmm ON m.moduloMenuId= cmm.moduloMenuId
+        INNER JOIN co_modulo mm ON cmm.moduloId=mm.moduloId
+        INNER JOIN wk_icono i ON mm.iconoId=i.iconoId
+        where r.nombreRol='Super Admin'
+        group by modulo
+        order by rolModuloMenuId ");
+        return $contacto->getResult();
+    }
+
     /*public function getModMenu$moduloId)
     
         return $this->asObject()

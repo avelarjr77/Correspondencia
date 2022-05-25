@@ -1,5 +1,6 @@
 <?php  namespace App\Controllers;
 
+use App\Models\modAdministracion\RolModMenuModel;
 use App\Models\Usuarios;
 
 class Home extends BaseController
@@ -39,7 +40,20 @@ class Home extends BaseController
             return redirect()->to(base_url('/'))->with('mensaje','1');
         }
 
-     }  
+     }
+
+     public function modulo(){
+        $modulo = new RolModMenuModel();
+        $datos = $modulo->listarModulos();
+        $mensaje = session('mensaje');
+
+        $data = [
+            "datos" => $datos,
+            "mensaje"   => $mensaje
+        ];
+
+        return view('home', $data);
+     }
 
      public function salir(){
          $session = session();

@@ -23,6 +23,7 @@ class ContactoController extends BaseController
 
         $data = [
             "datos" => $datos,
+            "contactos" => $contacto->select('contacto')->asObject()->findAll(),
             "persona" => $persona,
             "tipoContacto" => $tipoContacto,
             "mensaje" => $mensaje
