@@ -47,9 +47,15 @@ $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
 $routes->get('homeAdministracion', 'modAdministracion/HomeAdministracionController::index', ['as'=> 'homeAdministracion']);
 
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
 $routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
 
+=======
+>>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
+>>>>>>> 6e7b0dce91127995cfa0abb597c8d1eb3fdcb587
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
 

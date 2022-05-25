@@ -37,6 +37,7 @@ CRITICAL - 2022-05-23 03:42:11 --> syntax error, unexpected '<<' (T_SL), expecti
 #2 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #3 {main}
 <<<<<<< HEAD
+<<<<<<< HEAD
 CRITICAL - 2022-05-23 16:25:35 --> Invalid file: modAdministracion/home.php
 #0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('modAdministraci...')
 #1 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modAdministraci...', Array, true)
@@ -369,6 +370,9 @@ CRITICAL - 2022-05-23 23:55:24 --> Cannot add or update a child row: a foreign k
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+=======
+>>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
+>>>>>>> 6e7b0dce91127995cfa0abb597c8d1eb3fdcb587
 =======
 >>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
 >>>>>>> 6e7b0dce91127995cfa0abb597c8d1eb3fdcb587
