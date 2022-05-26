@@ -16,12 +16,40 @@ class Home extends BaseController
         $clave = $this->request->getVar('clave');
 
         $usuarios = model('Usuarios');
+<<<<<<< Updated upstream
         $pass=$usuarios->obtenerUsuario('clave',$clave);
 
         if(!$user=$usuarios->obtenerUsuario('usuario',$usuario)){
 
             return redirect()->to(base_url('/'))->with('mensaje','0');
 
+=======
+        $pass = $usuarios->obtenerUsuario('clave', $clave);
+
+        #Seleccionar el rolId de l usuario logueado
+        /* $rolId = $this->db->query("SELECT rolId FROM wk_usuario WHERE usuario='Mar97' LIMIT 1");*/
+
+        print_r($usuarios);
+
+        if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
+
+            print_r($usuarios);
+
+            if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
+
+                $data = array(
+                    'usuario' => $usuario,
+                    'is_logged' => true
+                );
+
+                $session = session();
+                $session->set($data);
+
+                return redirect()->to(base_url('/home'))->with('mensaje', '0');
+            } else {
+                return redirect()->to(base_url('/'))->with('mensaje', '1');
+            }
+>>>>>>> Stashed changes
         }
 
         if(isset($pass['clave'])){
@@ -34,5 +62,8 @@ class Home extends BaseController
 
      }  
 }
+<<<<<<< Updated upstream
 
 ?>
+=======
+>>>>>>> Stashed changes
