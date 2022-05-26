@@ -10,6 +10,10 @@ class SubmenuModel extends Model
     protected $primaryKey = 'subMenuId';
     protected $allowedFiels=['menuId','nombreSubMenu', 'nombreArchivo'];
 
+    public function getSubmenu($menuId){
+        return $this->db->table('co_submenu')->where('menuId', $menuId)->get()->getRowArray();
+    }
+
     public function listarMenu()
     {
         $co_menu = $this->db->query('SELECT*FROM co_menu');

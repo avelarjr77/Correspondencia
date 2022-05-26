@@ -27,12 +27,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($datos as $key): ?>
+                                                <?php foreach ($datos as $key) : ?>
                                                     <tr role="row" class="odd">
-                                                        <td><?php echo $key->id ?></td>
-                                                        <td><?php echo $key->rol ?>/<?php echo $key->modulo ?></td>
+                                                        <td><?= $key->id ?></td>
+                                                        <td><?= $key->rol ?>/<?= $key->modulo ?></td>
                                                         <td>
-                                                            <a href="#" class="btn btn-info btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-modulo="<?php echo $key->modulo ?>" data-menu="<?php echo $key->menu ?>" data-rol="<?php echo $key->rol ?>"><i class="fa fa-plus"></i>  Agregar Menú</a>
+                                                            <button href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $key->id ?>" data-modulo="<?= $key->modulo ?>" data-moduloId="<?= $key->moduloId ?>" data-menu="<?= $key->menu ?>" data-rol="<?= $key->rol ?>"><i class="fa fa-plus"></i> Agregar Menú</button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -47,64 +47,64 @@
             </div>
 
             <!--MODAL -->
-            
+
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar menú a <i id="nomRol"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <form action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
-                        <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
-
-                        <div class="form-group">
-                            <label>Rol:</label>
-                            <input type="text" id="rolId" name="rolId" class="form-control rolId" readonly>
-                        </div><br>
-                        
-                        <div class="form-group">
-                            <input type="text" id="modulo" name="modulo" class="form-control moduloId" hidden>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar menú a <i id="nomRol"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <div class="modal-body">
 
-                        <div class="form-group">
-                            <label>Listado de menús en <i id="nomModulo"></i></label>
-                            <select name="menuId" class="form-control menuId">
-                                <option value="">-Selecciona un menú-</option>
-                                <?php foreach ($modMenu as $menu): ?>
-                                    <option value="<?php echo $menu->id ?>"><?php echo $menu->nomMenu ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>         
+                            <form action="<?php echo base_url() . '/editarRolMM' ?>" method="POST">
+                                <input type="hidden" name="rolModuloMenuId" class="rolModuloMenuId">
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                                <div class="form-group">
+                                    <label>Rol:</label>
+                                    <input type="text" id="rolId" name="rolId" class="form-control rolId" readonly>
+                                </div><br>
+
+                                <div class="form-group">
+                                    <input type="text" id="modulo" name="modulo" class="form-control moduloId" hidden>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Listado de menús en <i id="nomModulo"></i></label>
+                                    <select name="menuId" class="form-control menuId">
+                                        <option value="">-Selecciona un menú-</option>
+                                        <!--<php foreach ($modMenu as $menu): ?>
+                                    <option value="<= $menu->id ?>"><= $menu->nomMenu ?></option>
+                                <php endforeach; ?>-->
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Editar</button>
+                                </div>
+                            </form>
+                            <br>
+
+                            <label>Menús que posee <i id="nRol"></i>:</label>
+                            <table id="datatable" class="display " style="width: 100%;" role="grid">
+                                <tbody>
+                                    <?php foreach ($datos as $key) : ?>
+                                        <tr role="row">
+                                            <td><?php echo $key->menu ?></td>
+                                            <td><a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->menu ?>"><i class="fa fa-trash"></i></a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+
                         </div>
-                    </form>
-                    <br>
-
-                    <label>Menús que posee <i id="nRol"></i>:</label>
-                    <table id="datatable" class="display " style="width: 100%;" role="grid">
-                        <tbody>
-                            <?php foreach ($datos as $key): ?>
-                                <tr role="row">
-                                    <td><?php echo $key->menu ?></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->menu ?>"><i class="fa fa-trash"></i></a></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-                </div>
-            </div>
             </div>
             <!--END MODAL -->
         </div>
@@ -118,14 +118,15 @@
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
         // get Edit Product
-        $('.btn-edit').on('click',function(){
+        $('.btn-edit').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var rol = $(this).data('rol');
             var modulo = $(this).data('modulo');
+            var moduloId = $(this).data('moduloId');
             var menu = $(this).data('menu');
             //const nombre = $(this).data('nombre');
 
@@ -136,26 +137,25 @@
             $('.rolModuloMenuId').val(id);
             //$('.nombreRol').val(nombre);*/
 
-           //console.log(modulo);
+            //console.log(modulo);
+            //var mod = $('#mod').val();
+            //console.log(modulo);
+            //let url="<php echo base_url('rolModMenu'); ?>";
+            //let url="<= base_url().route_to('rolModMenu') ?>";
+
+            /*var data = 
+                'moduloId' : $(this).data('moduloId')
+            }*/
 
             $.ajax({
+                type: "POST",
+                url: "<?= base_url() . route_to('editRolMM') ?>",
                 data: {
-                    'mod': modulo
-                }, 
-                type: 'GET',
-                url: "<?php echo base_url('/rolModMenu'); ?>", 
-                cache: false,
-                beforeSend: function(){ 
-                }, 
-                success: function(dato){ 
-                    alert(dato["modMenu"]);
-                }, 
-                error: function(){
-                    swal('¡Error!','Error de ejecución del Ajax', 'error');
+                    'moduloId': $(this).data('moduloId')
                 },
-                complete: function(){
-                   
-                } 
+                success: function(data) {
+                    alert(data);
+                }
             });
 
             $('#nomRol').html(rol);
@@ -168,7 +168,7 @@
         });
 
         // get Delete Product
-        $('.btn-delete').on('click',function(){
+        $('.btn-delete').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
@@ -178,9 +178,10 @@
             // Call Modal Edit
             $('#eliminarModal').modal('show');
         });
-        
+
     });
 </script>
+
 
 
 <?= $this->endSection() ?>

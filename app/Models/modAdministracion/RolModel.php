@@ -4,6 +4,9 @@ namespace App\Models\modAdministracion;
 use CodeIgniter\Model;
 
 class RolModel extends Model{
+    protected $table = 'co_modulo';
+    protected $primaryKey = 'moduloId';
+    protected $allowedFiels=['nombre'];
 
     //MODELO PARA LISTAR ROLES
     public function listarRol()
@@ -12,6 +15,11 @@ class RolModel extends Model{
         return $wk_rol->getResult();
     }
 
+    public function getMenu($rolId)
+    {
+        $this->builder()->where('rolId', $rolId);
+        return $this;
+    }
 
     //MODELO PARA AGREGAR ROL
     public function insertar($datos){

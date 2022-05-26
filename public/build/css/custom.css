@@ -927,6 +927,7 @@
   z-index: 1000;
   position: inherit;
   margin-top: 20px;
+  border: 1px solid rgba(52, 73, 94, 0.44);
   padding: 4px; }
 
 .profile_info {
@@ -1729,6 +1730,7 @@ legend {
   padding: 10px; }
 
 .profile_details .profile_view .img-circle {
+  border: 1px solid #E6E9ED;
   padding: 2px; }
 
 .profile_details .profile_view h2 {

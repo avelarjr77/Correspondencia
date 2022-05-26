@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\MenuSubmenuModel;
 use App\Models\modAdministracion\RolModel;
+use App\Models\modAdministracion\ModuloModel;
 
 class RolController extends BaseController{
 
@@ -11,12 +13,15 @@ class RolController extends BaseController{
 
         $nombreRol = new RolModel();
         $datos = $nombreRol->listarRol();
+        $Modulo = new ModuloModel();
+        $menu = new MenuSubmenuModel();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
-            "mensaje" => $mensaje
+            "mensaje" => $mensaje,
+            "Modulo" => $Modulo->asObject()->where( 'moduloId', '2')->findAll()
         ];
 
         return view('modAdministracion/adminRol', $data);
@@ -38,6 +43,15 @@ class RolController extends BaseController{
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','1');
         } 
     } 
+
+    public function menu($nombreMenu = null)
+	{
+		$menu = new ModuloModel();
+		return view('modAdministracion/adminRol', [
+			'data' => $menu->getMenu($nombreMenu)->findAll(),
+			
+		]);
+	}
 
     //ELIMINAR ROLES
     public function eliminar(){

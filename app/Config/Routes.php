@@ -36,19 +36,21 @@ $routes->post('/home', 'Home::login', ['as'=> 'home']);
 
 //MENU-SUBMENU
 $routes->get('/menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
-$routes->get('/submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
-$routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');
-$routes->post('/agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
+$routes->post('/crear', 'modAdministracion/MenuSubmenuController::crear');;
 $routes->get('/eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
 $routes->get('/editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/$1');
 $routes->post('/editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
+
+//SUBMENU
+$routes->get('/submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
+$routes->post('/agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
 $routes->post('/actualizarSubmenu', 'modAdministracion/SubMenuController::actualizarSubmenu');
+$routes->get('/eliminarSubmenu/(:any)', 'modAdministracion/SubMenuController::eliminarSubmenu/$1');
 
 //ROL-MODULO-MENU
-$routes->post('/obtenerRol/(:any)', 'modAdministracion/RolModMenuController::obtenerRol');
-$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::rolModMenu', ['as'=> 'rolModMenu']);
+$routes->get('/rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
 $routes->get('/actualizar/(:any)', 'modAdministracion/RolModMenuController::actualizar/$1');
-$routes->post('/editRolMM', 'modAdministracion/RolModMenuController::actualizarRolMM');
+$routes->match(['get', 'post'], '/editRolMM', 'modAdministracion/RolModMenuController::modulo', ['as'=> 'editRolMM']);
 
 //MODULO
 $routes->get('/adminModulo', 'modAdministracion/ModuloController::adminModulo', ['as'=> 'adminModulo']);
@@ -126,6 +128,7 @@ $routes->post('/crearActividad', 'modProceso/ActividadController::crear');
 $routes->post('/actualizarActividad', 'modProceso/ActividadController::actualizar');
 $routes->post('/eliminarActividad', 'modProceso/ActividadController::eliminar');
 
+$routes->get('/admin_template', 'template/TemplateController::admin_template', ['as'=> 'admin_template']);
 
 /*
  * --------------------------------------------------------------------
