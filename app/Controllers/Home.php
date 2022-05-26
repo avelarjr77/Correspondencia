@@ -44,11 +44,14 @@ class Home extends BaseController
 
             $session = session();
             $session->set($data);
+            return redirect()->to(base_url('/home'))->with('mensaje', '0');
+
 
             return redirect()->to(base_url('/home'))->with('mensaje', '0');
 
-        }else{
+            }else{
             return redirect()->to(base_url('/'))->with('mensaje','1');
+            }
         }
     }
 
