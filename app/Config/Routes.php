@@ -40,11 +40,15 @@ $routes->post('/homeUser', 'HomeUser::index');
 $routes->post('/home', 'Home::login', ['as'=> 'home']);
 $routes->get('/salir', 'Home::salir');
 
+$routes->get('/home', 'Home::modulo', ['as'=> 'home']);
+
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
-$routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
+$routes->get('homeAdministracion', 'modAdministracion/HomeAdministracionController::index', ['as'=> 'homeAdministracion']);
 
+
+$routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
 
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
@@ -173,7 +177,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
-/////////////
 //CONFIGURACIÓN DE PROCESO
 
 //PROCESO
