@@ -42,6 +42,12 @@ class Validation
         'identificador' => 'required|min_length[2]',
     ];
 
+    public $validation = [
+        'nombre'        => 'min_length[3]|max_length[45]|alpha|is_unique[co_modulo.nombre]',
+        'descripcion'        => 'min_length[3]|max_length[45]|alpha_space',
+        'archivo'        => 'min_length[3]|max_length[45]'
+    ];
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

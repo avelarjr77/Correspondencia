@@ -36,8 +36,8 @@
                             <td><?= $modulo->descripcion ?></td>
                             <td><?= $modulo->archivo ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i></a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>"><i class="fa fa-trash"></i></a>           
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -189,17 +189,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Módulo agregado', 'success');
+        swal('', 'Módulo agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'Datos incorrectos', 'error');
     } else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     } else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Datos incorrectos', 'error');
     }
 </script>
 
@@ -218,7 +218,7 @@
             // Set data to Form Edit
             $('.moduloId').val(id);
             $('.nombre').val(nombremod);
-            $('.iconoId').val(iconomod);
+            $('.nombreIcono').val(nombreIcono);
             $('.descripcion').val(descripcionmod);
             $('.archivo').val(archivomod);
 
