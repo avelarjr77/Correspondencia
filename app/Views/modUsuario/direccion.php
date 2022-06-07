@@ -63,7 +63,7 @@
                 
                     <div class="form-group">
                         <label>Persona: </label>
-                        <select name="personaId" class="form-control personaId">
+                        <select name="personaId" class="form-control personaId" required="required">
                             <option value="">-Selecciona una persona-</option>
                             <?php foreach ($persona as $pers): ?>
                                 <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
@@ -73,7 +73,7 @@
                     
                     <div class="form-group">
                         <label>Tipo de Dirección:</label>
-                        <select name="tipoDireccion" class="form-control tipoDireccion">
+                        <select name="tipoDireccion" class="form-control tipoDireccion" required="required">
                             <option value="" disable>-Selecciona un tipo de dirección-</option>
                             <option value="P">Principal</option>
                             <option value="S">Secundaria</option>
@@ -87,8 +87,8 @@
 
                     <div class="form-group">
                         <label>Municipio:</label>
-                        <select name="municipioId" class="form-control municipioId">
-                            <option value="">-Selecciona una persona-</option>
+                        <select name="municipioId" class="form-control municipioId" required="required">
+                            <option value="">-Selecciona un Municipio-</option>
                             <?php foreach ($municipio as $mun): ?>
                                 <option value="<?php echo $mun->municipioId ?>"><?php echo $mun->nombreMunicipio ?></option>
                             <?php endforeach; ?>
@@ -120,7 +120,8 @@
                 <div class="modal-body">
                 
                     <div class="form-group">
-                        <label>Persona: </label>
+                        
+                    <label>Persona: </label>
                         <select name="personaId" class="form-control personaId">
                             <option value="">-Selecciona una persona-</option>
                             <?php foreach ($persona as $pers): ?>
@@ -145,7 +146,7 @@
 
                     <div class="form-group">
                         <label>Municipio:</label>
-                        <select name="municipioId" class="form-control municipioId">
+                        <select name="municipioId" class="form-control municipioId" required="required">
                             <option value="">-Selecciona una persona-</option>
                             <?php foreach ($municipio as $mun): ?>
                                 <option value="<?php echo $mun->municipioId ?>"><?php echo $mun->nombreMunicipio ?></option>
@@ -208,17 +209,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'No se agrego', 'error');
     }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('', 'No se actualizo', 'error');
     }
 </script>
 

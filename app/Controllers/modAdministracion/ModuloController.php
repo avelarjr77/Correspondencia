@@ -6,6 +6,7 @@ use App\Models\modAdministracion\ModuloModel;
 
 class ModuloController extends BaseController{
 
+    
     //LISTAR MODULOS
     public function adminModulo(){
 
@@ -77,31 +78,10 @@ class ModuloController extends BaseController{
 
     public function actualizarModulo()
     {
-        /*
-        $datos = [
-            "nombre"        => $_POST['nombre'],
-            "iconoId"       => $_POST['iconoId'],
-            "descripcion"   => $_POST['descripcion'],
-            "archivo"       => $_POST['archivo']
-        ];
-
-        $moduloId = $_POST['moduloId'];
-
-        $nombreModulo = new ModuloModel();
-        $respuesta = $nombreModulo->actualizarModulo($datos, $moduloId);
-
-        $datos = ["datos" => $respuesta];
-
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '5');
-        }
-        */
       $nombreModulo = new ModuloModel();
       if ($this->validate([
-            'nombre'        => 'min_length[3]|max_length[45]|alpha',
-            'descripcion'        => 'min_length[3]|max_length[45]|alpha_space',
+            'nombre'        => 'min_length[3]|max_length[45]|alpha|is_unique[co_modulo.nombre]',
+            'descripcion'        => 'min_length[3]|max_length[45]',
             'archivo'        => 'min_length[3]|max_length[45]'
         ])) {
             $datos = [

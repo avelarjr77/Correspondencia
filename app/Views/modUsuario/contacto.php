@@ -50,7 +50,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Agregar tipo de contacto.</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar contacto.</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -59,7 +59,7 @@
 
                             <div class="form-group">
                                 <label>Seleccionar Persona:</label>
-                                <select name="personaId" class="form-control personaId">
+                                <select name="personaId" class="form-control personaId" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers) : ?>
                                         <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres, ' ', $pers->primerApellido ?></option>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Seleccionar Tipo Contacto:</label>
-                                <select name="tipoContactoId" class="form-control tipoContactoId">
+                                <select name="tipoContactoId" class="form-control tipoContactoId" required="required">
                                     <option value="">-Selecciona un tipo contacto-</option>
                                     <?php foreach ($tipoContacto as $key) : ?>
                                         <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto ?></option>
@@ -77,11 +77,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Contacto:</label>
-                                <input type="text" id="contacto" name="contacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control contacto">
+                                <input type="text" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control estado">
+                                <form action="" class="formulario">
+                                    <div class="radio">
+                                        <input type="radio" name="estado" id="estado" value="Activo">
+                                        <label for="Activo">Activo</label>
+                                
+                                        <input type="radio" name="estado" id="estado" value="Inactivo">
+                                        <label for="Inactivo">Inactivo</label>
+                                    </div>
+                                </form> 
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -113,7 +121,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Seleccionar Tipo Contacto:</label>
-                                <select name="tipoContactoId" class="form-control tipoContactoId">
+                                <select name="tipoContactoId" class="form-control tipoContactoId" required="required">
                                     <option value="">-Selecciona un tipo contacto-</option>
                                     <?php foreach ($tipoContacto as $key) : ?>
                                         <option value="<?php echo $key->tipoContactoId ?>"><?php echo $key->tipoContacto ?></option>
@@ -126,7 +134,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <input type="text" id="estado" name="estado" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control estado">
+                                <form action="" class="formulario" required="required">
+                                    <div class="radio">
+                                        <input type="radio" name="estado" id="estado" value="Activo">
+                                        <label for="Activo">Activo</label>
+                                
+                                        <input type="radio" name="estado" id="estado" value="Inactivo">
+                                        <label for="Inactivo">Inactivo</label>
+                                    </div>
+                                </form> 
                             </div>
 
                         </div>
@@ -184,17 +200,21 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Contacto agregado', 'success');
+        swal('', 'Registro agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'No se agrego', 'error');
     } else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     } else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', '', 'error');
+    } else if (mensaje == '6') {
+        swal('No se agrego', 'Seleccione en que estado se encuentra el contacto', 'error');
+    } else if (mensaje == '7') {
+        swal('No se actualizo', 'Seleccione en que estado se encuentra el contacto', 'error');
     }
 </script>
 

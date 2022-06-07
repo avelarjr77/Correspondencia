@@ -36,8 +36,8 @@
                             <td><?= $modulo->descripcion ?></td>
                             <td><?= $modulo->archivo ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-trash"></i></a>           
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -118,7 +118,7 @@
 
                             <div class="form-group">
                                 <label>Seleccionar Icono:</label>
-                                <select name="iconoId" id="nombre" required="required" class="form-control iconoId">
+                                <select name="iconoId" id="iconoId" required="required" class="form-control iconoId">
                                     <option value="">-Selecciona un Icono-</option>
                                     <?php foreach ($icono as $key) : ?>
                                     <option value="<?php echo $key->iconoId ?>"><span><i
@@ -218,7 +218,7 @@
             // Set data to Form Edit
             $('.moduloId').val(id);
             $('.nombre').val(nombremod);
-            $('.nombreIcono').val(nombreIcono);
+            $('.nombreIcono').val(iconomod);
             $('.descripcion').val(descripcionmod);
             $('.archivo').val(archivomod);
 

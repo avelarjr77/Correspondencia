@@ -32,6 +32,7 @@ class Validation
      *
      * @var array<string, string>
      */
+
     public $templates = [
         'list'   => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
@@ -46,6 +47,40 @@ class Validation
         'nombre'        => 'min_length[3]|max_length[45]|alpha|is_unique[co_modulo.nombre]',
         'descripcion'        => 'min_length[3]|max_length[45]|alpha_space',
         'archivo'        => 'min_length[3]|max_length[45]'
+    ];
+
+    public $validarRol = [
+        'nombreRol'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_rol.nombreRol]'
+    ];
+
+    public $validarPersona = [
+        'nombres'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.nombres]',
+        'primerApellido'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.primerApellido]',
+        'segundApellido'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.segundoApellido]'
+    ];
+
+    public $validarCargo = [
+        'cargo'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_cargo.cargo]'
+    ];
+
+    public $validarDepart = [
+        'departamento'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_departamento.departamento]'
+    ];
+
+    public $validarContacto = [
+        'tipoContacto'        => 'min_length[3]|max_length[20]|is_unique[wk_tipo_contacto.tipoContacto]|alpha_space'
+    ];
+
+    public $datosvacios = [
+        'estado'        => 'required'
+    ];
+
+    public $validarDocumento = [
+        'nombreDocumento'        => 'min_length[3]|max_length[75]|is_unique[wk_documento.nombreDocumento]|alpha_space',
+        'documento'        => 'min_length[3]|max_length[45]|is_unique[wk_documento.documento]|alpha_space',
+        'tipoDocumentoId'        => 'required',
+        'tipoEnvioId'        => 'required',
+        'transaccionActividadId'        => 'required'
     ];
 
     //--------------------------------------------------------------------

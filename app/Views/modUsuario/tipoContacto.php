@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label>Tipo Contacto</label>
-                                <input type="text" id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control tipocontacto">
+                                <input  id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control tipocontacto">
                             </div>
 
                         </div>
@@ -139,17 +139,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Tipo contacto agregado', 'success');
+        swal('', 'Tipo contacto agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'No se agrego', 'error');
     } else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     } else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Datos incorrectos', 'error');
     }
 </script>
 

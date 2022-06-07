@@ -23,24 +23,27 @@ class ContactoController extends BaseController{
         return view('modUsuario/contacto', $data);
         }
 
-    //CREAR ROLES
-    public function crearTipoContacto(){
+    //CREAR TIPO CONTACTO
+ /*   public function crearTipoContacto(){
 
-        $datos = [
-            "tipoContacto" => $_POST['tipoContacto']
-        ];
 
         $tipoContacto = new TipoContactoModel();
-        $respuesta = $tipoContacto->insertar($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validarContacto')){
+            $tipoContacto->insertar(
+                [
+                    "tipoContacto" => $_POST['tipoContacto']
+                ]
+            );
+
             return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/contacto')->with('mensaje','1');
-        } 
     } 
+    */
 
-    //ELIMINAR ROLES
+    //ELIMINAR 
     public function eliminar(){
 
         $tipoContacto = $_POST['tipoContactoId'];
@@ -59,21 +62,23 @@ class ContactoController extends BaseController{
 
     public function actualizar()
     {
-        $datos = [
-            "tipoContacto" => $_POST['tipoContacto']
-        ];
-
-        $tipoContactoId = $_POST['tipoContactoId'];
-
         $tipoContacto = new TipoContactoModel();
-        $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
+        if ($this->validate([
+            //'tipoContacto'        => 'min_length[3]|max_length[20]|alpha|is_unique[wk_tipo_contacto.tipoContacto]'
+            ])) {
+                $datos = [
+                    "tipoContacto" => $_POST['tipoContacto']
+                ];
 
-        $datos = ["datos" => $respuesta];
+            $tipoContactoId = $_POST['tipoContactoId'];
+            $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
 
-        if ($respuesta) {
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
+
+            } else {
+                return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
         }
     }
     

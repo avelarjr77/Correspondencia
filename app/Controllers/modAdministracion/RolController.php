@@ -6,7 +6,6 @@ use App\Models\modAdministracion\RolModel;
 class RolController extends BaseController{
 
     //LISTAR ROLES
-
     public function adminRol(){
 
         $nombreRol = new RolModel();
@@ -23,20 +22,21 @@ class RolController extends BaseController{
         }
 
     //CREAR ROLES
-    public function crear(){
-
-        $datos = [
-            "nombreRol" => $_POST['nombreRol']
-        ];
+    public function crear(){ 
 
         $nombreRol = new RolModel();
-        $respuesta = $nombreRol->insertar($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validarRol')){
+            $nombreRol->insertar(
+                [
+                    "nombreRol"        => $_POST['nombreRol']
+                ]
+            );
+
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','1');
-        } 
     } 
 
     //ELIMINAR ROLES
@@ -58,22 +58,24 @@ class RolController extends BaseController{
 
     public function actualizar()
     {
-        $datos = [
-            "nombreRol" => $_POST['nombreRol']
-        ];
-
-        $rolId = $_POST['rolId'];
-
         $nombreRol = new RolModel();
-        $respuesta = $nombreRol->actualizar($datos, $rolId);
+        if ($this->validate([
+                'nombreRol'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_rol.nombreRol]|alpha_space'
+            ])) {
+                $datos = [
+                    "nombreRol"        => $_POST['nombreRol']
+                ];
 
-        $datos = ["datos" => $respuesta];
+            $rolId = $_POST['rolId'];
+            $respuesta = $nombreRol->actualizar($datos, $rolId);
 
-        if ($respuesta) {
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/adminRol')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/adminRol')->with('mensaje', '5');
-        }
+
+            } else {
+                return redirect()->to(base_url() . '/adminRol')->with('mensaje', '5');
+            } 
     }
     
 }
