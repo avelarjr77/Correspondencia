@@ -14,7 +14,7 @@ class Home extends BaseController
             return redirect()->to(base_url('/'));
         }
         $mensaje = session('mensaje');
-        return view('home', ["mensaje" => $mensaje]);
+        return view('homeModulos', ["mensaje" => $mensaje]);
     }
 
     public function login()
@@ -26,16 +26,7 @@ class Home extends BaseController
         $usuarios = model('Usuarios');
         $pass = $usuarios->obtenerUsuario('clave', $clave);
 
-        #Seleccionar el rolId de l usuario logueado
-        /* $rolId = $this->db->query("SELECT rolId FROM wk_usuario WHERE usuario='Mar97' LIMIT 1");*/
-
-        print_r($usuarios);
-
         if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
-
-        print_r($usuarios); 
-
-        if($user=$usuarios->obtenerUsuario('usuario',$usuario) && isset($pass['clave'])){
 
             $data = array(
                 'usuario' => $usuario,
@@ -44,31 +35,44 @@ class Home extends BaseController
 
             $session = session();
             $session->set($data);
-            return redirect()->to(base_url('/home'))->with('mensaje', '0');
 
-
-            return redirect()->to(base_url('/home'))->with('mensaje', '0');
-
-            }else{
-            return redirect()->to(base_url('/'))->with('mensaje','1');
-            }
+            return redirect()->to(base_url('/homeModulos'))->with('mensaje', '0');
+        } else {
+            return redirect()->to(base_url('/'))->with('mensaje', '1');
         }
     }
 
     public function modulo()
     {
+        $session = session();
         $modulo = new RolModMenuModel();
-        $datos = $modulo->listarModulos();
+        $obtenerRol = new UsuarioModel();
+        $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
+            ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
+
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
+            "modulo" => $modulo->asObject()->select('mm.moduloId, r.nombreRol AS rol, cmm.moduloMenuId, mm.nombre AS modulo, i.nombreIcono as icono, mm.descripcion, mm.archivo')
+                ->from('co_rol_modulo_menu m')
+                ->join('wk_rol r', ' m.rolId=r.rolId')
+                ->join('co_modulo_menu cmm', ' m.moduloMenuId= cmm.moduloMenuId')
+                ->join('co_modulo mm', 'cmm.moduloId=mm.moduloId')
+                ->join('wk_icono i', 'mm.iconoId=i.iconoId')
+                ->where('r.nombreRol', $rol)
+                ->groupBy('modulo')
+                ->findAll(),
             "mensaje"   => $mensaje
         ];
 
-        return view('home', $data);
+        return view('homeModulos', $data);
     }
 
+    public function homeMenuModulo($moduloId)
+    {
+        $datosModulo = ["moduloId" => $moduloId];
+        return redirect()->to(base_url('template/admin_template' . $datosModulo));
+    }
     public function salir()
     {
         $session = session();
