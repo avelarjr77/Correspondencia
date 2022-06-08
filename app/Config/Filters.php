@@ -73,3 +73,4 @@ class Filters extends BaseConfig
             ]
         ]
     ];
+}
