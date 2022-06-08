@@ -46,7 +46,7 @@ class Home extends BaseController
     {
         $session = session();
         $modulo = new RolModMenuModel();
-        $obtenerRol = new UsuarioModel();
+        $obtenerRol = new Usuarios();
         $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
             ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
 
