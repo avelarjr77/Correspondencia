@@ -52,11 +52,9 @@ class Login extends BaseController
 						'ip_res' 	=> $this->request->getIPAddress(),
 						'email' 	=> $user['contacto'],
                         'clave' 	=> $clave,
-                        //'clave'     => fraseAleatoria(),
 					];
 					$rmodel = new ResetsModel();
 					$rmodel->insert($newReset);
-                    //$clave->update();
 
                     $message     = 'Correspondencia UCAD<br>Soporte Técnico<br><hr>Su contraseña es:
                     <br>'. $clave['clave'];
