@@ -192,25 +192,53 @@
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
-let mensaje = '<?php echo $mensaje ?>';
+    let mensaje = '<?php echo $mensaje ?>';
 
-if (mensaje == '1') {
-    swal(':D', 'Agregado', 'success');
-} else if (mensaje == '0') {
-    swal(':c', 'No', 'error');
-} else if (mensaje == '2') {
-    swal(':D', 'Actualizado', 'success');
-} else if (mensaje == '3') {
-    swal(':D', 'Falló actualización', 'error');
-} else if (mensaje == '4') {
-    swal(':D', 'Eliminado', 'success');
-} else if (mensaje == '5') {
-    swal(':c', 'No', 'error');
-}else if (mensaje == '6') {
-        swal(':c', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
+    if (mensaje == '1') {
+        swal({
+            text: "¡Agregado!",
+            icon: "success",
+            button: "Ok",
+        });
+
+    } else if (mensaje == '0') {
+        swal({
+            text: "¡Lo sentimos, no se agrego!",
+            icon: "error",
+            button: "Ok",
+        });
+    } else if (mensaje == '2') {
+        swal({
+            text: "¡Actualizado!",
+            icon: "success",
+            button: "Ok",
+        });
+    } else if (mensaje == '3') {
+        swal({
+            text: "¡Lo sentimos, no se actualizo!",
+            icon: "error",
+            button: "Ok",
+        });
+    } else if (mensaje == '4') {
+        swal({
+            icon: 'error',
+            text: '¡Se ha eliminado!',
+            button: "Ok"
+        });
+    } else if (mensaje == '5') {
+        swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 's',
+        });
+    } else if (mensaje == '6') {
+        swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: '<?= 'Este menu esta repetido' ?>',
+        });
     }
 </script>
-
 
 <script>
 $('#modalEliminar').on('show.bs.modal', function(e) {
