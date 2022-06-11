@@ -97,9 +97,9 @@ class MenuSubmenuController extends BaseController
     {
         $menu = new MenuSubmenuModel();
         if ($this->validate([
-            'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]',
+            'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
             'iconoId' => 'required',
-            'identificador' => 'required'
+            'identificador' => 'required|alpha'
         ])) {
             $datos = [
                 "nombreMenu" => $_POST['nombreMenu'],
@@ -115,7 +115,7 @@ class MenuSubmenuController extends BaseController
 
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
         } else {
-            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '6');
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');
         }
     }
 }

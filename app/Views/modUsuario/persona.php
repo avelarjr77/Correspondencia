@@ -73,21 +73,21 @@
                             <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="nombres" name="nombres" required autocomplete="off">
+                                <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
                             </div> 
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input class="form-control" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
+                                    <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input class="form-control" name="segundoApellido" required autocomplete="off" type="text">
+                                    <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="genero" id="genero" class="form-control">
+                                    <select name="genero" id="genero" class="form-control" required="required">
                                         <option>Género</option>
                                         <option>Masculino</option>
                                         <option>Femenino</option>
@@ -110,7 +110,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="cargoId" id="cargoId" class="form-control">
+                                    <select name="cargoId" id="cargoId" required="required" class="form-control">
                                         <option value="">-Selecciona un cargo-</option>
                                         <?php foreach ($cargo as $c): ?>
                                             <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
@@ -121,7 +121,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="departamentoId" id="departamentoId" class="form-control">
+                                    <select name="departamentoId" id="departamentoId" required="required" class="form-control">
                                         <option value="">-Selecciona un departamento-</option>
                                         <?php foreach ($departamento as $d): ?>
                                             <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
@@ -163,21 +163,21 @@
                             <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control nombres" id="nombres" name="nombres" required autocomplete="off">
+                                <input type="text" minlength="3" maxlength="70" class="form-control nombres" id="nombres" name="nombres" required autocomplete="off">
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
                             </div> 
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input class="form-control primerApellido" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
+                                    <input class="form-control primerApellido" minlength="5" maxlength="45" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input class="form-control segundoApellido" name="segundoApellido" required autocomplete="off" type="text">
+                                    <input class="form-control segundoApellido" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -273,17 +273,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('No se agrego', 'Datos incorrectos', 'error');
     }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Datos incorrectos', 'error');
     }
 </script>
 

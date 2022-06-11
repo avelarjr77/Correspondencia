@@ -93,7 +93,7 @@
                             <div class="form-group">
                                 <label>Identificador</label>
                                 <input type="text" id="identificador" name="identificador" autocomplete="off"
-                                    required="required" minlength="2" maxlength="3" class="form-control identificador">
+                                    required="required" minlength="2" maxlength="10" class="form-control identificador">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -195,20 +195,21 @@
 let mensaje = '<?php echo $mensaje ?>';
 
 if (mensaje == '1') {
-    swal(':D', 'Agregado', 'success');
+    swal('', 'Agregado', 'success');
 } else if (mensaje == '0') {
-    swal(':c', 'No', 'error');
+    swal('No se agrego', 'Datos incorrectos', 'error');
 } else if (mensaje == '2') {
-    swal(':D', 'Actualizado', 'success');
+    swal('', 'Actualizado', 'success');
 } else if (mensaje == '3') {
-    swal(':D', 'Falló actualización', 'error');
+    swal('Falló actualización', 'Datos incorrectos', 'error');
 } else if (mensaje == '4') {
-    swal(':D', 'Eliminado', 'success');
+    swal('', 'Eliminado', 'success');
 } else if (mensaje == '5') {
-    swal(':c', 'No', 'error');
+    swal('', 'No', 'error');
 }else if (mensaje == '6') {
         swal(':c', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
-    }
+}
+
 </script>
 
 

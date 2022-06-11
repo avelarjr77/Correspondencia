@@ -79,12 +79,12 @@
 
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="archivo" name="archivo" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
                             </div>
 
                         </div>

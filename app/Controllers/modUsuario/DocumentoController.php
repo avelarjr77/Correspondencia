@@ -29,22 +29,23 @@ class DocumentoController extends BaseController{
     //CREAR Documento
     public function crear(){
 
-        $datos = [
-            "nombreDocumento" => $_POST['nombreDocumento'],
-            "documento" => $_POST['documento'],
-            "tipoDocumentoId" => $_POST['tipoDocumentoId'],
-            "tipoEnvioId" => $_POST['tipoEnvioId'],
-            "transaccionActividadId" => $_POST['transaccionActividadId']
-        ];
-
         $nombreDocumento = new DocumentoModel();
-        $respuesta = $nombreDocumento->insertar($datos);
+        if($this->validate('validarDocumento')){
+            $nombreDocumento->insertar(
+                [
+                    "nombreDocumento" => $_POST['nombreDocumento'],
+                    "documento" => $_POST['documento'],
+                    "tipoDocumentoId" => $_POST['tipoDocumentoId'],
+                    "tipoEnvioId" => $_POST['tipoEnvioId'],
+                    "transaccionActividadId" => $_POST['transaccionActividadId']
+                ]
+            );
 
-        if ($respuesta > 0){
             return redirect()->to(base_url(). '/documento')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/documento')->with('mensaje','1');
-        } 
+
     } 
 
     //ELIMINAR DOCUMENTO

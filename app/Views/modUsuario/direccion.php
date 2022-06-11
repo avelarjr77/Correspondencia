@@ -122,7 +122,7 @@
                     <div class="form-group">
                         
                     <label>Persona: </label>
-                        <select name="personaId" class="form-control personaId">
+                        <select name="personaId" class="form-control personaId" required="required">
                             <option value="">-Selecciona una persona-</option>
                             <?php foreach ($persona as $pers): ?>
                                 <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
@@ -132,7 +132,7 @@
                     
                     <div class="form-group">
                         <label>Tipo de Dirección:</label>
-                        <select name="tipoDireccion" class="form-control tipoDireccion">
+                        <select name="tipoDireccion" class="form-control tipoDireccion" required="required">
                             <option value="" disable>-Selecciona un tipo de dirección-</option>
                             <option value="P">Principal</option>
                             <option value="S">Secundaria</option>

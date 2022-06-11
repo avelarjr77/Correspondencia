@@ -81,7 +81,7 @@
                                     </label>
                                     <div class="col-md-9 col-sm-6 ">
                                         <select name="menuId" class="form-control">
-                                            <option value="">-Selecciona un Menú-</option>
+                                            <option value="">-Selecciona un Menú-<span class="required"></span></option>
                                             <?php foreach ($menu as $key) : ?>
                                                 <option value="<?php echo $key->menuId ?>"><?php echo $key->nombreMenu ?></option>
                                             <?php endforeach; ?>
@@ -149,13 +149,20 @@
                     <div class="modal-body">
                         <!-- FORMULARIO PARA EDITAR SUBMENU -->
                         <form method="POST" action="<?php echo base_url() . '/actualizarSubmenu' ?>">
-                        <div class="item form-group menuId">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Menú<span class="required"></span>
+                            <div class="item form-group menuId">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar el Menu<span class="required"></span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="menuId" name="menuId" required="required" minlength="3" maxlength="30" autocomplete="off" class="form-control menuId " readonly>
+                                    <div class="col-md-9 col-sm-6 ">
+                                        <select name="menuId" class="form-control">
+                                            <option value="">-Selecciona un Menú-</option>
+                                            <?php foreach ($menu as $key) : ?>
+                                                <option value="<?php echo $key->menuId ?>"><?php echo $key->nombreMenu ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
-                                </div>
+                            </div>
+                            </div>
+
                             <div class="item form-group nombreSubmenu">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del Submenú <span class="required"></span>
                                 </label>
@@ -163,6 +170,7 @@
                                     <input type="text" id="nombreSubMenu" name="nombreSubMenu" required="required" class="form-control nombreSubmenu">
                                 </div>
                             </div>
+
                             <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nombre del archivo:<span class="required"></span>
                                     </label>
@@ -194,17 +202,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '1') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '0') {
-        swal(':c', 'No', 'error');
+        swal('No se agrego', 'Campos vacios o datos incorrectos', 'error');
     } else if (mensaje == '2') {
-        swal(':D', 'Actualizado', 'success');
+        swal('', 'Actualizado', 'success');
     } else if (mensaje == '3') {
-        swal(':D', 'Falló actualización', 'error');
+        swal('', 'Falló actualización', 'error');
     } else if (mensaje == '4') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '5') {
-        swal(':c', 'No', 'error');
+        swal('', 'No', 'error');
     }
 </script>
 

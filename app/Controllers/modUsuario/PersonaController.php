@@ -70,28 +70,34 @@ class PersonaController extends BaseController{
     //ACTUALIZAR PERSONA
     public function actualizar()
     {
-        $datos = [
-            "nombres" => $_POST['nombres'],
-            "primerApellido" => $_POST['primerApellido'],
-            "segundoApellido" => $_POST['segundoApellido'],
-            "fechaNacimiento" => $_POST['fechaNacimiento'],
-            "genero" => $_POST['genero'],
-            "cargoId" => $_POST['cargoId'],
-            "departamentoId" => $_POST['departamentoId']
-        ];
-
-        $personaId = $_POST['personaId'];
-
+        
         $persona = new PersonaModel();
-        $respuesta = $persona->actualizar($datos, $personaId);
+        if ($this->validate([
+            'nombres'        => 'alpha_space',
+            'primerApellido'        => 'alpha',
+            'segundoApellido'        => 'alpha'
+            ])) {
+                $datos = [
+                    "nombres" => $_POST['nombres'],
+                    "primerApellido" => $_POST['primerApellido'],
+                    "segundoApellido" => $_POST['segundoApellido'],
+                    "fechaNacimiento" => $_POST['fechaNacimiento'],
+                    "genero" => $_POST['genero'],
+                    "cargoId" => $_POST['cargoId'],
+                    "departamentoId" => $_POST['departamentoId']
+                ];
+            $personaId = $_POST['personaId'];
 
-        $datos = ["datos" => $respuesta];
+            
+            $respuesta = $persona->actualizar($datos, $personaId);
 
-        if ($respuesta) {
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/persona')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/persona')->with('mensaje', '5');
-        }
+
+            } else {
+                return redirect()->to(base_url() . '/persona')->with('mensaje', '5');
+        } 
     }
     
 }
