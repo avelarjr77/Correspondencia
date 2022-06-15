@@ -1,4 +1,3 @@
-
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 <?= $this->extend('modUsuario/tipoContacto') ?>
@@ -15,33 +14,40 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
-        <br>
-        <!--LISTADO DE Contactos -->
-       <div class="row">
-       <?php foreach ($datos as $key) : ?>
-                <div class="col-md-4 col-sm-4  profile_details">
-                    <div class="well profile_view">
-                        <div class="col-sm-12">
-                            <h4 class="brief"><i>Departamento: </i></h4>
-                            <div class="left col-sm-7">
-                                <h2><?php echo $key->nombre ?></h2>
-                                <p><strong>Tipo Contacto: </strong><br><?php echo $key->tipoContacto ?> </p>
-                                <ul class="list-unstyled">
-                                    <p><strong>Contacto:</strong><br><i class=" fa fa-caret-right "></i> <?php echo $key->contacto ?></p>
-                                </ul>
-                            </div>
-                            <div class="right col-sm-5 text-center">
-                                <img src="images/user.png" alt="" class="img-circle img-fluid"><br><br>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="">
+            <div class="col-md-12 col-sm-12 offset-md-12 right">
+                <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
+                <br>
+                <div class="card-box table-responsive">
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Persona</th>
+                                <th>Tipo de Contacto</th>
+                                <th>Contacto</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($datos as $key) : ?>
+                                <tr>
+                                    <td><?php echo $key->contactoId ?></td>
+                                    <td><?php echo $key->nombre ?></td>
+                                    <td><?php echo $key->tipoContacto ?></td>
+                                    <td><?php echo $key->contacto ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>"> <i class="fa fa-pencil-square-o"></i></a>
+                                        <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/' . $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
-                <?php endforeach; ?>
-
+                <!-- end form for validations -->
             </div>
+        </div>
         <!-- FIN LISTADO TIPOCONTACTO -->
 
         <!-- Modal Agregar CONTACTO-->
@@ -85,11 +91,11 @@
                                     <div class="radio">
                                         <input type="radio" name="estado" id="estado" value="Activo">
                                         <label for="Activo">Activo</label>
-                                
+
                                         <input type="radio" name="estado" id="estado" value="Inactivo">
                                         <label for="Inactivo">Inactivo</label>
                                     </div>
-                                </form> 
+                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -138,11 +144,11 @@
                                     <div class="radio">
                                         <input type="radio" name="estado" id="estado" value="Activo">
                                         <label for="Activo">Activo</label>
-                                
+
                                         <input type="radio" name="estado" id="estado" value="Inactivo">
                                         <label for="Inactivo">Inactivo</label>
                                     </div>
-                                </form> 
+                                </form>
                             </div>
 
                         </div>
