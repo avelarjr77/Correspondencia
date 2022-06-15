@@ -12,7 +12,7 @@ class SessionAdmin implements FilterInterface
     {
         $session = session();
         if($session->rol != "Super Admin"){
-            return redirect()->to(base_url().'/homeMenus');
+            return redirect()->to(base_url().'/homeMenu');
         }
     }
 
