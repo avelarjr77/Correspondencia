@@ -24,6 +24,11 @@
     <link href="vendors/bootstrap/dist/css/login.css" rel="stylesheet">
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendors/bootstrap/dist/css/pnotify.nonblock.css">
+    <!-- PNotify -->
+    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
 
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -35,11 +40,11 @@
       <!-- Verificar correo y usuario -->
 
       <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
 
           <?php if (session()->get('success')) : ?>
-            <div class="alert alert-success mt-2 mb-2 alert-dismissible fade show" role="alert">
+            <div class="alert alert-info alert-dismissible mt-2 mb-2 fade show" role="alert">
               <?= session()->get('success') ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -50,9 +55,8 @@
           <?php if (session()->get('danger')) : ?>
             <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert">
               <?= session()->get('danger') ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
             </div>
           <?php endif; ?>
         </div>
@@ -151,6 +155,19 @@
     recuperar();
   }
 </script>
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+<!-- PNotify -->
+    <script src="vendors/pnotify/dist/pnotify.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+	
 
 <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;">
   <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div>
