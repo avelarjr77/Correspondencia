@@ -45,9 +45,9 @@ $routes->get('/homeModulos', 'Home::modulo', ['as'=> 'homeModulos']);
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
-$routes->get('homeMenus', 'HomeMenusController::index', ['as'=> 'homeMenus']);
-
-$routes->get('admin_template', 'MenuController::menus', ['as'=> 'admin_template']);
+$routes->get('homeMenus', 'HomeMenusController::index');
+$routes->post('homeMenus', 'HomeMenusController::index');
+$routes->get('homeMenu', 'HomeMenusController::homeMenu', ['as'=> 'homeMenu']);
 
 
 $routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
