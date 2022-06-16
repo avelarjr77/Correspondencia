@@ -28,6 +28,8 @@
     <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 
     <meta name="robots" content="noindex">
@@ -38,25 +40,23 @@
     <!-- LOGIN -->
     <div class="login"><br>
       <!-- Verificar correo y usuario -->
-
       <div class="row">
-        <div class="col-md-8"></div>
-        <div class="col-md-4">
+        <div class="col-md-9"></div>
+        <div class="col-md-3" style="z-index: 300;">
 
           <?php if (session()->get('success')) : ?>
-            <div class="alert alert-info alert-dismissible mt-2 mb-2 fade show" role="alert">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+              <i class="fa fa-check-circle"></i>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
               <?= session()->get('success') ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
           <?php endif; ?>
 
           <?php if (session()->get('danger')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <i class="fa fa-warning"></i>
               <?= session()->get('danger') ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                    </button>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
             </div>
           <?php endif; ?>
         </div>
@@ -72,7 +72,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- RECOVERY -->
         <div class="recovery" id="recovery">
           <h2>¿Olvidaste tu Contraseña?</h2>
@@ -155,31 +155,24 @@
     recuperar();
   }
 </script>
+<script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(700, 0).slideUp(700, function() {
+      $(this).remove();
+    });
+  }, 5000);
+</script>
 <!-- jQuery -->
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-   <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    
+<!-- Bootstrap -->
+<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- PNotify -->
-    <script src="vendors/pnotify/dist/pnotify.js"></script>
-    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
+<script src="vendors/pnotify/dist/pnotify.js"></script>
+<script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-	
-
-<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;">
-  <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div>
-  <div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div>
-  <div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div>
-  <div style="z-index: 2000000000; position: relative;"><iframe title="El reCAPTCHA caduca dentro de dos minutos" src="./Login _ EDU_files/bframe.html" name="c-jej9nkeny2ic" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" style="width: 100%; height: 100%;"></iframe></div>
-</div>
-<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;">
-  <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div>
-  <div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div>
-  <div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div>
-  <div style="z-index: 2000000000; position: relative;"><iframe title="El reCAPTCHA caduca dentro de dos minutos" src="./Login _ EDU_files/bframe(1).html" name="c-gv7a9v4xmvhu" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" style="width: 100%; height: 100%;"></iframe></div>
-</div>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
 
 </html>
