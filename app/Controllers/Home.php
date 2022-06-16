@@ -42,9 +42,9 @@ class Home extends BaseController
             $session = session();
             $session->set($data);
 
-            return redirect()->to(base_url('/homeModulos'))->with('mensaje', '0');
+            return redirect()->to(base_url('/homeModulos'))->with('success', '<strong>¡Bienvenido!</strong><br>'.$session->usuario);
         } else {
-            return redirect()->to(base_url('/'))->with('mensaje', '1');
+            return redirect()->to(base_url('/'))->with('danger', 'El usuario y contraseña no coiciden, intente de nuevo.');
         }
     }
 
