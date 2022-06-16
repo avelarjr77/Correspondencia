@@ -70,7 +70,7 @@ class Login extends BaseController
                         $session->setFlashdata('danger', 'Error en el envío, por favor intenta más tarde.');
                     }
                 } else {
-                    $session->setFlashdata('danger', 'El email no se encontró, por favor verifique.');
+                    $session->setFlashdata('danger', 'El email y usuario no coiciden, por favor verifique.');
                 }
             }
         }
