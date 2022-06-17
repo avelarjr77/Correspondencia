@@ -37,6 +37,7 @@
                             <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-tipoProceso="<?= $key->tipoProceso ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
                             <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                             <a href="#" class="btn btn-primary btn-sm btn-etapa" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-tipoProceso="<?= $key->tipoProceso ?>" ><i class="fa fa-tasks"></i> Etapas</a>
+                            <a href="#" class="btn btn-primary btn-sm btn-etapa" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-tipoProceso="<?= $key->tipoProceso ?>" ><i class="fa fa-tasks"></i> Cargar documento</a>
                         </td>
                     </tr>
                     <?php endforeach; ?> 

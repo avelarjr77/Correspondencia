@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>Correspondencia UCAD </title>
+  <title>Correspondencia UCAD</title>
 
   <!-- Bootstrap -->
   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,13 @@
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Datatables -->
+  <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
 
 
   <!-- bootstrap-progressbar -->
@@ -40,7 +47,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="<?= base_url() . route_to('homeAdministracion') ?>" class="site_title"><span>
+            <a href="<?= base_url() . route_to('homeMenus') ?>" class="site_title"><span>
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
               </span></a>
           </div>
@@ -53,7 +60,7 @@
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
-              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?></h2>
+              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?>  </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -69,11 +76,11 @@
               use App\Models\modAdministracion\SubmenuModel;
               use App\Models\modAdministracion\MenuSubmenuModel;
               use App\Models\modAdministracion\RolModMenuModel;
+              use App\Models\modUsuario\UsuarioModel;
+              
               ?>
               <ul class="nav side-menu">
-                <!-- <li><a><i class="fa fa-home"></i>Inicio <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="<?= base_url() . route_to('home') ?>">Inicio</a></li>
+                <!-- <li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-edit"></i> Administración <span class="fa fa-chevron-down"></span></a>
@@ -84,6 +91,7 @@
                         <li><a href="<?= base_url() . route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
                         <li><a href="<?= base_url() . route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
                         <li><a href="<?= base_url() . route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
+                        <li><a href="<?= base_url() . route_to('moduloMenu') ?>">5. Admin. Modulo Menu</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -115,10 +123,23 @@
 
                 <li>
                   <?php
+                  $session = session();
                   $menu     = new MenuSubmenuModel();
                   $submenu  = new SubmenuModel();
-                  $menu     = $menu->asObject()->select('menuId, nombreMenu, nombreIcono')
-                    ->join('wk_icono', 'wk_icono.iconoId = co_menu.iconoId')->orderBy('menuId', 'asc')
+                  $obtenerRol = new UsuarioModel();
+                  $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
+                    ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
+                  $rolMenu  = new RolModMenuModel();
+                  $menu     = $rolMenu->asObject()->select('m.menuId, m.nombreMenu, i.nombreIcono')
+                    ->from('co_rol_modulo_menu rmm')
+                    ->join('wk_rol r', 'rmm.rolId= r.rolId')
+                    ->join('co_modulo_menu mm', 'rmm.moduloMenuId= mm.moduloMenuId')
+                    ->join('co_modulo mo', 'mm.moduloId=mo.moduloId')
+                    ->join('co_menu m', 'mm.menuId=m.menuId')
+                    ->join('wk_icono i', 'm.iconoId=i.iconoId')
+                    //->where('r.nombreRol', $rol)
+                    ->where('mo.moduloId', '5')
+                    ->groupBy('menuId')
                     ->findAll();
 
                   foreach ($menu as $key => $u) :
@@ -136,31 +157,6 @@
               <?php endforeach; ?>
               </ul>
               </li>
-              <!--
-              <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <?php
-                  $menu     = new MenuSubmenuModel();
-                  $submenu  = new SubmenuModel();
-                  $menu     = $menu->asObject()->select('menuId, nombreMenu, nombreIcono')
-                    ->join('wk_icono', 'wk_icono.iconoId = co_menu.iconoId')->orderBy('menuId', 'asc')
-                    ->findAll();
-
-                  foreach ($menu as $key => $u) :
-                    $submenus     = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
-                  ?>
-                    <?php if ($u->nombreMenu) : ?>
-                      <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
-                      <?php endif ?>
-                      <ul class="nav child_menu">
-                        <?php foreach ($submenus as $s) : ?>
-                          <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
-                        <?php endforeach; ?>
-                      </ul>
-                      </li>
-                    <?php endforeach; ?>
-                </ul>
-              </li> -->
 
               </ul>
             </div>
@@ -316,6 +312,22 @@
   <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
   <!-- iCheck -->
   <script src="vendors/iCheck/icheck.min.js"></script>
+  <!-- Datatables -->
+  <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+  <script src="vendors/jszip/dist/jszip.min.js"></script>
+  <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
   <!-- Skycons -->
   <script src="vendors/skycons/skycons.js"></script>
   <!-- Flot -->
@@ -342,6 +354,7 @@
   <script src="build/js/custom.min.js"></script>
 
   <!--SweetAlert-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
   <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 

@@ -1,19 +1,19 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<!-- Formulario para agregar modulos -->
+<!-- Formulario para agregar modulo menu -->
 <div class="x_panel">
     <div class="x_title">
-        <h2>Configuración de Módulos</h2>
+        <h2>Configuración de Módulo Menu</h2>
         <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
         </ul>
         <div class="clearfix"></div>
     </div>
     <div classme="x_content">
-        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Módulo</button>
+        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Módulo/Menu</button>
         <br>
-        <!--LISTADO DE modulos-->
+        <!--LISTADO DE MODULO MENU-->
         <div class="x_content">
             <br>
             <table class="table table-hover">
@@ -21,23 +21,19 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre de Modulo</th>
-                        <th>Icono</th>
-                        <th>Descripción</th>
-                        <th>Archivo</th>
+                        <th>Nombre de Menu</th>
                         <th scope="col" colspan="2">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($datos as $modulo) : ?>
+                    <?php foreach ($ModuloM as $key) : ?>
                         <tr>
-                            <td><?= $modulo->moduloId ?></td>
-                            <td><?= $modulo->nombre ?></td>
-                            <td><i class="<?= $modulo->nombreIcono ?>"></i> <?= $modulo->nombreIcono ?></td>
-                            <td><?= $modulo->descripcion ?></td>
-                            <td><?= $modulo->archivo ?></td>
+                            <td><?= $key->moduloMenuId ?></td>
+                            <td><?= $key->moduloId ?></td>
+                            <td><?= $key->menuId ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->moduloMenuId ?>" data-nombremod="<?= $key->moduloId ?>" data-nombremenu="<?= $key->menuId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->moduloMenuId ?>" data-nombremod="<?= $key->moduloId ?>" data-nombremenu="<?= $key->menuId ?>"><i class="fa fa-trash"></i></a>           
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -46,14 +42,13 @@
             </table>
         </div>
         <!--FIN LISTADO ROLES-->
-
-        <!-- Modal Agregar Módulo-->
-        <form action="<?php echo base_url() . '/crearModulo' ?>" method="POST">
+<!-- Modal Agregar Módulo-->
+<form action="<?php echo base_url() . '/crearMM' ?>" method="POST">
             <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Agregar un nuevo Módulo</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar un nuevo Módulo/Menu</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -61,30 +56,27 @@
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label>Nombre del Módulo</label>
-                                <input type="text" id="nombre" name="nombre" required="required" autocomplete="off" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Seleccionar Icono:</label>
-                                <select name="iconoId" required="required" class="form-control iconoId">
-                                    <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($icono as $key) : ?>
-                                    <option value="<?php echo $key->iconoId ?>"><span><i
-                                                class="<?php echo $key->nombreIcono ?>"></i></span>
-                                        <?php echo $key->nombreIcono ?> </i></option>
+                                <label>Nombre del Módulo:</label>
+                                <select name="moduloId" required="required" class="form-control moduloId">
+                                    <option value="">-Selecciona un Modulo-</option>
+                                    <?php foreach ($modulo as $key) : ?>
+                                    <option value="<?php echo $key->moduloId ?>"><span><i
+                                                class="<?php echo $key->nombre ?>"></i></span>
+                                        <?php echo $key->nombre ?> </i></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
+                                <label>Nombre del Menu:</label>
+                                <select name="menuId" required="required" class="form-control menuId">
+                                    <option value="">-Selecciona un Menu-</option>
+                                    <?php foreach ($menu as $key) : ?>
+                                    <option value="<?php echo $key->menuId ?>"><span><i
+                                                class="<?php echo $key->nombreMenu ?>"></i></span>
+                                        <?php echo $key->nombreMenu ?> </i></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
 
                         </div>
@@ -98,49 +90,47 @@
         </form>
         <!-- End Modal Agregar Módulo-->
 
+        
         <!-- Modal Edit Módulo-->
-        <form action="<?php echo base_url() . '/actualizarModulo' ?>" method="POST">
+        <form action="<?php echo base_url() . '/actualizarMM' ?>" method="POST">
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar Módulo</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Editar Módulo/Menu</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
 
-                            <div class="form-group">
-                                <label>Nombre del Módulo</label>
-                                <input type="text" id="nombre" name="nombre" autocomplete="off" required="required" class="form-control nombre">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Seleccionar Icono:</label>
-                                <select name="iconoId" id="iconoId" required="required" class="form-control iconoId">
-                                    <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($icono as $key) : ?>
-                                    <option value="<?php echo $key->iconoId ?>"><span><i
-                                                class="<?php echo $key->nombreIcono ?>"></i></span>
-                                        <?php echo $key->nombreIcono ?> </i></option>
+                        <div class="form-group">
+                                <label>Nombre del Módulo:</label>
+                                <select name="moduloId" required="required" class="form-control moduloId">
+                                    <option value="">-Selecciona un Modulo-</option>
+                                    <?php foreach ($modulo as $key) : ?>
+                                    <option value="<?php echo $key->moduloId ?>"><span><i
+                                                class="<?php echo $key->nombre ?>"></i></span>
+                                        <?php echo $key->nombre ?> </i></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" maxlength="40" autocomplete="off" class="form-control descripcion">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" maxlength="40" autocomplete="off" class="form-control archivo">
+                                <label>Nombre del Menu:</label>
+                                <select name="menuId" required="required" class="form-control menuId">
+                                    <option value="">-Selecciona un Menu-</option>
+                                    <?php foreach ($menu as $key) : ?>
+                                    <option value="<?php echo $key->menuId ?>"><span><i
+                                                class="<?php echo $key->nombreMenu ?>"></i></span>
+                                        <?php echo $key->nombreMenu ?> </i></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
 
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="moduloId" class="moduloId">
+                            <input type="hidden" name="moduloMenuId" class="moduloMenuId">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
@@ -150,24 +140,24 @@
         </form>
         <!-- End Modal Edit Módulo-->
 
-        <!-- Modal Delete Módulo-->
-        <form action="<?php echo base_url() . '/eliminarModulo' ?>" method="POST">
+<!-- Modal Delete Módulo-->
+<form action="<?php echo base_url() . '/eliminarMM' ?>" method="POST">
             <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Módulo</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Módulo/Menu</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
 
-                            <h4>¿Esta seguro que desea eliminar el módulo: <b><i class="modulo"></i></b> ?</h4>
+                            <h4>¿Esta seguro que desea eliminar este registro ?</h4>
 
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="moduloId" class="moduloId">
+                            <input type="hidden" name="moduloMenuId" class="moduloMenuId">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                             <button type="submit" class="btn btn-primary">SI</button>
                         </div>
@@ -176,6 +166,8 @@
             </div>
         </form>
         <!-- End Modal Delete Módulo-->
+
+
 
     </div>
 </div>
@@ -211,16 +203,12 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombremod       = $(this).data('nombremod');
-            const iconomod        = $(this).data('iconomod');
-            const descripcionmod  = $(this).data('descripcionmod');
-            const archivomod      = $(this).data('archivomod');
+            const nombremenu       = $(this).data('nombremenu');
 
             // Set data to Form Edit
-            $('.moduloId').val(id);
-            $('.nombre').val(nombremod);
-            $('.nombreIcono').val(iconomod);
-            $('.descripcion').val(descripcionmod);
-            $('.archivo').val(archivomod);
+            $('.moduloMenuId').val(id);
+            $('.moduloId').val(nombremod);
+            $('.menuId').val(nombremenu);
 
             // Call Modal Edit
             $('#editModal').modal('show');
@@ -231,9 +219,11 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombremod = $(this).data('nombremod');
+            const nombremenu       = $(this).data('nombremenu');
+
             // Set data to Form Edit
-            $('.moduloId').val(id);
-            $('.modulo').html(nombremod);
+            $('.moduloMenuId').val(id);
+            $('.moduloId').html(nombremod);
             // Call Modal Edit
             $('#eliminarModal').modal('show');
         });

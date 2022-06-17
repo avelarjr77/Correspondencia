@@ -4,12 +4,11 @@ namespace App\Models\modUsuario;
 use CodeIgniter\Model;
 
 class PersonaModel extends Model{
-
    
     //LISTADO DE PERSONAS
     public function listarPersona()
     {
-        $persona = $this->db->query("SELECT p.personaId as 'id', p.nombres as 'nombre',  
+        $persona = $this->db->query("SELECT p.personaId as 'id', p.dui as 'dui', p.nombres as 'nombre',  
                                     concat_ws(
                                         ' ',
                                         p.primerApellido,

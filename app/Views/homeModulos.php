@@ -10,19 +10,21 @@
             </div>
 
             <div class="clearfix"></div>
-            <?php foreach ($datos as $key) : ?>
+            <?php foreach ($modulo as $key) : ?>
             <div class="col-md-4 col-sm-4  profile_details">
                 <div class="well profile_view">
                     <div class="col-sm-12">
                         <h4 class="brief"><i><?= $key->modulo ?></i></h4>
                         <div class="left col-sm-7">
                             <h2>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quia vel vero consectetur...
+                                <?= $key->descripcion ?>
                             </h2>
                             </div>
                         <div class="right col-sm-5 text-center">
                         <div class="icon"><i class=" <?php echo $key->icono ?>" style="font-size: 75px;"></i></div><br>
-                        <a  type="button" class="btn btn-primary btn-sm" href="<?= $key->archivo ?>">
+                        <a  type="button" class="btn btn-primary btn-sm" href="<?= base_url() . route_to('homeMenus') ?>"
+                        data-href="<?php echo base_url() . '/template/admin_template' . $key->moduloId ?>"
+                        data-nombre="<?php echo $key->modulo ?>">
                         Ir al modulo
                         </a>
                         </div>
@@ -30,7 +32,6 @@
                 </div>
             </div>
             <?php endforeach; ?>
-
         </div>
     </div>
 </div>

@@ -30,6 +30,7 @@ class PersonaController extends BaseController{
     public function crear(){
 
         $datos = [
+            "dui" => $_POST['dui'],
             "nombres" => $_POST['nombres'],
             "primerApellido" => $_POST['primerApellido'],
             "segundoApellido" => $_POST['segundoApellido'],

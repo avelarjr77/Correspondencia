@@ -56,6 +56,11 @@ class Validation
         'archivo'        => 'min_length[3]|max_length[45]'
     ];
 
+    public $validarModuloMenu = [
+        'moduloId'        => 'is_unique[co_modulo_menu.moduloId]',
+        'menuId'        => 'is_unique[co_modulo_menu.menuId]'
+    ];
+
     public $validarRol = [
         'nombreRol'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_rol.nombreRol]'
     ];

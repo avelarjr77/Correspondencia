@@ -37,15 +37,17 @@ $routes->get('/', 'Login::index' ) ;
 
 $routes->post('/homeUser', 'HomeUser::index');
 
-$routes->post('/home', 'Home::login', ['as'=> 'home']);
+$routes->post('/homeModulos', 'Home::login', ['as'=> 'homeModulos']);
 $routes->get('/salir', 'Home::salir');
 
-$routes->get('/home', 'Home::modulo', ['as'=> 'home']);
+$routes->get('/homeModulos', 'Home::modulo', ['as'=> 'homeModulos']);
 
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
-$routes->get('homeAdministracion', 'modAdministracion/HomeAdministracionController::index', ['as'=> 'homeAdministracion']);
+$routes->get('homeMenus', 'HomeMenusController::index', ['as'=> 'homeMenus']);
+
+$routes->get('admin_template', 'MenuController::menus', ['as'=> 'admin_template']);
 
 
 $routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
@@ -80,6 +82,15 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('eliminarR', 'modAdministracion/RolModMenuController::eliminar', ['as'=> 'eliminarR']);
     //$routes->match(['get', 'post'], '/eliminarR/(:any)', 'modAdministracion/RolModMenuController::eliminar/$1', ['as'=> 'eliminarR']);
     $routes->match(['get', 'post'], 'editarRolModMenu', 'EditarRolMController::editar', ['as'=> 'editarRolModMenu']);
+
+});
+
+//MODULO-MENU
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('moduloMenu', 'modAdministracion/ModuloMenuController::moduloMenu', ['as'=> 'moduloMenu']);
+    $routes->post('crearMM', 'modAdministracion/ModuloMenuController::crearModuloMenu');
+    $routes->post('actualizarMM', 'modAdministracion/ModuloMenuController::actualizar');
+    $routes->post('eliminarMM', 'modAdministracion/ModuloMenuController::eliminar');
 
 });
 

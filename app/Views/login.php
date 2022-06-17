@@ -39,14 +39,20 @@
         <div class="col-md-3">
 
           <?php if (session()->get('success')) : ?>
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-2 mb-2 alert-dismissible fade show" role="alert">
               <?= session()->get('success') ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           <?php endif; ?>
 
           <?php if (session()->get('danger')) : ?>
-            <div class="alert alert-danger">
+            <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert">
               <?= session()->get('danger') ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           <?php endif; ?>
         </div>
@@ -62,25 +68,16 @@
             </div>
           </div>
         </div>
-        <!-- TERMS -->
-        <div class="terms">
-          <h3>¿Cómo activar su Usuario en EDU?</h3>
-          <p class="small">A continuación los pasos para poder registrarse en la plataforma EDU:</p>
-          <h3>Docentes y Administrativos</h3>
-          <p>Para poder activar su usuario, deberá digitar el correo electrónico que ha brindado en UCAD para tener contacto y que es al correo que tiene acceso, seguidamente deberá ingresar el usuario que se le ha brindado para ingresar a la plataforma Uonline 5. Al enviar la solicitud, el sistema verificará si usted está registrado y enviará a su correo un código para poder ingresar a la plataforma.</p>
-
-          <h3>Estudiantes</h3>
-          <p>Si usted es estudiante, debe asegurarse que ha brindado en Registro Académico un correo electrónico personal para que podamos enviar los pasos a seguir para acceder. Debe llenar el formulario con su correo brindado y su número de carnet que será el usuario a utilizar.</p>
-        </div>
+        
         <!-- RECOVERY -->
         <div class="recovery" id="recovery">
-        <h2>¿Olvidaste tu Contraseña?</h2>
-          <p>Por favor, digite <strong> su correo electrónico</strong> para enviar los pasos a seguir y recuperar su contraseña.</p>
+          <h2>¿Olvidaste tu Contraseña?</h2>
+          <p>Por favor, digite <strong> su correo electrónico</strong> para poder recuperar su contraseña.</p>
           <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
           <form class="login-form" action="<?= base_url() . '/recuperarContraseña' ?>" method="POST">
-            <input  class="input" id="email"   name="email"   placeholder="Ingresa tu correo electrónico aquí" >
-            <input type="text"  class="input" id="usuario" name="usuario" placeholder="Ingresa tu usuario/carnet aquí" required="">
-            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">ENVIAR SOLICITUD</button>
+            <input class="input" id="email" name="email" placeholder="Ingresa tu correo electrónico aquí">
+            <input type="text" class="input" id="usuario" name="usuario" placeholder="Ingresa tu usuario/carnet aquí" required="">
+            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECUPERAR CONTRASEÑA</button>
           </form>
           <p><a style="color: #2a3f54" target="_blank" href="">¿Cómo recuperar la contraseña? has clic aquí.</a></p>
         </div>
@@ -93,7 +90,7 @@
           <!-- SLIDESHOW -->
           <div id="slideshow">
 
-          <div class="one" style="display: block; opacity: 1;">
+            <div class="one" style="display: block; opacity: 1;">
               <h2 style="font-size:3.6vw;"><span>UCAD</span></h2><br>
               <h3 style="font-size:3vh; ">SISTEMA DE CORRESPONDENCIA</h3>
             </div>
@@ -106,8 +103,7 @@
           <div class="form-wrap">
             <!-- TABS -->
             <div class="tabs">
-              <h4 class="login-tab"><a class="log-in active" href="<?= base_url() . route_to('home') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
-              <h4 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>Activar Usuario</span></a></h4>
+              <h4 class="login-tab"><a class="log-in active" href="<?= base_url() . route_to('homeModulos') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
             </div>
 
             <!-- TABS CONTENT -->
@@ -115,7 +111,7 @@
 
               <!-- TABS CONTENT LOGIN -->
               <div id="login-tab-content" class="active">
-                <form class="login-form" action="<?= base_url() . route_to('home') ?>" method="post">
+                <form class="login-form" action="<?= base_url() . route_to('homeModulos') ?>" method="post">
                   <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario">
                   <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña">
                   <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">INGRESAR</button>
@@ -144,6 +140,7 @@
       </div>
     </div>
   </div>
+  <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 <script>

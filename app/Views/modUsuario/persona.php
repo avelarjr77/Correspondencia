@@ -26,6 +26,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>DUI</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>Fecha de Nacimiento</th>
@@ -39,6 +40,7 @@
                             <?php foreach($datos as $key): ?>
                             <tr>
                                 <td><?php echo $key->id ?></td>
+                                <td><?php echo $key->dui ?></td>
                                 <td><?php echo $key->nombre ?></td>
                                 <td><?php echo $key->apellidos ?></td>
                                 <td><?php echo $key->fechaNacimiento ?></td>
@@ -46,8 +48,8 @@
                                 <td><?php echo $key->cargo ?></td>
                                 <td><?php echo $key->departamento ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>  "data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>" data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?> 
@@ -69,7 +71,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        
+
+                            <div class="field item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
+                            <div class="col-md-8">
+                                <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
+                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+                            </div> 
                             <div class="field item form-group">
                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
                             <div class="col-md-8">
@@ -294,6 +303,7 @@
         $('.btn-edit').on('click',function(){
             // get data from button edit
             const id = $(this).data('id');
+            const dui = $(this).data('dui');
             const nombre = $(this).data('nombre');
             var apellidos = $(this).data('apellidos');
             const fechaN = $(this).data('fechaNacimiento');
@@ -308,6 +318,7 @@
 
             // Set data to Form Edit
             $('.personaId').val(id);
+            $('.dui').val(dui);
             $('.nombres').val(nombre);
             $('.primerApellido').val(primerApe);
             $('.segundoApellido').val(segundoApe);

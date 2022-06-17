@@ -1,7 +1,7 @@
 
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
-<?= $this->extend('modUsuario/tipoContacto') ?>
+<?= $this->extend('modUsuario/tipocontacto') ?>
 <?= $this->section('content') ?>
 <?= $this->endSection() ?>
 
@@ -33,8 +33,8 @@
                             </div>
                             <div class="right col-sm-5 text-center">
                                 <img src="images/user.png" alt="" class="img-circle img-fluid"><br><br>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoContacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-trash"></i></a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipocontacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipocontacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-trash"></i></a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <?php endforeach; ?>
 
             </div>
-        <!-- FIN LISTADO TIPOCONTACTO -->
+        <!-- FIN LISTADO tipocontacto -->
 
         <!-- Modal Agregar CONTACTO-->
         <form action="<?php echo base_url() . '/crearContacto' ?>" method="POST">
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </form>
-        <!-- End Modal Agregar TIPOCONTACTO-->
+        <!-- End Modal Agregar tipocontacto-->
 
         <!-- Modal Edit CONTACTO-->
         <form action="<?php echo base_url() . '/actualizarContacto' ?>" method="POST">
@@ -226,14 +226,14 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            const tipoContacto = $(this).data('tipoContacto');
+            const tipocontacto = $(this).data('tipocontacto');
             const contacto = $(this).data('contacto');
             const estado = $(this).data('estado');
 
             // Set data to Form Edit
             $('.contactoId').val(id);
             $('.personaId').val(nombre);
-            $('.tipoContacto').val(tipoContacto);
+            $('.tipocontacto').val(tipocontacto);
             $('.contacto').val(contacto);
             $('.estado').val(estado);
 
@@ -246,7 +246,7 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            const tipoContacto = $(this).data('tipoContacto');
+            const tipocontacto = $(this).data('tipocontacto');
             const contacto = $(this).data('contacto');
             const estado = $(this).data('estado');
 
