@@ -74,6 +74,6 @@ class Login extends BaseController
                 }
             }
         }
-        return view('Login', $data);
+        return view('login', $data);
     }
 }
