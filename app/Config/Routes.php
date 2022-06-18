@@ -42,10 +42,6 @@ $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
 $routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c5dcd0be47bd5cd19dae9bc3e4239ee4aad1d026
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
 
@@ -216,7 +212,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('actList', 'modProceso/ActividadController::actList', ['as'=> 'actList']);
     $routes->get('personaList', 'modProceso/ActividadController::personaList', ['as'=> 'personaList']);
     $routes->get('personaListA', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListA']);
-    $routes->get('personaListC', 'modProceso/ActividadController::personaListA', ['as'=> 'personaListC']);
+    $routes->get('personaListC', 'modProceso/ActividadController::personaListC', ['as'=> 'personaListC']);
     $routes->get('etapaL', 'modProceso/ActividadController::etapaL', ['as'=> 'etapaL']);
     $routes->match(['get', 'post'], 'crearActividad', 'modProceso/ActividadController::crear', ['as'=> 'crearActividad']);
     $routes->match(['get', 'post'], 'actualizarActividad', 'modProceso/ActividadController::actualizar', ['as'=> 'actualizarActividad']);
@@ -244,12 +240,42 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 ///TRANSACCION
 $routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('transaccionConfig', 'modTransaccion/TransaccionConfigController::index', ['as'=> 'transaccionConfig']);
+    $routes->post('crearTransaccion', 'modTransaccion/TransaccionConfigController::crear');
+    $routes->post('actualizarTransaccion', 'modTransaccion/TransaccionConfigController::actualizar');
+    $routes->post('actualizarO', 'modTransaccion/TransaccionConfigController::actualizarO');
+    $routes->match(['get', 'post'],'transaccionEtapa', 'modTransaccion/TransaccionConfigController::etapas', ['as'=> 'transaccionEtapa']);
+    $routes->match(['get', 'post'],'transaccionEliminar', 'modTransaccion/TransaccionConfigController::eliminarT', ['as'=> 'transaccionEliminar']);
+    $routes->match(['get', 'post'],'transaccionObservaciones', 'modTransaccion/TransaccionConfigController::transaccionObservaciones', ['as'=> 'transaccionObservaciones']);
+    $routes->match(['get', 'post'],'transaccionEliminarP', 'modTransaccion/TransaccionConfigController::eliminarP', ['as'=> 'transaccionEliminarP']);
+    $routes->match(['get', 'post'],'transaccionListado', 'modTransaccion/TransaccionConfigController::transaccionListado', ['as'=> 'transaccionListado']);
+    $routes->match(['get', 'post'],'transaccionList', 'modTransaccion/TransaccionConfigController::etapasList', ['as'=> 'transaccionList']);
+    $routes->match(['get', 'post'],'transaccionDet', 'modTransaccion/TransaccionConfigController::tDetalle', ['as'=> 'transaccionDet']);    
+    $routes->match(['get', 'post'],'transaccionDetId', 'modTransaccion/TransaccionConfigController::tDetId', ['as'=> 'transaccionDetId']);    
+    $routes->match(['get', 'post'],'transaccionAcId', 'modTransaccion/TransaccionConfigController::tAcId', ['as'=> 'transaccionAcId']);    
+    $routes->match(['get', 'post'],'transaccionActividad', 'modTransaccion/TransaccionConfigController::actividad', ['as'=> 'transaccionActividad']);
+    $routes->match(['get', 'post'],'transaccionActList', 'modTransaccion/TransaccionConfigController::actividadList', ['as'=> 'transaccionActList']);
+    $routes->match(['get', 'post'],'transaccionActDet', 'modTransaccion/TransaccionConfigController::tActividades', ['as'=> 'transaccionActDet']);    
+    
+    //TRANSACCION ACTIVIDAD
+    $routes->match(['get', 'post'],'transaccionActividades', 'modTransaccion/TransaccionActividadController::index', ['as'=> 'transaccionActividades']);
+    $routes->match(['get', 'post'],'actividadF', 'modTransaccion/TransaccionActividadController::finalizarA', ['as'=> 'actividadF']);
+    $routes->match(['get', 'post'],'actividadI', 'modTransaccion/TransaccionActividadController::iniciarActividad', ['as'=> 'actividadI']);
+    
+    //TRANSACCION LIST
+    $routes->get('transaccionLista', 'modTransaccion/TransaccionListController::list', ['as'=> 'transaccionLista']);
+
+    $routes->post('eliminarTransaccion', 'modTransaccion/TransaccionConfigController::eliminar');
+
+});  
+/* $routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('transaccionConfig', 'modTransaccion/TransaccionConfigController::index', ['as'=> 'transaccionConfig']);
     $routes->get('transaccion', 'modTransaccion/TransaccionController::index', ['as'=> 'transaccion']);
     $routes->post('crearTransaccion', 'modTransaccion/TransaccionController::crear');
     $routes->post('actualizarTransaccion', 'modTransaccion/TransaccionController::actualizar');
     $routes->post('eliminarTransaccion', 'modTransaccion/TransaccionController::eliminar');
 
-});    
+});   */  
 
 /*
  * --------------------------------------------------------------------

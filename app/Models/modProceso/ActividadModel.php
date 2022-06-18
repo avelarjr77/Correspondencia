@@ -7,17 +7,18 @@ class ActividadModel extends Model{
 
     protected $table = 'wk_actividad';
     protected $primaryKey = 'actividadId';
-    protected $allowedFields = ['actividadId', 'nombreActividad', 'descripcion', 'etapaId'];
+    protected $allowedFields = ['actividadId', 'nombreActividad', 'descripcion', 'ordenActividad', 'etapaId'];
 
     //MODELO PARA LISTAR PROCESO
     public function listarActividad($etapaId)
     {
-        return $this->asObject()
-        ->select("wk_actividad.actividadId as 'id', wk_actividad.nombreActividad as 'nombre', wk_actividad.descripcion as 'descripcion', e.nombreEtapa as 'etapa', wk_actividad.etapaId, pe.nombres as 'persona', wk_actividad.personaId")
-        ->join('wk_etapa e','e.etapaId = wk_actividad.etapaId')
-        ->join('wk_persona pe','pe.personaId = wk_actividad.personaId')
-        ->where('e.etapaId',$etapaId)
-        ->findAll();
+        $actividad = $this->db->query("SELECT a.actividadId as 'id', a.nombreActividad as 'nombre', a.descripcion as 'descripcion', a.ordenActividad as 'ordenA', e.nombreEtapa as 'etapa', a.etapaId, pe.nombres as 'persona', a.personaId
+                                        FROM wk_actividad a
+                                        INNER JOIN wk_etapa e ON e.etapaId = a.etapaId
+                                        INNER JOIN wk_persona pe ON pe.personaId = a.personaId
+                                        WHERE e.etapaId = $etapaId
+                                        ORDER BY a.ordenActividad");
+        return $actividad->getResult();
     }
     
     //MODELO PARA LISTAR PERSONA

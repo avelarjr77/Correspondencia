@@ -12,13 +12,19 @@
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
+    <!--KRAJEE-->
+    <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+    <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
     <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -273,8 +279,18 @@
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+    <script src="vendors/kartik/js/plugins/piexif.js"></script>
+    <script src="vendors/kartik/js/plugins/sortable.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--KRAJEE-->
+    <script src="vendors/kartik/js/fileinput.min.js"></script>
+    <script src="vendors/kartik/js/locales/LANG.js"></script>
+
     <!-- FastClick -->
     <script src="vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
@@ -312,9 +328,15 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 
+    <!-- Dropzone.js -->
+    <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+
     <!--SweetAlert-->
     <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
     <script src="vendors/sweetalert2/sweetalert.min.js"></script>
+
+    <!--KRAJEE
+    <script src="vendors/kartik/js/locales/LANG.js"></script> -->
 
     <!-- HOLA SOY UNA PRUEBA-->
 
