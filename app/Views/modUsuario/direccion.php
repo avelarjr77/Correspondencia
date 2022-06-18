@@ -13,7 +13,6 @@
     <div class="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Dirección</button>
         <a href="<?= base_url().route_to('persona') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Persona</a>
-        <a href="<?= base_url().route_to('municipio') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Municipio</a>
         <br>
 
         <!--LISTADO DE DIRECCION-->
@@ -83,6 +82,16 @@
                     <div class="form-group">
                         <label>Dirección:</label>
                         <input type="text" id="nombreDireccion" name="nombreDireccion" required="required" autocomplete="off" class="form-control nombreDireccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Departamento:</label>
+                        <select name="departamentoId" class="form-control departamentoId" required="required">
+                            <option value="">-Selecciona un Departamento-</option>
+                            <?php foreach ($departamento as $dep): ?>
+                                <option value="<?php echo $dep->deptoId ?>"><?php echo $dep->nombreDepto ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="form-group">

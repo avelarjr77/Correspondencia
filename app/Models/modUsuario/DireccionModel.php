@@ -32,6 +32,13 @@ class DireccionModel extends Model{
         return $municipio->getResult();
     }
 
+    //LISTADO DE MUNICIPIO
+    public function listarDepartamento()
+    {
+        $departamento =  $this->db->query('SELECT*FROM  wk_depto');
+        return $departamento->getResult();
+    }
+
     //MODELO PARA AGREGAR DIRECCION
     public function insertar($datos){
 

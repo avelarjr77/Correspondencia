@@ -67,12 +67,9 @@ class ModuloController extends BaseController{
     /*public function obtenerModulo($nombres)
     {
         $data = [ "moduloId" => $nombres];
-
         $nombreModulo = new ModuloModel();
         $respuesta = $nombreModulo->obtenerModulo($data);
-
         $datos = ["datos" => $respuesta];
-
         return view('modAdministracion/actualizarModulo', $datos);
     }*/
 

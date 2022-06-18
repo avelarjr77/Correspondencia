@@ -614,33 +614,11 @@
             }
         });     
 
-        /* $.ajax({
-            type: "GET",
-            url: "<= base_url().route_to('etapaC') ?>",
-            data: {procesoId: idProcesoC},
-            success:function(data){
-
-                var dataEtapaCE = JSON.parse(data);
-                console.log(dataEtapaCE);
-                
-                $("#etapaData").empty();
-
-                $.each(dataEtapaCE, function(index, val) {
-                    datosC.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.nombre+"</td>"+
-                    "<td>"+val.orden+"</td>"+
-                    "<td>"+val.proceso+"</td>"+
-                    "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
-                    "<a href='#' onclick='borrarEtapa("+val.id+", "+val.procesoId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                    "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
-                    "</td></tr>")
-                });
-            }
-        }); */
-
         //recargarEtapa(idProcesoC);
 
         $('#agregarEtapaModal').modal('hide');
+        $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+        $('.modal-backdrop').remove();//eliminamos el backdrop del modal
     });
 
     function recargarEtapa(idPP){
@@ -962,40 +940,20 @@
                     )
                 }
 
+                recargarActividad(dEtapAC);
                 console.log(dataActividadCCN);
                 $('#nombreActividad').val('');
                 $('#descripcion').val('');
                 $('#personaData').val('');
                 //listadoPersona();
-                recargarActividad(dEtapAC);
             }
         }); 
 
 
         $('#agregarActividadModal').modal('hide');
+        $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+        $('.modal-backdrop').remove();//eliminamos el backdrop del modal
 
-        /* $.ajax({
-            type: "GET",
-            url: "<= base_url().route_to('actividadC') ?>", 
-            data: {etapaId: dEtapAC},
-            success:function(data){
-
-                var dataACList = JSON.parse(data);
-                
-                $("#actividadData").empty();
-
-                $.each(dataACList, function(index, val) {
-                    datosACC.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.nombre+"</td>"+
-                    "<td>"+val.descripcion+"</td>"+
-                    "<td>"+val.etapa+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
-                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
-                    "</td></tr>")
-                });
-            }
-        }); */
     });
 
     function listadoPersona(){

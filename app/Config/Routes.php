@@ -94,6 +94,15 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
+//MODULO-MENU
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('moduloMenu', 'modAdministracion/ModuloMenuController::moduloMenu', ['as'=> 'moduloMenu']);
+    $routes->post('crearMM', 'modAdministracion/ModuloMenuController::crearModuloMenu');
+    $routes->post('actualizarMM', 'modAdministracion/ModuloMenuController::actualizar');
+    $routes->post('eliminarMM', 'modAdministracion/ModuloMenuController::eliminar');
+
+});
+
 ///ROL
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('adminRol', 'modAdministracion/RolController::adminRol', ['as'=> 'adminRol']);
