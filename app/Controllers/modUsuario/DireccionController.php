@@ -12,6 +12,7 @@ class DireccionController extends BaseController{
         $direccion = new DireccionModel();
         $datos = $direccion->listarDireccion();
         $persona = $direccion->listarPersona();
+        $departamento = $direccion->listarDepartamento();
         $municipio = $direccion->listarMunicipio();
         
 
@@ -21,6 +22,7 @@ class DireccionController extends BaseController{
             "datos" => $datos,
             "persona" => $persona,
             "municipio" => $municipio,
+            "departamento" => $departamento,
             "mensaje" => $mensaje
         ];
 

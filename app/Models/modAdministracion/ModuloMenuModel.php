@@ -12,7 +12,25 @@ class ModuloMenuModel extends Model{
     //MODELO PARA LISTAR MODULOS MENUS
     public function listarModuloMenu()
     {
-        $ModuloMenu = $this->db->query('SELECT*FROM co_modulo_menu');
+        $ModuloMenu = $this->db->query("SELECT mm.moduloMenuId as 'id', me.nombreMenu as 'nomMenu', m.nombre as 'modulo'
+                                        FROM co_modulo_menu mm
+                                        INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
+                                        INNER JOIN co_menu me ON mm.menuId = me.menuId  
+                                        ORDER BY mm.moduloMenuId");
+        return $ModuloMenu->getResult();
+    }
+
+    //MODELO PARA LISTAR MODULOS 
+    public function listarModulo()
+    {
+        $ModuloMenu = $this->db->query("SELECT * FROM co_modulo");
+        return $ModuloMenu->getResult();
+    }
+
+    //MODELO PARA LISTAR MENUS
+    public function listarMenu()
+    {
+        $ModuloMenu = $this->db->query("SELECT * FROM co_menu ");
         return $ModuloMenu->getResult();
     }
 

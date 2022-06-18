@@ -28,12 +28,12 @@
                 <tbody>
                     <?php foreach ($ModuloM as $key) : ?>
                         <tr>
-                            <td><?= $key->moduloMenuId ?></td>
-                            <td><?= $key->moduloId ?></td>
-                            <td><?= $key->menuId ?></td>
+                            <td><?= $key->id ?></td>
+                            <td><?= $key->modulo ?></td>
+                            <td><?= $key->nomMenu?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->moduloMenuId ?>" data-nombremod="<?= $key->moduloId ?>" data-nombremenu="<?= $key->menuId ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->moduloMenuId ?>" data-nombremod="<?= $key->moduloId ?>" data-nombremenu="<?= $key->menuId ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombremod="<?= $key->modulo ?>" data-nombremenu="<?= $key->nomMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombremod="<?= $key->modulo ?>" data-nombremenu="<?= $key->nomMenu ?>"><i class="fa fa-trash"></i></a>           
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -43,7 +43,7 @@
         </div>
         <!--FIN LISTADO ROLES-->
 <!-- Modal Agregar Módulo-->
-<form action="<?php echo base_url() . '/crearMM' ?>" method="POST">
+        <form action="<?php echo base_url() . '/crearMM' ?>" method="POST">
             <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -57,24 +57,20 @@
 
                             <div class="form-group">
                                 <label>Nombre del Módulo:</label>
-                                <select name="moduloId" required="required" class="form-control moduloId">
+                                <select name="moduloId" required="required" class="form-control">
                                     <option value="">-Selecciona un Modulo-</option>
-                                    <?php foreach ($modulo as $key) : ?>
-                                    <option value="<?php echo $key->moduloId ?>"><span><i
-                                                class="<?php echo $key->nombre ?>"></i></span>
-                                        <?php echo $key->nombre ?> </i></option>
+                                    <?php foreach ($modulo as $mod): ?>
+                                        <option value="<?php echo $mod->moduloId ?>"><?php echo $mod->nombre ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Nombre del Menu:</label>
-                                <select name="menuId" required="required" class="form-control menuId">
+                                <select name="menuId" required="required" class="form-control">
                                     <option value="">-Selecciona un Menu-</option>
-                                    <?php foreach ($menu as $key) : ?>
-                                    <option value="<?php echo $key->menuId ?>"><span><i
-                                                class="<?php echo $key->nombreMenu ?>"></i></span>
-                                        <?php echo $key->nombreMenu ?> </i></option>
+                                    <?php foreach ($menu as $me): ?>
+                                        <option value="<?php echo $me->menuId ?>"><?php echo $me->nombreMenu ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -104,14 +100,12 @@
                         </div>
                         <div class="modal-body">
 
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label>Nombre del Módulo:</label>
                                 <select name="moduloId" required="required" class="form-control moduloId">
                                     <option value="">-Selecciona un Modulo-</option>
-                                    <?php foreach ($modulo as $key) : ?>
-                                    <option value="<?php echo $key->moduloId ?>"><span><i
-                                                class="<?php echo $key->nombre ?>"></i></span>
-                                        <?php echo $key->nombre ?> </i></option>
+                                    <?php foreach ($modulo as $mod): ?>
+                                        <option value="<?php echo $mod->moduloId ?>"><?php echo $mod->nombre ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -120,10 +114,8 @@
                                 <label>Nombre del Menu:</label>
                                 <select name="menuId" required="required" class="form-control menuId">
                                     <option value="">-Selecciona un Menu-</option>
-                                    <?php foreach ($menu as $key) : ?>
-                                    <option value="<?php echo $key->menuId ?>"><span><i
-                                                class="<?php echo $key->nombreMenu ?>"></i></span>
-                                        <?php echo $key->nombreMenu ?> </i></option>
+                                    <?php foreach ($menu as $me): ?>
+                                        <option value="<?php echo $me->menuId ?>"><?php echo $me->nombreMenu ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -140,8 +132,8 @@
         </form>
         <!-- End Modal Edit Módulo-->
 
-<!-- Modal Delete Módulo-->
-<form action="<?php echo base_url() . '/eliminarMM' ?>" method="POST">
+        <!-- Modal Delete Módulo-->
+        <form action="<?php echo base_url() . '/eliminarMM' ?>" method="POST">
             <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -202,8 +194,8 @@
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const nombremod       = $(this).data('nombremod');
-            const nombremenu       = $(this).data('nombremenu');
+            const nombremod = $(this).data('nombremod');
+            const nombremenu = $(this).data('nombremenu');
 
             // Set data to Form Edit
             $('.moduloMenuId').val(id);
@@ -219,7 +211,7 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombremod = $(this).data('nombremod');
-            const nombremenu       = $(this).data('nombremenu');
+            const nombremenu = $(this).data('nombremenu');
 
             // Set data to Form Edit
             $('.moduloMenuId').val(id);

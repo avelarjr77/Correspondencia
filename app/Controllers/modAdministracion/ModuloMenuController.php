@@ -12,20 +12,18 @@ class ModuloMenuController extends BaseController{
     public function moduloMenu(){
 
         $ModuloMenu = new ModuloMenuModel();
-        $modulo = new ModuloModel();
-        $menu = new MenuSubMenuModel();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "ModuloM" => $ModuloMenu->asObject()->join('co_menu','co_menu.menuId = co_modulo_menu.menuId')->findAll(),
-            "menu" => $menu->asObject()->findAll(),
-            "modulo" => $modulo->asObject()->findAll(),
+            "ModuloM" => $ModuloMenu->listarModuloMenu(),
+            "menu" => $ModuloMenu->listarMenu(),
+            "modulo" => $ModuloMenu->listarModulo(),
             "mensaje"   => $mensaje
         ];
 
         return view('modAdministracion/moduloMenu', $data);
-        }
+    }
 
     //CREAR MODULOS MENUS
     public function crearModuloMenu(){

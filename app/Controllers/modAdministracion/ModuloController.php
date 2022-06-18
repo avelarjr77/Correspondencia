@@ -62,20 +62,6 @@ class ModuloController extends BaseController{
         }
     }
 
-    
-    //Funcion para EDITAR
-    /*public function obtenerModulo($nombres)
-    {
-        $data = [ "moduloId" => $nombres];
-
-        $nombreModulo = new ModuloModel();
-        $respuesta = $nombreModulo->obtenerModulo($data);
-
-        $datos = ["datos" => $respuesta];
-
-        return view('modAdministracion/actualizarModulo', $datos);
-    }*/
-
     public function actualizarModulo()
     {
       $nombreModulo = new ModuloModel();
