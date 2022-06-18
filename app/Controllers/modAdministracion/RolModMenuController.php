@@ -12,11 +12,13 @@ class RolModMenuController extends BaseController
     public function index()
     {
         $rolModMenu = new RolModMenuModel();
+        $mensaje = session('mensaje');
 
         $datos = $rolModMenu->getRolMM();
 
         $dato = [
-            "datos" => $datos
+            "datos" => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modAdministracion/rolModMenu',$dato);
@@ -68,18 +70,29 @@ class RolModMenuController extends BaseController
 
     public function editR()
     {
+
         $rolMod = new RolModMenuModel();
+        if ($this->validate([
+                'menu'        => 'required',
+                'rolId'        => 'required'
 
-        $menu = $_POST['menu'];
-        $rolId = $_POST['rolId'];
+            ])) {
+                $datos = [
+                    $menu = $_POST['menu'],
+                    $rolId = $_POST['rolId']
+                ];
 
-        for ($i=0; $i < count($menu); $i++) 
-        {
-            $data = array('rolId' => $rolId, 'moduloMenuId' => $menu[$i]);
-            $editar = $rolMod->insertar($data);
-        }
+                for ($i=0; $i < count($menu); $i++) 
+                {
+                    $data = array('rolId' => $rolId, 'moduloMenuId' => $menu[$i]);
+                    $editar = $rolMod->insertar($data);
+                }
+        
+                return redirect()->to(base_url(). '/rolModMenu')->with('mensaje', '1');
 
-        return redirect()->to(base_url(). '/rolModMenu');
+            } else {
+                return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '4');
+            }
     }
 
     public function eliminar(){
@@ -94,9 +107,9 @@ class RolModMenuController extends BaseController
         $respuesta = $nombre->eliminarR($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','2');
-        } else {
             return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','3');
+        } else {
+            return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','2');
         }
         //echo json_encode($respuesta);
     }

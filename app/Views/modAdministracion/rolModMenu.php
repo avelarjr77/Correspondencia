@@ -125,7 +125,20 @@
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
 
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '1') {
+        swal('', 'Agregado', 'success');
+    } else if (mensaje == '2') {
+        swal('', 'No se elimino', 'error');
+    } else if (mensaje == '3') {
+        swal('', 'Eliminado', 'success');
+    } else if (mensaje == '4') {
+        swal('', 'Ningun elemento seleccionado', 'error');
+    }
+</script>
 
 
 <script>
@@ -220,6 +233,8 @@
         $('#eliminarModal').modal('show'); 
 
     }
+
+    
 </script>
 
 

@@ -12,6 +12,7 @@ class ModuloMenuModel extends Model{
     //MODELO PARA LISTAR MODULOS MENUS
     public function listarModuloMenu()
     {
+<<<<<<< HEAD
         $ModuloMenu = $this->db->query("SELECT mm.moduloMenuId as 'id', me.nombreMenu as 'nomMenu', m.nombre as 'modulo'
                                         FROM co_modulo_menu mm
                                         INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
@@ -31,6 +32,9 @@ class ModuloMenuModel extends Model{
     public function listarMenu()
     {
         $ModuloMenu = $this->db->query("SELECT * FROM co_menu ");
+=======
+        $ModuloMenu = $this->db->query('SELECT*FROM co_modulo_menu');
+>>>>>>> 711bee2ba907a9be1f29d1bfe0d0456d5164e07c
         return $ModuloMenu->getResult();
     }
 

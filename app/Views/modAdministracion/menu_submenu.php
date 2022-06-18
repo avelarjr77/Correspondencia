@@ -105,6 +105,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>Identificador</label>
+                                <input type="text" id="identificador" name="identificador" autocomplete="off"
+                                    required="required" minlength="2" maxlength="10" class="form-control identificador">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -237,6 +246,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+if (mensaje == '1') {
+    swal('', 'Agregado', 'success');
+} else if (mensaje == '0') {
+    swal('No se agrego', 'Datos incorrectos', 'error');
+} else if (mensaje == '2') {
+    swal('', 'Actualizado', 'success');
+} else if (mensaje == '3') {
+    swal('Falló actualización', 'Datos incorrectos', 'error');
+} else if (mensaje == '4') {
+    swal('', 'Eliminado', 'success');
+} else if (mensaje == '5') {
+    swal('', 'No', 'error');
+}else if (mensaje == '6') {
+        swal(':c', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
+}
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';

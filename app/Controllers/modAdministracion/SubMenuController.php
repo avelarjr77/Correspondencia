@@ -28,43 +28,48 @@ class SubMenuController extends BaseController
     //Funcion para INSERTAR
     public function agregarSubMenu()
     {
-        $datos = [
-            "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId'],
-            "nombreArchivo"     => $_POST['nombreArchivo']
-        ];
 
         $submenu = new SubmenuModel();
-        $respuesta = $submenu->crearSubmenu($datos);
 
-        if ($respuesta > 0) {
+        if ($this->validate('validarsubmenu')) {
+            $submenu->crearSubmenu(
+                [
+                    "nombreSubMenu"     => $_POST['nombreSubMenu'],
+                    "menuId"            => $_POST['menuId'],
+                    "nombreArchivo"     => $_POST['nombreArchivo']
+                ]
+            );
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '1');
-        } else {
-            return redirect()->to(base_url() . '/submenus')->with('mensaje', '0');
         }
+
+        //Mensaje si el registro esta duplicado
+        return redirect()->to(base_url() . '/submenus')->with('mensaje', '0');
     }
     //Funcion para EDITAR
     public function actualizarSubmenu()
     {
-        $datos = [
-            "nombreSubMenu"     => $_POST['nombreSubMenu'],
-            "menuId"            => $_POST['menuId'],
-            "nombreArchivo"     => $_POST['nombreArchivo']
-        ];
-
-        $subMenuId = $_POST['subMenuId'];
 
         $MenuSubmenu = new SubmenuModel();
+        if ($this->validate([
+            'menuId' => 'required',
+            'nombreSubMenu' => 'min_length[3]|max_length[45]|required|is_unique[co_submenu.nombreSubMenu]|alpha_space',
+            'nombreArchivo' => 'min_length[3]|max_length[100]|required'
+            ])) {
+                $datos = [
+                    "nombreSubMenu"     => $_POST['nombreSubMenu'],
+                    "menuId"            => $_POST['menuId'],
+                    "nombreArchivo"     => $_POST['nombreArchivo']
+                ];
 
-        $respuesta = $MenuSubmenu->actualizarSubmenu($datos, $subMenuId);
-
-        $datos = ["datos" => $respuesta];
-
-        if ($respuesta) {
+            $subMenuId = $_POST['subMenuId'];
+            $respuesta = $MenuSubmenu->actualizarSubmenu($datos, $subMenuId);
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '2');
-        } else {
-            return redirect()->to(base_url() . '/submenus')->with('mensaje', '3');
-        }
+
+            } else {
+                return redirect()->to(base_url() . '/submenus')->with('mensaje', '3');
+            } 
     }
 
     public function eliminarSubmenu($subMenuId)

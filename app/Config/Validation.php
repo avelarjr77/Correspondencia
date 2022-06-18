@@ -5,7 +5,7 @@ namespace Config;
 use CodeIgniter\Validation\CreditCardRules;
 use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
-use CodeIgniter\Validation\Rules;
+use CodeIgniter\Validation\Rules;	
 
 class Validation
 {
@@ -39,8 +39,15 @@ class Validation
     ];
 
     public $menuValidation = [
-        'nombreMenu'   => 'required|is_unique[co_menu.nombreMenu]',
-        'identificador' => 'required|min_length[2]',
+        'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
+        'iconoId' => 'required',
+        'identificador' => 'required|alpha'
+    ];
+
+    public $validarsubmenu = [
+        'nombreSubMenu' => 'min_length[3]|max_length[45]|required|is_unique[co_submenu.nombreSubMenu]|alpha_space',
+        'menuId' => 'required',
+        'nombreArchivo' => 'min_length[3]|max_length[100]|required'
     ];
 
     public $validation = [
@@ -49,18 +56,21 @@ class Validation
         'archivo'        => 'min_length[3]|max_length[45]'
     ];
 
+    public $validarModuloMenu = [
+        'moduloId'        => 'is_unique[co_modulo_menu.moduloId]',
+        'menuId'        => 'is_unique[co_modulo_menu.menuId]'
+    ];
+
     public $validarRol = [
         'nombreRol'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_rol.nombreRol]'
     ];
 
-    public $validarPersona = [
-        'nombres'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.nombres]',
-        'primerApellido'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.primerApellido]',
-        'segundApellido'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_persona.segundoApellido]'
+    public $validarCargo = [
+        'cargo'        => 'min_length[3]|max_length[45]|is_unique[wk_cargo.cargo]'
     ];
 
-    public $validarCargo = [
-        'cargo'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_cargo.cargo]'
+    public $validarCargoNumeros = [
+        'cargo'        => 'min_length[3]|max_length[45]|alpha_space'
     ];
 
     public $validarDepart = [
@@ -76,11 +86,22 @@ class Validation
     ];
 
     public $validarDocumento = [
-        'nombreDocumento'        => 'min_length[3]|max_length[75]|is_unique[wk_documento.nombreDocumento]|alpha_space',
-        'documento'        => 'min_length[3]|max_length[45]|is_unique[wk_documento.documento]|alpha_space',
-        'tipoDocumentoId'        => 'required',
-        'tipoEnvioId'        => 'required',
-        'transaccionActividadId'        => 'required'
+        'nombreDocumento'        => 'is_unique[wk_documento.nombreDocumento]|alpha_numeric_space',
+        'documento'        => 'is_unique[wk_documento.documento]|alpha_numeric_space'
+    ];
+
+    public $validarPersona = [
+        'nombres'        => 'alpha_space',
+        'primerApellido'        => 'alpha',
+        'segundoApellido'        => 'alpha'
+    ];
+
+    public $validarTipoEnvio = [
+        'tipoEnvio'        => 'is_unique[wk_tipo_envio.tipoEnvio]|alpha_space'
+    ];
+
+    public $validarUsuario = [
+        'usuario'        => 'is_unique[wk_usuario.usuario]|alpha_numeric'
     ];
 
     //--------------------------------------------------------------------

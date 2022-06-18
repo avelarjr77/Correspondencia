@@ -29,22 +29,23 @@ class UsuarioController extends BaseController{
     //CREAR USUARIO
     public function crear(){
 
-        $datos = [
-            "personaId" => $_POST['personaId'],
-            "usuario" => $_POST['usuario'],
-            "clave" => $_POST['clave'],
-            "estado" => $_POST['estado'],
-            "rolId" => $_POST['rolId']
-        ];
-
         $usuario = new UsuarioModel();
-        $respuesta = $usuario->insertar($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validarUsuario')){
+            $usuario->insertar(
+                [
+                    "personaId" => $_POST['personaId'],
+                    "usuario" => $_POST['usuario'],
+                    "clave" => $_POST['clave'],
+                    "estado" => $_POST['estado'],
+                    "rolId" => $_POST['rolId']
+                ]
+            );
+
             return redirect()->to(base_url(). '/usuario')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/usuario')->with('mensaje','1');
-        } 
     } 
 
     //ELIMINAR USUARIO
@@ -67,26 +68,29 @@ class UsuarioController extends BaseController{
     //ACTUALIZAR USUARIO
     public function actualizar()
     {
-        $datos = [
-            "personaId" => $_POST['personaId'],
-            "usuario" => $_POST['usuario'],
-            "clave" => $_POST['clave'],
-            "estado" => $_POST['estado'],
-            "rolId" => $_POST['rolId']
-        ];
-
-        $usuarioId = $_POST['usuarioId'];
-
         $usuario = new UsuarioModel();
-        $respuesta = $usuario->actualizar($datos, $usuarioId);
+        if ($this->validate([
+            'usuario'        => 'is_unique[wk_usuario.usuario]|alpha_numeric'
+            ])) {
+                $datos = [
+                    "personaId" => $_POST['personaId'],
+                    "usuario" => $_POST['usuario'],
+                    "clave" => $_POST['clave'],
+                    "estado" => $_POST['estado'],
+                    "rolId" => $_POST['rolId']
+                ];
 
-        $datos = ["datos" => $respuesta];
+            $usuarioId = $_POST['usuarioId'];
+            
+            $respuesta = $usuario->actualizar($datos, $usuarioId);
 
-        if ($respuesta) {
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/usuario')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/usuario')->with('mensaje', '5');
-        }
+
+            } else {
+                return redirect()->to(base_url() . '/usuario')->with('mensaje', '5');
+        } 
     }
     
 }

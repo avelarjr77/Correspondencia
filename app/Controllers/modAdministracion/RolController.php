@@ -50,7 +50,7 @@ class RolController extends BaseController{
         $respuesta = $nombreRol->eliminar($data);
 
         if ($respuesta > 0){
-            return redirect()->to(base_url(). '/adminRol')->with('mensaje','2');
+            return redirect()->to(base_url(). '/adminRol')->with('mensaje','1');
         } else {
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','3');
         }

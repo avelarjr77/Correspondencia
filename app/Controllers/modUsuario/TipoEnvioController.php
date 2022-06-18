@@ -24,18 +24,19 @@ class TipoEnvioController extends BaseController{
     //CREAR TIPO ENVIO
     public function crear(){
 
-        $datos = [
-            "tipoEnvio" => $_POST['tipoEnvio']
-        ];
-
         $tipoEnvio = new TipoEnvioModel();
-        $respuesta = $tipoEnvio->insert($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validarTipoEnvio')){
+            $tipoEnvio->insert(
+                [
+                    "tipoEnvio" => $_POST['tipoEnvio']
+                ]
+            );
+
             return redirect()->to(base_url(). '/tipoEnvio')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/tipoEnvio')->with('mensaje','1');
-        } 
     } 
 
     //ELIMINAR TIPO DE ENVIO
@@ -59,22 +60,25 @@ class TipoEnvioController extends BaseController{
 
     public function actualizar()
     {
-        $datos = [
-            "tipoEnvio" => $_POST['tipoEnvio']
-        ];
-
-        $tipoEnvioId = $_POST['tipoEnvioId'];
-
         $tipoEnvio = new TipoEnvioModel();
+        if ($this->validate([
+            'tipoEnvio'        => 'is_unique[wk_tipo_envio.tipoEnvio]|alpha_space'
+            ])) {
+                $datos = [
+                    "tipoEnvio" => $_POST['tipoEnvio']
+                    
+                ];
 
-        $respuesta = $tipoEnvio->update($data);
+            $tipoEnvioId = $_POST['tipoEnvioId'];
 
-        $datos = ["datos" => $respuesta];
+            $respuesta = $tipoEnvio->actualizar($datos, $tipoEnvioId);
 
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '5');
+            $datos = ["datos" => $respuesta];
+            
+            return redirect()->to(base_url() . '/tipoEnvio')->with('mensaje', '4');
+
+            } else {
+                return redirect()->to(base_url() . '/tipoEnvio')->with('mensaje', '5');
         }
     }
     

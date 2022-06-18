@@ -28,7 +28,7 @@
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" id="menuId" name="menuId" hidden=""  class="form-control"
                                 value="<?php echo $menuId?>">
-                                <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="3" autocomplete="off" class="form-control"
+                                <input type="text" id="nombreMenu" name="nombreMenu" required="required" minlength="2" maxlength="10" autocomplete="off" class="form-control"
                                 value="<?php echo $nombreMenu?>">
                             </div>
                         </div>

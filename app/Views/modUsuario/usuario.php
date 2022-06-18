@@ -70,7 +70,7 @@
                         
                             <div class="form-group">
                                 <label>Persona: </label>
-                                <select name="personaId" class="form-control personaId">
+                                <select name="personaId" class="form-control personaId" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers): ?>
                                         <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
@@ -80,17 +80,17 @@
                         
                             <div class="form-group">
                                 <label>Nombre de Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" required="required" autocomplete="off" class="form-control usuario">
+                                <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control usuario">
                             </div>
 
                             <div class="form-group">
                                 <label>Nombre de Clave:</label>
-                                <input type="password" id="clave" name="clave" required="required" autocomplete="off" class="form-control clave">
+                                <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control clave">
                             </div>
 
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <select name="estado" class="form-control estado">
+                                <select name="estado" class="form-control estado" required="required">
                                     <option value="" disable>-Selecciona un estado-</option>
                                     <option value="A">Activo</option>
                                     <option value="I">Inactivo</option>
@@ -99,7 +99,7 @@
 
                             <div class="form-group">
                                 <label>Rol:</label>
-                                <select name="rolId" class="form-control rolId">
+                                <select name="rolId" class="form-control rolId" required="required">
                                     <option value="">-Selecciona un Rol-</option>
                                     <?php foreach ($rol as $r): ?>
                                         <option value="<?php echo $r->rolId ?>"><?php echo $r->nombreRol ?></option>
@@ -134,7 +134,7 @@
                         
                             <div class="form-group">
                                 <label>Persona: </label>
-                                <select name="personaId" class="form-control personaId">
+                                <select name="personaId" class="form-control personaId" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers): ?>
                                         <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
@@ -144,17 +144,17 @@
                         
                             <div class="form-group">
                                 <label>Nombre de Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" required="required" autocomplete="off" class="form-control usuario">
+                                <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control usuario">
                             </div>
 
                             <div class="form-group">
                                 <label>Nombre de Clave:</label>
-                                <input type="password" id="clave" name="clave" required="required" autocomplete="off" class="form-control clave">
+                                <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control clave">
                             </div>
 
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <select name="estado" class="form-control estado">
+                                <select name="estado" class="form-control estado" required="required">
                                     <option value="" disable>-Selecciona un estado-</option>
                                     <option value="A">Activo</option>
                                     <option value="I">Inactivo</option>
@@ -163,7 +163,7 @@
 
                             <div class="form-group">
                                 <label>Rol:</label>
-                                <select name="rolId" class="form-control rolId">
+                                <select name="rolId" class="form-control rolId" required="required">
                                     <option value="">-Selecciona un Rol-</option>
                                     <?php foreach ($rol as $r): ?>
                                         <option value="<?php echo $r->rolId ?>"><?php echo $r->nombreRol ?></option>
@@ -224,17 +224,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('No se agrego', 'Datos incorrectos', 'error');
     }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Datos incorrectos', 'error');
     }
 </script>
 

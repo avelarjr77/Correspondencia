@@ -68,23 +68,24 @@
                         <div class="modal-body">
                         
                             <div class="field item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre Documento<span class="required ">*</span></label>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control nombreDocumento" id="nombreDocumento" name="nombreDocumento" required autocomplete="off">
-                                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                            </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre Documento<span class="required ">*</span></label>
+                                <div class="col-md-8">
+                                    <input minlength="6" maxlength="75" type="text" class="form-control nombreDocumento" id="nombreDocumento" name="nombreDocumento" required autocomplete="off">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                </div>
                             </div> 
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Documento<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input class="form-control documento" name="documento" id="documento" type="text" required autocomplete="off">
+                                    <input minlength="6" maxlength="45" class="form-control documento" name="documento" id="documento" type="text" required autocomplete="off">
                                     <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
+
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Tipo Documento <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control tipoDocumentoId">
+                                    <select name="tipoDocumentoId" id="tipoDocumentoId" required="required" class="form-control tipoDocumentoId">
                                         <option value="">-Selecciona un tipo de documento-</option>
                                         <?php foreach ($tipoDocumento as $td): ?>
                                             <option value="<?php echo $td->tipoDocumentoId ?>"> <?php echo $td->tipoDocumento ?></option>
@@ -95,7 +96,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Tipo de Envio <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="tipoEnvioId" id="tipoEnvioId" class="form-control tipoEnvioId">
+                                    <select name="tipoEnvioId" id="tipoEnvioId" required="required" class="form-control tipoEnvioId">
                                         <option value="">-Selecciona un tipo de Envio-</option>
                                         <?php foreach ($tipoEnvio as $te): ?>
                                             <option value="<?php echo $te->tipoEnvioId ?>"><?php echo $te->tipoEnvio ?></option>
@@ -106,7 +107,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-2 label-align">Transaccion Actividad <span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <select name="transaccionActividadId" id="transaccionActividadId" class="form-control transaccionActividadId">
+                                    <select name="transaccionActividadId" required="required" id="transaccionActividadId" class="form-control transaccionActividadId">
                                         <option value="">-Selecciona tipo de transaccion-</option>
                                         <?php foreach ($datos as $d): ?>
                                             <option value="<?php echo $d->transaccionActividadId ?>"><?php echo $d->transaccionActividadId ?></option>
@@ -249,17 +250,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('No se agrego', 'Los datos ingresados contienen signos de puntuacion', 'error');
     }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
     }
 </script>
 

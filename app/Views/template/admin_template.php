@@ -102,6 +102,81 @@
 
               ?>
               <ul class="nav side-menu">
+                <!-- <li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="<?= base_url() . route_to('adminRol') ?>">1. Admin. Roles</a></li>
+                        <li><a href="<?= base_url() . route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
+                        <li><a href="<?= base_url() . route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
+                        <li><a href="<?= base_url() . route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
+                        <li><a href="<?= base_url() . route_to('moduloMenu') ?>">5. Admin. Modulo Menu</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Configuración de Usuario<span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="<?= base_url() . route_to('cargo') ?>">1. Cargos</a></li>
+                        <li><a href="<?= base_url() . route_to('departamento') ?>">2. Departamentos</a></li>
+                        <li><a href="<?= base_url() . route_to('contacto') ?>">3. Contacto</a></li>
+                        <li><a href="<?= base_url() . route_to('direccion') ?>">4. Dirección</a></li>
+                        <li><a href="<?= base_url() . route_to('persona') ?>">5. Persona</a></li>
+                        <li><a href="<?= base_url() . route_to('usuario') ?>">6. Usuarios</a></li>
+                        <li><a href="<?= base_url() . route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
+                        <li><a href="<?= base_url() . route_to('documento') ?>">8. Documento</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="<?= base_url() . route_to('ad') ?>">Administración</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Configuración de Proceso<span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="<?= base_url() . route_to('proceso') ?>">1. Proceso</a></li>
+                    <li><a href="<?= base_url() . route_to('etapa') ?>">2. Etapa</a></li>
+                    <li><a href="<?= base_url() . route_to('actividad') ?>">3. Actividad</a></li>
+                  </ul>
+                </li>-->
+
+                <li>
+                  <?php
+                  $session = session();
+                  $menu     = new MenuSubmenuModel();
+                  $submenu  = new SubmenuModel();
+                  $obtenerRol = new UsuarioModel();
+                  $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
+                    ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
+                  $rolMenu  = new RolModMenuModel();
+                  $menu     = $rolMenu->asObject()->select('m.menuId, m.nombreMenu, i.nombreIcono')
+                    ->from('co_rol_modulo_menu rmm')
+                    ->join('wk_rol r', 'rmm.rolId= r.rolId')
+                    ->join('co_modulo_menu mm', 'rmm.moduloMenuId= mm.moduloMenuId')
+                    ->join('co_modulo mo', 'mm.moduloId=mo.moduloId')
+                    ->join('co_menu m', 'mm.menuId=m.menuId')
+                    ->join('wk_icono i', 'm.iconoId=i.iconoId')
+                    //->where('r.nombreRol', $rol)
+                    ->where('mo.moduloId', '5')
+                    ->groupBy('menuId')
+                    ->findAll();
+
+                  foreach ($menu as $key => $u) :
+                    $submenus     = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
+                  ?>
+                    <?php if ($u->nombreMenu) : ?>
+                <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+                <?php endif ?>
+                <ul class="nav child_menu">
+                  <?php foreach ($submenus as $s) : ?>
+                    <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
+                  <?php endforeach; ?>
+                </ul>
+                </li>
+              <?php endforeach; ?>
               <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                   <li><a href="homeMenu">Inicio</a></li>

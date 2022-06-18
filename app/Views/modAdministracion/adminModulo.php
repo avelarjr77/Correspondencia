@@ -1,7 +1,7 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<!-- Formulario para agregar ROLES -->
+<!-- Formulario para agregar modulos -->
 <div class="x_panel">
     <div class="x_title">
         <h2>Configuración de Módulos</h2>
@@ -13,7 +13,7 @@
     <div classme="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Módulo</button>
         <br>
-        <!--LISTADO DE ROLES-->
+        <!--LISTADO DE modulos-->
         <div class="x_content">
             <br>
             <table class="table table-hover">
@@ -79,12 +79,12 @@
 
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="archivo" name="archivo" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
                             </div>
 
                         </div>
