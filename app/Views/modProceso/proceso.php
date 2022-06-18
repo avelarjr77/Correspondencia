@@ -1,7 +1,6 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<link rel="stylesheet" href="vendors/select2/dist/css/select2.min.css">
 
 <div class="x_panel">
     <div class="x_title">
@@ -154,7 +153,7 @@
         <!-- End Modal Delete PROCESO-->
     </div>
 
-    <div class="container" id="etapa" style="display: none">
+    <div class="x_content" id="etapa" style="display: none">
         <!--LISTADO DE ETAPA-->
         <div class="x_content">
             
@@ -309,7 +308,7 @@
         <a href="#" class="btn btn-outline-secondary mb-2 volver-proceso"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 
-    <div class="container" id="actividad" style="display: none">
+    <div class="x_content" id="actividad" style="display: none">
         <!--LISTADO DE ACTIVIDAD-->
         <div class="x_content">
             <div class="row">
@@ -326,13 +325,14 @@
             </div>
     
             <br><br>
-            <table class="table table-hover">
+            <table class="table table-hover" id="tbl-actividad">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre de la Actividad</th>
                         <th>Descripción</th>
-                        <th>Etapa</th>
+                        <th>Orden</th>
+                        <th>Nombre de la Etapa</th>
                         <th>Encargado</th>
                         <th scope="col" colspan="2">Acciones</th>
                     </tr>
@@ -341,6 +341,8 @@
                     
                 </tbody>
             </table>
+            <br>
+            <h4 id="aviso"></h4>
         </div>
         <!--FIN LISTADO ACTIVIDAD-->
 
@@ -368,8 +370,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Orden</label>
+                        <input type="number" id="ordenA" name="orden" required="required" autocomplete="off" class="form-control">
+                    </div>
+
+                    <div class="form-group">
                         <label>Etapa</label>
-                        <input type="text" id="actividadEtapa" name="etapa" required="required" autocomplete="off" class="form-control"  readonly>
+                        <input type="text" id="actividadEtapa" name="etapa" required="required" class="form-control"  readonly>
                     </div>
 
                     <div class="form-group">
@@ -416,6 +423,11 @@
                     <div class="form-group">
                         <label>Descripción</label>
                         <input type="text" id="descripcionA" name="descripcion" required="required" autocomplete="off" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Orden</label>
+                        <input type="number" id="ordenAc" name="orden" required="required" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -485,7 +497,7 @@
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/select2/dist/js/select2.min.js"></script>
-<!-- <script src="vendors/sweetalert/dist/sweetalert.min.js"></script -->
+<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -546,7 +558,6 @@
                     var dataEtapa = JSON.parse(data);
                     
                     //console.log(dataEtapa[0]['proceso']);
-                    //console.log(dataEtapa.length);
                     $("#etapaData").empty();
 
                     $.each(dataEtapa, function(index, val) {
@@ -556,7 +567,7 @@
                         "<td>"+val.proceso+"</td>"+
                         "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
                         "<a href='#' onclick='borrarEtapa("+val.id+" , "+val.procesoId+" )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
+                        "<a href='#' onclick='actividad("+val.id+" , \""+val.nombre+"\")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
                         "</td></tr>")
                     });
                 }
@@ -823,13 +834,16 @@
         //recargarEtapa(idPA);
     });
 
-    function actividad(idAC) { 
+    function actividad(idAC, etapa) { 
         // Set data to Form Edit
         //idAC trae etapaId
         $('#actividadE').val(idAC);
+        $('#etapaNom').val(etapa);
+        $('#actividadEtapa').val(etapa);
+        $('#tituloE').css("color","#010806");
+        $('#tituloE').css("font-size",16);
 
         var aData = $("#actividadData");
-        var pData = $("#personaData");
 
         $.ajax({
             type: "GET",
@@ -839,40 +853,42 @@
 
                 var dataActividad = JSON.parse(data);
 
-                $('#etapaNom').val(dataActividad[0]['etapa']);
-                $('#tituloE').css("color","#010806");
-                $('#tituloE').css("font-size",16);
-                $("#actividadData").empty();
+                //$("#actividadData").empty();
 
-                $.each(dataActividad, function(index, val) {
-                    aData.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.nombre+"</td>"+
-                    "<td>"+val.descripcion+"</td>"+
-                    "<td>"+val.etapa+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
-                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
-                    "</td></tr>")
-                });
+                if (dataActividad == '') {
+                    $('#tbl-actividad').hide();
+                    $("#aviso").html('No hay actividades para esta etapa.');
+                    $("#actividadData").empty();
+                }else{
+                    $("#actividadData").empty();
+                    
+                    $.each(dataActividad, function(index, val) {
+                        aData.append("<tr><td>"+val.id+"</td>"+
+                        "<td>"+val.nombre+"</td>"+
+                        "<td>"+val.descripcion+"</td>"+
+                        "<td>"+val.ordenA+"</td>"+
+                        "<td>"+val.etapa+"</td>"+
+                        "<td>"+val.persona+"</td>"+
+                        "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
+                        "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
+                        "</td></tr>")
+                    });
+                    $('#tbl-actividad').css("display", "block");
+                    $("#aviso").html('');
+                }
             }
         });
 
-        //ajax para traer nombre de etapa
-        $.ajax({
-            type: "GET",
-            url: "<?= base_url().route_to('etapaL') ?>",
-            data: {etapaId: idAC},
-            success:function(data){
+        personaCrear();
 
-                var dataE = JSON.parse(data);
-                console.log(dataE);
+        // Call Modal Edit
+        $('#actividad').css("display", "block");
+        $('#etapa').hide();
+    }
 
-                $('#actividadEtapa').val(dataE[0]['etapa']);
-                $('#etapaNom').val(dataE[0]['etapa']);
-            }
-        });
-
+    function personaCrear(){
         //ajax para listar persona
+        var pData = $("#personaData");
         $.ajax({
             type: "GET",
             url: "<?= base_url().route_to('personaList') ?>",
@@ -882,16 +898,13 @@
                 
                 //console.log(dataPersona[0]['personaId']);
                 //console.log(proceso);
+                $("#personaData").empty();
 
                 $.each(dataPersona, function(index, val) {
                     pData.append("<option value="+val.personaId+">"+val.nombres+"</option>")
                 });
             }
         });
-
-        // Call Modal Edit
-        $('#actividad').css("display", "block");
-        $('#etapa').hide();
     }
 
     function recargarActividad(idA){
@@ -911,6 +924,7 @@
                     datosACC.append("<tr><td>"+val.id+"</td>"+
                     "<td>"+val.nombre+"</td>"+
                     "<td>"+val.descripcion+"</td>"+
+                    "<td>"+val.ordenA+"</td>"+
                     "<td>"+val.etapa+"</td>"+
                     "<td>"+val.persona+"</td>"+
                     "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
@@ -1032,7 +1046,7 @@
                     'Actividad eliminada con éxito',
                     'success'
                     )
-                } else if (dataActividadEl == '15') {
+                } else{
                     Swal.fire(
                     '¡Error!',
                     'Falló eliminar actividad',
@@ -1093,6 +1107,7 @@
                     $('#actEtapa').val(dataAct[i]['etapaId']);
                     $('#nombreActividadA').val(dataAct[i]['nombre']);
                     $('#descripcionA').val(dataAct[i]['descripcion']);
+                    $('#ordenAc').val(dataAct[i]['ordenA']);
                     $('#personaDataA').val(dataAct[i]['personaId']);
                     $('#actividadIdA').val(dataAct[i]['id']);
 
@@ -1154,48 +1169,22 @@
 
         $('#editActividadModal').modal('hide');
 
-        /* $.ajax({
-            type: "GET",
-            url: "<= base_url().route_to('actividadLNA') ?>",
-            data: {etapaId: idANew},
-            success:function(data){
-
-                var dataActividadNAC = JSON.parse(data);
-
-                console.log(dataActividadNAC)
-                
-                $("#actividadData").empty();
-
-                $.each(dataActividadNAC, function(index, val) {
-                    datosActualizarNN.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.nombre+"</td>"+
-                    "<td>"+val.descripcion+"</td>"+
-                    "<td>"+val.etapa+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td><a href='#' onclick='actualizarActividad("+val.id+" , "+val.etapaId+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>"+
-                    "<a href='#' onclick='borrarActividad("+val.id+", "+val.etapaId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>"+
-                    "</td></tr>")
-                });
-            }
-        }); */
-
-        //recargarActividad(idANew);
     });
 
-
     // volver a proceso 
-$('.volver-proceso').on('click',function(){
+    $('.volver-proceso').on('click',function(){
         
-    $('#proceso').css("display", "block");
-    $('#etapa').hide();
-});
+        $('#proceso').css("display", "block");
+        $('#etapa').hide();
+    });
 
-// volver a etapa 
-$('.volver-etapa').on('click',function(){
-    
-    $('#etapa').css("display", "block");
-    $('#actividad').hide();
-});
+    // volver a etapa 
+    $('.volver-etapa').on('click',function(){
+        //recargarEtapa(idp);
+
+        $('#etapa').css("display", "block");
+        $('#actividad').hide();
+    });
 
 </script>
 

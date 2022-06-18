@@ -48,6 +48,15 @@ class ActividadController extends BaseController{
         echo json_encode($datos);
     }
 
+    public function personaListC(){
+
+        $actividad = new ActividadModel();
+
+        $datos = $actividad->listarPersona();
+
+        echo json_encode($datos);
+    }
+
     public function etapaL(){
 
         $etapa = new ActividadModel();
@@ -67,11 +76,13 @@ class ActividadController extends BaseController{
         $etapaId = $this->request->getVar('etapaId');
         $nombreActividad = $this->request->getVar('nombreActividad');
         $descripcion = $this->request->getVar('descripcion');
+        $orden = $this->request->getVar('orden');
         $personaId = $this->request->getVar('personaId');
 
         $datos = [
             "nombreActividad" => $nombreActividad,
             "descripcion" => $descripcion,
+            "ordenActividad" => $orden,
             "etapaId" => $etapaId,
             "personaId" => $personaId
         ];
@@ -116,11 +127,13 @@ class ActividadController extends BaseController{
         $etapaId = $this->request->getVar('etapaId');
         $nombreActividad = $this->request->getVar('nombreActividad');
         $descripcion = $this->request->getVar('descripcion');
+        $orden = $this->request->getVar('orden');
         $personaId = $this->request->getVar('personaId');
 
         $datos = [
             "nombreActividad" => $nombreActividad,
             "descripcion" => $descripcion,
+            "ordenActividad" => $orden,
             "etapaId" => $etapaId,
             "personaId" => $personaId
         ];
