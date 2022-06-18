@@ -1,21 +1,24 @@
 <?php namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\IconoModel;
 use App\Models\modAdministracion\ModuloModel;
 
 class ModuloController extends BaseController{
 
+    
     //LISTAR MODULOS
     public function adminModulo(){
 
         $Modulo = new ModuloModel();
-        $datos = $Modulo->listarModulo();
+        $icono = new IconoModel();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "mensaje" => $mensaje
+            "datos"     => $Modulo->asObject()->join('wk_icono','wk_icono.iconoId = co_modulo.iconoId')->findAll(),
+            "icono" => $icono->asObject()->findAll(),
+            "mensaje"   => $mensaje
         ];
 
         return view('modAdministracion/adminModulo', $data);
@@ -23,18 +26,23 @@ class ModuloController extends BaseController{
     //CREAR MODULOS
     public function crearModulo(){
 
-        $datos = [
-            "nombre" => $_POST['nombre']
-        ];
-
         $Modulo = new ModuloModel();
-        $respuesta = $Modulo->insertar($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validation')){
+            $Modulo->insertar(
+                [
+                    "nombre"        => $_POST['nombre'],
+                    "iconoId"       => $_POST['iconoId'],
+                    "descripcion"   => $_POST['descripcion'],
+                    "archivo"       => $_POST['archivo']
+                ]
+            );
+
             return redirect()->to(base_url(). '/adminModulo')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/adminModulo')->with('mensaje','1');
-        } 
+
     } 
 
     //ELIMINAR MODULOS
@@ -70,24 +78,35 @@ class ModuloController extends BaseController{
 
     public function actualizarModulo()
     {
-        $datos = [
-            "nombre" => $_POST['nombre']
-        ];
+      $nombreModulo = new ModuloModel();
+      if ($this->validate([
+            'nombre'        => 'min_length[3]|max_length[45]|alpha|is_unique[co_modulo.nombre]',
+            'descripcion'        => 'min_length[3]|max_length[45]',
+            'archivo'        => 'min_length[3]|max_length[45]'
+        ])) {
+            $datos = [
+                "nombre"        => $_POST['nombre'],
+                "iconoId"       => $_POST['iconoId'],
+                "descripcion"   => $_POST['descripcion'],
+                "archivo"       => $_POST['archivo']
+            ];
 
         $moduloId = $_POST['moduloId'];
 
-        $nombreModulo = new ModuloModel();
+        
         $respuesta = $nombreModulo->actualizarModulo($datos, $moduloId);
 
         $datos = ["datos" => $respuesta];
+        
+        return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '4');
 
-        if ($respuesta) {
-            return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '4');
         } else {
             return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '5');
-        }
-    }
-    
+        } 
+
+        
+    }    
+
     
 }
 

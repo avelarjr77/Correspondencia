@@ -22,24 +22,26 @@ class CargoController extends BaseController{
         return view('modUsuario/cargo', $data);
         }
 
-    //CREAR ROLES
+    //CREAR CARGO
     public function crear(){
 
-        $datos = [
-            "cargo" => $_POST['cargo']
-        ];
-
         $cargo = new CargoModel();
-        $respuesta = $cargo->insertar($datos);
 
-        if ($respuesta > 0){
+        if($this->validate('validarCargo')){
+            $cargo->insertar(
+                [
+                    "cargo"        => $_POST['cargo']
+                ]
+            );
+
             return redirect()->to(base_url(). '/cargo')->with('mensaje','0');
-        } else {
+        }
+        
             return redirect()->to(base_url(). '/cargo')->with('mensaje','1');
-        } 
+
     } 
 
-    //ELIMINAR ROLES
+    //ELIMINAR CARGO
     public function eliminar(){
 
         $cargoId = $_POST['cargoId'];
@@ -58,22 +60,25 @@ class CargoController extends BaseController{
 
     public function actualizar()
     {
-        $datos = [
-            "cargo" => $_POST['cargo']
-        ];
-
-        $cargoId = $_POST['cargoId'];
-
         $cargo = new CargoModel();
-        $respuesta = $cargo->actualizar($datos, $cargoId);
+        if ($this->validate([
+            'cargo'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_cargo.cargo]'
+            ])) {
+                $datos = [
+                    "cargo"        => $_POST['cargo']
+                ];
 
-        $datos = ["datos" => $respuesta];
+            $cargoId = $_POST['cargoId'];
+            
+            $respuesta = $cargo->actualizar($datos, $cargoId);
 
-        if ($respuesta) {
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/cargo')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '5');
-        }
+
+            } else {
+                return redirect()->to(base_url() . '/cargo')->with('mensaje', '5');
+        } 
     }
     
 }

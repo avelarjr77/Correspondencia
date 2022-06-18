@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'auth'          => \App\Filters\Auth::class,
+        'SessionAdmin'  => \App\Filters\SessionAdmin::class,
     ];
 
     /**
@@ -65,5 +66,11 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'SessionAdmin'=>[
+            'before'=>[
+                '/menu_submenu',
+            ]
+        ]
+    ];
 }

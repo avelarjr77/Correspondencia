@@ -47,6 +47,7 @@ class PersonaController extends BaseController{
         } else {
             return redirect()->to(base_url(). '/persona')->with('mensaje','1');
         } 
+        
     } 
 
     //ELIMINAR PERSONA

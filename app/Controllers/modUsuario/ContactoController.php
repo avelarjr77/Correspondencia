@@ -23,6 +23,7 @@ class ContactoController extends BaseController
 
         $data = [
             "datos" => $datos,
+            "contactos" => $contacto->select('contacto')->asObject()->findAll(),
             "persona" => $persona,
             "tipoContacto" => $tipoContacto,
             "mensaje" => $mensaje
@@ -34,39 +35,39 @@ class ContactoController extends BaseController
     //CREAR CONTACTO
     public function crearContacto()
     {
-
-        $datos = [
-            "personaId" => $_POST['personaId'],
-            "tipoContactoId" => $_POST['tipoContactoId'],
-            "contacto" => $_POST['contacto'],
-            "estado" => $_POST['estado']
-        ];
-
         $contacto = new ContactoModel();
-        $respuesta = $contacto->insertarContacto($datos);
+        if($this->validate('datosvacios')){
+            $contacto->insertarContacto(
+                [
+                    "personaId" => $_POST['personaId'],
+                    "tipoContactoId" => $_POST['tipoContactoId'],
+                    "contacto" => $_POST['contacto'],
+                    "estado" => $_POST['estado']
+                ]
+            );
 
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '0');
-        } else {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '1');
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
         }
+        
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','6');
     }
     //CREAR TIPOCONTACT
     public function crearTipoContacto()
     {
 
-        $datos = [
-            "tipoContacto" => $_POST['tipoContacto']
-        ];
-
         $tipoContacto = new ContactoModel();
-        $respuesta = $tipoContacto->insertar($datos);
 
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '0');
-        } else {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '1');
+        if($this->validate('validarContacto')){
+            $tipoContacto->insertar(
+                [
+                    "tipoContacto" => $_POST['tipoContacto']
+                ]
+            );
+
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','0');
         }
+        
+            return redirect()->to(base_url(). '/contacto')->with('mensaje','1');
     }
 
     //ELIMINAR Contacto
@@ -103,46 +104,53 @@ class ContactoController extends BaseController
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '3');
         }
     }
-    //ACTUALIZAR CONTACTO
+    //ACTUALIZAR TIPOCONTACTO
     public function actualizar()
     {
-        $datos = [
-            "tipoContacto" => $_POST['tipoContacto']
-        ];
-
-        $tipoContactoId = $_POST['tipoContactoId'];
-
         $tipoContacto = new ContactoModel();
-        $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
 
-        $datos = ["datos" => $respuesta];
+        if ($this->validate([
+            'tipoContacto'        => 'min_length[3]|max_length[20]|is_unique[wk_tipo_contacto.tipoContacto]|alpha_space'
+            ])) {
+                $datos = [
+                    "tipoContacto"        => $_POST['tipoContacto']
+                ];
 
-        if ($respuesta) {
+            $tipoContactoId = $_POST['tipoContactoId'];
+            $respuesta = $tipoContacto->actualizar($datos, $tipoContactoId);
+
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
+
+            } else {
+                return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
         }
+
     }
-    //ACTUALIZAR TIPOCONTACTO
+    //ACTUALIZAR CONTACTO
     public function actualizarContacto()
     {
-        $datos = [
-            "tipoContactoId" => $_POST['tipoContactoId'],
-            "contacto" => $_POST['contacto'],
-            "estado" => $_POST['estado']
-        ];
-
-        $contactoId = $_POST['contactoId'];
-
         $contacto = new ContactoModel();
-        $respuesta = $contacto->actualizarContacto($datos, $contactoId);
 
-        $datos = ["datos" => $respuesta];
+        if ($this->validate([
+            'estado'        => 'required'
+            ])) {
+                $datos = [
+                    "tipoContactoId" => $_POST['tipoContactoId'],
+                    "contacto" => $_POST['contacto'],
+                    "estado" => $_POST['estado']
+                ];
 
-        if ($respuesta) {
+            $contactoId = $_POST['contactoId'];
+            $respuesta = $contacto->actualizarContacto($datos, $contactoId);
+
+            $datos = ["datos" => $respuesta];
+            
             return redirect()->to(base_url() . '/contacto')->with('mensaje', '4');
-        } else {
-            return redirect()->to(base_url() . '/contacto')->with('mensaje', '5');
+
+            } else {
+                return redirect()->to(base_url() . '/contacto')->with('mensaje', '7');
         }
     }
 }

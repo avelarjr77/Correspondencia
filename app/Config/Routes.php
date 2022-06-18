@@ -34,13 +34,23 @@ $routes->setAutoRoute(true);
 
                                     //['filter'=> 'auth']
 $routes->get('/', 'Login::index' ) ;
-$routes->post('/home', 'Home::login', ['as'=> 'home']);
+
+$routes->post('/homeUser', 'HomeUser::index');
+
+$routes->post('/homeModulos', 'Home::login', ['as'=> 'homeModulos']);
 $routes->get('/salir', 'Home::salir');
+
+$routes->get('/homeModulos', 'Home::modulo', ['as'=> 'homeModulos']);
 
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
-$routes->get('/pruebaJS', 'Home::login', ['as'=> 'pruebaJS']);
+$routes->get('homeMenus', 'HomeMenusController::index');
+$routes->post('homeMenus', 'HomeMenusController::index');
+$routes->get('homeMenu', 'HomeMenusController::homeMenu', ['as'=> 'homeMenu']);
+
+
+$routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
 
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
@@ -169,7 +179,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
-/////////////
 //CONFIGURACIÓN DE PROCESO
 
 //PROCESO

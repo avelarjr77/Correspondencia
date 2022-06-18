@@ -11,9 +11,6 @@ use App\Models\modUsuario\TipoContactoModel;
 
 class Login extends BaseController
 {
-    public function __construct(){
-		helper(['url', 'session', 'emai', 'upload', 'system_helper', 'database']);
-	}
 
     public function index()
     {
@@ -30,45 +27,53 @@ class Login extends BaseController
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'email' => 'required|min_length[6]|max_length[50]|valid_email[wk_contacto.contacto]',
+                'usuario'=> 'required'
             ];
 
             $errors = [
                 'email' => ['valid_email' => 'Email no existe, por favor verifique'],
+                'usuario' => ['required' => 'Por favor, ingresar el usuario'],
             ];
 
-            if (! $this->validate($rules, $errors)) {
+            if (!$this->validate($rules, $errors)) {
                 $data['validation'] = $this->validator;
             } else {
                 $model = new ContactoModel();
                 $user = $model->where('contacto', $this->request->getVar('email'))
                     ->first();
+                $usuario = $model->select('u.usuario')->from('wk_contacto c')
+                    ->join('wk_usuario u', 'c.personaID=u.personaId')->where('c.contacto', $this->request->getVar('email'))
+                    ->first();
                 $session = session();
+                $pass = new UsuarioModel();
+                $clave = $pass->select('clave')->where('usuario', $usuario)
+                    ->first();
                 if ($user) {
                     $newReset = [
-						'uuid' 		=> new_uuid(),
-						'ip_res' 	=> $this->request->getIPAddress(),
-						'email' 	=> $user['contacto'],
-					];
-					$rmodel = new ResetsModel();
-					$rmodel->insert($newReset);
+                        'ip_res'     => $this->request->getIPAddress(),
+                        'email'      => $user['contacto'],
+                        'clave'     => $clave,
+                    ];
+                    $rmodel = new ResetsModel();
+                    $rmodel->insert($newReset);
 
-                    $message     = 'Correspondencia UCAD<br>Soporte Técnico<br><hr>Su nueva contraseña es:
-                    <br> 123456.';
-                    $email         = \Config\Services::email();
-                    $email->setFrom('avelarjr77@gmail.cm', 'Reestablecer accesos');
-                    $email->setTo(['email']);
-                    $email->setSubject('Reestablecer accesos');
+                    $message = 'Correspondencia UCAD<br>Soporte Técnico<br><hr>Su contraseña es:
+                    <br>' . $clave['clave'];
+                    $email = \Config\Services::email();
+                    $email->setFrom('correspondencia-ucad@gmail.com', 'Recuperar Contraseña');
+                    $email->setTo($user['contacto']);
+                    $email->setSubject('Recuperar Contraseña');
                     $email->setMessage($message);
                     if ($email->send()) {
-                        $session->setFlashdata('success', 'Se ha enviado un enlace al correo electrónico');
+                        $session->setFlashdata('success', 'Se ha enviado un correo electrónico para recordar la contraseña');
                     } else {
                         $session->setFlashdata('danger', 'Error en el envío, por favor intenta más tarde.');
                     }
                 } else {
-                    $session->setFlashdata('danger', 'El email no se encontró, por favor verifique.');
+                    $session->setFlashdata('danger', 'El email y usuario no coiciden, por favor verifique.');
                 }
             }
         }
-        return view('Login', $data);
+        return view('login', $data);
     }
 }

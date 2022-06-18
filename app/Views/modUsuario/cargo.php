@@ -55,7 +55,7 @@
                 
                     <div class="form-group">
                         <label>Nombre del Cargo</label>
-                        <input type="text" id="cargo" name="cargo" required="required" autocomplete="off" class="form-control">
+                        <input type="text" id="cargo" name="cargo" required="required" autocomplete="off"  minlength="3" maxlength="45" class="form-control">
                     </div>
                 
                 </div>
@@ -141,18 +141,59 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Cargo agregado', 'success');
+        swal('', 'Cargo agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'No se agrego', 'error');
     }else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     }else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('No se actualizo', 'Datos incorrectos', 'error');
     }
+</script>
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '0') {
+        swal({
+            text: "¡Cargo agregado!",
+            icon: "success",
+            button: "Ok",
+        });
+
+    } else if (mensaje == '1') {
+        swal({
+            text: "¡Lo sentimos, no se agrego!",
+            icon: "error",
+            button: "Ok",
+        });
+    } else if (mensaje == '2') {
+        swal({
+            text: "¡Se ha eliminado!",
+            icon: "success",
+            button: "Ok",
+        });
+    } else if (mensaje == '3') {
+        swal({
+            text: "¡Lo sentimos, no se eliminó!",
+            icon: "error",
+            button: "Ok",
+        });
+    } else if (mensaje == '4') {
+        swal({
+            icon: 'success',
+            text: '¡Actualizado con exito!',
+            button: "Ok"
+        });
+    } else if (mensaje == '5') {
+        swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se actualizo', 'Datos incorrectos',  'error'
+        });
 </script>
 
 <script>
