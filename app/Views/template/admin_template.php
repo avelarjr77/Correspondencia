@@ -47,7 +47,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="<?= base_url() . route_to('homeMenus') ?>" class="site_title"><span>
+            <a href="<?= base_url() . route_to('homeMenu') ?>" class="site_title"><span>
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
               </span></a>
           </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
-              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?>  </h2>
+              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?> </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -77,7 +77,7 @@
               use App\Models\modAdministracion\MenuSubmenuModel;
               use App\Models\modAdministracion\RolModMenuModel;
               use App\Models\modUsuario\UsuarioModel;
-              
+
               ?>
               <ul class="nav side-menu">
                 <!-- <li>
@@ -155,10 +155,53 @@
                 </ul>
                 </li>
               <?php endforeach; ?>
+              <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu">
+                  <li><a href="homeMenu">Inicio</a></li>
               </ul>
               </li>
-
               </ul>
+              <ul class="nav side-menu">
+
+                <?php
+
+                $session = session();
+                $menu     = new MenuSubmenuModel();
+                $submenu  = new SubmenuModel();
+                $obtenerRol = new UsuarioModel();
+                
+                $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
+                  ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
+                $rolMenu  = new RolModMenuModel();
+                $menu     = $rolMenu->asObject()->select('m.menuId, m.nombreMenu, i.nombreIcono')
+                  ->from('co_rol_modulo_menu rmm')
+                  ->join('wk_rol r', 'rmm.rolId= r.rolId')
+                  ->join('co_modulo_menu mm', 'rmm.moduloMenuId= mm.moduloMenuId')
+                  ->join('co_modulo mo', 'mm.moduloId=mo.moduloId')
+                  ->join('co_menu m', 'mm.menuId=m.menuId')
+                  ->join('wk_icono i', 'm.iconoId=i.iconoId')
+                  ->where('r.nombreRol', $rol)
+                  ->where('mo.moduloId', $session->modulo)
+                  ->groupBy('menuId')
+                  ->findAll();
+
+                foreach ($menu as $key => $u) :
+                  $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
+                ?>
+                  <?php if ($u->nombreMenu) : ?>
+              <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+              <?php endif ?>
+              <ul class="nav child_menu">
+                <?php foreach ($submenus as $s) : ?>
+                  <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
+                <?php endforeach; ?>
+              </ul>
+              </li>
+            <?php endforeach; ?>
+            </ul>
+            </li>
+
+            </ul>
             </div>
 
 
@@ -221,7 +264,8 @@
                         <span class="time">3 mins ago</span>
                       </span>
                       <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                        Film festivals used to be do-or-die moments for movie makers. They were
+                        where...
                       </span>
                     </a>
                   </li>
@@ -233,7 +277,8 @@
                         <span class="time">3 mins ago</span>
                       </span>
                       <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                        Film festivals used to be do-or-die moments for movie makers. They were
+                        where...
                       </span>
                     </a>
                   </li>
@@ -245,7 +290,8 @@
                         <span class="time">3 mins ago</span>
                       </span>
                       <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                        Film festivals used to be do-or-die moments for movie makers. They were
+                        where...
                       </span>
                     </a>
                   </li>
@@ -257,7 +303,8 @@
                         <span class="time">3 mins ago</span>
                       </span>
                       <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                        Film festivals used to be do-or-die moments for movie makers. They were
+                        where...
                       </span>
                     </a>
                   </li>
@@ -357,12 +404,6 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
   <script src="vendors/sweetalert2/sweetalert.min.js"></script>
-
-  <!-- HOLA SOY UNA PRUEBA-->
-
-  <!--<script src="vendors/popper/umd/popper.min.js"></script>-->
-
-
 
 </body>
 

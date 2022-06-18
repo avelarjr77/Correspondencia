@@ -66,7 +66,11 @@ class Validation
     ];
 
     public $validarCargo = [
-        'cargo'        => 'min_length[3]|max_length[45]|alpha_space|is_unique[wk_cargo.cargo]'
+        'cargo'        => 'min_length[3]|max_length[45]|is_unique[wk_cargo.cargo]'
+    ];
+
+    public $validarCargoNumeros = [
+        'cargo'        => 'min_length[3]|max_length[45]|alpha_space'
     ];
 
     public $validarDepart = [

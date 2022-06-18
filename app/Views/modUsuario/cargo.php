@@ -143,7 +143,7 @@
     if (mensaje == '0') {
         swal('', 'Cargo agregado', 'success');
     } else if (mensaje == '1') {
-        swal('', 'No se agrego', 'error');
+        swal('No se agrego', 'El cargo ya existe en la base de datos', 'error');
     }else if (mensaje == '2') {
         swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
@@ -152,11 +152,13 @@
         swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
+    }else if (mensaje == '6') {
+        swal('No se agrego', 'Los datos ingresados no deben contener numeros', 'error');
     }
 </script>
+<!--
 <script type="text/javascript">
-    let mensaje = '<?php echo $mensaje ?>';
-
+    let mensaje = '<?php //echo $mensaje ?>';
     if (mensaje == '0') {
         swal({
             text: "¡Cargo agregado!",
@@ -194,7 +196,16 @@
             title: 'Oops...',
             text: 'No se actualizo', 'Datos incorrectos',  'error'
         });
+    }  else if (mensaje == '6') {
+        swal({
+            icon: 'success',
+            text: '¡Actualizado con exito!',
+            button: "Ok"
+        });
+    }
+    
 </script>
+-->
 
 <script>
     $(document).ready(function(){

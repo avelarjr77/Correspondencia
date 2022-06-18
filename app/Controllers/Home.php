@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\RolModel;
 use App\Models\Usuarios;
+use App\Models\modUsuario\UsuarioModel;
 use App\Models\modAdministracion\RolModMenuModel;
 
 class Home extends BaseController
@@ -19,26 +19,32 @@ class Home extends BaseController
 
     public function login()
     {
-        //dd($this->request->getPost());
+        $session = \Config\Services::session();
+
         $usuario = trim($this->request->getVar('usuario'));
         $clave = $this->request->getVar('clave');
 
         $usuarios = model('Usuarios');
         $pass = $usuarios->obtenerUsuario('clave', $clave);
 
+        $obtenerRol = new UsuarioModel();
+        $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
+            ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $usuario)->first();
+
         if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
 
             $data = array(
                 'usuario' => $usuario,
+                'rol' => $rol['nombreRol'],
                 'is_logged' => true
             );
 
             $session = session();
             $session->set($data);
 
-            return redirect()->to(base_url('/homeModulos'))->with('mensaje', '0');
+            return redirect()->to(base_url('/homeModulos'))->with('success', '<strong>¡Bienvenido!</strong><br>'.$session->usuario);
         } else {
-            return redirect()->to(base_url('/'))->with('mensaje', '1');
+            return redirect()->to(base_url('/'))->with('danger', 'El usuario y contraseña no coiciden, intente de nuevo.');
         }
     }
 
@@ -68,11 +74,6 @@ class Home extends BaseController
         return view('homeModulos', $data);
     }
 
-    public function homeMenuModulo($moduloId)
-    {
-        $datosModulo = ["moduloId" => $moduloId];
-        return redirect()->to(base_url('template/admin_template' . $datosModulo));
-    }
     public function salir()
     {
         $session = session();
@@ -81,4 +82,3 @@ class Home extends BaseController
         return redirect()->to(base_url('/'));
     }
 }
-?>

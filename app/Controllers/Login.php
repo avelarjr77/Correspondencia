@@ -11,9 +11,6 @@ use App\Models\modUsuario\TipoContactoModel;
 
 class Login extends BaseController
 {
-    public function __construct(){
-		helper(['url', 'session', 'emai', 'upload', 'system_helper', 'database']);
-	}
 
     public function index()
     {
@@ -53,15 +50,12 @@ class Login extends BaseController
                     ->first();
                 if ($user) {
                     $newReset = [
-                        'uuid'       => new_uuid(),
                         'ip_res'     => $this->request->getIPAddress(),
                         'email'      => $user['contacto'],
                         'clave'     => $clave,
-                        //'clave'     => fraseAleatoria(),
                     ];
                     $rmodel = new ResetsModel();
                     $rmodel->insert($newReset);
-                    //$clave->update();
 
                     $message = 'Correspondencia UCAD<br>Soporte Técnico<br><hr>Su contraseña es:
                     <br>' . $clave['clave'];
@@ -76,9 +70,10 @@ class Login extends BaseController
                         $session->setFlashdata('danger', 'Error en el envío, por favor intenta más tarde.');
                     }
                 } else {
-                    $session->setFlashdata('danger', 'El email no se encontró, por favor verifique.');
+                    $session->setFlashdata('danger', 'El email y usuario no coiciden, por favor verifique.');
                 }
             }
         }
-        return view('Login', $data);    }
+        return view('login', $data);
+    }
 }

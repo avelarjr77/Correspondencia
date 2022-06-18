@@ -28,13 +28,17 @@ class CargoController extends BaseController{
         $cargo = new CargoModel();
 
         if($this->validate('validarCargo')){
+            
+            return redirect()->to(base_url(). '/cargo')->with('mensaje','6');
+
+        }elseif ($this->validate('validarCargoNumeros')) {
             $cargo->insertar(
                 [
                     "cargo"        => $_POST['cargo']
                 ]
             );
-
             return redirect()->to(base_url(). '/cargo')->with('mensaje','0');
+
         }
         
             return redirect()->to(base_url(). '/cargo')->with('mensaje','1');
