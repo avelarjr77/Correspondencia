@@ -12,6 +12,8 @@
     </div>
     <div classme="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Módulo/Menu</button>
+        <a href="<?= base_url().route_to('adminModulo') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Modulo</a>
+                <a href="<?= base_url().route_to('menu_submenu') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Menu</a>
         <br>
         <!--LISTADO DE MODULO MENU-->
         <div class="x_content">
@@ -32,8 +34,8 @@
                             <td><?= $key->modulo ?></td>
                             <td><?= $key->nomMenu?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombremod="<?= $key->modulo ?>" data-nombremenu="<?= $key->nomMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombremod="<?= $key->modulo ?>" data-nombremenu="<?= $key->nomMenu ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"  data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -102,7 +104,7 @@
 
                             <div class="form-group">
                                 <label>Nombre del Módulo:</label>
-                                <select name="moduloId" required="required" class="form-control moduloId">
+                                <select name="moduloId" id="moduloId" required="required" class="form-control moduloId">
                                     <option value="">-Selecciona un Modulo-</option>
                                     <?php foreach ($modulo as $mod): ?>
                                         <option value="<?php echo $mod->moduloId ?>"><?php echo $mod->nombre ?></option>
@@ -112,7 +114,7 @@
 
                             <div class="form-group">
                                 <label>Nombre del Menu:</label>
-                                <select name="menuId" required="required" class="form-control menuId">
+                                <select name="menuId" id="menuId" required="required" class="form-control menuId">
                                     <option value="">-Selecciona un Menu-</option>
                                     <?php foreach ($menu as $me): ?>
                                         <option value="<?php echo $me->menuId ?>"><?php echo $me->nombreMenu ?></option>
@@ -194,13 +196,13 @@
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const nombremod = $(this).data('nombremod');
-            const nombremenu = $(this).data('nombremenu');
+            const modulo = $(this).data('moduloid');
+            const nomMenu = $(this).data('menuid');
 
             // Set data to Form Edit
             $('.moduloMenuId').val(id);
-            $('.moduloId').val(nombremod);
-            $('.menuId').val(nombremenu);
+            $('.moduloId').val(modulo);
+            $('.menuId').val(nomMenu);
 
             // Call Modal Edit
             $('#editModal').modal('show');
@@ -215,7 +217,7 @@
 
             // Set data to Form Edit
             $('.moduloMenuId').val(id);
-            $('.moduloId').html(nombremod);
+            $('').html();
             // Call Modal Edit
             $('#eliminarModal').modal('show');
         });
