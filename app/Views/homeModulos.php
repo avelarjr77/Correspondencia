@@ -21,41 +21,33 @@
     </div>
     <div class="x_panel">
         <div class="x_content">
-            <div class="col-md-12 col-sm-12  text-center">
+            <div class="row">
+                <?php foreach ($modulo as $key) : ?>
+				<div class="col-sm-3">
+					<div class="profile-card card rounded-lg shadow  p-xl-3 mb-3 text-center position-relative overflow-hidden">
+						<div class="banner"></div>
+						<img src="images/administracion.png" alt="" class="img-circle1 mx-auto mb-3" style="width: 200px;">
+						<h3 style="	font-size: 1.55rem; display: block; opacity: 1;" ><?= $key->modulo ?></h3>
+						<div class="text-left mb-4">
+                        <form class="text-center"id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
+                                <button type="submit" class="btn btn-primary btn-sm center" style="border-radius:5px;padding:11px 23px;color:white;background-color:#305274">
+                                    <i class="fa fa-long-arrow-right"></i> Ir al modulo
+                                </button>
+                                <input type="hidden" name="moduloId" class="moduloId" id="moduloId" value="<?= $key->moduloId ?> ">
+                            </form>
+						</div>
+					</div>
+				</div>
+                <?php endforeach; ?>
             </div>
-
-            <div class="clearfix"></div>
-            <?php foreach ($modulo as $key) : ?>
-                <div class="col-md-4 col-sm-4  profile_details">
-                    <div class="well profile_view">
-                        <div class="col-sm-12">
-                            <h4 class="brief"><i><?= $key->modulo ?></i></h4>
-                            <div class="left col-sm-7">
-                                <h2>
-                                    <?= $key->descripcion ?>
-                                </h2>
-                            </div>
-                            <div class="right col-sm-5 text-center">
-                                <div class="icon"><i class=" <?php echo $key->icono ?>" style="font-size: 75px;"></i></div><br>
-                                <form id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
-                                    <button type="submit" class="btn btn-primary btn-sm">
-                                        Ir al modulo
-                                    </button>
-                                    <input type="hidden" name="moduloId" class="moduloId" id="moduloId" value="<?= $key->moduloId ?> ">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </div>
 <script>
     window.setTimeout(function() {
-        $(".alert").fadeTo(300, 0).slideUp(300, function() {
+        $(".alert").fadeTo(200, 0).slideUp(200, function() {
             $(this).remove();
         });
-    }, 5000);
+    }, 2000);
 </script>
 <?= $this->endSection() ?>
