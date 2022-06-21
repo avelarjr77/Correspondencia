@@ -36,8 +36,8 @@
                             <td><?= $modulo->descripcion ?></td>
                             <td><?= $modulo->archivo ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-iconoid="<?= $modulo->iconoId ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-iconoid="<?= $modulo->iconoId ?>"  data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-trash"></i></a>           
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -62,7 +62,7 @@
 
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
-                                <input type="text" id="nombre" name="nombre" required="required" autocomplete="off" class="form-control">
+                                <input type="text" id="nombre" name="nombre" required="required" minlength="3" maxlength="75" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -79,12 +79,12 @@
 
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="3" maxlength="100" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" minlength="6" maxlength="40" autocomplete="off" class="form-control">
+                                <input type="text" id="archivo" name="archivo" required="required" minlength="3" maxlength="45" autocomplete="off" class="form-control">
                             </div>
 
                         </div>
@@ -113,7 +113,7 @@
 
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
-                                <input type="text" id="nombre" name="nombre" autocomplete="off" required="required" class="form-control nombre">
+                                <input type="text" id="nombre" name="nombre" autocomplete="off" required="required" minlength="3" maxlength="75" class="form-control nombre">
                             </div>
 
                             <div class="form-group">
@@ -130,12 +130,12 @@
 
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" maxlength="40" autocomplete="off" class="form-control descripcion">
+                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="3" maxlength="100" autocomplete="off" class="form-control descripcion">
                             </div>
 
                             <div class="form-group">
                                 <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" maxlength="40" autocomplete="off" class="form-control archivo">
+                                <input type="text" id="archivo" name="archivo" required="required" minlength="3" maxlength="45" autocomplete="off" class="form-control archivo">
                             </div>
 
                         </div>
@@ -200,6 +200,8 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'El campo nombre de modulo posee numeros', 'error');
     }
 </script>
 
@@ -211,14 +213,14 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombremod       = $(this).data('nombremod');
-            const iconomod        = $(this).data('iconomod');
+            const nombreIcono        = $(this).data('iconoid');
             const descripcionmod  = $(this).data('descripcionmod');
             const archivomod      = $(this).data('archivomod');
 
             // Set data to Form Edit
             $('.moduloId').val(id);
             $('.nombre').val(nombremod);
-            $('.nombreIcono').val(iconomod);
+            $('.iconoId').val(nombreIcono);
             $('.descripcion').val(descripcionmod);
             $('.archivo').val(archivomod);
 

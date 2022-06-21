@@ -50,11 +50,14 @@ class Validation
         'nombreArchivo' => 'min_length[3]|max_length[100]|required'
     ];
 
-    public $validation = [
-        'nombre'        => 'min_length[3]|max_length[45]|alpha|is_unique[co_modulo.nombre]',
-        'descripcion'        => 'min_length[3]|max_length[45]|alpha_space',
-        'archivo'        => 'min_length[3]|max_length[45]'
+    public $validarModulo = [
+        'nombre'        => 'is_unique[co_modulo.nombre]'
     ];
+
+    public $validarModuloNumeros = [
+        'nombre'        => 'alpha_space'
+    ];
+
 
     public $validarModuloMenu = [
         'moduloId'        => 'is_unique[co_modulo_menu.moduloId]',
