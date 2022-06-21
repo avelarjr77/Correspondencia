@@ -26,9 +26,15 @@ class DireccionModel extends Model{
     }
 
     //LISTADO DE MUNICIPIO
-    public function listarMunicipio()
+    public function listarMunicipio($deptoId)
     {
-        $municipio =  $this->db->query('SELECT*FROM  wk_municipio');
+        $municipio =  $this->db->query("SELECT*FROM  wk_municipio m WHERE m.deptoId = $deptoId");
+        return $municipio->getResult();
+    }
+
+    public function listarMunicipioA()
+    {
+        $municipio =  $this->db->query("SELECT*FROM  wk_municipio");
         return $municipio->getResult();
     }
 

@@ -232,6 +232,12 @@ class TransaccionActividadController extends BaseController{
             return redirect()->to(base_url() . '/transaccionConfig')->with('mensaje', '5');
         }
     }
+
+    public function doc()
+    {
+        $transaccion = new TransaccionActividadModel();
+        
+    }
 }
 
 ?>

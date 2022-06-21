@@ -30,12 +30,17 @@
                 <tbody>
                     <?php foreach ($ModuloM as $key) : ?>
                         <tr>
-                            <td><?= $key->id ?></td>
-                            <td><?= $key->modulo ?></td>
-                            <td><?= $key->nomMenu?></td>
+                            <td><?php echo $key->id ?></td>
+                            <td><?php echo $key->modulo ?></td>
+                            <td><?php echo $key->nomMenu?></td>
                             <td>
+<<<<<<< HEAD
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-modulo="<?php echo $key->modulo ?>" data-nommenu="<?php echo $key->nomMenu ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-modulo="<?php echo $key->modulo ?>" data-nommenu="<?php echo $key->nomMenu ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i></a>           
+=======
                                 <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"  data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
                                 <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
+>>>>>>> a7979bd19519c0ce61235b875aa2a4222836f002
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -44,7 +49,7 @@
             </table>
         </div>
         <!--FIN LISTADO ROLES-->
-<!-- Modal Agregar Módulo-->
+        <!-- Modal Agregar Módulo-->
         <form action="<?php echo base_url() . '/crearMM' ?>" method="POST">
             <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -124,7 +129,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="moduloMenuId" class="moduloMenuId">
+                            <input type="hidden" name="moduloMenuId" class="moduloMenuIdA">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
@@ -196,13 +201,17 @@
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const modulo = $(this).data('moduloid');
-            const nomMenu = $(this).data('menuid');
+            const nombremod = $(this).data('modulo');
+            const nombremenu = $(this).data('nommenu');
+            const menuId = $(this).data('menuid');
+            const moduloId = $(this).data('moduloid');
+
+            console.log(nombremod, nombremenu);
 
             // Set data to Form Edit
-            $('.moduloMenuId').val(id);
-            $('.moduloId').val(modulo);
-            $('.menuId').val(nomMenu);
+            $('.moduloMenuIdA').val(id);
+            $('.moduloId').val(moduloId);
+            $('.menuId').val(menuId);
 
             // Call Modal Edit
             $('#editModal').modal('show');
@@ -212,8 +221,10 @@
         $('.btn-delete').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const nombremod = $(this).data('nombremod');
-            const nombremenu = $(this).data('nombremenu');
+            const nombremod = $(this).data('modulo');
+            const nombremenu = $(this).data('nommenu');
+            const menuId = $(this).data('menuid');
+            const moduloId = $(this).data('moduloid');
 
             // Set data to Form Edit
             $('.moduloMenuId').val(id);

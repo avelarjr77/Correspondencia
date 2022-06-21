@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Login');
+$routes->setDefaultController('DocController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -158,6 +158,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('crearDireccion', 'modUsuario/DireccionController::crearDireccion');
     $routes->post('actualizarDireccion', 'modUsuario/DireccionController::actualizarDireccion');
     $routes->post('eliminarDireccion', 'modUsuario/DireccionController::eliminarDireccion');
+    $routes->match(['get', 'post'],'obtenerMun', 'modUsuario/DireccionController::municipio', ['as'=> 'obtenerMun']);
 
 });
 
@@ -288,21 +289,21 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->match(['get', 'post'],'transaccionActividades', 'modTransaccion/TransaccionActividadController::index', ['as'=> 'transaccionActividades']);
     $routes->match(['get', 'post'],'actividadF', 'modTransaccion/TransaccionActividadController::finalizarA', ['as'=> 'actividadF']);
     $routes->match(['get', 'post'],'actividadI', 'modTransaccion/TransaccionActividadController::iniciarActividad', ['as'=> 'actividadI']);
-    
+    $routes->match(['get', 'post'],'actividadDoc', 'modTransaccion/DocController::doc', ['as'=> 'actividadDoc']);
+
     //TRANSACCION LIST
     $routes->get('transaccionLista', 'modTransaccion/TransaccionListController::list', ['as'=> 'transaccionLista']);
 
     $routes->post('eliminarTransaccion', 'modTransaccion/TransaccionConfigController::eliminar');
 
 });  
-/* $routes->group('/',['filter'=>'auth'],function($routes){
-    $routes->get('transaccionConfig', 'modTransaccion/TransaccionConfigController::index', ['as'=> 'transaccionConfig']);
-    $routes->get('transaccion', 'modTransaccion/TransaccionController::index', ['as'=> 'transaccion']);
-    $routes->post('crearTransaccion', 'modTransaccion/TransaccionController::crear');
-    $routes->post('actualizarTransaccion', 'modTransaccion/TransaccionController::actualizar');
-    $routes->post('eliminarTransaccion', 'modTransaccion/TransaccionController::eliminar');
 
-});   */  
+//DOCUMENTO
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('graficas', 'modGraficas/GraficasController::index', ['as'=> 'graficas']);
+
+});
+
 
 /*
  * --------------------------------------------------------------------

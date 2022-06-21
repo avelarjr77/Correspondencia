@@ -20,6 +20,10 @@
   <!-- iCheck -->
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
+  <!--KRAJEE-->
+    <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+    <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
+
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -79,7 +83,7 @@
                 </div>
               </li>
 
-              <li role="presentation" class="nav-item dropdown open">
+              <!-- <li role="presentation" class="nav-item dropdown open">
                 <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                   <i class="fa fa-envelope-o"></i>
                   <span class="badge bg-green">6</span>
@@ -142,7 +146,7 @@
                     </div>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
@@ -174,8 +178,18 @@
 
 <!-- jQuery -->
 <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+<script src="vendors/kartik/js/plugins/piexif.js"></script>
+<script src="vendors/kartik/js/plugins/sortable.min.js"></script>
+
 <!-- Bootstrap -->
 <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!--KRAJEE-->
+<script src="vendors/kartik/js/fileinput.min.js"></script>
+<script src="vendors/kartik/js/locales/LANG.js"></script>
+
 <!-- FastClick -->
 <script src="vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
