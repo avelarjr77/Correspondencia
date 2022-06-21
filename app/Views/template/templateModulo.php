@@ -21,8 +21,8 @@
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
   <!--KRAJEE-->
-    <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
-    <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
+  <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+  <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
 
 
   <!-- bootstrap-progressbar -->
@@ -44,9 +44,11 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="<?= base_url() . route_to('home') ?>" class="site_title"><span>
+            <a href="<?= base_url() . route_to('home') ?>" class="site_title">
+              <span>
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
-              </span></a>
+              </span>
+            </a>
           </div>
           <div class="clearfix"></div>
 
@@ -61,8 +63,6 @@
             </div>
           </div>
           <!-- /menu profile quick info -->
-
-          <br />
         </div>
       </div>
 
@@ -82,78 +82,11 @@
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
-
-              <!-- <li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="text-center">
-                      <a class="dropdown-item">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li> -->
             </ul>
           </nav>
         </div>
       </div>
       <!-- /top navigation -->
-
-
 
       <!-- page content -->
       <div class="right_col" role="main">

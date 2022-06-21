@@ -27,12 +27,10 @@ class Login extends BaseController
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'email' => 'required|min_length[6]|max_length[50]|valid_email[wk_contacto.contacto]',
-                'usuario' => 'required'
             ];
 
             $errors = [
                 'email' => ['valid_email' => 'Email no existe, por favor verifique'],
-                'usuario' => ['required' => 'Por favor, ingresar el usuario'],
             ];
 
             if (!$this->validate($rules, $errors)) {
@@ -89,7 +87,7 @@ class Login extends BaseController
             		    </tr>
             		</tbody>';
                     $email = \Config\Services::email();
-                    $email->setFrom('correspondencia-ucad@gmail.com', 'Recuperar Contraseña');
+                    $email->setFrom('correspondencia.ucad@gmail.com', 'Recuperar Contraseña');
                     $email->setTo($user['contacto']);
                     $email->setSubject('Recuperar Contraseña');
                     $email->setMessage($message);

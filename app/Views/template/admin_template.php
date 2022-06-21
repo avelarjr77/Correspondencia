@@ -103,46 +103,6 @@
 
               ?>
               <ul class="nav side-menu">
-                <!-- <li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Administración <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="<?= base_url() . route_to('adminRol') ?>">1. Admin. Roles</a></li>
-                        <li><a href="<?= base_url() . route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
-                        <li><a href="<?= base_url() . route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
-                        <li><a href="<?= base_url() . route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
-                        <li><a href="<?= base_url() . route_to('moduloMenu') ?>">5. Admin. Modulo Menu</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Configuración de Usuario<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="<?= base_url() . route_to('cargo') ?>">1. Cargos</a></li>
-                        <li><a href="<?= base_url() . route_to('departamento') ?>">2. Departamentos</a></li>
-                        <li><a href="<?= base_url() . route_to('contacto') ?>">3. Contacto</a></li>
-                        <li><a href="<?= base_url() . route_to('direccion') ?>">4. Dirección</a></li>
-                        <li><a href="<?= base_url() . route_to('persona') ?>">5. Persona</a></li>
-                        <li><a href="<?= base_url() . route_to('usuario') ?>">6. Usuarios</a></li>
-                        <li><a href="<?= base_url() . route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
-                        <li><a href="<?= base_url() . route_to('documento') ?>">8. Documento</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="<?= base_url() . route_to('ad') ?>">Administración</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Configuración de Proceso<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="<?= base_url() . route_to('proceso') ?>">1. Proceso</a></li>
-                    <li><a href="<?= base_url() . route_to('etapa') ?>">2. Etapa</a></li>
-                    <li><a href="<?= base_url() . route_to('actividad') ?>">3. Actividad</a></li>
-                  </ul>
-                </li>-->
 
                 <li>
                   <?php
@@ -272,75 +232,6 @@
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
-
-              <!-- <li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="text-center">
-                      <a class="dropdown-item">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li> -->
             </ul>
           </nav>
         </div>
