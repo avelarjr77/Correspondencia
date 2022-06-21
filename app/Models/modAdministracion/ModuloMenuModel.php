@@ -12,7 +12,8 @@ class ModuloMenuModel extends Model{
     //MODELO PARA LISTAR MODULOS MENUS
     public function listarModuloMenu()
     {
-        $ModuloMenu = $this->db->query("SELECT mm.moduloMenuId as 'id', me.nombreMenu as 'nomMenu', m.nombre as 'modulo'
+        $ModuloMenu = $this->db->query("SELECT mm.moduloMenuId as 'id', me.nombreMenu as 'nomMenu', m.nombre as 'modulo',
+                                        m.moduloId, me.menuId
                                         FROM co_modulo_menu mm
                                         INNER JOIN co_modulo m ON mm.moduloId = m.moduloId
                                         INNER JOIN co_menu me ON mm.menuId = me.menuId  

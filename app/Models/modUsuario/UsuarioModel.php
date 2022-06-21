@@ -13,7 +13,8 @@ class UsuarioModel extends Model{
     public function listarUsuario()
     {
         $persona = $this->db->query("SELECT u.usuarioId as 'id', p.nombres as 'nombre',  
-                                        u.usuario,u.clave, if(u.estado = 'A', 'Activo', 'Inactivo') as 'estado', r.nombreRol as 'rol'
+                                        u.usuario,u.clave, if(u.estado = 'A', 'Activo', 'Inactivo') as 'estado', r.nombreRol as 'rol',
+                                        p.personaId, r.rolId as 'rolId'
                                         FROM wk_usuario u
                                         INNER JOIN wk_persona p ON u.personaId = p.personaId
                                         INNER JOIN wk_rol r ON u.rolId = r.rolId

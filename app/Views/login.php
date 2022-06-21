@@ -121,10 +121,10 @@
                   <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">INGRESAR</button>
                 </form>
 
-                <div class="help-action"><br>
+                <!-- <div class="help-action"><br>
                   <p><a style="color: #2a3f54" target="_blank" href="#">¿Cómo iniciar sesión?</a></p>
                   <p><a style="color: #2a3f54" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
-                </div>
+                </div> -->
               </div>
 
               <!-- TABS CONTENT SIGNUP -->

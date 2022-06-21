@@ -94,13 +94,10 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display: none" id="muni">
                         <label>Municipio:</label>
                         <select name="municipioId" class="form-control municipioId" required="required">
                             <option value="">-Selecciona un Municipio-</option>
-                            <?php foreach ($municipio as $mun): ?>
-                                <option value="<?php echo $mun->municipioId ?>"><?php echo $mun->nombreMunicipio ?></option>
-                            <?php endforeach; ?>
                         </select>
                     </div>
                 
@@ -155,10 +152,10 @@
 
                     <div class="form-group">
                         <label>Municipio:</label>
-                        <select name="municipioId" class="form-control municipioId" required="required">
+                        <select name="municipioId" class="form-control municipioIdA" required="required">
                             <option value="">-Selecciona una persona-</option>
-                            <?php foreach ($municipio as $mun): ?>
-                                <option value="<?php echo $mun->municipioId ?>"><?php echo $mun->nombreMunicipio ?></option>
+                            <?php foreach ($municipioA as $munic): ?>
+                                <option value="<?php echo $munic->municipioId ?>"><?php echo $munic->nombreMunicipio ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -235,6 +232,33 @@
 <script>
     $(document).ready(function(){
 
+        $('.departamentoId').on('change', function() {
+            var deptoId = $('.departamentoId').val();
+            console.log(deptoId);
+
+            var mData = $(".municipioId");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url().route_to('obtenerMun') ?>",
+                data: {deptoId: deptoId},
+                success:function(data){
+
+                    var dataMun = JSON.parse(data);
+                    
+                    console.log(dataMun);
+                    $(".municipioId").empty();
+
+                    $.each(dataMun, function(index, val) {
+                        mData.append("<option value="+val.municipioId+">"+val.nombreMunicipio+"</option>")
+                    });
+
+                }
+            });
+            $("#muni").css("display", "block");
+            
+        });
+
         // get Edit Tipo Direccion
         $('.btn-edit').on('click',function(){
             // get data from button edit
@@ -252,7 +276,7 @@
             $('.personaId').val(nombre).trigger('change');
             $('.tipoDireccion').val(tipoDireccion);
             $('.nombreDireccion').val(direccion);
-            $('.municipioId').val(municipio).trigger('change');
+            $('.municipioIdA').val(municipio).trigger('change');
             //$('.municipioId').val(municipioId);
            // $('.personaId').val(persona);
 

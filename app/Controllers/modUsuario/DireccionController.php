@@ -13,7 +13,7 @@ class DireccionController extends BaseController{
         $datos = $direccion->listarDireccion();
         $persona = $direccion->listarPersona();
         $departamento = $direccion->listarDepartamento();
-        $municipio = $direccion->listarMunicipio();
+        $municipio = $direccion->listarMunicipioA();
         
 
         $mensaje = session('mensaje');
@@ -21,13 +21,24 @@ class DireccionController extends BaseController{
         $data = [
             "datos" => $datos,
             "persona" => $persona,
-            "municipio" => $municipio,
+            "municipioA" => $municipio,
             "departamento" => $departamento,
             "mensaje" => $mensaje
         ];
 
         return view('modUsuario/direccion', $data);
-        }
+    }
+
+    public function municipio(){
+
+        $mun = new DireccionModel();
+        
+        $deptoId = $this->request->getVar('deptoId');
+
+        $respuesta = $mun->listarMunicipio($deptoId);
+
+        echo json_encode($respuesta);
+    }
 
     //CREAR DIRECCION
     public function crearDireccion(){

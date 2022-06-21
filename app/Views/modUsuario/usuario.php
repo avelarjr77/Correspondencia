@@ -28,7 +28,6 @@
                                 <th>ID</th>
                                 <th>Persona</th>
                                 <th>Nombre de Usuario</th>
-                                <th>Clave</th>
                                 <th>Estado</th>
                                 <th>Rol</th>
                                 <th scope="col" colspan="2">Acción</th>
@@ -37,15 +36,14 @@
                         <tbody>
                             <?php foreach($datos as $key): ?>
                             <tr>
-                                <td><?php echo $key->id ?></td>
-                                <td><?php echo $key->nombre ?></td>
-                                <td><?php echo $key->usuario ?></td>
-                                <td><?php echo $key->clave ?></td>
-                                <td><?php echo $key->estado ?></td>
-                                <td><?php echo $key->rol ?></td>
+                                <td><?= $key->id ?></td>
+                                <td><?= $key->nombre ?></td>
+                                <td><?= $key->usuario ?></td>
+                                <td><?= $key->estado ?></td>
+                                <td><?= $key->rol ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-usuario="<?php echo $key->usuario ?>" data-clave="<?php echo $key->clave ?>" data-estado="<?php echo $key->estado ?>" data-rol="<?php echo $key->rol ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-usuario="<?php echo $key->usuario ?>" data-clave="<?php echo $key->clave ?>" data-estado="<?php echo $key->estado ?>" data-rol="<?php echo $key->rol ?>" ><i class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" data-rolid="<?= $key->rolId ?>" data-personaid="<?= $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i> </a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" ><i class="fa fa-trash"></i> </a>
                                 </td>
                             </tr>
                             <?php endforeach; ?> 
@@ -70,27 +68,27 @@
                         
                             <div class="form-group">
                                 <label>Persona: </label>
-                                <select name="personaId" class="form-control personaId" required="required">
+                                <select name="personaId" class="form-control" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers): ?>
-                                        <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
+                                        <option value="<?= $pers->personaId ?>"><?= $pers->nombres ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                         
                             <div class="form-group">
                                 <label>Nombre de Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control usuario">
+                                <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Nombre de Clave:</label>
-                                <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control clave">
+                                <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <select name="estado" class="form-control estado" required="required">
+                                <select name="estado" class="form-control" required="required">
                                     <option value="" disable>-Selecciona un estado-</option>
                                     <option value="A">Activo</option>
                                     <option value="I">Inactivo</option>
@@ -99,10 +97,10 @@
 
                             <div class="form-group">
                                 <label>Rol:</label>
-                                <select name="rolId" class="form-control rolId" required="required">
+                                <select name="rolId" class="form-control" required="required">
                                     <option value="">-Selecciona un Rol-</option>
                                     <?php foreach ($rol as $r): ?>
-                                        <option value="<?php echo $r->rolId ?>"><?php echo $r->nombreRol ?></option>
+                                        <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -134,10 +132,10 @@
                         
                             <div class="form-group">
                                 <label>Persona: </label>
-                                <select name="personaId" class="form-control personaId" required="required">
+                                <select name="personaId" class="form-control personaId" id="personaId" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers): ?>
-                                        <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
+                                        <option value="<?= $pers->personaId ?>"><?= $pers->nombres ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -154,7 +152,7 @@
 
                             <div class="form-group">
                                 <label>Estado:</label>
-                                <select name="estado" class="form-control estado" required="required">
+                                <select name="estado" class="form-control estado" id="estado" required="required">
                                     <option value="" disable>-Selecciona un estado-</option>
                                     <option value="A">Activo</option>
                                     <option value="I">Inactivo</option>
@@ -163,17 +161,17 @@
 
                             <div class="form-group">
                                 <label>Rol:</label>
-                                <select name="rolId" class="form-control rolId" required="required">
+                                <select name="rolId" class="form-control rolId" id="rolId" required="required">
                                     <option value="">-Selecciona un Rol-</option>
                                     <?php foreach ($rol as $r): ?>
-                                        <option value="<?php echo $r->rolId ?>"><?php echo $r->nombreRol ?></option>
+                                        <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                         
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="usuarioId" class="usuarioId">
+                            <input type="hidden" name="usuarioId" class="usuarioId" id="usuarioId">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
@@ -241,23 +239,27 @@
 <script>
     $(document).ready(function(){
 
-        // get Edit Tipo Direccion
+        // get Edit usuario
         $('.btn-edit').on('click',function(){
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
             const usuario = $(this).data('usuario');
             const clave = $(this).data('clave');
-            const estado = $(this).data('estado');
+            var estado = $(this).data('estado');
             const rol = $(this).data('rol');
+            const rolId = $(this).data('rolid');
+            const personaId = $(this).data('personaid');
+
+            console.log(id, nombre, usuario, clave, estado, rol, rolId);
             
             // Set data to Form Edit
             $('.usuarioId').val(id);
-            $('.personaId').val(nombre).trigger('change');
+            $('.personaId').val(personaId);
             $('.usuario').val(usuario);
             $('.clave').val(clave);
             $('.estado').val(estado);
-            $('.rolId').val(rol).trigger('change');
+            $('.rolId').val(rolId);
 
             // Call Modal Edit
             $('#editModal').modal('show');

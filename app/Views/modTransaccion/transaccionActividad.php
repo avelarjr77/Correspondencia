@@ -1,6 +1,14 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
+<style>
+    .dropzone {
+        width: 900px;
+        height: 200px;
+        min-height: 0px;
+    }   
+</style>
+
 <div class="x_panel">
     <div class="x_title">
         <h2>Actividades</h2>
@@ -120,9 +128,11 @@
             <br>
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <div class="file-loading">
-                        <input id="input-44" name="input44[]" type="file" multiple>
-                    </div>
+                    <form action="<?php echo base_url() . '/actividadDoc' ?>" class="dropzone"></form>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </div>
             </div>
             <br>
@@ -151,7 +161,7 @@
                 </div>
                 <div class="col-md-2">
                     <br>
-                    <button type="submit" class="btn btn-outline-primary btn-agregarProceso">Agregar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-agregarDoc">Agregar</button>
                 </div>
             </div>
             <br><br><br>
@@ -194,20 +204,6 @@
 
 <script>
     $(document).ready(function(){
-
-        $("#input-44").fileinput({
-            uploadUrl: '/file-upload-batch/2',
-            enableResumableUpload: false,
-            showUpload: false,
-            maxFileCount:5,
-            maxFilePreviewSize: 10240,
-            fileActionSettings: {
-                showRemove: false,
-                showUpload: false,
-                showZoom: true,
-                showDrag: false
-            }
-        });
 
         $('.btn-finalizarActividad').on('click',function(){
             // get data from button edit
@@ -336,6 +332,19 @@
             $('#proceso').css("display", "block");
             $('#documento').hide();
         });
+
+        /* $("#input-44").fileinput({
+            uploadUrl: '/file-upload-batch/2',
+            showUpload: false,
+            maxFileCount:5,
+            maxFilePreviewSize: 10240,
+            fileActionSettings: {
+                showRemove: false,
+                showUpload: false,
+                showZoom: true,
+                showDrag: false
+            } 
+        }); */
     });
 </script>
 
