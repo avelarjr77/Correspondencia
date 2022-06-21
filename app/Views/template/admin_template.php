@@ -9,29 +9,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- Dropzone.js -->
-    <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Dropzone.js -->
+  <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
-    <!--KRAJEE-->
-    <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
-    <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    
+  <!--KRAJEE-->
+  <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+  <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
+
+  <!-- bootstrap-progressbar -->
+  <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+  <!-- JQVMap -->
+  <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+  <!-- bootstrap-daterangepicker -->
+  <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
   <title>Correspondencia UCAD</title>
 
   <!-- Bootstrap -->
@@ -74,7 +74,6 @@
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
               </span></a>
           </div>
-          <div class="clearfix"></div>
 
           <!-- menu profile quick info -->
           <div class="profile clearfix">
@@ -87,9 +86,7 @@
             </div>
           </div>
           <!-- /menu profile quick info -->
-
           <br />
-
           <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
@@ -139,9 +136,9 @@
                 </li>
               <?php endforeach; ?>
               <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
+                <ul class="nav child_menu">
                   <li><a href="homeMenu">Inicio</a></li>
-              </ul>
+                </ul>
               </li>
               </ul>
               <ul class="nav side-menu">
@@ -152,7 +149,7 @@
                 $menu     = new MenuSubmenuModel();
                 $submenu  = new SubmenuModel();
                 $obtenerRol = new UsuarioModel();
-                
+
                 $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
                   ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
                 $rolMenu  = new RolModMenuModel();
@@ -172,19 +169,19 @@
                   $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
                 ?>
                   <?php if ($u->nombreMenu) : ?>
-              <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
-              <?php endif ?>
-              <ul class="nav child_menu">
-                <?php foreach ($submenus as $s) : ?>
-                  <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
-                <?php endforeach; ?>
+                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+                    <?php endif ?>
+                    <ul class="nav child_menu">
+                      <?php foreach ($submenus as $s) : ?>
+                        <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
+                      <?php endforeach; ?>
+                    </ul>
+                    </li>
+                  <?php endforeach; ?>
               </ul>
               </li>
-            <?php endforeach; ?>
-            </ul>
-            </li>
 
-            </ul>
+              </ul>
             </div>
 
 
@@ -238,53 +235,53 @@
       </div>
       <!-- /top navigation -->
 
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
+      <!-- jQuery -->
+      <script src="vendors/jquery/dist/jquery.min.js"></script>
 
-    <script src="vendors/kartik/js/plugins/piexif.js"></script>
-    <script src="vendors/kartik/js/plugins/sortable.min.js"></script>
+      <script src="vendors/kartik/js/plugins/piexif.js"></script>
+      <script src="vendors/kartik/js/plugins/sortable.min.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!--KRAJEE-->
-    <script src="vendors/kartik/js/fileinput.min.js"></script>
-    <script src="vendors/kartik/js/locales/LANG.js"></script>
+      <!--KRAJEE-->
+      <script src="vendors/kartik/js/fileinput.min.js"></script>
+      <script src="vendors/kartik/js/locales/LANG.js"></script>
 
-    <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="vendors/Flot/jquery.flot.js"></script>
-    <script src="vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="vendors/Flot/jquery.flot.time.js"></script>
-    <script src="vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="vendors/moment/min/moment.min.js"></script>
-    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+      <!-- FastClick -->
+      <script src="vendors/fastclick/lib/fastclick.js"></script>
+      <!-- NProgress -->
+      <script src="vendors/nprogress/nprogress.js"></script>
+      <!-- Chart.js -->
+      <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+      <!-- gauge.js -->
+      <script src="vendors/gauge.js/dist/gauge.min.js"></script>
+      <!-- bootstrap-progressbar -->
+      <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+      <!-- iCheck -->
+      <script src="vendors/iCheck/icheck.min.js"></script>
+      <!-- Skycons -->
+      <script src="vendors/skycons/skycons.js"></script>
+      <!-- Flot -->
+      <script src="vendors/Flot/jquery.flot.js"></script>
+      <script src="vendors/Flot/jquery.flot.pie.js"></script>
+      <script src="vendors/Flot/jquery.flot.time.js"></script>
+      <script src="vendors/Flot/jquery.flot.stack.js"></script>
+      <script src="vendors/Flot/jquery.flot.resize.js"></script>
+      <!-- Flot plugins -->
+      <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+      <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+      <script src="vendors/flot.curvedlines/curvedLines.js"></script>
+      <!-- DateJS -->
+      <script src="vendors/DateJS/build/date.js"></script>
+      <!-- JQVMap -->
+      <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
+      <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+      <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+      <!-- bootstrap-daterangepicker -->
+      <script src="vendors/moment/min/moment.min.js"></script>
+      <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
       <!-- page content -->
       <div class="right_col" role="main">
         <?= $this->renderSection('content'); ?>
@@ -304,17 +301,17 @@
     </div>
   </div>
 
-    <!-- Dropzone.js -->
-    <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+  <!-- Dropzone.js -->
+  <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
-    <!--SweetAlert-->
-    <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
-    <script src="vendors/sweetalert2/sweetalert.min.js"></script>
+  <!--SweetAlert-->
+  <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+  <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
-    <!--KRAJEE
+  <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->
 
-    <!-- HOLA SOY UNA PRUEBA-->
+  <!-- HOLA SOY UNA PRUEBA-->
   <!-- jQuery -->
   <script src="vendors/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
