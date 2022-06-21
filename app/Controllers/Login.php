@@ -18,7 +18,7 @@ class Login extends BaseController
         return view('login');
     }
 
-    
+
 
     public function recuperarContraseña()
     {
@@ -27,7 +27,7 @@ class Login extends BaseController
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'email' => 'required|min_length[6]|max_length[50]|valid_email[wk_contacto.contacto]',
-                'usuario'=> 'required'
+                'usuario' => 'required'
             ];
 
             $errors = [
@@ -99,7 +99,7 @@ class Login extends BaseController
                         $session->setFlashdata('danger', 'Error en el envío, por favor intenta más tarde.');
                     }
                 } else {
-                    $session->setFlashdata('danger', 'El email y usuario no coiciden, por favor verifique.');
+                    $session->setFlashdata('danger', 'Este email no esta registrado, por favor verifique.');
                 }
             }
         }

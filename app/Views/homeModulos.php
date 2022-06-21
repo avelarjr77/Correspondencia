@@ -27,7 +27,7 @@
 					<div class="profile-card card rounded-lg shadow  p-xl-3 mb-3 text-center position-relative overflow-hidden">
 						<div class="banner"></div>
 						<img src="images/administracion.png" alt="" class="img-circle1 mx-auto mb-3" style="width: 200px;">
-						<h3 style="	font-size: 1.55rem; display: block; opacity: 1;" ><?= $key->modulo ?></h3>
+						<h3 style="	font-size: 1.65rem; display: block; opacity: 1;" ><?= $key->modulo ?></h3>
 						<div class="text-left mb-4">
                         <form class="text-center"id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
                                 <button type="submit" class="btn btn-primary btn-sm center" style="border-radius:5px;padding:11px 23px;color:white;background-color:#305274">

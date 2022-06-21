@@ -115,15 +115,15 @@
               <!-- TABS CONTENT LOGIN -->
               <div id="login-tab-content" class="active">
                 <form class="login-form" action="<?= base_url() . route_to('homeModulos') ?>" method="post">
-                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario">
-                  <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña">
+                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario" required>
+                  <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña" required>
                   <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">INGRESAR</button>
                 </form>
 
-                <!-- <div class="help-action"><br>
+                <div class="help-action"><br>
                   <p><a style="color: #2a3f54" target="_blank" href="#">¿Cómo iniciar sesión?</a></p>
                   <p><a style="color: #2a3f54" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>
