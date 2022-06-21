@@ -153,7 +153,7 @@
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
     }else if (mensaje == '6') {
-        swal('No se agrego', 'Los datos ingresados no deben contener numeros', 'error');
+        swal('No se agrego', 'Los datos ingresados no deben contener numeros o signos de puntuacion', 'error');
     }
 </script>
 <!--

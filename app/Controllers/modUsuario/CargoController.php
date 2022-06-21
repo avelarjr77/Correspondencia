@@ -28,8 +28,13 @@ class CargoController extends BaseController{
         $cargo = new CargoModel();
 
         if($this->validate('validarCargo')){
-            
-            return redirect()->to(base_url(). '/cargo')->with('mensaje','6');
+            $cargo->insertar(
+                [
+                    "cargo"        => $_POST['cargo']
+                ]
+            );
+
+            return redirect()->to(base_url(). '/cargo')->with('mensaje','0');
 
         }elseif ($this->validate('validarCargoNumeros')) {
             $cargo->insertar(
@@ -66,23 +71,29 @@ class CargoController extends BaseController{
     {
         $cargo = new CargoModel();
         if ($this->validate([
-            'cargo'        => 'min_length[3]|max_length[45]|alpha|is_unique[wk_cargo.cargo]'
+            'cargo'        => 'min_length[3]|max_length[45]|is_unique[wk_cargo.cargo]'
             ])) {
+            
+            return redirect()->to(base_url() . '/cargo')->with('mensaje', '6');
+
+            } elseif($this->validate([
+                'cargo'        => 'min_length[3]|max_length[45]|alpha_space'
+                ])) {
+
                 $datos = [
-                    "cargo"        => $_POST['cargo']
-                ];
+                        "cargo"        => $_POST['cargo']
+                    ];
 
-            $cargoId = $_POST['cargoId'];
-            
-            $respuesta = $cargo->actualizar($datos, $cargoId);
+                $cargoId = $_POST['cargoId'];
+                
+                $respuesta = $cargo->actualizar($datos, $cargoId);
 
-            $datos = ["datos" => $respuesta];
-            
-            return redirect()->to(base_url() . '/cargo')->with('mensaje', '4');
-
-            } else {
-                return redirect()->to(base_url() . '/cargo')->with('mensaje', '5');
-        } 
+                $datos = ["datos" => $respuesta];
+                    
+                return redirect()->to(base_url() . '/cargo')->with('mensaje', '0');
+        } else{
+            return redirect()->to(base_url() . '/cargo')->with('mensaje', '1');
+        }
     }
     
 }

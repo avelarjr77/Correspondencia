@@ -24,15 +24,15 @@ class ModuloMenuModel extends Model{
     //MODELO PARA LISTAR MODULOS 
     public function listarModulo()
     {
-        $ModuloMenu = $this->db->query("SELECT * FROM co_modulo");
-        return $ModuloMenu->getResult();
+        $modulo = $this->db->query("SELECT * FROM co_modulo");
+        return $modulo->getResult();
     }
 
     //MODELO PARA LISTAR MENUS
     public function listarMenu()
     {
-        $ModuloMenu = $this->db->query("SELECT * FROM co_menu ");
-        return $ModuloMenu->getResult();
+        $modulo = $this->db->query("SELECT * FROM co_menu ");
+        return $modulo->getResult();
     }
 
     //MODELO PARA AGREGAR MODULOS MENUS
