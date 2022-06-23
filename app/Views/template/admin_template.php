@@ -9,29 +9,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- Dropzone.js -->
-    <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Dropzone.js -->
+  <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
-    <!--KRAJEE-->
-    <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
-    <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    
+  <!--KRAJEE-->
+  <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+  <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
+
+  <!-- bootstrap-progressbar -->
+  <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+  <!-- JQVMap -->
+  <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+  <!-- bootstrap-daterangepicker -->
+  <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
   <title>Correspondencia UCAD</title>
 
   <!-- Bootstrap -->
@@ -74,7 +74,6 @@
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
               </span></a>
           </div>
-          <div class="clearfix"></div>
 
           <!-- menu profile quick info -->
           <div class="profile clearfix">
@@ -87,9 +86,7 @@
             </div>
           </div>
           <!-- /menu profile quick info -->
-
           <br />
-
           <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
@@ -103,46 +100,6 @@
 
               ?>
               <ul class="nav side-menu">
-                <!-- <li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Administración <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a><i class="fa fa-edit"></i> Admin. Rol-Módulo <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="<?= base_url() . route_to('adminRol') ?>">1. Admin. Roles</a></li>
-                        <li><a href="<?= base_url() . route_to('rolModMenu') ?>">2. Admin. Rol-Módulo-Menú</a></li>
-                        <li><a href="<?= base_url() . route_to('menu_submenu') ?>">3. Admin. Menú</a></li>
-                        <li><a href="<?= base_url() . route_to('submenus') ?>">4. Admin. Menú Detalle</a></li>
-                        <li><a href="<?= base_url() . route_to('moduloMenu') ?>">5. Admin. Modulo Menu</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Configuración de Usuario<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a><i class="fa fa-edit"></i> Conf. Catálogos<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="<?= base_url() . route_to('cargo') ?>">1. Cargos</a></li>
-                        <li><a href="<?= base_url() . route_to('departamento') ?>">2. Departamentos</a></li>
-                        <li><a href="<?= base_url() . route_to('contacto') ?>">3. Contacto</a></li>
-                        <li><a href="<?= base_url() . route_to('direccion') ?>">4. Dirección</a></li>
-                        <li><a href="<?= base_url() . route_to('persona') ?>">5. Persona</a></li>
-                        <li><a href="<?= base_url() . route_to('usuario') ?>">6. Usuarios</a></li>
-                        <li><a href="<?= base_url() . route_to('tipoEnvio') ?>">7. Tipo de envio</a></li>
-                        <li><a href="<?= base_url() . route_to('documento') ?>">8. Documento</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="<?= base_url() . route_to('ad') ?>">Administración</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Configuración de Proceso<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="<?= base_url() . route_to('proceso') ?>">1. Proceso</a></li>
-                    <li><a href="<?= base_url() . route_to('etapa') ?>">2. Etapa</a></li>
-                    <li><a href="<?= base_url() . route_to('actividad') ?>">3. Actividad</a></li>
-                  </ul>
-                </li>-->
 
                 <li>
                   <?php
@@ -179,9 +136,9 @@
                 </li>
               <?php endforeach; ?>
               <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
+                <ul class="nav child_menu">
                   <li><a href="homeMenu">Inicio</a></li>
-              </ul>
+                </ul>
               </li>
               </ul>
               <ul class="nav side-menu">
@@ -192,7 +149,7 @@
                 $menu     = new MenuSubmenuModel();
                 $submenu  = new SubmenuModel();
                 $obtenerRol = new UsuarioModel();
-                
+
                 $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
                   ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
                 $rolMenu  = new RolModMenuModel();
@@ -212,19 +169,19 @@
                   $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
                 ?>
                   <?php if ($u->nombreMenu) : ?>
-              <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
-              <?php endif ?>
-              <ul class="nav child_menu">
-                <?php foreach ($submenus as $s) : ?>
-                  <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
-                <?php endforeach; ?>
+                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+                    <?php endif ?>
+                    <ul class="nav child_menu">
+                      <?php foreach ($submenus as $s) : ?>
+                        <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
+                      <?php endforeach; ?>
+                    </ul>
+                    </li>
+                  <?php endforeach; ?>
               </ul>
               </li>
-            <?php endforeach; ?>
-            </ul>
-            </li>
 
-            </ul>
+              </ul>
             </div>
 
 
@@ -272,75 +229,6 @@
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
-
-              <!-- <li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were
-                        where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="text-center">
-                      <a class="dropdown-item">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li> -->
             </ul>
           </nav>
         </div>
@@ -367,6 +255,7 @@
     <script src="vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
     <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
     <!-- gauge.js -->
     <script src="vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
@@ -413,17 +302,17 @@
     </div>
   </div>
 
-    <!-- Dropzone.js -->
-    <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+  <!-- Dropzone.js -->
+  <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
-    <!--SweetAlert-->
-    <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
-    <script src="vendors/sweetalert2/sweetalert.min.js"></script>
+  <!--SweetAlert-->
+  <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+  <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
-    <!--KRAJEE
+  <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->
 
-    <!-- HOLA SOY UNA PRUEBA-->
+  <!-- HOLA SOY UNA PRUEBA-->
   <!-- jQuery -->
   <script src="vendors/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
@@ -434,6 +323,7 @@
   <script src="vendors/nprogress/nprogress.js"></script>
   <!-- Chart.js -->
   <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+  
   <!-- gauge.js -->
   <script src="vendors/gauge.js/dist/gauge.min.js"></script>
   <!-- bootstrap-progressbar -->

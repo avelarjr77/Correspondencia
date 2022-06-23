@@ -47,35 +47,35 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost='smtp.mailtrap.io';
+    public $SMTPHost='smtp.gmail.com';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser='d32d4461090887';
+    public $SMTPUser='correspondencia.ucad@gmail.com';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass='eb6379202edee5';
+    public $SMTPPass='kibtdgifayxvvvwp';
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = '465';
+    public $SMTPPort = '587';
 
     /**
      * SMTP Timeout (in seconds)
      *
      * @var int
      */
-    public $SMTPTimeout = 100;
+    public $SMTPTimeout = 60;
 
     /**
      * Enable persistent SMTP connections
