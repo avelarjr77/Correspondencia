@@ -129,7 +129,7 @@
             <br>
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <form action="<?php echo base_url() .route_to('/actividadDoc') ?>" class="dropzone">
+                    <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
                         <div class="fallback">
                             <input name="file" type="file" multiple />
                         </div>

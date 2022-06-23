@@ -15,10 +15,11 @@ class DocController extends BaseController{
 
     public function doc(){
 
-        
+       
         if(!empty($_FILES['file']['name'])){
+      /*       
             // Set preference
-            $config['upload_path'] = 'uploads/'; 
+            $config['upload_path'] = './uploads/'; 
             $config['allowed_types'] = 'jpg|jpeg|png|gif|docx';
             $config['max_size'] = '1024'; // max_size in kb
             $config['file_name'] = $_FILES['file']['name'];
@@ -32,7 +33,7 @@ class DocController extends BaseController{
             $uploadData = $this->upload->data();
             }
         } 
-/*
+*/
         $uploaddir = './uploads/';
         $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
@@ -42,8 +43,9 @@ class DocController extends BaseController{
             echo "Possible file upload attack!\n";
         }
 
-        echo $uploadfile;*/
+        echo $uploadfile;
     }
+}
 }
 
 ?>
