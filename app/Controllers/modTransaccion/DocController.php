@@ -14,10 +14,12 @@ class DocController extends BaseController{
     }
 
     public function doc(){
+
+        
         if(!empty($_FILES['file']['name'])){
             // Set preference
             $config['upload_path'] = 'uploads/'; 
-            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif|docx';
             $config['max_size'] = '1024'; // max_size in kb
             $config['file_name'] = $_FILES['file']['name'];
 
@@ -29,8 +31,19 @@ class DocController extends BaseController{
             // Get data about the file
             $uploadData = $this->upload->data();
             }
+        } 
+/*
+        $uploaddir = './uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['file']['name']);
+
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+            echo "File is valid, and was successfully uploaded.\n";
+        } else {
+            echo "Possible file upload attack!\n";
         }
+
+        echo $uploadfile;*/
     }
-        
+}
 
 ?>
