@@ -110,6 +110,7 @@
             </div>
         </div>
         <!--FIN LISTADO PROCESO-->
+        
         <br><br><br><br>
         <a href="<?= base_url().route_to('transaccionLista') ?>"  class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
@@ -128,11 +129,11 @@
             <br>
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <form action="<?php echo base_url() . '/actividadDoc' ?>" class="dropzone"></form>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <form action="<?php echo base_url() .route_to('/actividadDoc') ?>" class="dropzone">
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                    </form>
                 </div>
             </div>
             <br>
@@ -201,6 +202,14 @@
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    Dropzone.autoDiscover = false;
+    var myDropzone = new Dropzone('.dropzone');
+    myDropzone.on('complete', function (param){
+        console.log(JSON.parse(param.xhr.response))
+    })
+</script>
 
 <script>
     $(document).ready(function(){
