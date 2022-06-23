@@ -74,13 +74,12 @@
         </div>
 
         <!-- RECOVERY -->
-        <div class="recovery" id="recovery">
+        <div class="recovery" id="recovery"><br><br><br>
           <h2>¿Olvidaste tu Contraseña?</h2>
           <p>Por favor, digite <strong> su correo electrónico</strong> para poder recuperar su contraseña.</p>
           <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
           <form class="login-form" action="<?= base_url() . '/recuperarContraseña' ?>" method="POST">
-            <input class="input" id="email" name="email" placeholder="Ingresa tu correo electrónico aquí">
-            <input type="text" class="input" id="usuario" name="usuario" placeholder="Ingresa tu usuario/carnet aquí" required="">
+            <input type="email" class="input" id="email" name="email" placeholder="Ingresa tu correo electrónico aquí" required>
             <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECUPERAR CONTRASEÑA</button>
           </form>
           <p><a style="color: #2a3f54" target="_blank" href="">¿Cómo recuperar la contraseña? has clic aquí.</a></p>
@@ -116,26 +115,14 @@
               <!-- TABS CONTENT LOGIN -->
               <div id="login-tab-content" class="active">
                 <form class="login-form" action="<?= base_url() . route_to('homeModulos') ?>" method="post">
-                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario">
-                  <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña">
+                  <input type="text" class="input" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario" required>
+                  <input type="password" class="input" id="clave" name="clave" autocomplete="off" placeholder="Contraseña" required>
                   <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">INGRESAR</button>
                 </form>
 
-                <!-- <div class="help-action"><br>
+                <div class="help-action"><br>
                   <p><a style="color: #2a3f54" target="_blank" href="#">¿Cómo iniciar sesión?</a></p>
                   <p><a style="color: #2a3f54" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
-                </div> -->
-              </div>
-
-              <!-- TABS CONTENT SIGNUP -->
-              <div id="signup-tab-content">
-                <form class="signup-form" action="<?= base_url() . route_to('login') ?>" method="post">
-                  <input type="text" class="input" name="carnet" id="carnet" autocomplete="off" placeholder="Usuario / Carnet">
-                  <input type="password" class="input" name="clave" id="clave" autocomplete="off" placeholder="Contraseña">
-                  <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">Registrarse</button>
-                </form>
-                <div class="help-action">
-                  <p><a style="color: #2a3f54" target="_blank" href="#">¿Cómo activar su usuario?</a></p>
                 </div>
               </div>
             </div>
