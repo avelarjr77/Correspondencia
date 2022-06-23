@@ -367,6 +367,7 @@
     <script src="vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
     <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
     <!-- gauge.js -->
     <script src="vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
@@ -434,6 +435,7 @@
   <script src="vendors/nprogress/nprogress.js"></script>
   <!-- Chart.js -->
   <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+  
   <!-- gauge.js -->
   <script src="vendors/gauge.js/dist/gauge.min.js"></script>
   <!-- bootstrap-progressbar -->
