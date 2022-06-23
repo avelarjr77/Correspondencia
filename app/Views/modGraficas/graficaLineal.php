@@ -93,7 +93,7 @@
 <script>
   $(function(){
 
-    $("#fecha").daterangepicker({
+    /* $("#fecha").daterangepicker({
         "locale":{
             "format":"DD/MM/YYYY",
             "separator":" - ",
@@ -123,7 +123,7 @@
                 "Diciembre"
             ]
         }
-    });
+    }); */
 
     //get the bar chart canvas
     var cData = JSON.parse(`<?php echo $chart_dataL; ?>`);
