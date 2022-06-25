@@ -116,7 +116,12 @@
     </div>
     <div class="x_content" id="documento" style="display: none">   
         <br>
-        <!--LISTADO DE PROCESO-->
+        
+        <!--LISTADO DE PROCESO
+        EN ESTA PARTE SE GUARDA EL NOMBRE DEL DOCUMENTO PERO NO GUARDA EL DOCUMENTO EN LA CARPETA
+        TIENE QUE EJECUTAR LA ACCION QUE ESTA DENTROO DEL FORM DE DROPZONE                 
+        -->
+
         <div class="x_content">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -131,20 +136,30 @@
                 <div class="col-md-10">
                     <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
                         <div class="fallback">
-                            <input name="file" type="file" multiple />
+                            <input name="documento" type="file" id="documento" multiple />
                         </div>
                     </form>
                 </div>
             </div>
             <br>
+
+            <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
             <div class="row justify-content-center">
+                
+                <div class="col-md-10">
+                    <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
+                        <div class="fallback">
+                            <input name="documento" type="file" id="documento" multiple />
+                        </div>
+                    </form>
+                </div>
                 <div class="col-md-4">
                     <label>Nombre: </label>
                     <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" require>
                 </div>
                 <div class="col-md-3">
                     <label>Tipo de documento: </label>
-                    <select name="institucionId" id="institucionId" class="form-control">
+                    <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control">
                         <option value="" disable>-Selecciona un tipo de documento-</option>
                         <?php foreach ($tipoDoc as $td): ?>
                             <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
@@ -153,18 +168,30 @@
                 </div>
                 <div class="col-md-3">
                     <label>Tipo de envio: </label>
-                    <select name="personaId" id="personaId" class="form-control">
+                    <select name="tipoEnvioId" id="tipoEnvioId" class="form-control">
                         <option value="" disable>-Selecciona un tipo de envio-</option>
                         <?php foreach ($tipoEnvio as $te): ?>
                             <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="col-md-3">
+                    <label>Tipo de transaccion: </label>
+                    <select name="transaccionActividadId" id="transaccionActividadId" class="form-control">
+                        <option value="" disable>-Selecciona una transaccion-</option>
+                        <?php foreach ($datos as $ta): ?>
+                            <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class="col-md-2">
                     <br>
-                    <button type="submit" class="btn btn-outline-primary btn-agregarDoc">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
+            </form>
+
+
             <br><br><br>
             <div class="row" id="tbl-actividad">
                 <div class="col-md-12">
@@ -192,7 +219,11 @@
                 </div>
             </div>
         </div>
-        <!--FIN LISTADO PROCESO-->
+        <!--FIN LISTADO PROCESO
+    ------------------------------------------------------------------------------------------------------------
+        -->
+
+
         <br><br><br><br>
         <a href="#"  class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
