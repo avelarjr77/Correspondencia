@@ -301,7 +301,9 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 //DOCUMENTO
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('graficas', 'modGraficas/GraficasController::index', ['as'=> 'graficas']);
-    $routes->match(['get', 'post'],'gBarraFecha', 'modGraficas/GraficasController::barraF', ['as'=> 'gBarraFecha']);    
+    $routes->match(['get', 'post'],'gBarraFecha', 'modGraficas/GraficasController::barraF', ['as'=> 'gBarraFecha']);
+    $routes->match(['get', 'post'],'gBarraProceso', 'modGraficas/GraficasController::barraP', ['as'=> 'gBarraProceso']);    
+    $routes->match(['get', 'post'],'gBarraPromedio', 'modGraficas/GraficasController::barraProm', ['as'=> 'gBarraPromedio']);    
     $routes->get('graficaLineal', 'modGraficas/GraficasController::line', ['as'=> 'graficaLineal']);
 
 });

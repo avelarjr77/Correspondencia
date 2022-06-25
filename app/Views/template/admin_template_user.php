@@ -247,7 +247,7 @@
     <!-- NProgress -->
     <script src="vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="vendors/chart.js-3.8.0/package/dist/chart.min.js"></script>
     <!-- gauge.js -->
     <script src="vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->

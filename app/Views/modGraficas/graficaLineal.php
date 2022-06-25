@@ -43,43 +43,67 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-12 col-sm-12  ">
+      <div class="col-md-12 col-sm-12  ">
         <div class="x_panel">
-            <div class="x_title">
-            <h2>Line graph<small>Sessions</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Settings 1</a>
-                    <a class="dropdown-item" href="#">Settings 2</a>
-                    </div>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-            </ul>
-            <div class="clearfix"></div>
+          <div class="x_title">
+          <h2>Line graph<small>Sessions</small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+          </ul>
+          <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <canvas id="lineChartL"></canvas>
+                </div>
             </div>
-            <div class="x_content">
-                <div class="row justify-content-center">
-                    <div class="col-md-4 form-group">
-                      <div class="input-group">
-                          <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                  <i class="fa fa-calendar"></i>
-                              </span>
-                          </div>
-                          <input type="text" class="form-control float-right" id="fecha">
-                      </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row justify-content-center">
+
+        <div class="col-md-12 col-sm-12  ">
+            <div class="x_panel">
+                <div class="x_title">
+                <h2>Bar graph <small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    
+                </ul>
+                <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row justify-content-center">
+                        <form id="frm_bar3">
+                            <div class="col-md-10 form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="fecha" class="form-control float-right" id="fecha">
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-outline-info" id="btn_filtro_bar3">
+                                    <i class="fas fa-chart-line"></i>Graficar 
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-md-10">
-                        <canvas id="lineChartL"></canvas>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10" id="barChart3" style="display: none">
+                            <canvas id="barChartPromedio"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -93,7 +117,7 @@
 <script>
   $(function(){
 
-    /* $("#fecha").daterangepicker({
+    $("#fecha").daterangepicker({
         "locale":{
             "format":"DD/MM/YYYY",
             "separator":" - ",
@@ -123,7 +147,104 @@
                 "Diciembre"
             ]
         }
-    }); */
+    });
+
+    $('#btn_filtro_bar3').on('click',function(){
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url().route_to('gBarraPromedio') ?>', 
+            data: $("#frm_bar3").serialize(),
+            success: function(response){ 
+
+                var dataR = JSON.parse(response);
+
+                console.log(dataR);
+                console.log(dataR['label']);
+                console.log(dataR['data']);
+
+                //get the bar chart canvas
+                //var cData = JSON.parse(`<php echo $chart_data; ?>`);
+                var ctx = $("#barChartPromedio");
+            
+                //bar chart data
+                var data = {
+                    labels: dataR['label'],
+                    datasets: [
+                    {
+                        label: 'Tiempo',
+                        data: dataR['data'],
+                        backgroundColor: [
+                        "#26b99a",
+                        "#03586A",
+                        "#34495E",
+                        "#97CD7A",
+                        "#CFD4D8",
+                        "#036475",
+                        "#BCE9E0",
+                        "#B3CDD2",
+                        "#b1bfc9",
+                        "#b3dee2",
+                        "#82c9ae",
+                        ],
+                        borderColor: [
+                        "#26b99a",
+                        "#03586A",
+                        "#34495E",
+                        "#97CD7A",
+                        "#CFD4D8",
+                        "#036475",
+                        "#BCE9E0",
+                        "#B3CDD2",
+                        "#b1bfc9",
+                        "#b3dee2",
+                        "#82c9ae",
+                        ],
+                        borderWidth: [1, 1, 1, 1, 1,1,1,1, 1, 1, 1,1,1]
+                    }
+                    ]
+                };
+            
+                //options
+                var options = {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Tiempo promedio de finalización de actividades por persona'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                beginAtZero: true,
+                                suggestedMin: 5,
+                                suggestedMax: 30
+                            },
+                            title: {
+                                display: true,
+                                text: 'Cantidad de tiempo (minutos)'
+                            }
+                        }
+                    }
+                };
+            
+                //create bar Chart class object
+                var chart1 = new Chart(ctx, {
+                    type: "bar",
+                    data: data,
+                    options: options
+                });
+
+                $('#barChart3').css("display", "block");
+            }, 
+            error: function(){
+                swal('¡Error!','Error de ejecución del Ajax', 'error');
+            }
+        }); 
+    }); 
 
     //get the bar chart canvas
     var cData = JSON.parse(`<?php echo $chart_dataL; ?>`);
@@ -170,38 +291,34 @@
     //options
     var options = {
       responsive: true,
-      title: {
-        display: true,
-        position: "top",
-        text: "Total de actividades por mes",
-        fontSize: 18,
-        fontColor: "#111"
-      },
-      legend: {
-        display: true,
-        position: "bottom",
-        labels: {
-          fontColor: "#333",
-          fontSize: 16
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Total de actividades por mes'
         }
       },
       scales: {
-          yAxes: [{
+          y: {
+            stacked: true,
               ticks: {
+                beginAtZero: true,
                   suggestedMin: 5,
                   suggestedMax: 15
               },
-              scaleLabel: {
-                  display: true,
-                  labelString: 'Cantidad de Actividades'
+              title: {
+                display: true,
+                text: 'Cantidad de Actividades'
               }
-          }]
+          }
       }
     };
 
     //create bar Chart class object
     var chart1 = new Chart(ctx, {
-      type: 'pie',
+      type: 'line',
       data: data,
       options: options
     });

@@ -46,11 +46,58 @@ class GraficasController extends BaseController{
           $data['data'][] = (int) $row->total;
       }
       
-      $data['chart_data'] = json_encode($data); 
+      //$data['chart_data'] = json_encode($data); 
 
-      //echo json_encode($data);
+      echo json_encode($data);
 
       //return view('modGraficas/graficas', $data);
+    }
+
+    public function barraProm(){
+
+      $grafica = new GraficasModel();
+      
+      $fecha = $this->request->getVar('fecha');
+
+      $fechas = explode(" - ", $fecha);
+
+      $fechaI = $fechas[0];
+      $fechaF = $fechas[1];
+
+      $query =  $grafica->barraProm($fechaI, $fechaF); 
+
+      //$record = $query->result();
+      $data = [];
+
+      foreach($query as $row) {
+          $data['label'][] = $row->persona;
+          $data['data'][] = (int) $row->promedio;
+      }
+
+      echo json_encode($data);
+    }
+
+    public function barraP(){
+
+      $grafica = new GraficasModel();
+      
+      $calendario = $this->request->getVar('calendario');
+
+      $fechas = explode(" - ", $calendario);
+
+      $fechaI = $fechas[0];
+      $fechaF = $fechas[1];
+
+      $query =  $grafica->barraP($fechaI, $fechaF); 
+
+      $data = [];
+
+      foreach($query as $row) {
+          $data['label'][] = $row->proceso;
+          $data['data'][] = (int) $row->tiempo;
+      }
+
+      echo json_encode($data);
     }
 
     public function line(){
