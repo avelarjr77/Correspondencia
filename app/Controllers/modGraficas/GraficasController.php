@@ -6,127 +6,170 @@ use App\Models\modGraficas\GraficasModel;
 class GraficasController extends BaseController{
 
 
-    public function index(){
+  public function index(){
 
-      $grafica = new GraficasModel();
+    $grafica = new GraficasModel();
 
-      $query =  $grafica->bar(); 
+    $query =  $grafica->pastelG();
+    $queryE =  $grafica->pastelE();
+    $queryD =  $grafica->departamento(); 
 
-      //$record = $query->result();
-      $data = [];
+    $data = [];
 
-      foreach($query as $row) {
-          $data['label'][] = $row->persona;
-          $data['data'][] = (int) $row->total;
-      }
-      
-      $data['chart_data'] = json_encode($data);
-
-      return view('modGraficas/graficas', $data);
+    foreach($query as $row) {
+        $data['label'][] = $row->genero;
+        $data['data'][] = (int) $row->total;
     }
 
-    public function barraF(){
-
-      $grafica = new GraficasModel();
-      
-      $fecha = $this->request->getVar('fecha');
-
-      $fechas = explode(" - ", $fecha);
-
-      $fechaI = $fechas[0];
-      $fechaF = $fechas[1];
-
-      $query =  $grafica->barra($fechaI, $fechaF); 
-
-      //$record = $query->result();
-      $data = [];
-
-      foreach($query as $row) {
-          $data['label'][] = $row->persona;
-          $data['data'][] = (int) $row->total;
-      }
-      
-      //$data['chart_data'] = json_encode($data); 
-
-      echo json_encode($data);
-
-      //return view('modGraficas/graficas', $data);
+    foreach($queryE as $row) {
+      $data['label2'][] = $row->estado;
+      $data['data2'][] = (int) $row->totalE;
     }
 
-    public function barraProm(){
+    foreach($queryD as $row) {
+      $data['label3'][] = $row->departamento;
+      $data['data3'][] = (int) $row->totalD;
+    }
+    
+    $data['chart_data'] = json_encode($data);
 
-      $grafica = new GraficasModel();
-      
-      $fecha = $this->request->getVar('fecha');
+    return view('modGraficas/graficas', $data);
+  }
 
-      $fechas = explode(" - ", $fecha);
+  public function proceso(){
 
-      $fechaI = $fechas[0];
-      $fechaF = $fechas[1];
+    $grafica = new GraficasModel();
 
-      $query =  $grafica->barraProm($fechaI, $fechaF); 
 
-      //$record = $query->result();
-      $data = [];
+    return view('modGraficas/graficasProceso');
+  }
 
-      foreach($query as $row) {
-          $data['label'][] = $row->persona;
-          $data['data'][] = (int) $row->promedio;
-      }
+  public function barraF(){
 
-      echo json_encode($data);
+    $grafica = new GraficasModel();
+    
+    $fecha = $this->request->getVar('fecha');
+
+    $fechas = explode(" - ", $fecha);
+
+    $fechaI = $fechas[0];
+    $fechaF = $fechas[1];
+
+    $query =  $grafica->barra($fechaI, $fechaF); 
+
+    //$record = $query->result();
+    $data = [];
+
+    foreach($query as $row) {
+        $data['label'][] = $row->persona;
+        $data['data'][] = (int) $row->total;
+    }
+    
+    //$data['chart_data'] = json_encode($data); 
+
+    echo json_encode($data);
+
+    //return view('modGraficas/graficas', $data);
+  }
+
+  public function barraProm(){
+
+    $grafica = new GraficasModel();
+    
+    $fecha = $this->request->getVar('fecha');
+
+    $fechas = explode(" - ", $fecha);
+
+    $fechaI = $fechas[0];
+    $fechaF = $fechas[1];
+
+    $query =  $grafica->barraProm($fechaI, $fechaF); 
+
+    //$record = $query->result();
+    $data = [];
+
+    foreach($query as $row) {
+        $data['label'][] = $row->persona;
+        $data['data'][] = (int) $row->promedio;
     }
 
-    public function barraP(){
+    echo json_encode($data);
+  }
 
-      $grafica = new GraficasModel();
-      
-      $calendario = $this->request->getVar('calendario');
+  public function barraP(){
 
-      $fechas = explode(" - ", $calendario);
+    $grafica = new GraficasModel();
+    
+    $calendario = $this->request->getVar('calendario');
 
-      $fechaI = $fechas[0];
-      $fechaF = $fechas[1];
+    $fechas = explode(" - ", $calendario);
 
-      $query =  $grafica->barraP($fechaI, $fechaF); 
+    $fechaI = $fechas[0];
+    $fechaF = $fechas[1];
 
-      $data = [];
+    $query =  $grafica->barraP($fechaI, $fechaF); 
 
-      foreach($query as $row) {
-          $data['label'][] = $row->proceso;
-          $data['data'][] = (int) $row->tiempo;
-      }
+    $data = [];
 
-      echo json_encode($data);
+    foreach($query as $row) {
+        $data['label'][] = $row->proceso;
+        $data['data'][] = (int) $row->tiempo;
     }
 
-    public function line(){
+    echo json_encode($data);
+  }
 
-      $grafica = new GraficasModel();
+  public function line(){
 
-      $query =  $grafica->line(); 
+    $grafica = new GraficasModel();
 
-      $p = $grafica->progreso();
-      $i = $grafica->inactivo();
-      $f = $grafica->finalizado();
-      
+    $query =  $grafica->line(); 
 
-      //$record = $query->result();
-      $data = [];
+    $p = $grafica->progreso();
+    $i = $grafica->inactivo();
+    $f = $grafica->finalizado();
+    
 
-      foreach($query as $row) {
-          $data['label'][] = $row->mes;
-          $data['data'][] = (int) $row->total;
-      }
-      
-      $data['chart_dataL'] = json_encode($data);
+    //$record = $query->result();
+    $data = [];
 
-      $data['p'] = $p;
-      $data['i'] = $i;
-      $data['f'] = $f;
-
-      return view('modGraficas/graficaLineal', $data);
+    foreach($query as $row) {
+        $data['label'][] = $row->mes;
+        $data['data'][] = (int) $row->total;
     }
+    
+    $data['chart_dataL'] = json_encode($data);
+
+    $data['p'] = $p;
+    $data['i'] = $i;
+    $data['f'] = $f;
+
+    return view('modGraficas/graficaLineal', $data);
+  }
+
+  public function departamento(){
+
+    $grafica = new GraficasModel();
+    
+    $fecha = $this->request->getVar('fecha');
+
+    $fechas = explode(" - ", $fecha);
+
+    $fechaI = $fechas[0];
+    $fechaF = $fechas[1];
+
+    $query =  $grafica->departamento($fechaI, $fechaF); 
+
+    //$record = $query->result();
+    $data = [];
+
+    foreach($query as $row) {
+        $data['label'][] = $row->persona;
+        $data['data'][] = (int) $row->promedio;
+    }
+
+    echo json_encode($data);
+  }
 }
 
 ?>

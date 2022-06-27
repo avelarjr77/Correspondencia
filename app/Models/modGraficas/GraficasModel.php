@@ -64,6 +64,35 @@ class GraficasModel extends Model
         return $tr->getResult();
     }
 
+    public function pastelG()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'total', 
+                                if(p.genero = 'F', 'Femenino', 'Masculino') as 'genero'
+                                FROM wk_usuario u
+                                INNER JOIN wk_persona p ON u.personaId = p.personaId
+                                GROUP BY p.genero");
+        return $tr->getResult();
+    }
+
+    public function pastelE()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'totalE', 
+                                if( u.estado = 'A', 'Activo', 'Inactivo') as 'estado'
+                                FROM wk_usuario u
+                                GROUP BY u.estado");
+        return $tr->getResult();
+    }
+
+    public function departamento()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'totalD', d.departamento as 'departamento'
+                                FROM wk_usuario u
+                                INNER JOIN wk_persona p ON u.personaId = p.personaId
+                                INNER JOIN wk_departamento d ON p.departamentoId = d.departamentoId
+                                GROUP BY d.departamento");
+        return $tr->getResult();
+    }
+
     public function line()
     {
         /* $fechaHora = date('Y-m-d H:i:s');
@@ -102,7 +131,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'P'");
+                                WHERE estado = 'P' AND MONTH (ta.fechaInicio) = MONTH (NOW())");
         return $ln->getResult();
     }
 
@@ -115,7 +144,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'I'");
+                                WHERE estado = 'I' AND MONTH (ta.fechaCreacion) = MONTH (NOW())");
         return $ln->getResult();
     }
 
@@ -128,7 +157,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'F'");
+                                WHERE estado = 'F' AND MONTH (ta.fechaFin) = MONTH (NOW())");
         return $ln->getResult();
     }
 }

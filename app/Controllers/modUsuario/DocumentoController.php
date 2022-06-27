@@ -65,7 +65,7 @@ class DocumentoController extends BaseController{
         }
     }
 
-    //ACTUALIZAR PERSONA
+    //ACTUALIZAR DOC
     public function actualizar()
     {
         $datos = [
@@ -89,6 +89,28 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url() . '/documento')->with('mensaje', '5');
         }
     }
+
+    /* public function actualizarDoc()
+    {
+        $actualizarDoc = new DocumentoModel();
+
+        //$documentoI =  $actualizarDoc->asArray()->select('max(d.documentoId) AS id')->from('wk_documento d')->first();
+
+        $documentoId = 2;
+
+        $documento = $this->request->getVar('documento');
+
+        $datos = [
+            "documento" => $documento
+        ];
+
+        $respuesta = $actualizarDoc->actualizarDoc($datos, $documentoId);
+
+        $datos = ["datos" => $respuesta];
+
+        echo json_encode($documentoId);
+
+    } */
     
 }
 

@@ -1,21 +1,59 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<div class="x_panel">
+<div class="">
     <div class="x_title">
-        <h2>Gráficas</h2>
-        <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-        </ul>
+        <h3>Información de Usuarios</h3>
         <div class="clearfix"></div>
     </div>
 
     <div class="row justify-content-center">
 
-        <div class="col-md-12 col-sm-12  ">
+        <div class="col-md-5 col-sm-5">
             <div class="x_panel">
                 <div class="x_title">
-                <h2>Bar graph <small>Sessions</small></h2>
+                <h2>Género</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10" id="pastelG">
+                            <canvas id="pastelGChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-5">
+            <div class="x_panel">
+                <div class="x_title">
+                <h2>Estado</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10" id="pastelE">
+                            <canvas id="pastelEChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                <h2>Usuarios por departamento</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -25,76 +63,14 @@
                 </div>
                 <div class="x_content">
                     <div class="row justify-content-center">
-                        <form id="frm_bar">
-                            <div class="col-md-10 form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
-                                <input type="text" name="fecha" class="form-control float-right" id="fecha">
-                            </div>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-outline-info" id="btn_filtro_bar">
-                                    <i class="fas fa-chart-line"></i>Graficar 
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-10" id="barChart" style="display: none">
-                            <canvas id="barChartActPersona"></canvas>
+                        <div class="col-md-10" id="barChart2">
+                            <canvas id="departamentoChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
 
-    <div class="row justify-content-center">
-
-        <div class="col-md-12 col-sm-12  ">
-            <div class="x_panel">
-                <div class="x_title">
-                <h2>Bar graph <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    
-                </ul>
-                <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="row justify-content-center">
-                        <form id="frm_bar2">
-                            <div class="col-md-10 form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
-                                <input type="text" name="calendario" class="form-control float-right" id="calendario">
-                            </div>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-outline-info" id="btn_filtro_bar2">
-                                    <i class="fas fa-chart-line"></i>Graficar 
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-10" id="barChart2" style="display: none">
-                            <canvas id="barChartProceso"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -106,6 +82,177 @@
 
 <script>
   $(function(){
+
+    //PASTEL GÉNERO 
+    //get the bar chart canvas
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+    var ctx = $("#pastelGChart");
+
+    //bar chart data
+    var data = {
+      labels: cData.label,
+      datasets: [
+        {
+          label: 'Género',
+          data: cData.data,
+          backgroundColor: [
+            "#F597AD",
+            "#005161"
+          ],
+          borderColor: [
+            "#F597AD",
+            "#005161"
+          ],
+          borderWidth: [1, 1, 1, 1, 1,1,1,1, 1, 1, 1,1,1]
+        }
+      ]
+    };
+
+    //options
+    var options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Total de usuarios por género'
+        }
+      }
+    };
+
+    //create bar Chart class object
+    var chart1 = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+    });
+
+    //PASTEL ESTADO
+    //get the bar chart canvas
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+    var ctx = $("#pastelEChart");
+
+    //bar chart data
+    var data2 = {
+      labels: cData.label2,
+      datasets: [
+        {
+          label: 'Estado',
+          data: cData.data2,
+          backgroundColor: [
+            "#0C856B",
+            "#CFD6DA"
+          ],
+          borderColor: [
+            "#0C856B",
+            "#CFD6DA"
+          ],
+          borderWidth: [1, 1, 1, 1, 1,1,1,1, 1, 1, 1,1,1]
+        }
+      ]
+    };
+
+    //options
+    var options2 = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Total de usuarios por estado'
+        }
+      }
+    };
+
+    //create bar Chart class object
+    var chart2 = new Chart(ctx, {
+      type: 'pie',
+      data: data2,
+      options: options2
+    });
+    //////
+    //BARRA DEPARTAMENTO
+    //get the bar chart canvas
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+    var ctx = $("#departamentoChart");
+
+    //bar chart data
+    var data3 = {
+      labels: cData.label3,
+      datasets: [
+        {
+          label: 'Usuarios',
+          data: cData.data3,
+          backgroundColor: [
+            "#26b99a",
+            "#03586A",
+            "#34495E",
+            "#26B99A",
+            "#CFD4D8",
+            "#036475",
+            "#BCE9E0",
+            "#B3CDD2",
+            "#b1bfc9",
+            "#b3dee2",
+            "#82c9ae",
+          ],
+          borderColor: [
+            "#26b99a",
+            "#03586A",
+            "#34495E",
+            "#26B99A",
+            "#CFD4D8",
+            "#036475",
+            "#BCE9E0",
+            "#B3CDD2",
+            "#b1bfc9",
+            "#b3dee2",
+            "#82c9ae",
+          ],
+          borderWidth: [1, 1, 1, 1, 1,1,1,1, 1, 1, 1,1,1]
+        }
+      ]
+    };
+
+    //options
+    var options3 = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Total de usuarios por departamento'
+        }
+      },
+      scales: {
+          y: {
+            stacked: true,
+              ticks: {
+                beginAtZero: true,
+                  suggestedMin: 5,
+                  suggestedMax: 30
+              },
+              title: {
+                display: true,
+                text: 'Cantidad de usuarios'
+              }
+          }
+      }
+    };
+
+    //create bar Chart class object
+    var chart3 = new Chart(ctx, {
+      type: 'bar',
+      data: data3,
+      options: options3
+    });
+    //////
 
     $("#fecha").daterangepicker({
         "locale":{

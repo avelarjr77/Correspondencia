@@ -191,7 +191,6 @@
             </div>
             </form>
 
-
             <br><br><br>
             <div class="row" id="tbl-actividad">
                 <div class="col-md-12">
@@ -234,13 +233,6 @@
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
-<script>
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone('.dropzone');
-    myDropzone.on('complete', function (param){
-        console.log(JSON.parse(param.xhr.response))
-    })
-</script>
 
 <script>
     $(document).ready(function(){
@@ -362,7 +354,9 @@
             var actividad = $(this).data('actividad');
             var actividadId = $(this).data('actividadid');
             var estado = $(this).data('estado');
+
             $('#actividadN').html(actividad);
+            $('#transaccionActividadId').val(id);
 
             $('#documento').css("display", "block");
             $('#proceso').hide();
@@ -373,18 +367,19 @@
             $('#documento').hide();
         });
 
-        /* $("#input-44").fileinput({
-            uploadUrl: '/file-upload-batch/2',
-            showUpload: false,
-            maxFileCount:5,
-            maxFilePreviewSize: 10240,
-            fileActionSettings: {
-                showRemove: false,
-                showUpload: false,
-                showZoom: true,
-                showDrag: false
-            } 
+        /* $('.btn-doc').on('click',function(){
+            $.ajax({
+                type: "GET",
+                url: "<= base_url().route_to('actualizarDoc') ?>",
+                data: $("#frmDoc").serialize(),
+                success:function(data){
+
+                    var dataE = JSON.parse(data);
+                    console.log(dataE);
+                }
+            });
         }); */
+ 
     });
 </script>
 
