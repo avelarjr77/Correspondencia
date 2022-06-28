@@ -9,8 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>Correspondencia UCAD</title>
-
   <!-- Bootstrap -->
   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -23,6 +21,10 @@
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
+  <!--KRAJEE-->
+  <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
+  <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
+
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
   <!-- JQVMap -->
@@ -30,12 +32,30 @@
   <!-- bootstrap-daterangepicker -->
   <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+  <title>Correspondencia UCAD</title>
+
+  <!-- Bootstrap -->
+  <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
   <!-- Datatables -->
   <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
   <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
   <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
   <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
   <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- bootstrap-progressbar -->
+  <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+  <!-- JQVMap -->
+  <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+  <!-- bootstrap-daterangepicker -->
+  <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
   <link href="build/css/custom.min.css" rel="stylesheet">
@@ -208,36 +228,6 @@
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
-              <li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                  <?php
-
-                  $session = session();
-                  $menu     = new MenuSubmenuModel();
-                  $usuario = new UsuarioModel();
-
-                  $user =  $usuario->asObject()->select('usuario as usuario')
-                    ->where('usuario', $session->usuario)->findAll();
-
-                  ?>
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span><?php echo $session->usuario ?></span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Ha agregado:
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
             </ul>
           </nav>
         </div>
@@ -263,8 +253,17 @@
     </div>
   </div>
 
+  <!-- Dropzone.js -->
+  <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
+  <!--SweetAlert-->
+  <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+  <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
+  <!--KRAJEE
+    <script src="vendors/kartik/js/locales/LANG.js"></script> -->
+
+  <!-- HOLA SOY UNA PRUEBA-->
   <!-- jQuery -->
   <script src="vendors/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
@@ -274,8 +273,8 @@
   <!-- NProgress -->
   <script src="vendors/nprogress/nprogress.js"></script>
   <!-- Chart.js -->
-  <script src="vendors/chart.js-3.8.0/package/dist/chart.min.js"></script>
-  
+  <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
   <!-- gauge.js -->
   <script src="vendors/gauge.js/dist/gauge.min.js"></script>
   <!-- bootstrap-progressbar -->
@@ -322,9 +321,6 @@
 
   <!-- Custom Theme Scripts -->
   <script src="build/js/custom.min.js"></script>
-
-  <!-- Dropzone.js -->
-  <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
   <!--SweetAlert-->
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>

@@ -135,7 +135,7 @@ class ActividadController extends BaseController
             ';
             $email = \Config\Services::email();
             $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada');
-            $email->setTo($contacto['contacto']);
+            $email->setTo('avelarjr77@gmail.com');
             $email->setSubject('Nueva Actividad Asignada');
             $email->setMessage($msm);
             if ($email->send()) {
