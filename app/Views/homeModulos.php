@@ -27,13 +27,12 @@
             <?php foreach ($modulo as $key) : ?>
                 <div class="col-sm-3">
                     <div class="profile-card card rounded-lg shadow  p-xl-3 mb-3 text-center position-relative overflow-hidden">
-                        <div class="banner"></div>
-                        <img src="images/administracion.png" alt="" class="img-circle1 mx-auto mb-3" style="width: 180px;">
-                        <h3 style="	font-size: 1.1rem; display: block; opacity: 1;"><?= $key->modulo ?></h3><br>
+                        <img src="images/modulo.png" alt="" class="mx-auto mb-3" style="width: 180px;">
+                        <h3 style="	font-size: 1.1rem; display: block; opacity: 1;"><?= $key->modulo ?></h3>
                         <div class="text-left mb-4">
                             <form class="text-center" id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
                                 <button type="submit" class="btn btn-dark btn-sm center" style="border-radius:5px;padding:7px 15px;color:white;background-color:#305274">
-                                    <i class="fa fa-long-arrow-right"></i> Ir al modulo
+                                    Ir al modulo
                                 </button>
                                 <input type="hidden" name="moduloId" class="moduloId" id="moduloId" value="<?= $key->moduloId ?> ">
                             </form>
