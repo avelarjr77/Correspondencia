@@ -2,6 +2,7 @@
 
 use App\Controllers\BaseController;
 use App\Models\modUsuario\PersonaModel;
+use App\Models\modUsuario\UsuarioModel;
 
 class PersonaController extends BaseController{
 
@@ -10,16 +11,21 @@ class PersonaController extends BaseController{
     public function persona(){
 
         $nombrePersona = new PersonaModel();
+        $nombreUsuario = new UsuarioModel();
+        $usuario = $nombreUsuario->listarUsuario();
         $datos = $nombrePersona->listarPersona();
         $cargo = $nombrePersona->listarCargo();
         $departamento = $nombrePersona->listarDepartamento();
+        $rol = $nombreUsuario->listarRol();
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos" => $datos,
+            "usuario"=>$usuario,
             "cargo" => $cargo,
             "departamento" => $departamento,
+            "rol" => $rol,
             "mensaje" => $mensaje
         ];
 
