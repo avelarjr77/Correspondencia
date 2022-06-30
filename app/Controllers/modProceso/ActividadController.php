@@ -104,7 +104,7 @@ class ActividadController extends BaseController
             $model = new ContactoModel();
             $anio = date('Y');
 
-            $contacto = $model->select('contacto')->where('personaId', $personaId);
+            $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
 
             $msm ='
             <tbody>
@@ -123,10 +123,9 @@ class ActividadController extends BaseController
                         </p>
                         <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
                         </p>Descripcion:</p>'.$descripcion.'<p></p>
-                        <p style="margin:2px;font-size:15px">Por favor, no responda a este mensaje ya que ha sido generado de forma automática.</p>
-                            <div style="width:100%;text-align:center;margin-top:10%">
-                                <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
-                            </div>
+                        <div style="width:100%;text-align:center;margin-top:10%">
+                            <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                        </div>
                         <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
                     </div>
                     </td>

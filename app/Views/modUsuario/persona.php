@@ -580,12 +580,14 @@
 
 <script type="text/javascript">
     function onFinish() {
+        const nombres = $('#nombres').val();
+        const primerApellido = $('#primerApellido').val();
+        const segundoApellido = $('#segundoApellido').val();
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "<?= base_url() . route_to('actividadI') ?>",
             data: {
-                transaccionActividadId: id,
-                etapaId: etapaId
+                transaccionActividadId: nombres, primerApellido, segundoApellido
             },
             success: function(data) {
 
@@ -642,8 +644,8 @@
             },
             anchor: {
                 enableNavigation: true, // Enable/Disable anchor navigation 
-                enableNavigationAlways: false, // Activates all anchors clickable always
-                enableDoneState: true, // Add done state on visited steps
+                enableNavigationAlways: true, // Activates all anchors clickable always
+                enableDoneState: false, // Add done state on visited steps
                 markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
                 unDoneOnBackNavigation: false, // While navigate back, done state will be cleared
                 enableDoneStateNavigation: true // Enable/Disable the done state navigation
