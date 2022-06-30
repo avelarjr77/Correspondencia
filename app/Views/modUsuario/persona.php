@@ -60,150 +60,131 @@
                             </a>
                         </li>
                     </ul>
+                    <form action="<?php echo base_url() . '/crearPersona' ?>" method="post">
 
                     <div class="tab-content">
                         <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1"><br>
-                            <form action="<?php echo base_url() . '/crearPersona' ?>" method="POST">
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
-                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
-                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
-                                    <div class="col-md-6">
-                                        <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
-                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
-                                    <div class="col-md-6">
-                                        <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
-                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-2 label-align">Fecha de Nacimiento<span class="required">*</span></label>
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-                                    </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-2 label-align">Fecha de Nacimiento<span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
-                                    <divclass="col-md-6">
-                                        <select name="genero" id="genero" class="form-control" required="required">
-                                            <option>Género</option>
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                        </select>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
+                                <divclass="col-md-6">
+                                    <select name="genero" id="genero" class="form-control" required="required">
+                                        <option>Género</option>
+                                        <option>Masculino</option>
+                                        <option>Femenino</option>
+                                    </select>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <select name="cargoId" id="cargoId" required="required" class="form-control">
+                                        <option value="">-Selecciona un cargo-</option>
+                                        <?php foreach ($cargo as $c) : ?>
+                                            <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
-                                    <div class="col-md-6">
-                                        <select name="cargoId" id="cargoId" required="required" class="form-control">
-                                            <option value="">-Selecciona un cargo-</option>
-                                            <?php foreach ($cargo as $c) : ?>
-                                                <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <select name="departamentoId" id="departamentoId" required="required" class="form-control">
+                                        <option value="">-Selecciona un departamento-</option>
+                                        <?php foreach ($departamento as $d) : ?>
+                                            <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
-                                    <div class="col-md-6">
-                                        <select name="departamentoId" id="departamentoId" required="required" class="form-control">
-                                            <option value="">-Selecciona un departamento-</option>
-                                            <?php foreach ($departamento as $d) : ?>
-                                                <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </form>
+                            </div>
                         </div>
                         <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2"><br>
-                            <form action="<?php echo base_url() . '/crearUsuario' ?>" method="POST">
-
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre de Usuario:<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control">
-                                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre de Usuario:<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
+                            </div>
 
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Clave:<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
-                                        <span class="form-control-feedback" aria-hidden="true"></span>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Clave:<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
+                                    <span class="form-control-feedback" aria-hidden="true"></span>
                                 </div>
+                            </div>
 
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Estado:<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <select name="estado" class="form-control" required="required">
-                                            <option value="" disable>-Selecciona un estado-</option>
-                                            <option value="A">Activo</option>
-                                            <option value="I">Inactivo</option>
-                                        </select>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Estado:<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <select name="estado" class="form-control" required="required">
+                                        <option value="" disable>-Selecciona un estado-</option>
+                                        <option value="A">Activo</option>
+                                        <option value="I">Inactivo</option>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Rol:<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <select name="rolId" class="form-control" required="required">
-                                            <option value="">-Selecciona un Rol-</option>
-                                            <?php foreach ($rol as $r) : ?>
-                                                <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Rol:<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <select name="rolId" class="form-control" required="required">
+                                        <option value="">-Selecciona un Rol-</option>
+                                        <?php foreach ($rol as $r) : ?>
+                                            <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-
-                            </form>
+                            </div>
                         </div>
                         <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-                            <form action="<?php echo base_url() . '/crearContacto' ?>" method="POST">
-
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Contacto:<span class="required ">*</span></label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
-                                        <span class="fa fa-development form-control-feedback right" aria-hidden="true"></span>
-                                    </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Contacto:<span class="required ">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="email" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
+                                    <span class="fa fa-development form-control-feedback right" aria-hidden="true"></span>
                                 </div>
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Esctado:<span class="required ">*</span></label>
-                                    <form action="" class="formulario">
-                                        <div class="col-md-6 radio">
-                                            <input type="radio" name="estado" id="estado" value="Activo">
-                                            <label for="Activo">Activo</label>
-                                            <input type="radio" name="estado" id="estado" value="Inactivo">
-                                            <label for="Inactivo">Inactivo</label>
-                                        </div>
-                                    </form>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
+                    </form>
                 </div>
                 <br /> &nbsp;
             </div>
@@ -587,7 +568,9 @@
             type: "POST",
             url: "<?= base_url() . route_to('actividadI') ?>",
             data: {
-                transaccionActividadId: nombres, primerApellido, segundoApellido
+                transaccionActividadId: nombres,
+                primerApellido,
+                segundoApellido
             },
             success: function(data) {
 
@@ -640,7 +623,7 @@
                 showNextButton: true, // show/hide a Next button
                 showPreviousButton: true, // show/hide a Previous button
                 position: 'bottom', // none/ top/ both bottom
-                extraHtml: `<button class="btn btn-primary" onclick="onFinish()">Finish</button>`
+                extraHtml: `<button class="btn btn-primary" typr="submit">Agregar</button>`
             },
             anchor: {
                 enableNavigation: true, // Enable/Disable anchor navigation 

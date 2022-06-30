@@ -104,7 +104,8 @@ class ActividadController extends BaseController
             $model = new ContactoModel();
             $anio = date('Y');
 
-            $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
+            $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')
+            ->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
 
             $msm ='
             <tbody>
