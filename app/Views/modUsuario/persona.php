@@ -13,7 +13,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Persona</button>
+                <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-plus"></i> Agregar Persona</button>
                 <a href="<?= base_url() . route_to('cargo') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Cargo</a>
                 <a href="<?= base_url() . route_to('departamento') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Departamento</a>
                 <br>
@@ -21,172 +21,174 @@
                 <!-- Smart Wizard -->
                 <!-- Tabs -->
 
-                <div class="mb-5 border-bottom">
+                <div class="collapse show" id="collapseExample" >
+                    <div class="mb-5 border-bottom">
 
-                    <div class="float-end text-muted me-3 mt-2">
-                    </div>
+                        <div class="float-end text-muted me-3 mt-2">
+                        </div>
 
-                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 
-                        <div class="offcanvas-body">
+                            <div class="offcanvas-body">
 
-                            <fieldset class="mb-2" style="display: none;" id="color-list">
-                                <!-- <legend class="col-form-label col-sm-2 col-form-label">Colors</legend> -->
+                                <fieldset class="mb-2" style="display: none;" id="color-list">
+                                    <!-- <legend class="col-form-label col-sm-2 col-form-label">Colors</legend> -->
 
-                            </fieldset>
+                                </fieldset>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- SmartWizard html -->
+                    <div id="smartwizard">
+                        <ul class="nav nav-progress">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#step-1">
+                                    <div class="num">1</div>
+                                    Información Persona
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#step-2">
+                                    <span class="num">2</span>
+                                    Usuario
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#step-3">
+                                    <span class="num">3</span>
+                                    Contacto
+                                </a>
+                            </li>
+                        </ul>
+                        <form action="<?php echo base_url() . '/crearPersona' ?>" method="post">
+
+                            <div class="tab-content">
+                                <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1"><br>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Fecha de Nacimiento<span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
+                                        <divclass="col-md-6">
+                                            <select name="genero" id="genero" class="form-control" required="required">
+                                                <option>Género</option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <select name="cargoId" id="cargoId" required="required" class="form-control">
+                                                <option value="">-Selecciona un cargo-</option>
+                                                <?php foreach ($cargo as $c) : ?>
+                                                    <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <select name="departamentoId" id="departamentoId" required="required" class="form-control">
+                                                <option value="">-Selecciona un departamento-</option>
+                                                <?php foreach ($departamento as $d) : ?>
+                                                    <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2"><br>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre de Usuario:<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Clave:<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
+                                            <span class="form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Estado:<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <select name="estado" class="form-control" required="required">
+                                                <option value="" disable>-Selecciona un estado-</option>
+                                                <option value="A">Activo</option>
+                                                <option value="I">Inactivo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Rol:<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <select name="rolId" class="form-control" required="required">
+                                                <option value="">-Selecciona un Rol-</option>
+                                                <?php foreach ($rol as $r) : ?>
+                                                    <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Contacto:<span class="required ">*</span></label>
+                                        <div class="col-md-6">
+                                            <input type="email" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
+                                            <span class="fa fa-development form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <br /> &nbsp;
                 </div>
-
-                <!-- SmartWizard html -->
-                <div id="smartwizard">
-                    <ul class="nav nav-progress">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#step-1">
-                                <div class="num">1</div>
-                                Información Persona
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#step-2">
-                                <span class="num">2</span>
-                                Usuario
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#step-3">
-                                <span class="num">3</span>
-                                Contacto
-                            </a>
-                        </li>
-                    </ul>
-                    <form action="<?php echo base_url() . '/crearPersona' ?>" method="post">
-
-                    <div class="tab-content">
-                        <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1"><br>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
-                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
-                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
-                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
-                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-2 label-align">Fecha de Nacimiento<span class="required">*</span></label>
-                                <div class="col-md-6">
-                                    <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
-                                <divclass="col-md-6">
-                                    <select name="genero" id="genero" class="form-control" required="required">
-                                        <option>Género</option>
-                                        <option>Masculino</option>
-                                        <option>Femenino</option>
-                                    </select>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
-                                <div class="col-md-6">
-                                    <select name="cargoId" id="cargoId" required="required" class="form-control">
-                                        <option value="">-Selecciona un cargo-</option>
-                                        <?php foreach ($cargo as $c) : ?>
-                                            <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
-                                <div class="col-md-6">
-                                    <select name="departamentoId" id="departamentoId" required="required" class="form-control">
-                                        <option value="">-Selecciona un departamento-</option>
-                                        <?php foreach ($departamento as $d) : ?>
-                                            <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2"><br>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre de Usuario:<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <input type="text" id="usuario" name="usuario" minlength="6" maxlength="25" required="required" autocomplete="off" class="form-control">
-                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Clave:<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
-                                    <span class="form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Estado:<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <select name="estado" class="form-control" required="required">
-                                        <option value="" disable>-Selecciona un estado-</option>
-                                        <option value="A">Activo</option>
-                                        <option value="I">Inactivo</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Rol:<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <select name="rolId" class="form-control" required="required">
-                                        <option value="">-Selecciona un Rol-</option>
-                                        <?php foreach ($rol as $r) : ?>
-                                            <option value="<?= $r->rolId ?>"><?= $r->nombreRol ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Contacto:<span class="required ">*</span></label>
-                                <div class="col-md-6">
-                                    <input type="email" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
-                                    <span class="fa fa-development form-control-feedback right" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    </form>
-                </div>
-                <br /> &nbsp;
             </div>
             <!-- End SmartWizard Content -->
         </div>
@@ -250,103 +252,6 @@
                     </table>
                 </div>
                 <!--FIN LISTADO PERSONA-->
-
-                <!-- Modal Agregar PERSONA-->
-                <form action="<?php echo base_url() . '/crearPersona' ?>" method="POST">
-                    <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog " role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar una Persona</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span class="required ">*</span></label>
-                                        <div class="col-md-8">
-                                            <input type="text" minlength="10" maxlength="10" class="form-control" id="dui" name="dui" required autocomplete="off">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required ">*</span></label>
-                                        <div class="col-md-8">
-                                            <input type="text" minlength="3" maxlength="70" class="form-control" id="nombres" name="nombres" required autocomplete="off">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Primer Apellido<span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" minlength="5" maxlength="40" name="primerApellido" id="primerApellido" type="text" required autocomplete="off">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Segundo Apellido<span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" minlength="5" maxlength="45" name="segundoApellido" required autocomplete="off" type="text">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Fecha de Nacimiento<span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <select name="genero" id="genero" class="form-control" required="required">
-                                                <option>Género</option>
-                                                <option>Masculino</option>
-                                                <option>Femenino</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <select name="cargoId" id="cargoId" required="required" class="form-control">
-                                                <option value="">-Selecciona un cargo-</option>
-                                                <?php foreach ($cargo as $c) : ?>
-                                                    <option value="<?php echo $c->cargoId ?>"><?php echo $c->cargo ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-2 label-align">Departamento <span class="required">*</span></label>
-                                        <div class="col-md-8">
-                                            <select name="departamentoId" id="departamentoId" required="required" class="form-control">
-                                                <option value="">-Selecciona un departamento-</option>
-                                                <?php foreach ($departamento as $d) : ?>
-                                                    <option value="<?php echo $d->departamentoId ?>"><?php echo $d->departamento ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 offset-md-3">
-                                            <button type="reset" class="btn btn-outline-info btn-xs">Limpiar</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- End Modal Agregar PERSONA-->
 
                 <!-- Modal Edit PERSONA-->
                 <form action="<?php echo base_url() . '/actualizarPersona' ?>" method="POST">

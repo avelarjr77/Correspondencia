@@ -21,7 +21,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre de Modulo</th>
-                        <th>Icono</th>
                         <th>Descripción</th>
                         <th>Archivo</th>
                         <th scope="col" colspan="2">Acción</th>
@@ -32,7 +31,6 @@
                         <tr>
                             <td><?= $modulo->moduloId ?></td>
                             <td><?= $modulo->nombre ?></td>
-                            <td><i class="<?= $modulo->nombreIcono ?>"></i> <?= $modulo->nombreIcono ?></td>
                             <td><?= $modulo->descripcion ?></td>
                             <td><?= $modulo->archivo ?></td>
                             <td>
@@ -63,18 +61,6 @@
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
                                 <input type="text" id="nombre" name="nombre" required="required" minlength="3" maxlength="75" autocomplete="off" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Seleccionar Icono:</label>
-                                <select name="iconoId" required="required" class="form-control iconoId">
-                                    <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($icono as $key) : ?>
-                                    <option value="<?php echo $key->iconoId ?>"><span><i
-                                                class="<?php echo $key->nombreIcono ?>"></i></span>
-                                        <?php echo $key->nombreIcono ?> </i></option>
-                                    <?php endforeach; ?>
-                                </select>
                             </div>
 
                             <div class="form-group">
@@ -114,18 +100,6 @@
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
                                 <input type="text" id="nombre" name="nombre" autocomplete="off" required="required" minlength="3" maxlength="75" class="form-control nombre">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Seleccionar Icono:</label>
-                                <select name="iconoId" id="iconoId" required="required" class="form-control iconoId">
-                                    <option value="">-Selecciona un Icono-</option>
-                                    <?php foreach ($icono as $key) : ?>
-                                    <option value="<?php echo $key->iconoId ?>"><span><i
-                                                class="<?php echo $key->nombreIcono ?>"></i></span>
-                                        <?php echo $key->nombreIcono ?> </i></option>
-                                    <?php endforeach; ?>
-                                </select>
                             </div>
 
                             <div class="form-group">
