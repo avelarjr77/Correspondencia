@@ -107,8 +107,14 @@ class Validation
         'usuario'        => 'is_unique[wk_usuario.usuario]|alpha_numeric'
     ];
 
+    public $validarProceso = [
+        'nombreProceso' => 'is_unique[wk_proceso.nombreProceso]|alpha_numeric_space'
+    ];
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
 
 }
+
+

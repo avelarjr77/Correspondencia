@@ -60,12 +60,12 @@
                 
                     <div class="form-group">
                         <label>Nombre del Proceso</label>
-                        <input type="text" id="nombreProceso" name="nombreProceso" required="required" autocomplete="off" class="form-control">
+                        <input  type="text" id="nombreProceso" name="nombreProceso" required="required" minlength="4" maxlength="100" autocomplete="off" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Tipo de Proceso: </label>
-                        <select name="tipoProcesoId" class="form-control tipoProcesoId">
+                        <select name="tipoProcesoId" class="form-control tipoProcesoId" required>
                             <option value="">-Selecciona un tipo de proceso-</option>
                             <?php foreach ($tipoProceso as $tp): ?>
                                 <option value="<?= $tp->tipoProcesoId ?>"><?= $tp->tipoProceso ?></option>
@@ -1209,6 +1209,8 @@
         swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
         swal('', 'Falló actualizar', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'Datos duplicados o caracteres de puntuación no admitidos', 'error');
     }
 
 </script>

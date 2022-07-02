@@ -26,20 +26,20 @@ class ProcesoController extends BaseController{
 
     //CREAR PROCESO
     public function crear(){
-
-        $datos = [
-            "nombreProceso" => $_POST['nombreProceso'],
-            "tipoProcesoId" => $_POST['tipoProcesoId']
-        ];
-
+        
         $proceso = new ProcesoModel();
-        $respuesta = $proceso->insertar($datos);
+        if($this->validate('validarProceso')){
+            $proceso->insertar(
+                [
+                    "nombreProceso" => $_POST['nombreProceso'],
+                    "tipoProcesoId" => $_POST['tipoProcesoId']
+                ]
+            );
 
-        if ($respuesta > 0){
             return redirect()->to(base_url(). '/proceso')->with('mensaje','0');
-        } else {
-            return redirect()->to(base_url(). '/proceso')->with('mensaje','1');
-        } 
+        }
+
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','6');
     } 
 
     //ELIMINAR PROCESO
