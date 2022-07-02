@@ -27,7 +27,7 @@ class TransaccionActividadController extends BaseController{
                     WHEN ta.estado = "F" THEN "Finalizado"
                     ELSE "Inactivo"
                 END)  as estado, ta.transaccionDetalleId, a.etapaId, e.nombreEtapa, a.ordenActividad,
-                e.procesoId, pr.nombreProceso, e.orden as ordenEtapa, t.transaccionId')
+                e.procesoId, pr.nombreProceso, e.orden as ordenEtapa, t.transaccionId, ta.observaciones')
                 ->from('wk_transaccion_actividades ta')
                 ->join('wk_actividad a', 'a.actividadId = ta.actividadId')
                 ->join('wk_etapa e', 'e.etapaId = a.etapaId')
@@ -233,11 +233,28 @@ class TransaccionActividadController extends BaseController{
         }
     }
 
-    public function doc()
+    public function actualizarO()
     {
+        $datos = [
+            "observaciones" => $_POST['observaciones']
+        ];
+
+        $transaccionActividadId = $_POST['transaccionActividadId'];
+        $etapaId = $_POST['etapaId'];
+
         $transaccion = new TransaccionActividadModel();
-        
+        $respuesta = $transaccion->actualizarO($datos, $transaccionActividadId);
+
+        $datos = ["datos" => $respuesta];
+
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje', '4');
+        } else {
+            return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje', '5');
+        }
     }
+
+    
 }
 
 ?>

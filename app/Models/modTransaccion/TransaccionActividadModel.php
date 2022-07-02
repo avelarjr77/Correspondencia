@@ -103,4 +103,12 @@ class TransaccionActividadModel extends Model
         return $nombre->update();
     }
 
+    //actualizar TObservaciones
+    public function actualizarO($datos, $id){
+        $nombre = $this->db->table('wk_transaccion_actividades');
+        $nombre->set($datos);
+        $nombre->where('transaccionActividadId', $id);
+        return $nombre->update();
+    }
+
 }

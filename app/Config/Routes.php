@@ -290,6 +290,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->match(['get', 'post'],'transaccionActividades', 'modTransaccion/TransaccionActividadController::index', ['as'=> 'transaccionActividades']);
     $routes->match(['get', 'post'],'actividadF', 'modTransaccion/TransaccionActividadController::finalizarA', ['as'=> 'actividadF']);
     $routes->match(['get', 'post'],'actividadI', 'modTransaccion/TransaccionActividadController::iniciarActividad', ['as'=> 'actividadI']);
+    $routes->match(['get', 'post'],'actualizarActO', 'modTransaccion/TransaccionActividadController::actualizarO', ['as'=> 'actualizarActO']);
     $routes->match(['get', 'post'],'actividadDoc', 'modTransaccion/DocController::doc', ['as'=> 'actividadDoc']);
 
     //TRANSACCION LIST
