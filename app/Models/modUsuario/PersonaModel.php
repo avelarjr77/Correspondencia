@@ -4,7 +4,10 @@ namespace App\Models\modUsuario;
 use CodeIgniter\Model;
 
 class PersonaModel extends Model{
-   
+    protected $table 			= 'wk_persona';
+	protected $primaryKey 		= 'personaId';
+	protected $allowedFields 	= ['personaId', 'nombres', 'primerApellido', 'segundoApellido'];
+
     //LISTADO DE PERSONAS
     public function listarPersona()
     {

@@ -50,6 +50,13 @@ class DocumentoModel extends Model{
         return $actualizarDoc->update();
     }
 
+    /* public function actualizarDoc($data, $documentoId){
+        $actualizarDoc = $this->db->table('wk_documento');
+        $actualizarDoc->set($data);
+        $actualizarDoc->where('documentoId', $documentoId);
+        return $actualizarDoc->update();
+    } */
+
     //MODELO PARA ELIMINAR DOCUMENTO
     public function eliminar($data){
         $nombreDocumento = $this->db->table('wk_documento');

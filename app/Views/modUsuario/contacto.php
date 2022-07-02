@@ -14,30 +14,8 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
-        <br>
         <!--LISTADO DE Contactos -->
-       <div class="row">
-       <?php foreach ($datos as $key) : ?>
-                <div class="col-md-4 col-sm-4  profile_details">
-                    <div class="well profile_view">
-                        <div class="col-sm-12">
-                            <h4 class="brief"><i>Departamento: </i></h4>
-                            <div class="left col-sm-7">
-                                <h2><?php echo $key->nombre ?></h2>
-                                <p><strong>Tipo Contacto: </strong><br><?php echo $key->tipoContacto ?> </p>
-                                <ul class="list-unstyled">
-                                    <p><strong>Contacto:</strong><br><i class=" fa fa-caret-right "></i> <?php echo $key->contacto ?></p>
-                                </ul>
-                            </div>
-                            <div class="right col-sm-5 text-center">
-                                <img src="images/user.png" alt="" class="img-circle img-fluid"><br><br>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipocontacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-tipocontacto="<?php echo $key->tipoContacto ?>" data-contacto="<?php echo $key->contacto ?>" data-estado="<?php echo $key->estado ?>"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </div>
-                    </div>
-        <div class="">
+        <div class="row">
             <div class="col-md-12 col-sm-12 offset-md-12 right">
                 <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
                 <br>
@@ -70,7 +48,7 @@
                 </div>
                 <!-- end form for validations -->
             </div>
-        <!-- FIN LISTADO tipocontacto -->
+            <!-- FIN LISTADO tipocontacto -->
         </div>
         <!-- FIN LISTADO TIPOCONTACTO -->
 

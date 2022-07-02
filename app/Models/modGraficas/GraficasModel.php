@@ -29,15 +29,75 @@ class GraficasModel extends Model
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
-                                WHERE ta.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
+                                WHERE ta.estado='F' AND ta.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
                                 AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
                                 GROUP BY p.personaId
                                 ORDER BY p.personaId");
         return $tr->getResult();
     }
 
+    public function barraP($fechaI, $fechaF)
+    {
+        $tr = $this->db->query("SELECT p.nombreProceso as 'proceso', TIMESTAMPDIFF(MINUTE, t.horaInicio, t.horaFin) as 'tiempo'
+                                FROM wk_transaccion t
+                                INNER JOIN wk_proceso p ON p.procesoId = t.procesoId
+                                INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
+                                INNER JOIN wk_persona pe ON pe.personaId = t.personaId
+                                WHERE t.estadoTransaccion = 'F' AND t.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
+                                AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
+                                ORDER BY t.transaccionId");
+        return $tr->getResult();
+    }
+
+    public function barraProm($fechaI, $fechaF)
+    {
+        $tr = $this->db->query("SELECT p.nombres as 'persona', 
+                                AVG(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin)) as 'promedio'
+                                FROM wk_transaccion_actividades ta
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                WHERE ta.estado = 'F' AND ta.fechaInicio 
+                                BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
+                                AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
+                                GROUP BY p.personaId
+                                ORDER BY p.personaId");
+        return $tr->getResult();
+    }
+
+    public function pastelG()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'total', 
+                                if(p.genero = 'F', 'Femenino', 'Masculino') as 'genero'
+                                FROM wk_usuario u
+                                INNER JOIN wk_persona p ON u.personaId = p.personaId
+                                GROUP BY p.genero");
+        return $tr->getResult();
+    }
+
+    public function pastelE()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'totalE', 
+                                if( u.estado = 'A', 'Activo', 'Inactivo') as 'estado'
+                                FROM wk_usuario u
+                                GROUP BY u.estado");
+        return $tr->getResult();
+    }
+
+    public function departamento()
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'totalD', d.departamento as 'departamento'
+                                FROM wk_usuario u
+                                INNER JOIN wk_persona p ON u.personaId = p.personaId
+                                INNER JOIN wk_departamento d ON p.departamentoId = d.departamentoId
+                                GROUP BY d.departamento");
+        return $tr->getResult();
+    }
+
     public function line()
     {
+        /* $fechaHora = date('Y-m-d H:i:s');
+        $porciones = explode(" ", $fechaHora); */
+        
         $ln = $this->db->query("SELECT  
                                 (CASE
                                     WHEN MONTH(ta.fechaInicio) = 1 THEN 'Enero'
@@ -58,7 +118,7 @@ class GraficasModel extends Model
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
                                 GROUP BY mes
-                                ORDER BY ta.transaccionActividadId");
+                                ORDER BY ta.fechaInicio");
         return $ln->getResult();
     }
 
@@ -71,7 +131,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'P'");
+                                WHERE estado = 'P' AND MONTH (ta.fechaInicio) = MONTH (NOW())");
         return $ln->getResult();
     }
 
@@ -84,7 +144,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'I'");
+                                WHERE estado = 'I' AND MONTH (ta.fechaCreacion) = MONTH (NOW())");
         return $ln->getResult();
     }
 
@@ -97,7 +157,7 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'F'");
+                                WHERE estado = 'F' AND MONTH (ta.fechaFin) = MONTH (NOW())");
         return $ln->getResult();
     }
 }

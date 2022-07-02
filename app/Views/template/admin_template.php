@@ -12,6 +12,7 @@
   <!-- Bootstrap -->
   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendors/jQuery-Smart-Wizard/wizard/style.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
@@ -20,10 +21,6 @@
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-
-  <!--KRAJEE-->
-  <!-- <link href="vendors/kartik/css/fileinput-rtl.min.css" rel="stylesheet"> -->
-  <link href="vendors/kartik/css/fileinput.min.css" rel="stylesheet">
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -50,7 +47,6 @@
   <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
-
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
   <!-- JQVMap -->
@@ -61,6 +57,19 @@
   <!-- Custom Theme Style -->
   <link href="build/css/custom.min.css" rel="stylesheet">
   <link href="vendors/sweetalert2/sweetalert2.css" rel="stylesheet">
+
+  <!-- Form Wizar (Formulario para agregar persona, contacto y usuario) -->
+
+  <link href="vendors/Smartwizard/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+
+  <link href="vendors/Smartwizard/examples/css/animate.min.css" rel="stylesheet" />
+
+
+  <!-- Include SmartWizard CSS -->
+  <link href="vendors/Smartwizard/examples/css/demo.css" rel="stylesheet" type="text/css" />
+  <link href="vendors/Smartwizard/dist/css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="vendors/Smartwizard/examples/css/bootstrap-icons.css">
+
 
 </head>
 
@@ -95,51 +104,19 @@
 
               use App\Models\modAdministracion\SubmenuModel;
               use App\Models\modAdministracion\MenuSubmenuModel;
+              use App\Models\modAdministracion\ModuloModel;
               use App\Models\modAdministracion\RolModMenuModel;
               use App\Models\modUsuario\UsuarioModel;
 
               ?>
               <ul class="nav side-menu">
 
-                <li>
-                  <?php
-                  $session = session();
-                  $menu     = new MenuSubmenuModel();
-                  $submenu  = new SubmenuModel();
-                  $obtenerRol = new UsuarioModel();
-                  $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
-                    ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
-                  $rolMenu  = new RolModMenuModel();
-                  $menu     = $rolMenu->asObject()->select('m.menuId, m.nombreMenu, i.nombreIcono')
-                    ->from('co_rol_modulo_menu rmm')
-                    ->join('wk_rol r', 'rmm.rolId= r.rolId')
-                    ->join('co_modulo_menu mm', 'rmm.moduloMenuId= mm.moduloMenuId')
-                    ->join('co_modulo mo', 'mm.moduloId=mo.moduloId')
-                    ->join('co_menu m', 'mm.menuId=m.menuId')
-                    ->join('wk_icono i', 'm.iconoId=i.iconoId')
-                    //->where('r.nombreRol', $rol)
-                    ->where('mo.moduloId', '5')
-                    ->groupBy('menuId')
-                    ->findAll();
 
-                  foreach ($menu as $key => $u) :
-                    $submenus     = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
-                  ?>
-                    <?php if ($u->nombreMenu) : ?>
-                <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
-                <?php endif ?>
-                <ul class="nav child_menu">
-                  <?php foreach ($submenus as $s) : ?>
-                    <li><a href=<?= $s->nombreArchivo ?>><?php echo $s->nombreSubMenu ?> </a></li>
-                  <?php endforeach; ?>
-                </ul>
+                <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="homeMenu">Inicio</a></li>
+                  </ul>
                 </li>
-              <?php endforeach; ?>
-              <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="homeMenu">Inicio</a></li>
-                </ul>
-              </li>
               </ul>
               <ul class="nav side-menu">
 
@@ -235,56 +212,17 @@
       </div>
       <!-- /top navigation -->
 
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-
-    <script src="vendors/kartik/js/plugins/piexif.js"></script>
-    <script src="vendors/kartik/js/plugins/sortable.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!--KRAJEE-->
-    <script src="vendors/kartik/js/fileinput.min.js"></script>
-    <script src="vendors/kartik/js/locales/LANG.js"></script>
-
-    <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-
-    <!-- gauge.js -->
-    <script src="vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="vendors/Flot/jquery.flot.js"></script>
-    <script src="vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="vendors/Flot/jquery.flot.time.js"></script>
-    <script src="vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="vendors/moment/min/moment.min.js"></script>
-    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
       <!-- page content -->
       <div class="right_col" role="main">
+        <div class="row"><br>
+          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">Modulos/</a></h6>
+          <h6>
+            <?php
+            $modulo = new ModuloModel();
+            $mod = $modulo->asArray()->select('m.nombre')->from('co_modulo m')->where('m.moduloId', $session->modulo)->first();
+            echo $mod['nombre'] ?>
+          </h6>
+        </div>
         <?= $this->renderSection('content'); ?>
       </div>
       <!-- /page content -->
@@ -323,7 +261,7 @@
   <script src="vendors/nprogress/nprogress.js"></script>
   <!-- Chart.js -->
   <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-  
+
   <!-- gauge.js -->
   <script src="vendors/gauge.js/dist/gauge.min.js"></script>
   <!-- bootstrap-progressbar -->
@@ -367,15 +305,22 @@
   <!-- bootstrap-daterangepicker -->
   <script src="vendors/moment/min/moment.min.js"></script>
   <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <!-- jQuery Smart Wizard -->
+  <script src="vendors/jQuery-Smart-Wizard/wizard/script.js"></script>
+  <!-- FastClick -->
+  <script src="vendors/fastclick/lib/fastclick.js"></script>
 
   <!-- Custom Theme Scripts -->
   <script src="build/js/custom.min.js"></script>
 
   <!--SweetAlert-->
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
   <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
+  <!-- JavaScript -->
+  <script src="vendors/Smartwizard/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+  <script src="vendors/Smartwizard/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 </body>
 
 </html>

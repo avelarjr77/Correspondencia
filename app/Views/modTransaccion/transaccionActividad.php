@@ -6,7 +6,7 @@
         width: 900px;
         height: 200px;
         min-height: 0px;
-    }   
+    }
 </style>
 
 <div class="x_panel">
@@ -17,7 +17,7 @@
         </ul>
         <div class="clearfix"></div>
     </div>
-    <div class="x_content" id="proceso">   
+    <div class="x_content" id="proceso">
         <br>
         <!--LISTADO DE PROCESO-->
         <div class="x_content">
@@ -26,9 +26,9 @@
                     <h4 id="tituloActividades"><b> INFORMACIÓN DEL FLUJO DE ACTIVIDADES</b></h4>
                 </div><br><br><br>
                 <div class="col-md-6">
-                    <?php foreach($titulos as $t): ?>
-                    <h4><b> Proceso: <i id="procesoN"><?= $t->nombreProceso ?></i></b></h4>
-                    <h4><b> Etapa: <i id="EtapaN"><?= $t->nombreEtapa ?></i></b></h4>
+                    <?php foreach ($titulos as $t) : ?>
+                        <h4><b> Proceso: <i id="procesoN"><?= $t->nombreProceso ?></i></b></h4>
+                        <h4><b> Etapa: <i id="EtapaN"><?= $t->nombreEtapa ?></i></b></h4>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -47,32 +47,32 @@
                             </tr>
                         </thead>
                         <tbody id="procesoList">
-                            <?php foreach($datos as $key): ?>
-                            <tr>
-                                <td><?= $key->id ?></td>
-                                <td><?= $key->actividad ?></td>
-                                <td><?= $key->persona ?></td>
-                                <td>
-                                    <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>"  data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> Iniciar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>"  data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> Finalizar</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-actividadid="<?= $key->actividadId ?>"  data-estado="<?= $key->estado ?>"><i class="fa fa-upload"></i> Cargar Documento</a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?> 
+                            <?php foreach ($datos as $key) : ?>
+                                <tr>
+                                    <td><?= $key->id ?></td>
+                                    <td><?= $key->actividad ?></td>
+                                    <td><?= $key->persona ?></td>
+                                    <td>
+                                        <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> Iniciar</a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> Finalizar</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-actividadid="<?= $key->actividadId ?>" data-estado="<?= $key->estado ?>"><i class="fa fa-upload"></i> Cargar Documento</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>
                 </div>
                 <div class="col-md-12">
                     <p>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="fa fa-info-circle"></i> Información Adicional
-                    </button>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-info-circle"></i> Información Adicional
+                        </button>
                     </p>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
@@ -90,18 +90,18 @@
                                     </tr>
                                 </thead>
                                 <tbody id="procesoList">
-                                    <?php foreach($datos as $key): ?>
-                                    <tr>
-                                        <td><?= $key->id ?></td>
-                                        <td><?= $key->actividad ?></td>
-                                        <td><?= $key->fechaCreacion ?></td>
-                                        <td><?= $key->horaCreacion ?></td>
-                                        <td><?= $key->fechaInicio ?></td>
-                                        <td><?= $key->horaInicio ?></td>
-                                        <td><?= $key->fechaFin ?></td>
-                                        <td><?= $key->horaFin ?></td>
-                                    </tr>
-                                    <?php endforeach; ?> 
+                                    <?php foreach ($datos as $key) : ?>
+                                        <tr>
+                                            <td><?= $key->id ?></td>
+                                            <td><?= $key->actividad ?></td>
+                                            <td><?= $key->fechaCreacion ?></td>
+                                            <td><?= $key->horaCreacion ?></td>
+                                            <td><?= $key->fechaInicio ?></td>
+                                            <td><?= $key->horaInicio ?></td>
+                                            <td><?= $key->fechaFin ?></td>
+                                            <td><?= $key->horaFin ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -110,13 +110,13 @@
             </div>
         </div>
         <!--FIN LISTADO PROCESO-->
-        
+
         <br><br><br><br>
-        <a href="<?= base_url().route_to('transaccionLista') ?>"  class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
+        <a href="<?= base_url() . route_to('transaccionLista') ?>" class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
-    <div class="x_content" id="documento" style="display: none">   
+    <div class="x_content" id="documento" style="display: none">
         <br>
-        
+
         <!--LISTADO DE PROCESO
         EN ESTA PARTE SE GUARDA EL NOMBRE DEL DOCUMENTO PERO NO GUARDA EL DOCUMENTO EN LA CARPETA
         TIENE QUE EJECUTAR LA ACCION QUE ESTA DENTROO DEL FORM DE DROPZONE                 
@@ -144,53 +144,52 @@
             <br>
 
             <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
-            <div class="row justify-content-center">
-                
-                <div class="col-md-10">
-                    <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
-                        <div class="fallback">
-                            <input name="documento" type="file" id="documento" multiple />
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-4">
-                    <label>Nombre: </label>
-                    <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" require>
-                </div>
-                <div class="col-md-3">
-                    <label>Tipo de documento: </label>
-                    <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control">
-                        <option value="" disable>-Selecciona un tipo de documento-</option>
-                        <?php foreach ($tipoDoc as $td): ?>
-                            <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Tipo de envio: </label>
-                    <select name="tipoEnvioId" id="tipoEnvioId" class="form-control">
-                        <option value="" disable>-Selecciona un tipo de envio-</option>
-                        <?php foreach ($tipoEnvio as $te): ?>
-                            <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Tipo de transaccion: </label>
-                    <select name="transaccionActividadId" id="transaccionActividadId" class="form-control">
-                        <option value="" disable>-Selecciona una transaccion-</option>
-                        <?php foreach ($datos as $ta): ?>
-                            <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <br>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-            </form>
+                <div class="row justify-content-center">
 
+                    <div class="col-md-10">
+                        <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
+                            <div class="fallback">
+                                <input name="documento" type="file" id="documento" multiple />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Nombre: </label>
+                        <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" require>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Tipo de documento: </label>
+                        <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control">
+                            <option value="" disable>-Selecciona un tipo de documento-</option>
+                            <?php foreach ($tipoDoc as $td) : ?>
+                                <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Tipo de envio: </label>
+                        <select name="tipoEnvioId" id="tipoEnvioId" class="form-control">
+                            <option value="" disable>-Selecciona un tipo de envio-</option>
+                            <?php foreach ($tipoEnvio as $te) : ?>
+                                <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Tipo de transaccion: </label>
+                        <select name="transaccionActividadId" id="transaccionActividadId" class="form-control">
+                            <option value="" disable>-Selecciona una transaccion-</option>
+                            <?php foreach ($datos as $ta) : ?>
+                                <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
 
             <br><br><br>
             <div class="row" id="tbl-actividad">
@@ -204,15 +203,15 @@
                             </tr>
                         </thead>
                         <tbody id="docList">
-                            <?php foreach($doc as $d): ?>
-                            <tr>
-                                <td><?= $d->documentoId ?></td>
-                                <td><?= $d->nombreDocumento ?></td>
-                                <td>
-                                    <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" ><i class="fa fa-trash"></i> Eliminar</a>
-                                    <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" ><i class="fa fa-tasks"></i> Ver</a>
-                                </td>
-                            </tr>
+                            <?php foreach ($doc as $d) : ?>
+                                <tr>
+                                    <td><?= $d->documentoId ?></td>
+                                    <td><?= $d->nombreDocumento ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad"><i class="fa fa-trash"></i> Eliminar</a>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"><i class="fa fa-tasks"></i> Ver</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -225,7 +224,7 @@
 
 
         <br><br><br><br>
-        <a href="#"  class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
+        <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 </div>
 
@@ -234,18 +233,11 @@
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
-<script>
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone('.dropzone');
-    myDropzone.on('complete', function (param){
-        console.log(JSON.parse(param.xhr.response))
-    })
-</script>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
-        $('.btn-finalizarActividad').on('click',function(){
+        $('.btn-finalizarActividad').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var actividad = $(this).data('actividad'); //actividadId
@@ -261,7 +253,7 @@
 
             console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa, procesoId, transaccionId, nombreProceso);
 
-            if(estado == 'En Progreso'){
+            if (estado == 'En Progreso') {
                 Swal.fire({
                     title: '¿Desea Finalizar esta actividad?',
                     text: "No podrá reverir este cambio",
@@ -274,28 +266,35 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "GET",
-                            url: "<?= base_url().route_to('actividadF') ?>",
-                            data: {transaccionActividadId: id, etapaId: etapaId, ordenActividad: ordenActividad, procesoId: procesoId, 
-                                    ordenEtapa: ordenEtapa, transaccionDetalleId: transacciond, transaccionId: transaccionId},
-                            success:function(data){
+                            url: "<?= base_url() . route_to('actividadF') ?>",
+                            data: {
+                                transaccionActividadId: id,
+                                etapaId: etapaId,
+                                ordenActividad: ordenActividad,
+                                procesoId: procesoId,
+                                ordenEtapa: ordenEtapa,
+                                transaccionDetalleId: transacciond,
+                                transaccionId: transaccionId
+                            },
+                            success: function(data) {
 
                                 var dataAct = JSON.parse(data);
-                                
+
                                 console.log(dataAct);
 
                                 Swal.fire(
-                                '¡Finalizada!',
-                                'La actividad ha finalizado',
-                                'success'
+                                    '¡Finalizada!',
+                                    'La actividad ha finalizado',
+                                    'success'
                                 )
 
-                                location.href ="<?= base_url().route_to('transaccionActividades') ?>?etapaId="+dataAct;
-                                
+                                location.href = "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" + dataAct;
+
                             }
                         });
                     }
                 })
-            }else if(estado == 'Inactivo' || estado == 'Finalizado') {
+            } else if (estado == 'Inactivo' || estado == 'Finalizado') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -304,7 +303,7 @@
             }
         });
 
-        $('.btn-iniciarActividad').on('click',function(){
+        $('.btn-iniciarActividad').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var actividad = $(this).data('actividad'); //actividad
@@ -313,7 +312,7 @@
 
             console.log(id);
 
-            if(estado == 'Inactivo'){
+            if (estado == 'Inactivo') {
                 Swal.fire({
                     title: '¿Desea Iniciar esta actividad?',
                     text: "No podrá reverir este cambio",
@@ -326,65 +325,71 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "GET",
-                            url: "<?= base_url().route_to('actividadI') ?>",
-                            data: {transaccionActividadId: id, etapaId: etapaId},
-                            success:function(data){
+                            url: "<?= base_url() . route_to('actividadI') ?>",
+                            data: {
+                                transaccionActividadId: id,
+                                etapaId: etapaId
+                            },
+                            success: function(data) {
 
                                 var dataActi = JSON.parse(data);
-                                
+
                                 console.log(dataActi);
 
                                 Swal.fire(
-                                '¡Iniciada!',
-                                'La actividad '+actividad+' ha iniciado',
-                                'success'
+                                    '¡Iniciada!',
+                                    'La actividad ' + actividad + ' ha iniciado',
+                                    'success'
                                 )
 
-                                location.href ="<?= base_url().route_to('transaccionActividades') ?>?etapaId="+dataActi;
-                                
+                                location.href = "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" + dataActi;
+
                             }
                         });
                     }
                 })
-            }else if(estado == 'En Progreso' || estado == 'Finalizado') {
+            } else if (estado == 'En Progreso' || estado == 'Finalizado') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
                     text: 'No es posible iniciar una actividad Activa o Finalizada'
                 })
-            }else{
-                
+            } else {
+
             }
         });
 
-        $('.btn-documento').on('click',function(){
+        $('.btn-documento').on('click', function() {
             var id = $(this).data('id');
             var actividad = $(this).data('actividad');
             var actividadId = $(this).data('actividadid');
             var estado = $(this).data('estado');
+
             $('#actividadN').html(actividad);
+            $('#transaccionActividadId').val(id);
 
             $('#documento').css("display", "block");
             $('#proceso').hide();
         });
 
-        $('.volver').on('click',function(){
+        $('.volver').on('click', function() {
             $('#proceso').css("display", "block");
             $('#documento').hide();
         });
 
-        /* $("#input-44").fileinput({
-            uploadUrl: '/file-upload-batch/2',
-            showUpload: false,
-            maxFileCount:5,
-            maxFilePreviewSize: 10240,
-            fileActionSettings: {
-                showRemove: false,
-                showUpload: false,
-                showZoom: true,
-                showDrag: false
-            } 
+        /* $('.btn-doc').on('click',function(){
+            $.ajax({
+                type: "GET",
+                url: "<= base_url().route_to('actualizarDoc') ?>",
+                data: $("#frmDoc").serialize(),
+                success:function(data){
+
+                    var dataE = JSON.parse(data);
+                    console.log(dataE);
+                }
+            });
         }); */
+
     });
 </script>
 
