@@ -7,7 +7,7 @@ class ModuloModel extends Model{
 
     protected $table = 'co_modulo';
     protected $primaryKey = 'moduloId';
-    protected $allowedFields = ['moduloId', 'nombre', 'iconoId','descripcion','archivo'];
+    protected $allowedFields = ['moduloId', 'nombre'];
 
     //MODELO PARA LISTAR MODULOS
     public function listarModulo()

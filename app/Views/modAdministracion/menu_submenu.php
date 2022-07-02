@@ -45,85 +45,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<!-- /page content -->
-<!-- <div class="right_col" role="main">
-    <div class="">
-        <div class="clearfix"></div>
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Agregar menú</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <div class="">
-                            <div class="col-md-12 col-sm-12 offset-md-12 right">
-                                <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
-                                <a type="button" href="<?= base_url() . route_to('submenus') ?>" class="btn btn-outline-success"><i class="fa fa-angle-double-right"></i> Menu Detalle</a>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="card-box table-responsive">
-                                        <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Menus</th>
-                                                    <th>Icono</th>
-                                                    <th>Identificador</th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-
-                                                foreach ($menu as $key) : ?>
-                                                    <tr>
-                                                        <td><?php echo $key->menuId ?></td>
-                                                        <td><?php echo $key->nombreMenu ?></td>
-                                                        <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
-                                                        <td><?php echo $key->identificador ?></td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-danger btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></a>
-                                                            <a href="#" class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Identificador</label>
-                                <input type="text" id="identificador" name="identificador" autocomplete="off"
-                                    required="required" minlength="2" maxlength="10" class="form-control identificador">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<!-- LISTAR MENÚ -->
-<!-- END LISTAR MENÚ -->
 
 <!--MODALS AGREGAR, EDITAR, ELIMINAR -->
 <div>
@@ -239,76 +160,29 @@
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-if (mensaje == '1') {
-    swal('', 'Agregado', 'success');
-} else if (mensaje == '0') {
-    swal('No se agrego', 'Datos incorrectos', 'error');
-} else if (mensaje == '2') {
-    swal('', 'Actualizado', 'success');
-} else if (mensaje == '3') {
-    swal('Falló actualización', 'Datos incorrectos', 'error');
-} else if (mensaje == '4') {
-    swal('', 'Eliminado', 'success');
-} else if (mensaje == '5') {
-    swal('', 'No', 'error');
-}else if (mensaje == '6') {
-        swal(':c', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
-}
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '1') {
-        swal({
-            text: "¡Agregado!",
-            icon: "success",
-            button: "Ok",
-        });
-
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '0') {
-        swal({
-            text: "¡Lo sentimos, no se agrego!",
-            icon: "error",
-            button: "Ok",
-        });
+        swal('No se agrego', 'Datos incorrectos', 'error');
     } else if (mensaje == '2') {
-        swal({
-            text: "¡Actualizado!",
-            icon: "success",
-            button: "Ok",
-        });
+        swal('', 'Actualizado', 'success');
     } else if (mensaje == '3') {
-        swal({
-            text: "¡Lo sentimos, no se actualizo!",
-            icon: "error",
-            button: "Ok",
-        });
+        swal('Falló actualización', 'Datos incorrectos', 'error');
     } else if (mensaje == '4') {
-        swal({
-            icon: 'error',
-            text: '¡Se ha eliminado!',
-            button: "Ok"
-        });
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '5') {
-        swal({
-            icon: 'error',
-            title: 'Oops...',
-            text: 's',
-        });
+        swal('', 'No', 'error');
     } else if (mensaje == '6') {
-        swal({
-            icon: 'error',
-            title: 'Oops...',
-            text: '<?= 'Este menu esta repetido' ?>',
-        });
+        swal('', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
     }
 </script>
 

@@ -50,11 +50,7 @@ class SubMenuController extends BaseController
     {
 
         $MenuSubmenu = new SubmenuModel();
-        if ($this->validate([
-            'menuId' => 'required',
-            'nombreSubMenu' => 'min_length[3]|max_length[45]|required|is_unique[co_submenu.nombreSubMenu]|alpha_space',
-            'nombreArchivo' => 'min_length[3]|max_length[100]|required'
-            ])) {
+        if ($this->validate('validarsubmenu')) {
                 $datos = [
                     "nombreSubMenu"     => $_POST['nombreSubMenu'],
                     "menuId"            => $_POST['menuId'],
@@ -64,7 +60,7 @@ class SubMenuController extends BaseController
             $subMenuId = $_POST['subMenuId'];
             $respuesta = $MenuSubmenu->actualizarSubmenu($datos, $subMenuId);
             $datos = ["datos" => $respuesta];
-            
+
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '2');
 
             } else {

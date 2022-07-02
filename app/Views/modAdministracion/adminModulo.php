@@ -21,8 +21,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre de Modulo</th>
-                        <th>Descripción</th>
-                        <th>Archivo</th>
                         <th scope="col" colspan="2">Acción</th>
                     </tr>
                 </thead>
@@ -31,11 +29,9 @@
                         <tr>
                             <td><?= $modulo->moduloId ?></td>
                             <td><?= $modulo->nombre ?></td>
-                            <td><?= $modulo->descripcion ?></td>
-                            <td><?= $modulo->archivo ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-iconoid="<?= $modulo->iconoId ?>" data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>" data-iconomod="<?= $modulo->nombreIcono ?>" data-iconoid="<?= $modulo->iconoId ?>"  data-descripcionmod="<?= $modulo->descripcion ?>" data-archivomod="<?= $modulo->archivo ?>"><i class="fa fa-trash"></i></a>           
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -61,16 +57,6 @@
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
                                 <input type="text" id="nombre" name="nombre" required="required" minlength="3" maxlength="75" autocomplete="off" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="3" maxlength="100" autocomplete="off" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" minlength="3" maxlength="45" autocomplete="off" class="form-control">
                             </div>
 
                         </div>
@@ -100,16 +86,6 @@
                             <div class="form-group">
                                 <label>Nombre del Módulo</label>
                                 <input type="text" id="nombre" name="nombre" autocomplete="off" required="required" minlength="3" maxlength="75" class="form-control nombre">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Descripción</label>
-                                <input type="text" id="descripcion" name="descripcion" required="required" minlength="3" maxlength="100" autocomplete="off" class="form-control descripcion">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Archivo</label>
-                                <input type="text" id="archivo" name="archivo" required="required" minlength="3" maxlength="45" autocomplete="off" class="form-control archivo">
                             </div>
 
                         </div>
@@ -155,10 +131,11 @@
 </div>
 <!-- End Formulario para agregar ROLES -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert.min.js"></script>
+
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
 
@@ -187,16 +164,10 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombremod       = $(this).data('nombremod');
-            const nombreIcono        = $(this).data('iconoid');
-            const descripcionmod  = $(this).data('descripcionmod');
-            const archivomod      = $(this).data('archivomod');
 
             // Set data to Form Edit
             $('.moduloId').val(id);
             $('.nombre').val(nombremod);
-            $('.iconoId').val(nombreIcono);
-            $('.descripcion').val(descripcionmod);
-            $('.archivo').val(archivomod);
 
             // Call Modal Edit
             $('#editModal').modal('show');
