@@ -6,7 +6,7 @@
     <div class="col-md-12 col-sm-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Example: Agregar personal</h2>
+                <h2>Configuración de persona</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
@@ -16,12 +16,11 @@
                 <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-plus"></i> Agregar Persona</button>
                 <a href="<?= base_url() . route_to('cargo') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Cargo</a>
                 <a href="<?= base_url() . route_to('departamento') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Departamento</a>
-                <br>
 
                 <!-- Smart Wizard -->
                 <!-- Tabs -->
 
-                <div class="collapse show" id="collapseExample" >
+                <div class="collapse" id="collapseExample" >
                     <div class="mb-5 border-bottom">
 
                         <div class="float-end text-muted me-3 mt-2">
@@ -60,7 +59,7 @@
                                     Contacto
                                 </a>
                             </li>
-                        </ul>
+                        </ul><br>
                         <form action="<?php echo base_url() . '/crearPersona' ?>" method="post">
 
                             <div class="tab-content">
@@ -370,11 +369,10 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert.min.js"></script>
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
 
@@ -450,39 +448,9 @@
     });
 </script>
 
-<!-- Bootrap for the demo page -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-<!-- Include jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-<!-- jQuery Slim 3.6  -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
-
-<!-- Include SmartWizard JavaScript source -->
-<script type="text/javascript" src="./js/jquery.smartWizard.min.js"></script>
-
 <script type="text/javascript" src="./js/demo.js"></script>
 
 <script type="text/javascript">
-    function onFinish() {
-        const nombres = $('#nombres').val();
-        const primerApellido = $('#primerApellido').val();
-        const segundoApellido = $('#segundoApellido').val();
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url() . route_to('actividadI') ?>",
-            data: {
-                transaccionActividadId: nombres,
-                primerApellido,
-                segundoApellido
-            },
-            success: function(data) {
-
-                var dataActi = JSON.parse(data);
-            }
-        });
-    }
 
     function onCancel() {
         $('#smartwizard').smartWizard("reset");
@@ -519,8 +487,8 @@
         // Smart Wizard
         $('#smartwizard').smartWizard({
             selected: 0,
-            // autoAdjustHeight: false,
-            theme: 'dots', // basic, arrows, square, round, dots
+            autoAdjustHeight: true,
+            theme: 'arrows', // basic, arrows, square, round, dots
             transition: {
                 animation: 'fade' // none|fade|slideHorizontal|slideVertical|slideSwing|css
             },
@@ -535,7 +503,7 @@
                 enableNavigationAlways: true, // Activates all anchors clickable always
                 enableDoneState: false, // Add done state on visited steps
                 markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
-                unDoneOnBackNavigation: false, // While navigate back, done state will be cleared
+                unDoneOnBackNavigation: true, // While navigate back, done state will be cleared
                 enableDoneStateNavigation: true // Enable/Disable the done state navigation
             },
             disabledSteps: [], // Array Steps disabled

@@ -33,8 +33,8 @@
                                     <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
                                     <td><?php echo $key->identificador ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-danger btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -90,7 +90,7 @@
     <!--END MODAL -->
 
     <!--MODAL ELIMINAR -->
-    <div class="modal" id="modalEliminar" tabindex="-1" role="dialog">
+    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,9 +106,10 @@
                     <!-- end form for validations -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/eliminar/" method="POST">
-                        <a class="btn btn-danger btn-ok">Eliminar</a>
+                        <input type="hidden" name="menuId" class="menuId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-primary">SI</button>
                     </form>
                 </div>
             </div>
@@ -159,7 +160,6 @@
     <!-- End MODAL EDITAR MENU-->
 </div>
 </div>
-
 
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
@@ -220,25 +220,6 @@
             $('.nombreMenu').html(nombre);
             // Call Modal Edit
             $('#eliminarModal').modal('show');
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-
-        // get Edit Product
-        $('.btn-edit').on('click', function() {
-            // get data from button edit
-            const id = $(this).data('id');
-            const nombre = $(this).data('nombre');
-
-            // Set data to Form Edit
-            $('.menuId').val(id);
-            $('.nombreMenu').val(nombre);
-            $('.nombreIcono').val(nombre);
-            // Call Modal Edit
-            $('#editModal').modal('show');
         });
     });
 </script>

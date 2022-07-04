@@ -1,0 +1,6 @@
+CRITICAL - 2022-07-03 15:22:22 --> Too few arguments to function App\Controllers\modAdministracion\MenuSubmenuController::eliminar(), 0 passed in C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php on line 825 and exactly 1 expected
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
