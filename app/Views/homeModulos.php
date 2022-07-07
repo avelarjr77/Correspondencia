@@ -20,7 +20,7 @@
 <div class="x_panel">
     <div class="x_content"><br><br>
         <div class="col-md-12 col-sm-12  text-center">
-            <div class="jumbotron jumbotron-fluid" style="border-radius: 10PX;">
+            <div class="jumbotron1 jumbotron-fluid" style="border-radius: 10PX;">
                 <div class="container" style="color:#2A3F54;;  text-align: right; font-weight: bold; ">
                     <h2 class="display-4">  <b>Correspondencia UCAD &nbsp;&nbsp;</b></h2>
                     <p class="lead" style="font-style: italic;">
