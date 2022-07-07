@@ -18,30 +18,32 @@
         <!--LISTADO DE MODULO MENU-->
         <div class="x_content">
             <br>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre de Modulo</th>
-                        <th>Nombre de Menu</th>
-                        <th scope="col" colspan="2">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($ModuloM as $key) : ?>
+            <div class="card-box table-responsive"><br>
+                <table id="datatable" class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td><?php echo $key->id ?></td>
-                            <td><?php echo $key->modulo ?></td>
-                            <td><?php echo $key->nomMenu ?></td>
-                            <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i> Eliminar</a>
-                            </td>
+                            <th>ID</th>
+                            <th>Nombre de Modulo</th>
+                            <th>Nombre de Menu</th>
+                            <th>Acción</th>
                         </tr>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($ModuloM as $key) : ?>
+                            <tr>
+                                <td><?php echo $key->id ?></td>
+                                <td><?php echo $key->modulo ?></td>
+                                <td><?php echo $key->nomMenu ?></td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>" data-moduloid="<?php echo $key->moduloId ?>" data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!--FIN LISTADO ROLES-->
         <!-- Modal Agregar Módulo-->
@@ -230,6 +232,16 @@
         });
 
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
 </script>
 
 <?= $this->endSection() ?>

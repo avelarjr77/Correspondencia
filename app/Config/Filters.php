@@ -70,6 +70,7 @@ class Filters extends BaseConfig
         'SessionAdmin'=>[
             'before'=>[
                 '/menu_submenu',
+                '/submenus',
             ]
         ]
     ];

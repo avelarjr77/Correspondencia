@@ -9,7 +9,7 @@
         </ul>
         <div class="clearfix"></div>
     </div>
-    <div class="x_content" id="proceso">   
+    <div class="x_content" id="proceso">
         <br>
         <!--LISTADO DE PROCESO-->
         <div class="x_content">
@@ -23,7 +23,7 @@
                             <label>Proceso: </label>
                             <select name="procesoId" id="procesoId" class="form-control">
                                 <option value="" disable>-Selecciona un proceso-</option>
-                                <?php foreach ($datos as $p): ?>
+                                <?php foreach ($datos as $p) : ?>
                                     <option value="<?= $p->procesoId ?>"><?= $p->nombreProceso ?></option>
                                 <?php endforeach; ?>
                             </select>
@@ -32,7 +32,7 @@
                             <label>Institución: </label>
                             <select name="institucionId" id="institucionId" class="form-control">
                                 <option value="" disable>-Selecciona una institución-</option>
-                                <?php foreach ($institucion as $i): ?>
+                                <?php foreach ($institucion as $i) : ?>
                                     <option value="<?= $i->institucionId ?>"><?= $i->nombreInstitucion ?></option>
                                 <?php endforeach; ?>
                             </select>
@@ -41,7 +41,7 @@
                             <label>Encargado: </label>
                             <select name="personaId" id="personaId" class="form-control">
                                 <option value="" disable>-Selecciona un encargado-</option>
-                                <?php foreach ($persona as $pe): ?>
+                                <?php foreach ($persona as $pe) : ?>
                                     <option value="<?= $pe->personaId ?>"><?= $pe->nombres ?></option>
                                 <?php endforeach; ?>
                             </select>
@@ -64,8 +64,8 @@
                     <h4><b>PROCESOS CREADOS PARA DAR SEGUIMIENTO</b></h4>
                 </div>
                 <br><br><br>
-                <div class="col-md-12">
-                    <table class="table table-hover">
+                <div class="card-box table-responsive"><br>
+                    <table id="datatable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -77,23 +77,23 @@
                             </tr>
                         </thead>
                         <tbody id="procesoList">
-                            <?php foreach($transaccion as $key): ?>
-                            <tr>
-                                <td><?= $key->id ?></td>
-                                <td><?= $key->proceso ?></td>
-                                <td><?= $key->institucion ?></td>
-                                <td><?= $key->persona ?></td>
-                                <td>
-                                    <a href="#" class="btn btn-danger btn-sm btn-eliminarProceso" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>"  data-estado="<?= $key->estado ?>"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-warning btn-sm btn-editarO" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>"  data-estado="<?= $key->estado ?>" data-observaciones="<?= $key->observaciones ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                    <a href="#" class="btn btn-primary btn-sm btn-verO" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>"  data-estado="<?= $key->estado ?>" data-observaciones="<?= $key->observaciones ?>"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm btn-iniciarProceso" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>"  data-estado="<?= $key->estado ?>"><i class="fa fa-play"></i> Iniciar/Ver</a>
-                                </td>
-                                <td>
-                                    <a href="#" id="estadoProceso" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?> 
+                            <?php foreach ($transaccion as $key) : ?>
+                                <tr>
+                                    <td><?= $key->id ?></td>
+                                    <td><?= $key->proceso ?></td>
+                                    <td><?= $key->institucion ?></td>
+                                    <td><?= $key->persona ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger btn-sm btn-eliminarProceso" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>" data-estado="<?= $key->estado ?>"><i class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-editarO" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>" data-estado="<?= $key->estado ?>" data-observaciones="<?= $key->observaciones ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm btn-verO" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>" data-estado="<?= $key->estado ?>" data-observaciones="<?= $key->observaciones ?>"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarProceso" data-id="<?= $key->id ?>" data-proceso="<?= $key->proceso ?>" data-procesoid="<?= $key->procesoId ?>" data-estado="<?= $key->estado ?>"><i class="fa fa-play"></i> Iniciar/Ver</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" id="estadoProceso" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>
@@ -103,29 +103,29 @@
             <!-- Modal Edit Observaciones-->
             <form action="<?php echo base_url() . '/actualizarO' ?>" method="POST">
                 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Observaciones</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    
-                        <div class="form-group">
-                            <label>Observaciones</label>
-                            <textarea class="form-control" name="observaciones" id="observacionesA" rows="3" required></textarea>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Observaciones</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label>Observaciones</label>
+                                    <textarea class="form-control" name="observaciones" id="observacionesA" rows="3" required></textarea>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" name="transaccionId" class="transaccionId">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                            </div>
                         </div>
-                    
                     </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="transaccionId" class="transaccionId">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Editar</button>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </form>
             <!-- End Modal Edit Observaciones-->
@@ -134,36 +134,36 @@
             <div class="modal fade" id="verModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ver Observaciones</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Proceso</th>
-                                            <th>Observaciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="procesoOList">
-
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ver Observaciones</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                    
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="transaccionId" class="transaccionId">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Proceso</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="procesoOList">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="transaccionId" class="transaccionId">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -247,9 +247,9 @@
                 </div>
                 <div class="col-md-12">
                     <p>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="fa fa-info-circle"></i> Información Adicional
-                    </button>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-info-circle"></i> Información Adicional
+                        </button>
                     </p>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
@@ -267,7 +267,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="infoList">
-                                     
+
                                 </tbody>
                             </table>
                         </div>
@@ -294,21 +294,21 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
         /* $('.select-proceso').select2();
         $('.select-institucion').select2();
         $('.select-persona').select2(); */
 
         // Eliminar Proceso
-        $('.btn-eliminarProceso').on('click',function(){
+        $('.btn-eliminarProceso').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var proceso = $(this).data('proceso');
             var procesoId = $(this).data('procesoid');
             var estado = $(this).data('estado');
 
-            if(estado == 'Inactivo'){
+            if (estado == 'Inactivo') {
                 Swal.fire({
                     title: '¿Desea eliminar este proceso?',
                     text: "No podrá reverir este cambio",
@@ -321,24 +321,26 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "GET",
-                            url: "<?= base_url().route_to('transaccionEliminar') ?>",
-                            data: {transaccionId: id},
-                            success:function(data){
+                            url: "<?= base_url() . route_to('transaccionEliminar') ?>",
+                            data: {
+                                transaccionId: id
+                            },
+                            success: function(data) {
 
                                 var dataEtapa = JSON.parse(data);
-                                
+
                                 Swal.fire(
-                                '¡Eliminado!',
-                                'El registro fue borrado',
-                                'success'
+                                    '¡Eliminado!',
+                                    'El registro fue borrado',
+                                    'success'
                                 )
-                                
-                                location.href ="<?= base_url().route_to('transaccionConfig') ?>";
+
+                                location.href = "<?= base_url() . route_to('transaccionConfig') ?>";
                             }
                         });
                     }
                 })
-            }else if(estado == 'En Progreso') {
+            } else if (estado == 'En Progreso') {
                 Swal.fire({
                     title: '¿Desea eliminar este proceso?',
                     text: "No podrá reverir este cambio, se eliminaran todas las etapas y actividades de este proceso",
@@ -351,24 +353,26 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "GET",
-                            url: "<?= base_url().route_to('transaccionEliminarP') ?>",
-                            data: {transaccionId: id},
-                            success:function(data){
+                            url: "<?= base_url() . route_to('transaccionEliminarP') ?>",
+                            data: {
+                                transaccionId: id
+                            },
+                            success: function(data) {
 
                                 var dataEtapa = JSON.parse(data);
-                                
+
                                 Swal.fire(
-                                '¡Eliminado!',
-                                'El registro fue borrado',
-                                'success'
+                                    '¡Eliminado!',
+                                    'El registro fue borrado',
+                                    'success'
                                 )
-                                
-                                location.href ="<?= base_url().route_to('transaccionConfig') ?>";
+
+                                location.href = "<?= base_url() . route_to('transaccionConfig') ?>";
                             }
                         });
                     }
                 })
-            }else if( estado == 'Finalizado') {
+            } else if (estado == 'Finalizado') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -377,7 +381,7 @@
             }
         });
 
-        $('.btn-editarO').on('click',function(){
+        $('.btn-editarO').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const observaciones = $(this).data('observaciones');
@@ -389,7 +393,7 @@
             $('#editModal').modal('show');
         });
 
-        $('.btn-verO').on('click',function(){
+        $('.btn-verO').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
             const observaciones = $(this).data('observaciones');
@@ -398,20 +402,22 @@
 
             $.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('transaccionObservaciones') ?>",
-                data: {transaccionId: id},
-                success:function(data){
+                url: "<?= base_url() . route_to('transaccionObservaciones') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
 
                     var dataDetO = JSON.parse(data);
                     console.log(dataDetO);
-                    
+
                     $("#etapasData").empty();
 
                     $.each(dataDetO, function(index, val) {
-                        obData.append("<tr><td>"+val.id+"</td>"+
-                        "<td>"+val.proceso+"</td>"+
-                        "<td>"+val.observaciones+"</td>"+
-                        "</tr>")
+                        obData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.proceso + "</td>" +
+                            "<td>" + val.observaciones + "</td>" +
+                            "</tr>")
                     });
                 }
             });
@@ -461,7 +467,7 @@
             $('#proceso').hide();
         }); */
 
-        $('.btn-iniciarProceso').on('click',function(){
+        $('.btn-iniciarProceso').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var proceso = $(this).data('proceso');
@@ -475,12 +481,14 @@
             if (estado == 'Inactivo') {
                 $.ajax({
                     type: "GET",
-                    url: "<?= base_url().route_to('transaccionEtapa') ?>",
-                    data: {procesoId: procesoId},
-                    success:function(data){
+                    url: "<?= base_url() . route_to('transaccionEtapa') ?>",
+                    data: {
+                        procesoId: procesoId
+                    },
+                    success: function(data) {
 
                         var dataEtapa = JSON.parse(data);
-                        
+
                         console.log(dataEtapa);
 
                         var listado = dataEtapa[0]['etapaId'];
@@ -488,13 +496,13 @@
                         if (dataEtapa == '') {
                             $('#tbl-etapa').hide();
                             $('#avisoE').html('No hay etapas configuradas para este proceso.');
-                        }else{
+                        } else {
                             insertTDetalle(listado, id);
-                            $('#recargarPP').attr('href', '<?= base_url().route_to('transaccionConfig') ?>');
+                            $('#recargarPP').attr('href', '<?= base_url() . route_to('transaccionConfig') ?>');
                         }
                     }
                 });
-            }else{
+            } else {
                 etapaLista(id);
             }
 
@@ -503,7 +511,7 @@
             $('#proceso').hide();
         });
 
-        function insertTDetalle(list, id){
+        function insertTDetalle(list, id) {
             var etData = $("#etapasData");
 
             console.log(list, id);
@@ -551,70 +559,75 @@
 
             $.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('transaccionDet') ?>",
-                data: {etapaId: list, transaccionId: id},
-                success:function(data){
+                url: "<?= base_url() . route_to('transaccionDet') ?>",
+                data: {
+                    etapaId: list,
+                    transaccionId: id
+                },
+                success: function(data) {
 
                     var dataDet = JSON.parse(data);
-                    
+
                     console.log(dataDet);
 
                     $("#etapasData").empty();
 
                     $.each(dataDet, function(index, val) {
-                        etData.append("<tr><td>"+val.id+"</td>"+
-                        "<td>"+val.etapa+"</td>"+
-                        "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>"+val.estado+"</a></td>"+
-                        "<td><a href='#' onclick='actividad("+val.etapaId+" , "+val.id+", \""+val.estado+"\" , \""+val.etapa+"\")' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-tasks'></i> Actividades</a>"+
-                        "</td>"+
-                        "<td>"+val.fechaInicio+"</td>"+
-                        "<td>"+val.horaInicio+"</td>"+
-                        "<td>"+val.fechaFin+"</td>"+
-                        "<td>"+val.horaFin+"</td>"+
-                        "</tr>")
+                        etData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.etapa + "</td>" +
+                            "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
+                            "<td><a href='#' onclick='actividad(" + val.etapaId + " , " + val.id + ", \"" + val.estado + "\" , \"" + val.etapa + "\")' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-tasks'></i> Actividades</a>" +
+                            "</td>" +
+                            "<td>" + val.fechaInicio + "</td>" +
+                            "<td>" + val.horaInicio + "</td>" +
+                            "<td>" + val.fechaFin + "</td>" +
+                            "<td>" + val.horaFin + "</td>" +
+                            "</tr>")
                     });
 
                     var idTD = dataDet[0]['id'];
                     var etapaIdTD = dataDet[0]['etapaId'];
 
-                    console.log('etapa', etapaIdTD, 'tdetalle',idTD);
+                    console.log('etapa', etapaIdTD, 'tdetalle', idTD);
                     actividadTransaccion(etapaIdTD, idTD);
                 }
             });
-        }      
+        }
 
-        function etapaLista(id){
+        function etapaLista(id) {
             var etapaData = $("#etapasData");
             $.ajax({
-                    type: "GET",
-                    url: "<?= base_url().route_to('transaccionList') ?>",
-                    data: {transaccionId: id},
-                    success:function(data){
+                type: "GET",
+                url: "<?= base_url() . route_to('transaccionList') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
 
-                        var dataEtapaList = JSON.parse(data);
-                        
-                        console.log(dataEtapaList);
+                    var dataEtapaList = JSON.parse(data);
 
-                        $("#etapasData").empty();
+                    console.log(dataEtapaList);
 
-                        $.each(dataEtapaList, function(index, val) {
-                            etapaData.append("<tr><td>"+val.id+"</td>"+
-                            "<td>"+val.etapa+"</td>"+
-                            "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>"+val.estado+"</a></td>"+
-                            "<td><a href='#' onclick='actividad("+val.etapaId+" , "+val.id+" , \""+val.estado+"\" , \""+val.etapa+"\")' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-tasks'></i> Actividades</a>"+
-                            "</td>"+
-                            "<td>"+val.fechaInicio+"</td>"+
-                            "<td>"+val.horaInicio+"</td>"+
-                            "<td>"+val.fechaFin+"</td>"+
-                            "<td>"+val.horaFin+"</td>"+
+                    $("#etapasData").empty();
+
+                    $.each(dataEtapaList, function(index, val) {
+                        etapaData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.etapa + "</td>" +
+                            "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
+                            "<td><a href='#' onclick='actividad(" + val.etapaId + " , " + val.id + " , \"" + val.estado + "\" , \"" + val.etapa + "\")' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-tasks'></i> Actividades</a>" +
+                            "</td>" +
+                            "<td>" + val.fechaInicio + "</td>" +
+                            "<td>" + val.horaInicio + "</td>" +
+                            "<td>" + val.fechaFin + "</td>" +
+                            "<td>" + val.horaFin + "</td>" +
                             "</tr>")
-                        });
-                    }
-                });
+                    });
+                }
+            });
         }
 
         // get Etapa
-        $('.btn-estado').on('click',function(){
+        $('.btn-estado').on('click', function() {
             // get data from button edit
             const idE = $(this).data('id');
             const nombreE = $(this).data('nombre');
@@ -626,33 +639,35 @@
             $('#procesoEtapa').val(nombreE);
             $('#procesoNom').val(nombreE);
             $('#procesoE').val(idE);
-            $('#tituloP').css("color","#010806");
-            $('#tituloP').css("font-size",16);
+            $('#tituloP').css("color", "#010806");
+            $('#tituloP').css("font-size", 16);
             //$("#etapaData").find("tr:gt(0)").remove();
 
             var eData = $("#etapaData");
 
             $.ajax({
                 type: "GET",
-                url: "<?= base_url().route_to('etapa') ?>",
-                data: {procesoId: idE},
-                success:function(data){
+                url: "<?= base_url() . route_to('etapa') ?>",
+                data: {
+                    procesoId: idE
+                },
+                success: function(data) {
 
                     var dataEtapa = JSON.parse(data);
-                    
+
                     //console.log(dataEtapa[0]['proceso']);
                     //console.log(dataEtapa.length);
                     $("#etapaData").empty();
 
                     $.each(dataEtapa, function(index, val) {
-                        eData.append("<tr><td>"+val.id+"</td>"+
-                        "<td>"+val.nombre+"</td>"+
-                        "<td>"+val.orden+"</td>"+
-                        "<td>"+val.proceso+"</td>"+
-                        "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
-                        "<a href='#' onclick='borrarEtapa("+val.id+" , "+val.procesoId+" )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                        "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
-                        "</td></tr>")
+                        eData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.nombre + "</td>" +
+                            "<td>" + val.orden + "</td>" +
+                            "<td>" + val.proceso + "</td>" +
+                            "<td><a href='#' onclick='actualizarEtapa(" + val.procesoId + " , " + val.id + ")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>" +
+                            "<a href='#' onclick='borrarEtapa(" + val.id + " , " + val.procesoId + " )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>" +
+                            "<a href='#' onclick='actividad(" + val.id + ")' class='btn btn-primary btn-sm btn-actividad' data-i='" + val.id + "' data-n='" + val.nombre + "'><i class='fa fa-tasks'></i> Actividades</a>" +
+                            "</td></tr>")
                     });
                 }
             });
@@ -662,10 +677,10 @@
             $('#etapa').css("display", "block");
             $('#proceso').hide();
         });
-        
+
     });
 
-    function actividadTransaccion(etapaId, id){
+    function actividadTransaccion(etapaId, id) {
         //id: es el id de transaccionDetalleId
 
         console.log(etapaId, id);
@@ -674,12 +689,14 @@
 
         $.ajax({
             type: "GET",
-            url: "<?= base_url().route_to('transaccionActividad') ?>",
-            data: {etapaId: etapaId},
-            success:function(data){
+            url: "<?= base_url() . route_to('transaccionActividad') ?>",
+            data: {
+                etapaId: etapaId
+            },
+            success: function(data) {
 
                 var dataActividad = JSON.parse(data);
-                
+
                 console.log(dataActividad);
                 var listadoA = dataActividad[0]['actividadId'];
 
@@ -687,7 +704,7 @@
                     //$('#tbl-actividad').hide();
                     $('#avisoA').html('No hay actividades configuradas para esta etapa.');
                     console.log('vacio');
-                }else{
+                } else {
                     insertTActividades(listadoA, id);
                     console.log(listadoA);
                 }
@@ -695,7 +712,7 @@
         });
     }
 
-    function actividad(etapaId, id, estado, etapa){
+    function actividad(etapaId, id, estado, etapa) {
         //id: es esl id de transaccionDetalleId
 
         $('#etapaN').html(etapa);
@@ -704,36 +721,38 @@
 
         var actData = $("#actividadData");
         var infoData = $("#infoList");
-        
+
         $.ajax({
             type: "GET",
-            url: "<?= base_url().route_to('transaccionActList') ?>",
-            data: {transaccionDetalleId: id},
-            success:function(data){
+            url: "<?= base_url() . route_to('transaccionActList') ?>",
+            data: {
+                transaccionDetalleId: id
+            },
+            success: function(data) {
 
                 var dataActividadList = JSON.parse(data);
-                
+
                 console.log(dataActividadList);
 
                 $("#actividadData").empty();
                 $("#infoList").empty();
 
                 $.each(dataActividadList, function(index, val) {
-                    actData.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.actividad+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>"+val.estado+"</a></td>"+
-                    "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>"+
-                    "</td></tr>")
+                    actData.append("<tr><td>" + val.id + "</td>" +
+                        "<td>" + val.actividad + "</td>" +
+                        "<td>" + val.persona + "</td>" +
+                        "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
+                        "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
+                        "</td></tr>")
 
-                    infoData.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.actividad+"</td>"+
-                    "<td>"+val.fechaCreacion+"</td>"+
-                    "<td>"+val.horaCreacion+"</td>"+
-                    "<td>"+val.fechaInicio+"</td>"+
-                    "<td>"+val.horaInicio+"</td>"+
-                    "<td>"+val.fechaFin+"</td>"+
-                    "<td>"+val.horaFin+"</td></tr>")
+                    infoData.append("<tr><td>" + val.id + "</td>" +
+                        "<td>" + val.actividad + "</td>" +
+                        "<td>" + val.fechaCreacion + "</td>" +
+                        "<td>" + val.horaCreacion + "</td>" +
+                        "<td>" + val.fechaInicio + "</td>" +
+                        "<td>" + val.horaInicio + "</td>" +
+                        "<td>" + val.fechaFin + "</td>" +
+                        "<td>" + val.horaFin + "</td></tr>")
                 });
             }
         });
@@ -744,19 +763,22 @@
         $('#etapa').hide();
     }
 
-    function insertTActividades(listadoA, id){
+    function insertTActividades(listadoA, id) {
         var aData = $("#actividadData");
 
         console.log(listadoA, id);
 
         $.ajax({
             type: "GET",
-            url: "<?= base_url().route_to('transaccionActDet') ?>",
-            data: {actividadId: listadoA, transaccionDetalleId: id},
-            success:function(data){
+            url: "<?= base_url() . route_to('transaccionActDet') ?>",
+            data: {
+                actividadId: listadoA,
+                transaccionDetalleId: id
+            },
+            success: function(data) {
 
                 var dataDetAct = JSON.parse(data);
-                
+
                 console.log(dataDetAct);
 
                 /* $("#actividadData").empty();
@@ -806,21 +828,20 @@
             }
         });
     } */
- 
+
     // volver a proceso 
-    $('.volver-proceso').on('click',function(){
-            
+    $('.volver-proceso').on('click', function() {
+
         $('#proceso').css("display", "block");
         $('#etapa').hide();
     });
 
     // volver a etapa 
-    $('.volver-etapa').on('click',function(){
-        
+    $('.volver-etapa').on('click', function() {
+
         $('#etapa').css("display", "block");
         $('#actividad').hide();
     });
-
 </script>
 
 <script type="text/javascript">
@@ -832,17 +853,24 @@
         swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
         swal('', 'Falló Agregar', 'error');
-    }else if (mensaje == '2') {
+    } else if (mensaje == '2') {
         swal('', 'Eliminado', 'success');
-    }else if (mensaje == '3') {
+    } else if (mensaje == '3') {
         swal('', 'Falló Eliminar Registro', 'error');
-    }else if (mensaje == '4') {
+    } else if (mensaje == '4') {
         swal('', 'Actualizado con exito', 'success');
-    }else if (mensaje == '5') {
+    } else if (mensaje == '5') {
         swal('', 'Falló actualizar', 'error');
     }
-
 </script>
-
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
+</script>
 
 <?= $this->endSection() ?>

@@ -20,7 +20,7 @@
                 <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#modalContacto"><i class="fa fa-plus"></i> Agregar Contacto</button>
                 <br>
                 <div class="card-box table-responsive">
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th></th>
@@ -38,8 +38,8 @@
                                     <td><?php echo $key->tipoContacto ?></td>
                                     <td><?php echo $key->contacto ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>"> <i class="fa fa-pencil-square-o"></i></a>
-                                        <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/' . $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>"> <i class="fa fa-pencil-square-o"></i> Editar</a>
+                                        <button type="submit" class="btn btn-danger btn-sm btn-delete-contacto" href="#" data-href="<?php echo base_url() . '/' . $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -266,6 +266,16 @@
         });
 
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
 </script>
 
 <?= $this->endSection() ?>

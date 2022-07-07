@@ -18,38 +18,53 @@
     </div>
 </div>
 <div class="x_panel">
-    <div class="x_content">
+    <div class="x_content"><br><br>
         <div class="col-md-12 col-sm-12  text-center">
+            <div class="jumbotron jumbotron-fluid" style="border-radius: 10PX;">
+                <div class="container" style="color:#2A3F54;;  text-align: right; font-weight: bold; ">
+                    <h2 class="display-4">  <b>Correspondencia UCAD &nbsp;&nbsp;</b></h2>
+                    <p class="lead" style="font-style: italic;">
+                       <b> Una Universidad Diferente.</b> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </div>
+            </div>
         </div>
 
         <div class="clearfix"></div>
         <div class="row">
+        </div>
+        <div class="col-md-10">
             <?php foreach ($modulo as $key) : ?>
-                <div class="col-sm-3">
-                    <div class="profile-card card rounded-lg shadow  p-xl-3 mb-3 text-center position-relative overflow-hidden">
-                        <img src="images/modulo.png" alt="" class="mx-auto mb-3" style="width: 180px;">
-                        <h3 style="	font-size: 1.1rem; display: block; opacity: 1;"><?= $key->modulo ?></h3>
-                        <div class="text-left mb-4">
-                            <form class="text-center" id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
-                                <button type="submit" class="btn btn-dark btn-sm center" style="border-radius:5px;padding:7px 15px;color:white;background-color:#305274">
-                                    Ir al modulo
-                                </button>
-                                <input type="hidden" name="moduloId" class="moduloId" id="moduloId" value="<?= $key->moduloId ?> ">
-                            </form>
+                <div class="card mb-3 rounded-lg shadow text-center" style="max-width: 400px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-5">
+                            <img src="images/mod.jpg" style="width: 190px;" alt="">
+                        </div>
+                        <div class="col-md-7" style="text-align: center;"><br>
+                            <div class="card-body">
+                                <h3 class="card-title" style="text-align: center;">Workflow</h3>
+                                <div class="container">
+                                    <div class="row"></div><br>
+                                </div>
+                                <form class="text-center" id="moduloId" action="<?php echo base_url() . '/homeMenus' ?>" method="POST">
+                                    <button type="submit" class="btn btn-dark btn-sm center" style="border-radius:5px;padding:7px 15px;color:white;background-color:#305274">
+                                        Ir al modulo
+                                    </button>
+                                    <input type="hidden" name="moduloId" class="moduloId" id="moduloId" value="<?= $key->moduloId ?> ">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-</div>
-</div>
+
 </div>
 <script>
     window.setTimeout(function() {
         $(".alert").fadeTo(300, 0).slideUp(300, function() {
             $(this).remove();
         });
-    },3000);
+    }, 3000);
 </script>
 <?= $this->endSection() ?>

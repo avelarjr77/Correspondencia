@@ -15,29 +15,30 @@
         <br>
         <!--LISTADO DE modulos-->
         <div class="x_content">
-            <br>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre de Modulo</th>
-                        <th scope="col" colspan="2">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($datos as $modulo) : ?>
+            <div class="card-box table-responsive"><br>
+                <table id="datatable" class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td><?= $modulo->moduloId ?></td>
-                            <td><?= $modulo->nombre ?></td>
-                            <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i></a>
-                            </td>
+                            <th>ID</th>
+                            <th>Nombre de Modulo</th>
+                            <th>Acción</th>
                         </tr>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($datos as $modulo) : ?>
+                            <tr>
+                                <td><?= $modulo->moduloId ?></td>
+                                <td><?= $modulo->nombre ?></td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"> Editar</i></a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"> Eliminar</i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!--FIN LISTADO ROLES-->
 
@@ -151,7 +152,7 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
-    }else if (mensaje == '6') {
+    } else if (mensaje == '6') {
         swal('', 'El campo nombre de modulo posee numeros', 'error');
     }
 </script>
@@ -163,7 +164,7 @@
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
-            const nombremod       = $(this).data('nombremod');
+            const nombremod = $(this).data('nombremod');
 
             // Set data to Form Edit
             $('.moduloId').val(id);

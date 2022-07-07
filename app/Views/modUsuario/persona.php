@@ -20,7 +20,7 @@
                 <!-- Smart Wizard -->
                 <!-- Tabs -->
 
-                <div class="collapse" id="collapseExample" >
+                <div class="collapse" id="collapseExample">
                     <div class="mb-5 border-bottom">
 
                         <div class="float-end text-muted me-3 mt-2">
@@ -100,12 +100,13 @@
                                     </div>
                                     <div class="field item form-group">
                                         <label class="col-form-label col-md-3 col-sm-2 label-align">Género <span class="required">*</span></label>
-                                        <divclass="col-md-6">
+                                        <div class="col-md-6">
                                             <select name="genero" id="genero" class="form-control" required="required">
                                                 <option>Género</option>
                                                 <option>Masculino</option>
                                                 <option>Femenino</option>
                                             </select>
+                                        </div>
                                     </div>
                                     <div class="field item form-group">
                                         <label class="col-form-label col-md-3 col-sm-2 label-align">Cargo <span class="required">*</span></label>
@@ -172,7 +173,7 @@
                                 </div>
                                 <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
                                     <div class="field item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Contacto:<span class="required ">*</span></label>
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Correo electrónico:<span class="required ">*</span></label>
                                         <div class="col-md-6">
                                             <input type="email" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
                                             <span class="fa fa-development form-control-feedback right" aria-hidden="true"></span>
@@ -206,16 +207,11 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
-            <div class="x_content">
-                <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Persona</button>
-                <a href="<?= base_url() . route_to('cargo') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Cargo</a>
-                <a href="<?= base_url() . route_to('departamento') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Departamento</a>
-                <br>
+            <div class="x_content"><br>
 
                 <!--LISTADO DE PERSONA-->
-                <div class="x_content">
-                    <br>
-                    <table class="table table-hover">
+                <div class="card-box table-responsive"><br>
+                    <table id="datatable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -226,7 +222,7 @@
                                 <th>Género</th>
                                 <th>Cargo</th>
                                 <th>Departamento</th>
-                                <th scope="col" colspan="2">Acción</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -241,8 +237,8 @@
                                     <td><?= $key->cargo ?></td>
                                     <td><?= $key->departamento ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>  " data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>"><i class="fa fa-pencil-square-o"></i> </a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>" data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>"><i class="fa fa-trash"></i> </a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>  " data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-dui="<?php echo $key->dui ?>" data-nombre="<?php echo $key->nombre ?>" data-apellidos="<?php echo $key->apellidos ?>" data-fechaNacimiento="<?php echo $key->fechaNacimiento ?>" data-genero="<?php echo $key->genero ?>" data-cargo="<?php echo $key->cargo ?>" data-departamento="<?php echo $key->departamento ?>" data-cargoId="<?php echo $key->cargoId ?>" data-departamentoId="<?php echo $key->departamentoId ?>"><i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -451,7 +447,6 @@
 <script type="text/javascript" src="./js/demo.js"></script>
 
 <script type="text/javascript">
-
     function onCancel() {
         $('#smartwizard').smartWizard("reset");
     }
@@ -545,6 +540,16 @@
             return true;
         });
 
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            }
+        });
     });
 </script>
 
