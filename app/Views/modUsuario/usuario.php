@@ -20,9 +20,8 @@
                 <br>
 
                 <!--LISTADO DE USUARIO-->
-                <div class="x_content">
-                    <br>
-                    <table class="table table-hover">
+                <div class="card-box table-responsive"><br>
+                    <table id="datatable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -30,7 +29,7 @@
                                 <th>Nombre de Usuario</th>
                                 <th>Estado</th>
                                 <th>Rol</th>
-                                <th scope="col" colspan="2">Acción</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,8 +41,8 @@
                                 <td><?= $key->estado ?></td>
                                 <td><?= $key->rol ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" data-rolid="<?= $key->rolId ?>" data-personaid="<?= $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i> </a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" ><i class="fa fa-trash"></i> </a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" data-rolid="<?= $key->rolId ?>" data-personaid="<?= $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->id ?>" data-nombre="<?= $key->nombre ?>" data-usuario="<?= $key->usuario ?>" data-clave="<?= $key->clave ?>" data-estado="<?= $key->estado ?>" data-rol="<?= $key->rol ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?> 
@@ -285,6 +284,17 @@
         
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
+</script>
+
 
 <!-- /page content -->
 <?= $this->endSection() ?>
