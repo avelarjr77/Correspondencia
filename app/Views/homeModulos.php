@@ -22,9 +22,9 @@
         <div class="col-md-12 col-sm-12  text-center">
             <div class="jumbotron1 jumbotron-fluid" style="border-radius: 10PX;">
                 <div class="container" style="color:#2A3F54;;  text-align: right; font-weight: bold; ">
-                    <h2 class="display-4">  <b>Correspondencia UCAD &nbsp;&nbsp;</b></h2>
+                    <h2 class="display-4">  <b>Correspondencia UCAD &nbsp;&nbsp;&nbsp;&nbsp;</b></h2>
                     <p class="lead" style="font-style: italic;">
-                       <b> Una Universidad Diferente.</b> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                       <b> Una Universidad Diferente. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</b></p>
                 </div>
             </div>
         </div>
