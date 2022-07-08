@@ -196,8 +196,8 @@
       <!-- page content -->
       <div class="right_col" role="main">
         <div class="row"><br>
-        <h6>Navegación <i class="fa fa-angle-right"> </i> </h6>
-          <h6><a href="<?= base_url() . route_to('homeModulos') ?>"> Modulos <i class="fa fa-angle-right"></i></a></h6>
+        <h6>Navegación&nbsp;&nbsp;<i class="fa fa-angle-right"> </i></h6>
+          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Modulos&nbsp;&nbsp; <i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
           <h6>
             <a href="homeMenu">
             <?php
