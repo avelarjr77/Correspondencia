@@ -5,6 +5,10 @@ use CodeIgniter\Model;
 
 class TipoContactoModel extends Model{
 
+    protected $table 			= 'wk_contacto';
+	protected $primaryKey 		= 'contactoId';
+	protected $allowedFields 	= ['contactoId', 'personaId', 'tipoContactoId', 'contacto', 'estado'];
+
     //MODELO PARA LISTAR ROLES
     public function listarTipoContactos()
     {

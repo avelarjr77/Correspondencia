@@ -59,12 +59,11 @@ class Home extends BaseController
         $mensaje = session('mensaje');
 
         $data = [
-            "modulo" => $modulo->asObject()->select('mm.moduloId, r.nombreRol AS rol, cmm.moduloMenuId, mm.nombre AS modulo, i.nombreIcono as icono, mm.descripcion, mm.archivo')
+            "modulo" => $modulo->asObject()->select('mm.moduloId, r.nombreRol AS rol, cmm.moduloMenuId, mm.nombre AS modulo')
                 ->from('co_rol_modulo_menu m')
                 ->join('wk_rol r', ' m.rolId=r.rolId')
                 ->join('co_modulo_menu cmm', ' m.moduloMenuId= cmm.moduloMenuId')
                 ->join('co_modulo mm', 'cmm.moduloId=mm.moduloId')
-                ->join('wk_icono i', 'mm.iconoId=i.iconoId')
                 ->where('r.nombreRol', $rol)
                 ->groupBy('modulo')
                 ->findAll(),

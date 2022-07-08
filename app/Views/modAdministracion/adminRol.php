@@ -12,7 +12,6 @@
     </div>
     <div class="x_content">
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Rol</button>
-        <a href="<?= base_url().route_to('adminModulo') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-th"></i> Módulos</a>
         <br>
         <!--LISTADO DE ROLES-->
         <div class="x_content">
