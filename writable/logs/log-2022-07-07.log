@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+ERROR - 2022-07-07 19:18:53 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2022-07-07 19:18:53 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\Usuarios.php(11): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\Home.php(28): App\Models\Usuarios->obtenerUsuario('clave', '123456')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\Home->login()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+=======
 ERROR - 2022-07-07 00:19:33 --> Cannot delete or update a parent row: a foreign key constraint fails (`baseprueba`.`wk_etapa`, CONSTRAINT `FK_PROCESO_ETAPA` FOREIGN KEY (`procesoId`) REFERENCES `wk_proceso` (`procesoId`))
 CRITICAL - 2022-07-07 00:19:33 --> Cannot delete or update a parent row: a foreign key constraint fails (`baseprueba`.`wk_etapa`, CONSTRAINT `FK_PROCESO_ETAPA` FOREIGN KEY (`procesoId`) REFERENCES `wk_proceso` (`procesoId`))
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
@@ -74,3 +90,4 @@ CRITICAL - 2022-07-07 04:24:32 --> Undefined variable: key
 #7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #9 {main}
+>>>>>>> 9568d1ff00508bea37f29dc346f92fc5e92ee9ce

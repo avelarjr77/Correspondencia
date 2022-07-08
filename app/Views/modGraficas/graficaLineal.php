@@ -297,7 +297,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Cantidad de tiempo (minutos)'
+                                text: 'Cantidad de tiempo (días)'
                             }
                         }
                     }

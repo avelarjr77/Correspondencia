@@ -25,11 +25,11 @@ class GraficasModel extends Model
     {
         //$fecha=explode(" - ", $fechas);
 
-        $tr = $this->db->query("SELECT COUNT(*) as 'total', p.nombres as 'persona'
+        $tr = $this->db->query("SELECT COUNT(*) as 'total',p.nombres as 'persona'
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
-                                WHERE ta.estado='F' AND ta.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
+                                WHERE ta.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
                                 AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
                                 GROUP BY p.personaId
                                 ORDER BY p.personaId");
@@ -52,7 +52,7 @@ class GraficasModel extends Model
     public function barraProm($fechaI, $fechaF)
     {
         $tr = $this->db->query("SELECT p.nombres as 'persona', 
-                                AVG(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin)) as 'promedio'
+                                AVG(TIMESTAMPDIFF(DAY, ta.fechaInicio, ta.fechaFin)) as 'promedio'
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
