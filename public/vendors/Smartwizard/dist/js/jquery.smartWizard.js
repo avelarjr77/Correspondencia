@@ -112,8 +112,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     },
     lang: {
       // Language variables for button
-      next: 'Next',
-      previous: 'Previous'
+      next: 'Siguiente',
+      previous: 'Anterior'
     },
     style: {
       // CSS Class settings

@@ -14,14 +14,13 @@
             <div class="col-sm-12">
                 <button class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#agregarMenu"><i class="fa fa-plus"></i> Agregar menú</button>
                 <a type="button" href="<?= base_url() . route_to('submenus') ?>" class="btn btn-outline-success"><i class="fa fa-angle-double-right"></i> Menu Detalle</a>
-                <div class="card-box table-responsive">
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                <div class="card-box table-responsive"><br>
+                    <table id="datatable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Menus</th>
                                 <th>Icono</th>
-                                <th>Identificador</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
@@ -31,10 +30,9 @@
                                     <td><?php echo $key->menuId ?></td>
                                     <td><?php echo $key->nombreMenu ?></td>
                                     <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
-                                    <td><?php echo $key->identificador ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-danger btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -74,10 +72,6 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Identificador</label>
-                            <input type="text" id="identificador" name="identificador" autocomplete="off" required="required" minlength="2" maxlength="3" class="form-control identificador">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -90,7 +84,7 @@
     <!--END MODAL -->
 
     <!--MODAL ELIMINAR -->
-    <div class="modal" id="modalEliminar" tabindex="-1" role="dialog">
+    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,9 +100,10 @@
                     <!-- end form for validations -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/eliminar/" method="POST">
-                        <a class="btn btn-danger btn-ok">Eliminar</a>
+                        <input type="hidden" name="menuId" class="menuId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-primary">SI</button>
                     </form>
                 </div>
             </div>
@@ -142,10 +137,6 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Identificador</label>
-                            <input type="text" id="identificador" name="identificador" autocomplete="off" required="required" minlength="2" maxlength="3" class="form-control identificador">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="menuId" class="menuId">
@@ -158,8 +149,6 @@
     </form>
     <!-- End MODAL EDITAR MENU-->
 </div>
-</div>
-
 
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
@@ -226,21 +215,12 @@
 
 <script>
     $(document).ready(function() {
-
-        // get Edit Product
-        $('.btn-edit').on('click', function() {
-            // get data from button edit
-            const id = $(this).data('id');
-            const nombre = $(this).data('nombre');
-
-            // Set data to Form Edit
-            $('.menuId').val(id);
-            $('.nombreMenu').val(nombre);
-            $('.nombreIcono').val(nombre);
-            // Call Modal Edit
-            $('#editModal').modal('show');
-        });
-    });
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
 </script>
 
 

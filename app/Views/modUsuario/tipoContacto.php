@@ -13,14 +13,13 @@
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Tipo Contacto</button>
         <br>
         <!--LISTADO DE TIPOCONTACTO-->
-        <div class="x_content">
-            <br>
-            <table class="table table-hover">
+        <div class="card-box table-responsive">
+            <table id="datatable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Tipo Contacto</th>
-                        <th scope="col" colspan="2">Acción</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,8 +28,8 @@
                             <td><?php echo $key->tipoContactoId ?></td>
                             <td><?php echo $key->tipoContacto ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-trash"></i></a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->tipoContactoId ?>" data-nombre="<?php echo $key->tipoContacto ?>"><i class="fa fa-trash"></i> Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -84,7 +83,7 @@
 
                             <div class="form-group">
                                 <label>Tipo Contacto</label>
-                                <input  id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control tipocontacto">
+                                <input id="tipoContacto" name="tipoContacto" required="required" minlength="3" maxlength="20" autocomplete="off" class="form-control tipocontacto">
                             </div>
 
                         </div>
@@ -183,5 +182,6 @@
 
     });
 </script>
+
 
 <?= $this->endSection() ?>

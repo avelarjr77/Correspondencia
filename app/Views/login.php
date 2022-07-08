@@ -80,9 +80,8 @@
           <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
           <form class="login-form" action="<?= base_url() . '/recuperarContraseña' ?>" method="POST">
             <input type="email" class="input" id="email" name="email" placeholder="Ingresa tu correo electrónico aquí" required>
-            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECUPERAR CONTRASEÑA</button>
+            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECORDAR CONTRASEÑA</button>
           </form>
-          <p><a style="color: #2a3f54" target="_blank" href="">¿Cómo recuperar la contraseña? has clic aquí.</a></p>
         </div>
         <!-- SLIDER -->
         <div class="content">
@@ -121,7 +120,6 @@
                 </form>
 
                 <div class="help-action"><br>
-                  <p><a style="color: #2a3f54" target="_blank" href="#">¿Cómo iniciar sesión?</a></p>
                   <p><a style="color: #2a3f54" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
                 </div>
               </div>

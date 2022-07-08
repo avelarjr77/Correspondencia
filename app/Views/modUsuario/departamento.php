@@ -13,14 +13,13 @@
         <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Departamento</button>
         <br>
         <!--LISTADO DE DEPARTAMENTO-->
-        <div class="x_content">
-            <br>
-            <table class="table table-hover">
+        <div class="card-box table-responsive"><br>
+                <table id="datatable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre de Departamento</th>
-                        <th scope="col" colspan="2">Acción</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -184,6 +183,16 @@
         });
         
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        language: {
+            url: 'vendors/datatables.net/es.json'
+        }
+    } );
+} );
 </script>
 
 <?= $this->endSection() ?>

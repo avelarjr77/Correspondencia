@@ -83,4 +83,10 @@ class RolModMenuModel extends Model
         
         return $nombres->delete();
     }
+    public function actualizar($data, $rolModuloMenuId){
+        $Modulo = $this->db->table('co_rol_modulo_menu');
+        $Modulo->set($data);
+        $Modulo->where('rolModuloMenuId', $rolModuloMenuId);
+        return $Modulo->update();
+    }
 }

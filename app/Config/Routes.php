@@ -75,7 +75,9 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 //ROL-MODULO-MENU
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('rolModMenu', 'modAdministracion/RolModMenuController::index', ['as'=> 'rolModMenu']);
+    $routes->post('crearRMM', 'modAdministracion/RolModMenuController::crearRolModuloMenu');
     $routes->get('actualizar', 'modAdministracion/RolModMenuController::actualizar');
+    $routes->post('actualizarRMM', 'modAdministracion/RolModMenuController::actualizar');
     $routes->match(['get', 'post'], 'editRolMM', 'modAdministracion/RolModMenuController::editar', ['as'=> 'editRolMM']);
     $routes->match(['get', 'post'], 'menuList', 'modAdministracion/RolModMenuController::menu', ['as'=> 'menuList']);
     $routes->match(['get', 'post'], 'editRol', 'modAdministracion/RolModMenuController::editR', ['as'=> 'editRol']);
@@ -121,6 +123,13 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('eliminarRol', 'modAdministracion/RolController::eliminar');
 
 });
+
+//BITACORA
+$routes->get('bitacora', 'modAdministracion/BitacoraController::index');
+
+//Reportes
+$routes->get('reportes', 'modReportes/ReportesController::index');
+
 
 //CARGO
 $routes->group('/',['filter'=>'auth'],function($routes){
