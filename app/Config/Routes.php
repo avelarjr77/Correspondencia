@@ -57,7 +57,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
     $routes->get('menu_submenu', 'modAdministracion/MenuSubmenuController::menu_submenu', ['as'=> 'menu_submenu']);
     $routes->post('crear', 'modAdministracion/MenuSubmenuController::crear');
-    $routes->get('eliminar/(:any)', 'modAdministracion/MenuSubmenuController::eliminar/$1');
+    $routes->post('eliminarMenu', 'modAdministracion/MenuSubmenuController::eliminar');
     $routes->get('editar/(:any)', 'modAdministracion/MenuSubmenuController::editar/$1');
     $routes->post('editMenu', 'modAdministracion/MenuSubmenuController::actualizar');
 
@@ -68,7 +68,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('submenus', 'modAdministracion/SubMenuController::submenus', ['as'=> 'submenus']);
     $routes->post('agregarSubMenu', 'modAdministracion/SubMenuController::agregarSubMenu');
     $routes->post('actualizarSubmenu', 'modAdministracion/SubMenuController::actualizarSubmenu');
-    $routes->get('eliminarSubmenu/(:any)', 'modAdministracion/SubMenuController::eliminarSubmenu/$1');
+    $routes->post('eliminarSubmenu', 'modAdministracion/SubMenuController::eliminar');
 
 });
 

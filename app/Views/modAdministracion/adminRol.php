@@ -11,7 +11,7 @@
     </div>
     <div class="x_content">
         <div class="row">
-            <div class="col-md-12 col-sm-12 offset-md-12 right"">
+            <div class="col-md-12 col-sm-12 offset-md-12 right">
                 <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Rol</button>
                 <br>
                 <!--LISTADO DE ROLES-->

@@ -50,7 +50,6 @@ class MenuSubmenuController extends BaseController
                 [
                     'nombreMenu' => $this->request->getPost('nombreMenu'),
                     'iconoId' => $this->request->getPost('iconoId'),
-                    'identificador' => $this->request->getPost('identificador'),
                 ]
             );
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
@@ -60,11 +59,13 @@ class MenuSubmenuController extends BaseController
         return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '6');
     }
 
-    public function eliminar($nombreMenu)
+    public function eliminar()
     {
+        $menuId = $_POST['menuId'];
+
         $menu = new MenuSubmenuModel();
 
-        $data = ["menuId" => $nombreMenu];
+        $data = ["menuId" => $menuId];
 
         $respuesta = $menu->eliminar($data);
 
@@ -75,23 +76,6 @@ class MenuSubmenuController extends BaseController
         }
     }
 
-    //Funcion para validar Editar Menú
-    public function edit($menuId = null)
-    {
-
-        $menu = new MenuSubmenuModel();
-
-        if ($menu->find($menuId) == null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
-
-        session('message');
-
-        $validation =  \Config\Services::validation();
-        var_dump($validation->listErrors());
-        return view('modAdministracion/menu_submenu');
-    }
-
     //Funcion para EDITAR
     public function actualizar($menuId = null)
     {
@@ -99,12 +83,10 @@ class MenuSubmenuController extends BaseController
         if ($this->validate([
             'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
             'iconoId' => 'required',
-            'identificador' => 'required|alpha'
         ])) {
             $datos = [
                 "nombreMenu" => $_POST['nombreMenu'],
                 "iconoId"    => $_POST['iconoId'],
-                "identificador"    => $_POST['identificador']
             ];
 
             $menuId = $_POST['menuId'];

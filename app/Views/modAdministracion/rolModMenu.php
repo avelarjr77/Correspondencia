@@ -376,5 +376,14 @@
 </script>
 
 
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            }
+        });
+    });
+</script>
 
 <?= $this->endSection() ?>
