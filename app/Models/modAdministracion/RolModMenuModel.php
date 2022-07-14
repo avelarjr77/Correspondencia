@@ -35,18 +35,6 @@ class RolModMenuModel extends Model
         return $contacto->getResult();
     }
 
-    /*public function getModMenu$moduloId)
-    
-        return $this->asObject()
-        ->select("mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu'")
-        ->from("co_modulo_menu mm")
-        ->join('co_modulo m','mm.moduloId = m.moduloId')
-        ->join('co_menu me','mm.menuId = me.menuId')
-        ->where('mm.moduloId', $moduloId)
-        ->orderBy('mm.moduloMenuId')
-        ->findAll();
-    }*/
-
     public function getModMenu($moduloId)
     {
         $modulo = $this->db->query("SELECT mm.moduloMenuId as 'idM', me.nombreMenu as 'nomMenu', m.nombre as 'modulo'
