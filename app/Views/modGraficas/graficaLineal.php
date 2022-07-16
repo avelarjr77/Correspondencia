@@ -13,21 +13,21 @@
       <div class="col-md-12 col-sm-12  ">
         <div class="col-md-4 col-sm-4  tile_stats_count">
           <?php foreach($i as $in): ?>
-            <h6 class="count_top"><i class="fa fa-clock-o"></i> Total Actividades <?= $in->estado ?>s</h6>
+            <h6 class="count_top"><i class="fa fa-clock-o"></i> Total Actividades Inactivas</h6>
             <div class="count"><?= $in->total ?></div>
             <span class="count_bottom">En este mes</span>
           <?php endforeach; ?>
         </div>
         <div class="col-md-4 col-sm-4 tile_stats_count">
           <?php foreach($p as $pr): ?>
-            <h6 class="count_top"><i class="fa fa-angle-double-right"></i> Total Actividades <?= $pr->estado ?></h6>
+            <h6 class="count_top"><i class="fa fa-angle-double-right"></i> Total Actividades En Progreso</h6>
             <div class="count"><?= $pr->total ?></div>
             <span class="count_bottom">En este mes</span>
           <?php endforeach; ?>
         </div>
         <div class="col-md-4 col-sm-4 tile_stats_count">
           <?php foreach($f as $fi): ?>
-            <h6 class="count_top"><i class="fa fa-check-square-o"></i> Total Actividades <?= $fi->estado ?>s</h6>
+            <h6 class="count_top"><i class="fa fa-check-square-o"></i> Total Actividades Finalizadas</h6>
             <div class="count"><?= $fi->total ?></div>
             <span class="count_bottom">En este mes</span>
           <?php endforeach; ?>
@@ -65,9 +65,7 @@
             <div class="x_title">
             <h2>Tiempo Promedio de finalización de actividades</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
             </ul>
             <div class="clearfix"></div>
             </div>
@@ -75,18 +73,18 @@
                 <div class="row justify-content-center">
                     <form id="frm_bar3">
                         <div class="col-md-10 form-group">
-                        <label for="">Escoge un período de tiempo:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
+                            <label for="">Escoge un período de tiempo:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="fecha" class="form-control float-right" id="fecha">
                             </div>
-                            <input type="text" name="fecha" class="form-control float-right" id="fecha">
-                        </div>
                         </div>
                         <div class="col-md-2">
-                          <br>
+                          <br><br><br>
                             <button type="button" class="btn btn-outline-info" id="btn_filtro_bar3">
                                 <i class="fas fa-chart-line"></i>Graficar 
                             </button>
@@ -109,8 +107,7 @@
             <div class="x_title">
             <h2>Actividades Asignadas</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
             </ul>
             <div class="clearfix"></div>
             </div>
@@ -118,18 +115,18 @@
                 <div class="row justify-content-center">
                     <form id="frm_bar">
                         <div class="col-md-10 form-group">
-                        <label for="">Escoge un período de tiempo:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
+                            <label for="">Escoge un período de tiempo:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="fecha" class="form-control float-right" id="calendario">
                             </div>
-                            <input type="text" name="fecha" class="form-control float-right" id="calendario">
-                        </div>
                         </div>
                         <div class="col-md-2">
-                          <br>
+                            <br><br><br>
                             <button type="button" class="btn btn-outline-info" id="btn_filtro_bar">
                                 <i class="fas fa-chart-line"></i>Graficar 
                             </button>
@@ -222,6 +219,10 @@
     });
 
     $('#btn_filtro_bar3').on('click',function(){
+
+        //$('#barChartPromedio').empty();
+        $('#barChartPromedio').remove(); 
+        $('#barChart3').append('<canvas id="barChartPromedio"></canvas>');
         $.ajax({
             type: 'GET',
             url: '<?= base_url().route_to('gBarraPromedio') ?>', 
@@ -243,7 +244,7 @@
                     labels: dataR['label'],
                     datasets: [
                     {
-                        label: 'Tiempo',
+                        label: 'Días',
                         data: dataR['data'],
                         backgroundColor: [
                         "#26b99a",
@@ -319,11 +320,15 @@
     }); 
 
     $('#btn_filtro_bar').on('click',function(){
-      $.ajax({
-          type: 'GET',
-          url: '<?= base_url().route_to('gBarraFecha') ?>', 
-          data: $("#frm_bar").serialize(),
-          success: function(response){ 
+        //$('#barChartActPersona').empty();
+        $('#barChartActPersona').remove(); 
+        $('#barChart').append('<canvas id="barChartActPersona"></canvas>');
+
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url().route_to('gBarraFecha') ?>', 
+            data: $("#frm_bar").serialize(),
+            success: function(response){ 
 
               var dataR = JSON.parse(response);
 
@@ -414,7 +419,7 @@
               swal('¡Error!','Error de ejecución del Ajax', 'error');
           }
       }); 
-  }); 
+    }); 
 
     //get the bar chart canvas
     var cData = JSON.parse(`<?php echo $chart_dataL; ?>`);

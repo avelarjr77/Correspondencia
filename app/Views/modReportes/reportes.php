@@ -18,20 +18,35 @@
             <div class="col-md-12 col-sm-12 offset-md-12 right">
                 <div class="col-md-1 col-sm-1 "> </div>
                 <div class="col-md-8 col-sm-8 ">
-                    <select class="form-control">
+                    <select id="url" class="form-control">
                         <option>Seleciona un tipo de reporte</option>
-                        <option>Option one</option>
-                        <option>Option two</option>
+                        <option value="pruebaR">Listado de Procesos del presente mes</option>
+                        <option value="promedioActividad">Tiempo Promedio de Finalización de Actividades</option>
                         <option>Option three</option>
                         <option>Option four</option>
                     </select>
                 </div>
                 <div class="col-md-3 col-sm-3 "> 
-                <button type="submit" class="btn btn-primary btn-xs">Generar</button>
+                <button type="button" class="btn btn-primary btn-xs btn-reporte">Generar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.btn-reporte').on('click', function() {
+            // get data from button edit
+            var url = $('#url').val();
+            location.href = "<?= base_url()?>/" + url;
+        });
+    });
+</script>
 
 <?= $this->endSection() ?>

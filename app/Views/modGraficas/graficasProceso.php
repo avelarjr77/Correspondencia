@@ -15,9 +15,7 @@
                 <div class="x_title">
                 <h2>Tiempo de demora por proceso</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
                 </div>
@@ -36,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <br>
+                                <br><br><br>
                                 <button type="button" class="btn btn-outline-info" id="btn_filtro_bar2">
                                     <i class="fas fa-chart-line"></i>Graficar 
                                 </button>
@@ -228,6 +226,9 @@
     }); 
 
     $('#btn_filtro_bar2').on('click',function(){
+        $('#barChartProceso').remove(); 
+        $('#barChart2').append('<canvas id="barChartProceso"></canvas>');
+
         $.ajax({
             type: 'GET',
             url: '<?= base_url().route_to('gBarraProceso') ?>', 

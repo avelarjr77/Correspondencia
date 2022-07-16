@@ -125,10 +125,15 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 });
 
 //BITACORA
-$routes->get('bitacora', 'modAdministracion/BitacoraController::index');
+$routes->get('bitacora','modAdministracion/BitacoraController::index');
 
 //Reportes
-$routes->get('reportes', 'modReportes/ReportesController::index');
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('reportes', 'modReportes/ReportesController::index');
+    $routes->get('pruebaR', 'modReportes/PruebaController::index', ['as'=> 'pruebaR']);
+    $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
+});
+
 
 
 //CARGO
