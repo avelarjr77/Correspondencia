@@ -116,7 +116,7 @@
 </form>
 <!-- End Modal Agregar Módulo-->
 
-<div class="container" id="formulario" style="display: none">
+<div class="container x_panel" id="formulario" style="display: none">
     <div class="row">
         <div class="col-md-1">
         </div>
