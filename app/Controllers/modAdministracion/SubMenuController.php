@@ -68,8 +68,10 @@ class SubMenuController extends BaseController
             } 
     }
 
-    public function eliminarSubmenu($subMenuId)
+    public function eliminar()
     {
+        $subMenuId = $_POST['subMenuId'];
+
         $submenu = new SubmenuModel();
 
         $data = ["subMenuId" => $subMenuId];

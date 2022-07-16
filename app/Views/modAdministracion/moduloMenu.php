@@ -162,9 +162,6 @@
             </div>
         </form>
         <!-- End Modal Delete Módulo-->
-
-
-
     </div>
 </div>
 <!-- End Formulario para agregar ROLES -->

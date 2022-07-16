@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CRITICAL - 2022-07-15 16:26:46 --> Unable to create output file ../../../media/tmp/documento_imprimible.pdf
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): Mpdf\Mpdf->Output('../../../media/...')
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
@@ -590,6 +591,26 @@ CRITICAL - 2022-07-15 20:01:26 --> Argument 1 passed to CodeIgniter\HTTP\Redirec
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PromedioActividadController.php(82): CodeIgniter\HTTP\RedirectResponse->to(NULL)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PromedioActividadController->index()
 #2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PromedioActividadController))
+=======
+ERROR - 2022-07-15 10:57:35 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_transaccion`, CONSTRAINT `FK_TRANSACCION_INSTITUCION` FOREIGN KEY (`institucionId`) REFERENCES `wk_institucion` (`institucionId`))
+CRITICAL - 2022-07-15 10:57:35 --> Cannot add or update a child row: a foreign key constraint fails (`baseprueba`.`wk_transaccion`, CONSTRAINT `FK_TRANSACCION_INSTITUCION` FOREIGN KEY (`institucionId`) REFERENCES `wk_institucion` (`institucionId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(177): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(240): App\Models\modTransaccion\TransaccionConfigModel->insertar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->crear()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-07-15 15:07:20 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Host desconocido. 
+CRITICAL - 2022-07-15 15:07:20 --> Undefined variable: mensaje
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 149, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->crear()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+>>>>>>> 01459d702797067a9ff61ddd5b068506c7047786
 #3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}

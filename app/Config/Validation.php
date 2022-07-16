@@ -41,7 +41,6 @@ class Validation
     public $menuValidation = [
         'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
         'iconoId' => 'required',
-        'identificador' => 'required|alpha'
     ];
 
     public $validarsubmenu = [
