@@ -19,8 +19,12 @@
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+  <!-- file input -->
+  <link href="vendors/fileinput/css/fileinput.min.css" rel="stylesheet">
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -225,6 +229,9 @@
 
   <!-- Dropzone.js -->
   <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+  <!-- Input file -->
+  <script src="vendors/fileinput/js/fileinput.min.js"></script>
 
   <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->

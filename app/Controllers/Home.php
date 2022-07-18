@@ -5,9 +5,13 @@ namespace App\Controllers;
 use App\Models\Usuarios;
 use App\Models\modUsuario\UsuarioModel;
 use App\Models\modAdministracion\RolModMenuModel;
+use App\Models\modAdministracion\MovimientosModel;
+use CodeIgniter\I18n\Time;
 
 class Home extends BaseController
 {
+    protected $bitacora;
+
     public function index()
     {
         if (!session()->is_logged) {
@@ -24,6 +28,8 @@ class Home extends BaseController
         $usuario = trim($this->request->getVar('usuario'));
         $clave = $this->request->getVar('clave');
 
+        
+
         $usuarios = model('Usuarios');
         $pass = $usuarios->obtenerUsuario('clave', $clave);
 
@@ -31,13 +37,33 @@ class Home extends BaseController
         $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
             ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $usuario)->first();
 
-        if ($user = $usuarios->obtenerUsuario('usuario', $usuario) && isset($pass['clave'])) {
+        if ($user = $usuarios->obtenerId('usuario', $usuario) && isset($pass['clave'])) {
 
             $data = array(
                 'usuario' => $usuario,
                 'rol' => $rol['nombreRol'],
                 'is_logged' => true
             );
+
+            //PARA REGISTRAR QUIEN QUIEN INICIO SESSION
+
+            $this->bitacora  = new MovimientosModel();
+
+            $userB =  $obtenerRol->asArray()->select('i.usuarioId')->from('wk_usuario u')
+            ->join('wk_usuario i', 'u.usuarioId=i.usuarioId')->where('u.usuario', $usuario)->first();
+
+            $descripcion  = $_SERVER['REMOTE_ADDR'];
+            $hora=new Time('now');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuarioId' => $userB,
+                'accion' => 'Inicio de sesion',
+                'descripcion' => $descripcion,
+                'hora' => $hora,
+            ]);
+
+            //END
 
             $session = session();
             $session->set($data);

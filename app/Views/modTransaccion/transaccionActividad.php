@@ -154,7 +154,6 @@
         EN ESTA PARTE SE GUARDA EL NOMBRE DEL DOCUMENTO PERO NO GUARDA EL DOCUMENTO EN LA CARPETA
         TIENE QUE EJECUTAR LA ACCION QUE ESTA DENTROO DEL FORM DE DROPZONE                 
         -->
-
         <div class="x_content">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -165,27 +164,39 @@
                 </div>
             </div>
             <br>
+            
             <div class="row justify-content-center">
                 <div class="col-md-10">
+                    
                     <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
                         <div class="fallback">
                             <input name="documento" type="file" id="documento" multiple />
                         </div>
                     </form>
                 </div>
-            </div>
+            </div>  
+            
+            <br>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <label for="input-24">Planets and Satellites</label>
+                    <div class="file-loading">
+                        <input id="input-24" name="input24[]" type="file" multiple>
+                    </div>
+                </div>
+            </div>  
             <br>
 
-            <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
+            <form action="<?php echo base_url() . '/crearDocumentoImage' ?>" method="POST">
                 <div class="row justify-content-center">
 
-                    <div class="col-md-10">
-                        <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
-                            <div class="fallback">
-                                <input name="documento" type="file" id="documento" multiple />
-                            </div>
-                        </form>
+                    <div class="col-md-4">
+                        <label>Cargar documento: </label>
+                    <!--    <input  name="documento" type="file" id="documento" require multiple /> -->
+                        <input type="file" name="documento" id="documento" />
                     </div>
+
                     <div class="col-md-4">
                         <label>Nombre: </label>
                         <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" require>
@@ -265,6 +276,7 @@
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendors/fileinput/js/fileinput.min.js"></script>
 
 
 <script>
@@ -439,6 +451,23 @@
         }); */
 
     });
+
+                    $(document).ready(function() {
+                        var url1 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+                            url2 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg';
+                        $("#input-24").fileinput({
+                            initialPreview: [url1, url2],
+                            initialPreviewAsData: true,
+                            initialPreviewConfig: [
+                                {caption: "Moon.jpg", downloadUrl: url1, description: "<h5>The Moon</h5>The Moon is Earth's only natural satellite and the fifth largest moon in the solar system. The Moon's distance from Earth is about 240,000 miles (385,000 km).", size: 930321, width: "120px", key: 1},
+                                {caption: "Earth.jpg", downloadUrl: url2, description: "<h5>The Earth</h5> The Earth is the 3<sup>rd</sup> planet from the Sun and the only astronomical object known to harbor and support life. About 29.2% of Earth's surface is land and remaining 70.8% is covered with water.", size: 1218822, width: "120px", key: 2}
+                            ],
+                            deleteUrl: "/site/file-delete",
+                            overwriteInitial: false,
+                            maxFileSize: 100,
+                            initialCaption: "The Moon and the Earth"
+                        });
+                    });                
 </script>
 
 

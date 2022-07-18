@@ -10,35 +10,39 @@
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
         </ul>
-        <div class="clearfix"></div>
+        <div class="clearfix"></div> 
     </div>
     <div class="x_content">
         <div class="col-md-12 col-sm-12 offset-md-12 right">
+            <!--LISTADO DE BITACORA-->
             <div class="card-box table-responsive"><br>
-                <table id="datatable" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Usuario</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Actividad</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John123</td>
-                            <td>22-07-05</td>
-                            <td>15:39</td>
-                            <td>INSERTO</td>
-                            <td><a href="" type="button" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                    <table id="datatable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Usuario</th>
+                                <th>Accion</th>
+                                <th>descripcion</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($datos as $key): ?>
+                            <tr>
+                                <td><?= $key->bitacoraId ?></td>
+                                <td><?= $key->usuario ?></td>
+                                <td><?= $key->accion ?></td>
+                                <td><?= $key->descripcion ?></td>
+                                <td><?= $key->fecha ?></td>
+                                <td><?= $key->hora ?></td>
+                            </tr>
+                            <?php endforeach; ?> 
+
+                        </tbody>
+                    </table>
+                </div>
+                <!--FIN LISTADO BITACORA-->
         </div>
     </div>
 </div>
