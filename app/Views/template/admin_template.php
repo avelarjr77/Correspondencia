@@ -21,7 +21,8 @@
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-
+<!-- the fileinput plugin styling CSS file -->
+<link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
   <!-- JQVMap -->
