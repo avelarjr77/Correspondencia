@@ -177,7 +177,7 @@
             </div>-->
             <br>
             <div class="file-loading">
-                <input id="input-706" type="file" class="file" data-preview-file-type="text">
+                <input id="input" type="file" class="file" data-preview-file-type="text">
             </div>
 
             <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
@@ -265,10 +265,19 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <script src="vendors/fileinput/js/fileinput.min.js"></script>
+<script src="vendors/fileinput/js/plugins/buffer.min.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/filetype.min.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/fileinput.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/locales/fr.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
+<script src="vendors/fileinput/themes/fa5/theme.js" type="text/javascript"></script>
+<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {
-        var $el2 = $("#input-706");
+        var $el2 = $("#input");
 
         // custom footer template for the scenario
         // the custom tags are in braces
@@ -281,6 +290,8 @@
 
         $el2.fileinput({
             uploadUrl: '/file-upload-batch/2',
+            theme: 'fa5',
+            language: 'es',
             uploadAsync: false,
             maxFileCount: 5,
             overwriteInitial: false,
