@@ -22,15 +22,12 @@
 
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-<<<<<<< HEAD
 
   <!-- file input -->
   <link href="vendors/fileinput/css/fileinput.min.css" rel="stylesheet">
 
-=======
 <!-- the fileinput plugin styling CSS file -->
 <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
->>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
   <!-- JQVMap -->
