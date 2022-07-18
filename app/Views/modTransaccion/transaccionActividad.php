@@ -47,24 +47,24 @@
                             </tr>
                         </thead>
                         <tbody id="procesoList">
-                            <?php foreach($datos as $key): ?>
-                            <tr>
-                                <td><?= $key->id ?></td>
-                                <td><?= $key->actividad ?></td>
-                                <td><?= $key->persona ?></td>
-                                <td>
-                                    <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>"  data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>"  data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> </a>
-                                    <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>" data-observaciones="<?= $key->observaciones ?>" data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-actividadid="<?= $key->actividadId ?>"  data-estado="<?= $key->estado ?>"><i class="fa fa-upload"></i> Cargar Documento</a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?> 
+                            <?php foreach ($datos as $key) : ?>
+                                <tr>
+                                    <td><?= $key->id ?></td>
+                                    <td><?= $key->actividad ?></td>
+                                    <td><?= $key->persona ?></td>
+                                    <td>
+                                        <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> </a>
+                                        <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>" data-observaciones="<?= $key->observaciones ?>" data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-actividadid="<?= $key->actividadId ?>" data-estado="<?= $key->estado ?>"><i class="fa fa-upload"></i> Cargar Documento</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
 
                         </tbody>
                     </table>
@@ -73,34 +73,34 @@
                 <!-- Modal Edit Observaciones-->
                 <form action="<?php echo base_url() . '/actualizarActO' ?>" method="POST">
                     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Crear/Editar Observaciones</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                        
-                            <div class="form-group">
-                                <label>Observaciones</label>
-                                <textarea class="form-control" name="observaciones" id="observacionesA" rows="3" required></textarea>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Crear/Editar Observaciones</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="form-group">
+                                        <label>Observaciones</label>
+                                        <textarea class="form-control" name="observaciones" id="observacionesA" rows="3" required></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" name="transaccionActividadId" class="transaccionActividadId">
+                                    <input type="hidden" name="etapaId" class="etapaId">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Editar</button>
+                                </div>
                             </div>
-                        
                         </div>
-                        <div class="modal-footer">
-                            <input type="hidden" name="transaccionActividadId" class="transaccionActividadId">
-                            <input type="hidden" name="etapaId" class="etapaId">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Editar</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </form>
                 <!-- End Modal Edit Observaciones-->
-                
+
                 <div class="col-md-12">
                     <p>
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -164,16 +164,22 @@
                 </div>
             </div>
             <br>
+<<<<<<< HEAD
             
             <div class="row justify-content-center">
+=======
+            <!--<div class="row justify-content-center">
+>>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
                 <div class="col-md-10">
                     
                     <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
                         <div class="fallback">
                             <input name="documento" type="file" id="documento" multiple />
                         </div>
+
                     </form>
                 </div>
+<<<<<<< HEAD
             </div>  
             
             <br>
@@ -186,16 +192,25 @@
                     </div>
                 </div>
             </div>  
+=======
+            </div>-->
+>>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
             <br>
+            <div class="file-loading">
+                <input id="input-706" type="file" class="file" data-preview-file-type="text">
+            </div>
 
             <form action="<?php echo base_url() . '/crearDocumentoImage' ?>" method="POST">
                 <div class="row justify-content-center">
 
+<<<<<<< HEAD
                     <div class="col-md-4">
                         <label>Cargar documento: </label>
                     <!--    <input  name="documento" type="file" id="documento" require multiple /> -->
                         <input type="file" name="documento" id="documento" />
                     </div>
+=======
+>>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
 
                     <div class="col-md-4">
                         <label>Nombre: </label>
@@ -278,6 +293,48 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 <script src="vendors/fileinput/js/fileinput.min.js"></script>
 
+<script src="vendors/fileinput/js/fileinput.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var $el2 = $("#input-706");
+
+        // custom footer template for the scenario
+        // the custom tags are in braces
+
+        var footerTemplate = '<div class="file-thumbnail-footer" style ="height:94px">\n' +
+            '  <input class="kv-input kv-new form-control input-sm form-control-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
+            '  <input class="kv-input kv-init form-control input-sm form-control-sm text-center {TAG_CSS_INIT}" value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
+            '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
+            '</div>';
+
+        $el2.fileinput({
+            uploadUrl: '/file-upload-batch/2',
+            uploadAsync: false,
+            maxFileCount: 5,
+            overwriteInitial: false,
+            layoutTemplates: {
+                footer: footerTemplate
+            },
+            previewThumbTags: {
+                '{TAG_VALUE}': '', // no value
+                '{TAG_CSS_NEW}': '', // new thumbnail input
+                '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
+            },
+            uploadExtraData: function() { // callback example
+                var out = {},
+                    key, i = 0;
+                $('.kv-input:visible').each(function() {
+                    var $thumb = $(this).closest('.file-preview-frame'); // gets the thumbnail
+                    var fileId = $thumb.data('fileid'); // gets the file identifier for file thumb
+                    out[fileId] = $el.val();
+                });
+                return out;
+            }
+        });
+    });
+</script>
+
 
 <script>
     $(document).ready(function() {
@@ -296,7 +353,8 @@
             var nombreProceso = $(this).data('nombreproceso');
             var transaccionId = $(this).data('transaccionid');
 
-            console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa, procesoId, transaccionId, nombreProceso);
+            console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa,
+                procesoId, transaccionId, nombreProceso);
 
             if (estado == 'En Progreso') {
                 Swal.fire({
@@ -333,7 +391,9 @@
                                     'success'
                                 )
 
-                                location.href = "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" + dataAct;
+                                location.href =
+                                    "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
+                                    dataAct;
 
                             }
                         });
@@ -387,7 +447,9 @@
                                     'success'
                                 )
 
-                                location.href = "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" + dataActi;
+                                location.href =
+                                    "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
+                                    dataActi;
 
                             }
                         });
@@ -417,14 +479,14 @@
             $('#proceso').hide();
         });
 
-        $('.btn-editarO').on('click',function(){
+        $('.btn-editarO').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
             var observaciones = $(this).data('observaciones');
             var etapaId = $(this).data('etapaid');
 
             console.log(id, observaciones);
-            
+
             $('.transaccionActividadId').val(id);
             $('.etapaId').val(etapaId);
             $('#observacionesA').val(observaciones);
@@ -432,7 +494,7 @@
             $('#editModal').modal('show');
         });
 
-        $('.volver').on('click',function(){
+        $('.volver').on('click', function() {
             $('#proceso').css("display", "block");
             $('#documento').hide();
         });
@@ -469,7 +531,6 @@
                         });
                     });                
 </script>
-
 
 
 <?= $this->endSection() ?>

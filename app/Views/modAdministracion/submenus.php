@@ -38,7 +38,7 @@
                                         <td><?php echo $key->nombreArchivo ?></td>
                                         <td>
                                             <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-idmenu="<?php echo $key->nombreMenu ?>" data-archivo="<?php echo $key->nombreArchivo ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                            <button type="submit" class="btn btn-danger btn-sm btn-delete" href="#" data-href="<?php echo base_url() . '/modAdministracion/SubMenuController/eliminarSubmenu/' . $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</button>
+                                            <a href="#" class="btn btn-danger btn-sm btn-delete"  data-id="<?php echo $key->subMenuId ?>" data-nombre="<?php echo $key->nombreSubMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -112,28 +112,28 @@
     <!--END MODAL -->
 
     <!--MODAL ELIMINAR -->
-    <div class="modal" id="modalEliminar" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Eliminar Submenú</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="x_content">
-                        <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="subMenuId"></i></b> ?</h4>
+    <form id="eliminarForm" action="<?php echo base_url() . '/eliminarSubmenu' ?>" method="POST">
+        <div class="modal" id="modalEliminar" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar Submenú</h4>
                     </div>
-                    <!-- end form for validations -->
-                </div>
-                <div class="modal-footer">
-                    <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/eliminar/" method="POST">
-                        <input type="hidden" name="menuId" class="menuId">
+                    <div class="modal-body">
+                        <div class="x_content">
+                            <h4>¿Esta seguro que desea eliminar este Submenú: <b><i class="subMenuId"></i></b> ?</h4>
+                        </div>
+                        <!-- end form for validations -->
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="subMenuId" class="subMenuId">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         <button type="submit" class="btn btn-primary">SI</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <!--END MODAL -->
 
     <!-- MODAL EDITAR MENU-->
@@ -265,5 +265,14 @@
     });
 </script>
 
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            }
+        });
+    });
+</script>
 
 <?= $this->endSection() ?>

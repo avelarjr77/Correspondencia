@@ -1,0 +1,21 @@
+<?php
+
+error_reporting('E_ERROR'); 
+
+    $host="localhost:3308";
+    $user="root";
+    $password="";
+    $bd="baseprueba";
+
+    $conn=mysqli_connect($host,$user,$password,$bd);
+
+    if (!$conn) {
+        $response=array('success'=>false, 'error'=>"No hay conexión a la base de datos");
+
+        echo json_encode($response);
+        exit();
+    }else{
+        $response=array();
+        mysqli_set_charset($conn, 'utf8');
+    }
+?>

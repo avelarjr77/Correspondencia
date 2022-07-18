@@ -32,7 +32,7 @@
                                     <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
                                     <td>
                                         <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-href="<?php echo base_url() . '/modAdministracion/MenuSubmenuController/eliminar/' . $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -84,31 +84,31 @@
     <!--END MODAL -->
 
     <!--MODAL ELIMINAR -->
-    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Eliminar Menú</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="x_content">
-                        <h4>¿Esta seguro que desea eliminar el menú: <b><i class="nombreMenu"></i></b> ?</h4>
+    <form action="<?php echo base_url() . '/eliminarMenu' ?>" method="POST">
+        <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar Menú</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <!-- end form for validations -->
-                </div>
-                <div class="modal-footer">
-                    <form id="eliminarForm" data-bs-action="/modAdministracion/MenuSubmenuController/eliminar/" method="POST">
+                    <div class="modal-body">
+                        <div class="x_content">
+                            <h4>¿Esta seguro que desea eliminar el menú: <b><i class="nombreMenu"></i></b> ?</h4>
+                        </div>
+                        <!-- end form for validations -->
+                    </div>
+                    <div class="modal-footer">
                         <input type="hidden" name="menuId" class="menuId">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         <button type="submit" class="btn btn-primary">SI</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     <!--END MODAL -->
 
     <!-- MODAL EDITAR MENU-->
@@ -215,12 +215,12 @@
 
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
-        language: {
-            url: 'vendors/datatables.net/es.json'
-        }
-    } );
-} );
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            }
+        });
+    });
 </script>
 
 

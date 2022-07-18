@@ -112,7 +112,7 @@
   <!-- Custom Theme Scripts -->
   <script src="build/js/custom.min.js"></script>
   
-  <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+  <script src="vendors/chart.js-3.8.0/package/dist/chart.min.js"></script>
 
   <!-- Dropzone.js -->
   <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>

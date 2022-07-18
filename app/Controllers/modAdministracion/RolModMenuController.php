@@ -100,19 +100,18 @@ class RolModMenuController extends BaseController
     }
     public function actualizar()
     {
+        $RolModuloMenu = new RolModMenuModel();
+
         $datos = [
             "rolId"        => $_POST['rolId'],
             "moduloMenuId"        => $_POST['moduloMenuId']
         ];
 
-        $moduloMenuId = $_POST['moduloMenuId'];
+        $rolModuloMenuId = $_POST['rolModuloMenuId'];
 
-        $RolModuloMenu = new RolModMenuModel();
-        $respuesta = $RolModuloMenu->actualizar($datos, $moduloMenuId);
+        $respuesta = $RolModuloMenu->actualizar($datos, $rolModuloMenuId);
 
-        $datos = ["datos" => $respuesta];
-
-        if ($respuesta) {
+        if ($respuesta > 0) {
             return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '4');
         } else {
             return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '5');
