@@ -45,19 +45,15 @@ class Home extends BaseController
                 'is_logged' => true
             );
 
-            //PARA REGISTRAR QUIEN QUIEN INICIO SESSION
-
+            //PARA REGISTRAR QUIEN INICIO SESSION
             $this->bitacora  = new MovimientosModel();
-
-            $userB =  $obtenerRol->asArray()->select('i.usuarioId')->from('wk_usuario u')
-            ->join('wk_usuario i', 'u.usuarioId=i.usuarioId')->where('u.usuario', $usuario)->first();
 
             $descripcion  = $_SERVER['REMOTE_ADDR'];
             $hora=new Time('now');
 
             $this->bitacora->save([
                 'bitacoraId' => null,
-                'usuarioId' => $userB,
+                'usuario' => $usuario,
                 'accion' => 'Inicio de sesion',
                 'descripcion' => $descripcion,
                 'hora' => $hora,

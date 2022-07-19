@@ -7,7 +7,7 @@ class MovimientosModel extends Model{
 
    protected $table = 'wk_bitacora';
    protected $primaryKey = 'bitacoraId';
-   protected $allowedFields = ['bitacoraId','usuarioId','accion','descripcion','hora'];
+   protected $allowedFields = ['bitacoraId','usuario','accion','descripcion','hora'];
 
    protected $useTimestamps = true;
    protected $createdField  = 'fecha';
@@ -17,11 +17,7 @@ class MovimientosModel extends Model{
    public function listarBitacora()
     {
 
-        $persona = $this->db->query("SELECT b.bitacoraId as 'bitacoraId', u.usuario as 'usuario', b.accion as 'accion',
-                                        b.descripcion as 'descripcion',b.fecha as 'fecha',b.hora as 'hora'
-                                        FROM wk_bitacora b
-                                        INNER JOIN wk_usuario u ON b.usuarioId = u.usuarioId
-                                        ORDER BY b.bitacoraId");
+        $persona = $this->db->query('SELECT*FROM  wk_bitacora');
         return $persona->getResult();
     }
 
