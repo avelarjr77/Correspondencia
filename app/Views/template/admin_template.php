@@ -24,7 +24,7 @@
 
   <!-- the fileinput plugin styling CSS file -->
   <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="vendors/fileinput/themes/explorer-fa3/theme.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
   <link href="vendors/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap-progressbar -->
@@ -73,7 +73,6 @@
   <!-- Include SmartWizard CSS -->
   <link href="vendors/Smartwizard/examples/css/demo.css" rel="stylesheet" type="text/css" />
   <link href="vendors/Smartwizard/dist/css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="vendors/Smartwizard/examples/css/bootstrap-icons.css">
 
 
 </head>

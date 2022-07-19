@@ -6477,8 +6477,8 @@
         bitRateUnits: ['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s', 'EB/s', 'ZB/s', 'YB/s'],
         fileSingle: 'archivo',
         filePlural: 'archivos',
-        browseLabel: 'Seleccionar archivos &hellip;',
-        removeLabel: 'Remove',
+        browseLabel: 'Seleccionar archivos&hellip;',
+        removeLabel: 'Eliminar',
         removeTitle: 'Clear all unprocessed files',
         cancelLabel: 'Cancelar',
         cancelTitle: 'Abort ongoing upload',
@@ -6490,7 +6490,7 @@
         msgNoFilesSelected: 'No files selected',
         msgCancelled: 'Cancelled',
         msgPaused: 'Paused',
-        msgPlaceholder: 'Seleccionar {archivos} ...',
+        msgPlaceholder: 'Seleccionar archivos...',
         msgZoomModalHeading: 'Detailed Preview',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size}</b>) is too small and must be larger than <b>{minSize}</b>.',
@@ -6550,7 +6550,7 @@
             uploadExtra: 'form data upload'
         },
         dropZoneTitle: 'Arrastra y suelta archivos aquí &hellip;',
-        dropZoneClickTitle: '<br>(or click to select {files})',
+        dropZoneClickTitle: '<br>(o has click aquí para seleccionar {files})',
         previewZoomButtonTitles: {
             prev: 'View previous file',
             next: 'View next file',
