@@ -1,21 +1,24 @@
-<?php
-
-namespace App\Controllers\modAdministracion;
+<?php namespace App\Controllers\modAdministracion;
 
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\MovimientosModel;
 
 class BitacoraController extends BaseController
 {
-    //LISTADO DE ROL MODULO MENU
-    public function index()
-    {
+
+    public function bitacora(){
+
+        $bitacora = new MovimientosModel();
+        $datos = $bitacora->listarBitacora();
+
         $mensaje = session('mensaje');
 
-        $dato = [
-            "mensaje"   => $mensaje
+        $data = [
+            "datos" => $datos,
+            "mensaje" => $mensaje
         ];
 
-        return view('modAdministracion/bitacora', $dato);
-    }
+        return view('modAdministracion/bitacora', $data);
+        }
 
 }

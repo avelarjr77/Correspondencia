@@ -19,8 +19,20 @@
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
   <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
   <!-- Dropzone.js -->
   <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+  <!-- the fileinput plugin styling CSS file -->
+  <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="vendors/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+
+  <!-- file input -->
+  <link href="vendors/fileinput/css/fileinput.min.css" rel="stylesheet">
+
+<!-- the fileinput plugin styling CSS file -->
+<link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -68,7 +80,6 @@
   <!-- Include SmartWizard CSS -->
   <link href="vendors/Smartwizard/examples/css/demo.css" rel="stylesheet" type="text/css" />
   <link href="vendors/Smartwizard/dist/css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="vendors/Smartwizard/examples/css/bootstrap-icons.css">
 
 
 </head>
@@ -196,14 +207,14 @@
       <!-- page content -->
       <div class="right_col" role="main">
         <div class="row"><br>
-        <h6>Navegación&nbsp;&nbsp;<i class="fa fa-angle-right"> </i></h6>
+          <h6>Navegación&nbsp;&nbsp;<i class="fa fa-angle-right"> </i></h6>
           <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Modulos&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
           <h6>
             <a href="homeMenu">
-            <?php
-            $modulo = new ModuloModel();
-            $mod = $modulo->asArray()->select('m.nombre')->from('co_modulo m')->where('m.moduloId', $session->modulo)->first();
-            echo $mod['nombre'] ?>
+              <?php
+              $modulo = new ModuloModel();
+              $mod = $modulo->asArray()->select('m.nombre')->from('co_modulo m')->where('m.moduloId', $session->modulo)->first();
+              echo $mod['nombre'] ?>
             </a>
           </h6>
         </div>
@@ -225,6 +236,9 @@
 
   <!-- Dropzone.js -->
   <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+  <!-- Input file -->
+  <script src="vendors/fileinput/js/fileinput.min.js"></script>
 
   <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->

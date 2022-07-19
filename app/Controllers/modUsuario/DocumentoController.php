@@ -47,6 +47,58 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url(). '/documento')->with('mensaje','1');
 
     } 
+    public function crearImage(){
+            
+            $documento = $_POST['documento'];
+
+        
+   /*     if(empty($_FILES['documento']['name']))
+            {
+                $error=array(
+                    'error_img'=>'Image file empty !!!.'
+                );
+            }
+            else
+            {
+                $type=explode('.',$_FILES["documento"]["name"]);
+                $type=$type[count($type)-1];
+                $url="./public/uploads".uniqid(rand()).'.'.$type;
+                if(in_array($type,array("jpg","jpeg","gif","png")))
+                if(is_uploaded_file($_FILES["documento"]["tmp_name"]))
+                if(move_uploaded_file($_FILES["documento"]["tmp_name"],$url))
+                return $url;
+                return "";
+            }  */
+            $file = $this->request->getFile('documento');
+                
+                $path = './uploads/';
+
+                $name = $file->getName();
+                $file->move(WRITEPATH . $path);
+
+        $nombreDocumento = new DocumentoModel();
+        if($this->validate('validarDocumento')){
+            $nombreDocumento->insertar(
+                [
+                    "nombreDocumento" => $_POST['nombreDocumento'],
+                    "documento" => $_POST['documento'],
+                    "tipoDocumentoId" => $_POST['tipoDocumentoId'],
+                    "tipoEnvioId" => $_POST['tipoEnvioId'],
+                    "transaccionActividadId" => $_POST['transaccionActividadId']
+                ]
+
+                
+            );  
+
+                
+            
+
+            return redirect()->to(base_url(). '/documento')->with('mensaje','0');
+        }
+        
+            return redirect()->to(base_url(). '/documento')->with('mensaje','1');
+
+    }
 
     //ELIMINAR DOCUMENTO
     public function eliminar(){
