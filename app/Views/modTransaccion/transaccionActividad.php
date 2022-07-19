@@ -209,7 +209,7 @@
                 <form action="http://localhost/correspondencia-ucad/upload.php">
                     <div class="file-loading">
                         <input id="input-ficons-2"name="kartik-input-706[]" class="file" type="file" multiple
-                            data-preview-file-type="any"  class="file" data-browse-on-zone-click="true" data-upload-url="uploads" data-preview-file-type="text">
+                            data-preview-file-type="any"  class="file" data-browse-on-zone-click="true" data-upload-url="uploads">
                     </div>
                 </form>
             </div>

@@ -123,9 +123,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
-//BITACORA
-$routes->get('bitacora','modAdministracion/BitacoraController::index');
-
 //Reportes
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('reportes', 'modReportes/ReportesController::index');
@@ -206,6 +203,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('documento', 'modUsuario/DocumentoController::documento', ['as'=> 'documento']);
     $routes->post('crearDocumento', 'modUsuario/DocumentoController::crear');
+    $routes->post('crearDocumentoImage', 'modUsuario/DocumentoController::crearImage');
     $routes->post('actualizarDocumento', 'modUsuario/DocumentoController::actualizar');
     $routes->match(['get', 'post'],'actualizarDoc', 'modUsuario/DocumentoController::actualizarDoc', ['as'=> 'actualizarDoc']);
     $routes->post('eliminarDocumento', 'modUsuario/DocumentoController::eliminar');
@@ -322,6 +320,15 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->match(['get', 'post'],'gPastelG', 'modGraficas/GraficasController::pastelG', ['as'=> 'gPastelG']);
     $routes->get('graficaLineal', 'modGraficas/GraficasController::line', ['as'=> 'graficaLineal']);
     $routes->get('graficasProceso', 'modGraficas/GraficasController::proceso', ['as'=> 'graficasProceso']);
+
+});
+
+//BITACORA
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('bitacora', 'modAdministracion/BitacoraController::bitacora', ['as'=> 'bitacora']);
+    $routes->post('crearUsuario', 'modUsuario/UsuarioController::crear');
+    $routes->post('actualizarUsuario', 'modUsuario/UsuarioController::actualizar');
+    $routes->post('eliminarUsuario', 'modUsuario/UsuarioController::eliminar');
 
 });
 

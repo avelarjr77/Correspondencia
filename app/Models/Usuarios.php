@@ -10,6 +10,11 @@ class Usuarios extends Model {
 
         return $this->where($column, $value)->first();
     }
+
+    public function obtenerId(string $column, $value){
+
+        return $this->where($column, $value)->first();
+    }
 }
 
 

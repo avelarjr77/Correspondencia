@@ -14,7 +14,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Usuario</button>
+            <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal" data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Usuario</button>
                 <a href="<?= base_url().route_to('persona') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Persona</a>
                 <a href="<?= base_url().route_to('adminRol') ?>" class="btn btn-outline-secondary mb-2"><i class="fa fa-cogs"></i> Configurar Rol</a>
                 <br>
