@@ -209,7 +209,7 @@
                 <form action="http://localhost/correspondencia-ucad/upload.php">
                     <div class="file-loading">
                         <input id="input-ficons-2"name="kartik-input-706[]" class="file" type="file" multiple
-                            data-preview-file-type="any"  class="file" data-browse-on-zone-click="true" data-upload-url="uploads">
+                            data-preview-file-type="any"  class="file" data-browse-on-zone-click="true" data-upload-url="uploads" data-preview-file-type="text">
                     </div>
                 </form>
             </div>
@@ -308,6 +308,7 @@
 <script src="vendors/fileinput/js/plugins/piexif.js" type="text/javascript"></script>
 <script src="vendors/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
 <script src="vendors/fileinput/js/fileinput.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/locales/fr.js" type="text/javascript"></script>
 <script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
 <script src="vendors/fileinput/themes/gly/theme.js" type="text/javascript"></script>
 <script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script>
@@ -325,7 +326,6 @@ $(document).ready(function() {
         $("#input-ficons-2").fileinput({
         theme: 'gly',
         language: 'es',
-        uploadUrl: 'upload',
         uploadAsync: false,
         maxFileCount: 5,
         sobrescribirInitial: false,
