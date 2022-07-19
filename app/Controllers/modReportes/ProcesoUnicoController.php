@@ -9,29 +9,29 @@ use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
 require_once '../sql/conexion.php';
 
-class PruebaController extends BaseController
+class ProcesoUnicoController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
     public function index()
     {
         $prueba = new PruebaModel();
 
-        $datos =  $prueba->reporte();
+        //$procesoId = $this->request->getVar('procesoId');
+        $procesoId = $_POST['procesoId'];
 
-        //$resultado=mysqli_query($conn, $datos);
+        $datos =  $prueba->reporteProceso($procesoId);
 
         $contexto="";
         $correlativo=1;
-        $data = [];
 
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
                 <tr>
-                    <td style="text-align:center;">'.$correlativo.'</td>
+                    <td>'.$correlativo.'</td>
                     <td>'.$row->proceso.'</td>
-                    <td style="text-align:center;">'.$row->persona.'</td>
-                    <td style="text-align:center;">'.$row->institucion.'</td>
+                    <td style="text-align:center;">'.$row->etapa.'</td>
+                    <td style="text-align:center;">'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
                 </tr><br>
                 ';
@@ -39,23 +39,23 @@ class PruebaController extends BaseController
             
         
             $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Listado de Procesos del presente del mes de '.$row->mes.'</b></h3><br>
-            <table border="0" style="width:100%">
+            <h3 style="text-align:center;"><b>Detalle del Proceso '.$row->proceso.'</b></h3><br>
+            <table border="0" style="width:100%;">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Proceso</th>
-                        <th>Encargado</th>
-                        <th>Institución</th>
-                        <th>Estado</th>
+                        <th style="width:5%;">#</th>
+                        <th style="width:30%;">Proceso</th>
+                        <th style="width:28%;">Etapa</th>
+                        <th style="width:22%;">Actividad</th>
+                        <th style="width:15%;">Estado del Proceso</th>
                     </tr>
                 </thead><br>
                 <tbody>'.$contexto.'</tbody>
             </table>';
+
             }
             
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
-            //$mpdf=new Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
         
             $mpdf->allow_charset_conversion=true;
         
@@ -83,26 +83,14 @@ class PruebaController extends BaseController
         
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            //$file="../../../media/tmp/documento_imprimible.pdf";
-            $file="../../../media/tmp/documento_imprimible.pdf";
+            $file="../../../media/tmp/procesoUnico.pdf";
 
-            /* if (file_exists($file)) {
-                mysqli_close($conn);
-                unset($correlativo, $contexto,);
-        
-                $response=array('success'=>true, 'url'=>'media/tmp/documento_imprimible.pdf', 'resultado'=>$resultado);
-            }else{
-                $response=array('success'=>false, 'error'=>'No fue posible crear el archivo pdf');
-            } */
-        
-            //$mpdf->Output($file, 'I');
             return redirect()->to($mpdf->Output($file,'I'));
         
         }else{
             echo json_encode($datos);
         }
 
-        
+        //echo json_encode($procesoId);
     }
-
 }
