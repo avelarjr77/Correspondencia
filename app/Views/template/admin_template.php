@@ -14,7 +14,7 @@
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="vendors/jQuery-Smart-Wizard/wizard/style.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
@@ -26,10 +26,6 @@
   <!-- the fileinput plugin styling CSS file -->
   <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
   <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="vendors/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-
-  <!-- file input -->
-  <link href="vendors/fileinput/css/fileinput.min.css" rel="stylesheet">
 
 <!-- the fileinput plugin styling CSS file -->
 <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -237,8 +233,6 @@
   <!-- Dropzone.js -->
   <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
-  <!-- Input file -->
-  <script src="vendors/fileinput/js/fileinput.min.js"></script>
 
   <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->

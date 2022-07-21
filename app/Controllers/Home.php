@@ -14,11 +14,14 @@ class Home extends BaseController
 
     public function index()
     {
+        $mensaje = session('mensaje');
+        $data = [
+            "mensaje"   => $mensaje
+        ];
         if (!session()->is_logged) {
             return redirect()->to(base_url('/'));
         }
-        $mensaje = session('mensaje');
-        return view('homeModulos', ["mensaje" => $mensaje]);
+        return view('homeModulos', $data);
     }
 
     public function login()
