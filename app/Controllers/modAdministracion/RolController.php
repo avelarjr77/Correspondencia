@@ -2,6 +2,8 @@
 
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\RolModel;
+use App\Models\modAdministracion\MovimientosModel;
+use CodeIgniter\I18n\Time;
 
 class RolController extends BaseController{
 
@@ -33,6 +35,20 @@ class RolController extends BaseController{
                 ]
             );
 
+            //PARA REGISTRAR EN BITACORA QUIEN CREO ROL
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Inserto un registro de la tabla rol',
+                'descripcion' => $_POST['nombreRol'],
+                'hora' => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','0');
         }
         
@@ -50,6 +66,21 @@ class RolController extends BaseController{
         $respuesta = $nombreRol->eliminar($data);
 
         if ($respuesta > 0){
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO ROL
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Elimino un registro de la tabla rol: ',
+                'descripcion' => $data,
+                'hora' => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/adminRol')->with('mensaje','3');
@@ -70,6 +101,20 @@ class RolController extends BaseController{
             $respuesta = $nombreRol->actualizar($datos, $rolId);
 
             $datos = ["datos" => $respuesta];
+
+            //PARA REGISTRAR EN BITACORA QUIEN EDITO ROL
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Edito un registro de la tabla rol',
+                'descripcion' => $_POST['nombreRol'],
+                'hora' => $hora,
+            ]);
+            //END
             
             return redirect()->to(base_url() . '/adminRol')->with('mensaje', '4');
 
