@@ -9,7 +9,6 @@ use App\Models\modTransaccion\TransaccionConfigModel;
 class DocController extends BaseController{
 
     public function _constructor(){
-        parent::_constructor();
         $this->load->helper('url');
     }
 

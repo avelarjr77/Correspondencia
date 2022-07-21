@@ -1777,7 +1777,7 @@
                 '</div>';
             tActions = '<div class="file-actions">\n' +
                 '    <div class="file-footer-buttons">\n' +
-                '        {rotate} {download} {upload} {delete} {zoom} {other}' +
+                '        {download} {upload} {delete} {zoom} {other}' +
                 '    </div>\n' +
                 '</div>\n' +
                 '{drag}\n' +
