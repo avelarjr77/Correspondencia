@@ -36,10 +36,10 @@ class PruebaController extends BaseController
                 </tr><br>
                 ';
                 $correlativo++;
-            }
+            
         
             $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Listado de Procesos del presente mes</b></h3><br>
+            <h3 style="text-align:center;"><b>Listado de Procesos del presente del mes de '.$row->mes.'</b></h3><br>
             <table border="0" style="width:100%">
                 <thead>
                     <tr>
@@ -52,6 +52,7 @@ class PruebaController extends BaseController
                 </thead><br>
                 <tbody>'.$contexto.'</tbody>
             </table>';
+            }
             
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
             //$mpdf=new Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);

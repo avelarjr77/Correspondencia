@@ -2,11 +2,11 @@
 <?= $this->section('content') ?>
 
 <style>
-    .dropzone {
-        width: 900px;
-        height: 200px;
-        min-height: 0px;
-    }
+.dropzone {
+    width: 900px;
+    height: 200px;
+    min-height: 0px;
+}
 </style>
 
 <div class="x_panel">
@@ -27,8 +27,8 @@
                 </div><br><br><br>
                 <div class="col-md-6">
                     <?php foreach ($titulos as $t) : ?>
-                        <h4><b> Proceso: <i id="procesoN"><?= $t->nombreProceso ?></i></b></h4>
-                        <h4><b> Etapa: <i id="EtapaN"><?= $t->nombreEtapa ?></i></b></h4>
+                    <h4><b> Proceso: <i id="procesoN"><?= $t->nombreProceso ?></i></b></h4>
+                    <h4><b> Etapa: <i id="EtapaN"><?= $t->nombreEtapa ?></i></b></h4>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -48,22 +48,46 @@
                         </thead>
                         <tbody id="procesoList">
                             <?php foreach ($datos as $key) : ?>
-                                <tr>
-                                    <td><?= $key->id ?></td>
-                                    <td><?= $key->actividad ?></td>
-                                    <td><?= $key->persona ?></td>
-                                    <td>
-                                        <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> </a>
-                                        <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>" data-observaciones="<?= $key->observaciones ?>" data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-actividadid="<?= $key->actividadId ?>" data-estado="<?= $key->estado ?>"><i class="fa fa-upload"></i> Cargar Documento</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td><?= $key->id ?></td>
+                                <td><?= $key->actividad ?></td>
+                                <td><?= $key->persona ?></td>
+                                <td>
+                                    <a href="#" id="estadoActividad" class="btn btn-info btn-sm"
+                                        data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"
+                                        data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>"
+                                        data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>"
+                                        data-transacciond="<?= $key->transaccionDetalleId ?>"
+                                        data-etapaid="<?= $key->etapaId ?>"
+                                        data-ordenactividad="<?= $key->ordenActividad ?>"
+                                        data-ordenetapa="<?= $key->ordenEtapa ?>"
+                                        data-procesoid="<?= $key->procesoId ?>"
+                                        data-transaccionid="<?= $key->transaccionId ?>"
+                                        data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad"
+                                        data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>"
+                                        data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>"
+                                        data-transacciond="<?= $key->transaccionDetalleId ?>"
+                                        data-etapaid="<?= $key->etapaId ?>"
+                                        data-ordenactividad="<?= $key->ordenActividad ?>"
+                                        data-ordenetapa="<?= $key->ordenEtapa ?>"
+                                        data-procesoid="<?= $key->procesoId ?>"
+                                        data-transaccionid="<?= $key->transaccionId ?>"
+                                        data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> </a>
+                                    <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>"
+                                        data-observaciones="<?= $key->observaciones ?>"
+                                        data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm btn-documento" data-id="<?= $key->id ?>"
+                                        data-actividad="<?= $key->actividad ?>"
+                                        data-actividadid="<?= $key->actividadId ?>" data-estado="<?= $key->estado ?>"><i
+                                            class="fa fa-upload"></i> Cargar Documento</a>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
 
                         </tbody>
@@ -72,7 +96,8 @@
 
                 <!-- Modal Edit Observaciones-->
                 <form action="<?php echo base_url() . '/actualizarActO' ?>" method="POST">
-                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -85,7 +110,8 @@
 
                                     <div class="form-group">
                                         <label>Observaciones</label>
-                                        <textarea class="form-control" name="observaciones" id="observacionesA" rows="3" required></textarea>
+                                        <textarea class="form-control" name="observaciones" id="observacionesA" rows="3"
+                                            required></textarea>
                                     </div>
 
                                 </div>
@@ -103,7 +129,8 @@
 
                 <div class="col-md-12">
                     <p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             <i class="fa fa-info-circle"></i> Información Adicional
                         </button>
                     </p>
@@ -124,16 +151,16 @@
                                 </thead>
                                 <tbody id="procesoList">
                                     <?php foreach ($datos as $key) : ?>
-                                        <tr>
-                                            <td><?= $key->id ?></td>
-                                            <td><?= $key->actividad ?></td>
-                                            <td><?= $key->fechaCreacion ?></td>
-                                            <td><?= $key->horaCreacion ?></td>
-                                            <td><?= $key->fechaInicio ?></td>
-                                            <td><?= $key->horaInicio ?></td>
-                                            <td><?= $key->fechaFin ?></td>
-                                            <td><?= $key->horaFin ?></td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $key->id ?></td>
+                                        <td><?= $key->actividad ?></td>
+                                        <td><?= $key->fechaCreacion ?></td>
+                                        <td><?= $key->horaCreacion ?></td>
+                                        <td><?= $key->fechaInicio ?></td>
+                                        <td><?= $key->horaInicio ?></td>
+                                        <td><?= $key->fechaFin ?></td>
+                                        <td><?= $key->horaFin ?></td>
+                                    </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -145,7 +172,8 @@
         <!--FIN LISTADO PROCESO-->
 
         <br><br><br><br>
-        <a href="<?= base_url() . route_to('transaccionLista') ?>" class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
+        <a href="<?= base_url() . route_to('transaccionLista') ?>"
+            class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
     <div class="x_content" id="documento" style="display: none">
         <br>
@@ -154,6 +182,7 @@
         EN ESTA PARTE SE GUARDA EL NOMBRE DEL DOCUMENTO PERO NO GUARDA EL DOCUMENTO EN LA CARPETA
         TIENE QUE EJECUTAR LA ACCION QUE ESTA DENTROO DEL FORM DE DROPZONE                 
         -->
+
         <div class="x_content">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -164,64 +193,42 @@
                 </div>
             </div>
             <br>
-<<<<<<< HEAD
-            
-            <div class="row justify-content-center">
-=======
             <!--<div class="row justify-content-center">
->>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
                 <div class="col-md-10">
-                    
                     <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
                         <div class="fallback">
-                            <input name="documento" type="file" id="documento" multiple />
+                            <input id="file-5" class="file" type="file" multiple data-preview-file-type="any"
+                        data-upload-url="uploads" >
                         </div>
 
                     </form>
                 </div>
-<<<<<<< HEAD
-            </div>  
-            
-            <br>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <label for="input-24">Planets and Satellites</label>
-                    <div class="file-loading">
-                        <input id="input-24" name="input24[]" type="file" multiple>
-                    </div>
-                </div>
-            </div>  
-=======
             </div>-->
->>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
             <br>
-            <div class="file-loading">
-                <input id="input-706" type="file" class="file" data-preview-file-type="text">
+            <div class="form-group">
+                <form action="http://localhost/correspondencia-ucad/upload.php">
+                    <div class="file-loading">
+                        <input id="input-ficons-2"name="kartik-input-706[]" class="file" type="file" multiple
+                            data-preview-file-type="any"  class="file" data-browse-on-zone-click="true" data-upload-url="uploads">
+                    </div>
+                </form>
             </div>
 
-            <form action="<?php echo base_url() . '/crearDocumentoImage' ?>" method="POST">
+            <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
                 <div class="row justify-content-center">
 
-<<<<<<< HEAD
-                    <div class="col-md-4">
-                        <label>Cargar documento: </label>
-                    <!--    <input  name="documento" type="file" id="documento" require multiple /> -->
-                        <input type="file" name="documento" id="documento" />
-                    </div>
-=======
->>>>>>> 4a7c22949947fa2793d48932d15cd0eab2f7a85c
 
                     <div class="col-md-4">
                         <label>Nombre: </label>
-                        <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" require>
+                        <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control"
+                            placeholder="Esribe un nombre" require>
                     </div>
                     <div class="col-md-3">
                         <label>Tipo de documento: </label>
                         <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control">
                             <option value="" disable>-Selecciona un tipo de documento-</option>
                             <?php foreach ($tipoDoc as $td) : ?>
-                                <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
+                            <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -230,7 +237,7 @@
                         <select name="tipoEnvioId" id="tipoEnvioId" class="form-control">
                             <option value="" disable>-Selecciona un tipo de envio-</option>
                             <?php foreach ($tipoEnvio as $te) : ?>
-                                <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
+                            <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -239,7 +246,7 @@
                         <select name="transaccionActividadId" id="transaccionActividadId" class="form-control">
                             <option value="" disable>-Selecciona una transaccion-</option>
                             <?php foreach ($datos as $ta) : ?>
-                                <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
+                            <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -263,14 +270,16 @@
                         </thead>
                         <tbody id="docList">
                             <?php foreach ($doc as $d) : ?>
-                                <tr>
-                                    <td><?= $d->documentoId ?></td>
-                                    <td><?= $d->nombreDocumento ?></td>
-                                    <td>
-                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad"><i class="fa fa-trash"></i> Eliminar</a>
-                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"><i class="fa fa-tasks"></i> Ver</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td><?= $d->documentoId ?></td>
+                                <td><?= $d->nombreDocumento ?></td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad"><i
+                                            class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"><i
+                                            class="fa fa-tasks"></i> Ver</a>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -291,245 +300,250 @@
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
-<script src="vendors/fileinput/js/fileinput.min.js"></script>
 
 <script src="vendors/fileinput/js/fileinput.min.js"></script>
+<script src="vendors/fileinput/js/plugins/buffer.min.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/filetype.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/filetype.min.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/piexif.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/fileinput.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
+<script src="vendors/fileinput/themes/gly/theme.js" type="text/javascript"></script>
+<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script>
+
 
 <script>
-    $(document).ready(function() {
-        var $el2 = $("#input-706");
+$(document).ready(function() {
 
-        // custom footer template for the scenario
-        // the custom tags are in braces
+    var footerTemplate = '<div class="file-thumbnail-footer" style ="height:94px">\n' +
+        '  <input class="kv-input kv-new form-control input-sm form-control-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
+        '  <input class="kv-input kv-init form-control input-sm form-control-sm text-center {TAG_CSS_INIT}" value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
+        '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
+        '</div>';
 
-        var footerTemplate = '<div class="file-thumbnail-footer" style ="height:94px">\n' +
-            '  <input class="kv-input kv-new form-control input-sm form-control-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
-            '  <input class="kv-input kv-init form-control input-sm form-control-sm text-center {TAG_CSS_INIT}" value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
-            '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
-            '</div>';
-
-        $el2.fileinput({
-            uploadUrl: '/file-upload-batch/2',
-            uploadAsync: false,
-            maxFileCount: 5,
-            overwriteInitial: false,
-            layoutTemplates: {
-                footer: footerTemplate
-            },
-            previewThumbTags: {
-                '{TAG_VALUE}': '', // no value
-                '{TAG_CSS_NEW}': '', // new thumbnail input
-                '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
-            },
-            uploadExtraData: function() { // callback example
-                var out = {},
-                    key, i = 0;
-                $('.kv-input:visible').each(function() {
-                    var $thumb = $(this).closest('.file-preview-frame'); // gets the thumbnail
-                    var fileId = $thumb.data('fileid'); // gets the file identifier for file thumb
-                    out[fileId] = $el.val();
-                });
-                return out;
-            }
-        });
+        $("#input-ficons-2").fileinput({
+        theme: 'gly',
+        language: 'es',
+        uploadUrl: 'upload',
+        uploadAsync: false,
+        maxFileCount: 5,
+        sobrescribirInitial: false,
+        maxFilePreviewSize: 10240,
+        allowedFileExtensions: ["jpg", "gif", "png", "txt", "docx", "pdf", "doc"],
+        previewFileIcon: '<i class="fas fa-file"></i>',
+        previewFileIconSettings: {
+            'doc': '<i class="fas fa-file-word text-primary"></i>',
+            'docx': '<i class="fas fa-file-word text-primary"></i>',
+            'xls': '<i class="fas fa-file-excel text-success"></i>',
+            'ppt': '<i class="fas fa-file-powerpoint text-danger"></i>',
+            'jpg': '<i class="fas fa-file-image text-warning"></i>',
+            'pdf': '<i class="fas fa-file-pdf text-danger"></i>',
+            'zip': '<i class="fas fa-file-archive text-muted"></i>',
+            'htm': '<i class="fas fa-file-code text-info"></i>',
+            'txt': '<i class="fas fa-file-text text-info"></i>',
+        },
+        layoutTemplates: {
+            footer: footerTemplate
+        },
+        previewThumbTags: {
+            '{TAG_VALUE}': '', // no value
+            '{TAG_CSS_NEW}': '', // new thumbnail input
+            '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
+        },
+        uploadExtraData: function() { // callback example
+            var out = {},
+                key, i = 0;
+            $('.kv-input:visible').each(function() {
+                var $thumb = $(this).closest('.file-preview-frame'); // gets the thumbnail
+                var fileId = $thumb.data(
+                'fileid'); // gets the file identifier for file thumb
+                out[fileId] = $el.val();
+            });
+            return out;
+        }
     });
+});
 </script>
 
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $('.btn-finalizarActividad').on('click', function() {
-            // get data from button edit
-            var id = $(this).data('id');
-            var actividad = $(this).data('actividad'); //actividadId
-            var etapaId = $(this).data('etapaid');
-            var persona = $(this).data('persona');
-            var estado = $(this).data('estado');
-            var transacciond = $(this).data('transacciond');
-            var ordenActividad = $(this).data('ordenactividad');
-            var ordenEtapa = $(this).data('ordenetapa');
-            var procesoId = $(this).data('procesoid');
-            var nombreProceso = $(this).data('nombreproceso');
-            var transaccionId = $(this).data('transaccionid');
+    $('.btn-finalizarActividad').on('click', function() {
+        // get data from button edit
+        var id = $(this).data('id');
+        var actividad = $(this).data('actividad'); //actividadId
+        var etapaId = $(this).data('etapaid');
+        var persona = $(this).data('persona');
+        var estado = $(this).data('estado');
+        var transacciond = $(this).data('transacciond');
+        var ordenActividad = $(this).data('ordenactividad');
+        var ordenEtapa = $(this).data('ordenetapa');
+        var procesoId = $(this).data('procesoid');
+        var nombreProceso = $(this).data('nombreproceso');
+        var transaccionId = $(this).data('transaccionid');
 
-            console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa,
-                procesoId, transaccionId, nombreProceso);
+        console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa,
+            procesoId, transaccionId, nombreProceso);
 
-            if (estado == 'En Progreso') {
-                Swal.fire({
-                    title: '¿Desea Finalizar esta actividad?',
-                    text: "No podrá reverir este cambio",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, finalizar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            type: "GET",
-                            url: "<?= base_url() . route_to('actividadF') ?>",
-                            data: {
-                                transaccionActividadId: id,
-                                etapaId: etapaId,
-                                ordenActividad: ordenActividad,
-                                procesoId: procesoId,
-                                ordenEtapa: ordenEtapa,
-                                transaccionDetalleId: transacciond,
-                                transaccionId: transaccionId
-                            },
-                            success: function(data) {
+        if (estado == 'En Progreso') {
+            Swal.fire({
+                title: '¿Desea Finalizar esta actividad?',
+                text: "No podrá reverir este cambio",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, finalizar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "GET",
+                        url: "<?= base_url() . route_to('actividadF') ?>",
+                        data: {
+                            transaccionActividadId: id,
+                            etapaId: etapaId,
+                            ordenActividad: ordenActividad,
+                            procesoId: procesoId,
+                            ordenEtapa: ordenEtapa,
+                            transaccionDetalleId: transacciond,
+                            transaccionId: transaccionId
+                        },
+                        success: function(data) {
 
-                                var dataAct = JSON.parse(data);
+                            var dataAct = JSON.parse(data);
 
-                                console.log(dataAct);
+                            console.log(dataAct);
 
-                                Swal.fire(
-                                    '¡Finalizada!',
-                                    'La actividad ha finalizado',
-                                    'success'
-                                )
+                            Swal.fire(
+                                '¡Finalizada!',
+                                'La actividad ha finalizado',
+                                'success'
+                            )
 
-                                location.href =
-                                    "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
-                                    dataAct;
+                            location.href =
+                                "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
+                                dataAct;
 
-                            }
-                        });
-                    }
-                })
-            } else if (estado == 'Inactivo' || estado == 'Finalizado') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'No es posible finalizar una actividad Inactiva o Finalizada'
-                })
-            }
-        });
-
-        $('.btn-iniciarActividad').on('click', function() {
-            // get data from button edit
-            var id = $(this).data('id');
-            var actividad = $(this).data('actividad'); //actividad
-            var estado = $(this).data('estado');
-            var etapaId = $(this).data('etapaid');
-
-            console.log(id);
-
-            if (estado == 'Inactivo') {
-                Swal.fire({
-                    title: '¿Desea Iniciar esta actividad?',
-                    text: "No podrá reverir este cambio",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Iniciar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            type: "GET",
-                            url: "<?= base_url() . route_to('actividadI') ?>",
-                            data: {
-                                transaccionActividadId: id,
-                                etapaId: etapaId
-                            },
-                            success: function(data) {
-
-                                var dataActi = JSON.parse(data);
-
-                                console.log(dataActi);
-
-                                Swal.fire(
-                                    '¡Iniciada!',
-                                    'La actividad ' + actividad + ' ha iniciado',
-                                    'success'
-                                )
-
-                                location.href =
-                                    "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
-                                    dataActi;
-
-                            }
-                        });
-                    }
-                })
-            } else if (estado == 'En Progreso' || estado == 'Finalizado') {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'No es posible iniciar una actividad Activa o Finalizada'
-                })
-            } else {
-
-            }
-        });
-
-        $('.btn-documento').on('click', function() {
-            var id = $(this).data('id');
-            var actividad = $(this).data('actividad');
-            var actividadId = $(this).data('actividadid');
-            var estado = $(this).data('estado');
-
-            $('#actividadN').html(actividad);
-            $('#transaccionActividadId').val(id);
-
-            $('#documento').css("display", "block");
-            $('#proceso').hide();
-        });
-
-        $('.btn-editarO').on('click', function() {
-            // get data from button edit
-            var id = $(this).data('id');
-            var observaciones = $(this).data('observaciones');
-            var etapaId = $(this).data('etapaid');
-
-            console.log(id, observaciones);
-
-            $('.transaccionActividadId').val(id);
-            $('.etapaId').val(etapaId);
-            $('#observacionesA').val(observaciones);
-            // Call Modal Edit
-            $('#editModal').modal('show');
-        });
-
-        $('.volver').on('click', function() {
-            $('#proceso').css("display", "block");
-            $('#documento').hide();
-        });
-
-        /* $('.btn-doc').on('click',function(){
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('actualizarDoc') ?>",
-                data: $("#frmDoc").serialize(),
-                success:function(data){
-
-                    var dataE = JSON.parse(data);
-                    console.log(dataE);
+                        }
+                    });
                 }
-            });
-        }); */
-
+            })
+        } else if (estado == 'Inactivo' || estado == 'Finalizado') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No es posible finalizar una actividad Inactiva o Finalizada'
+            })
+        }
     });
 
-                    $(document).ready(function() {
-                        var url1 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
-                            url2 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg';
-                        $("#input-24").fileinput({
-                            initialPreview: [url1, url2],
-                            initialPreviewAsData: true,
-                            initialPreviewConfig: [
-                                {caption: "Moon.jpg", downloadUrl: url1, description: "<h5>The Moon</h5>The Moon is Earth's only natural satellite and the fifth largest moon in the solar system. The Moon's distance from Earth is about 240,000 miles (385,000 km).", size: 930321, width: "120px", key: 1},
-                                {caption: "Earth.jpg", downloadUrl: url2, description: "<h5>The Earth</h5> The Earth is the 3<sup>rd</sup> planet from the Sun and the only astronomical object known to harbor and support life. About 29.2% of Earth's surface is land and remaining 70.8% is covered with water.", size: 1218822, width: "120px", key: 2}
-                            ],
-                            deleteUrl: "/site/file-delete",
-                            overwriteInitial: false,
-                            maxFileSize: 100,
-                            initialCaption: "The Moon and the Earth"
-                        });
-                    });                
+    $('.btn-iniciarActividad').on('click', function() {
+        // get data from button edit
+        var id = $(this).data('id');
+        var actividad = $(this).data('actividad'); //actividad
+        var estado = $(this).data('estado');
+        var etapaId = $(this).data('etapaid');
+
+        console.log(id);
+
+        if (estado == 'Inactivo') {
+            Swal.fire({
+                title: '¿Desea Iniciar esta actividad?',
+                text: "No podrá reverir este cambio",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Iniciar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "GET",
+                        url: "<?= base_url() . route_to('actividadI') ?>",
+                        data: {
+                            transaccionActividadId: id,
+                            etapaId: etapaId
+                        },
+                        success: function(data) {
+
+                            var dataActi = JSON.parse(data);
+
+                            console.log(dataActi);
+
+                            Swal.fire(
+                                '¡Iniciada!',
+                                'La actividad ' + actividad + ' ha iniciado',
+                                'success'
+                            )
+
+                            location.href =
+                                "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
+                                dataActi;
+
+                        }
+                    });
+                }
+            })
+        } else if (estado == 'En Progreso' || estado == 'Finalizado') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No es posible iniciar una actividad Activa o Finalizada'
+            })
+        } else {
+
+        }
+    });
+
+    $('.btn-documento').on('click', function() {
+        var id = $(this).data('id');
+        var actividad = $(this).data('actividad');
+        var actividadId = $(this).data('actividadid');
+        var estado = $(this).data('estado');
+
+        $('#actividadN').html(actividad);
+        $('#transaccionActividadId').val(id);
+
+        $('#documento').css("display", "block");
+        $('#proceso').hide();
+    });
+
+    $('.btn-editarO').on('click', function() {
+        // get data from button edit
+        var id = $(this).data('id');
+        var observaciones = $(this).data('observaciones');
+        var etapaId = $(this).data('etapaid');
+
+        console.log(id, observaciones);
+
+        $('.transaccionActividadId').val(id);
+        $('.etapaId').val(etapaId);
+        $('#observacionesA').val(observaciones);
+        // Call Modal Edit
+        $('#editModal').modal('show');
+    });
+
+    $('.volver').on('click', function() {
+        $('#proceso').css("display", "block");
+        $('#documento').hide();
+    });
+
+    /* $('.btn-doc').on('click',function(){
+        $.ajax({
+            type: "GET",
+            url: "<= base_url().route_to('actualizarDoc') ?>",
+            data: $("#frmDoc").serialize(),
+            success:function(data){
+
+                var dataE = JSON.parse(data);
+                console.log(dataE);
+            }
+        });
+    }); */
+
+});
 </script>
 
 

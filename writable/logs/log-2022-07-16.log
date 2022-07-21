@@ -1,0 +1,449 @@
+CRITICAL - 2022-07-16 11:37:49 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:37:53 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:37:56 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:39:55 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:39:57 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:40:01 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:43:26 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:43:31 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:43:33 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:43:36 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:02 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:05 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:09 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:36 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:39 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:45:43 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:04 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:06 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:11 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:37 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:41 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:46:45 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:47:40 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:47:42 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:47:47 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:48:33 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:48:35 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:48:39 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:53:10 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:53:11 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:53:14 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:53:17 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:54:03 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:54:05 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:54:08 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:55:41 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:55:42 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:55:45 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 11:55:47 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 98
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(98): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:03:26 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:03:28 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:03:31 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleConroller.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleConroller->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleConroller))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:10:30 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:10:31 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:10:34 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:10:36 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 84
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(84): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:17:05 --> syntax error, unexpected 'foreach' (T_FOREACH)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-07-16 12:17:22 --> syntax error, unexpected 'foreach' (T_FOREACH)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-07-16 12:18:24 --> syntax error, unexpected 'foreach' (T_FOREACH)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-07-16 12:19:36 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:19:37 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:19:40 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:19:42 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:20:44 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:20:45 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:20:48 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:20:49 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php on line 86
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(86): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:22:12 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 99
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(99): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:22:14 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 99
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(99): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:22:16 --> Argument 1 passed to CodeIgniter\HTTP\RedirectResponse::to() must be of the type string, null given, called in C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php on line 99
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(99): CodeIgniter\HTTP\RedirectResponse->to(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-16 12:28:54 --> syntax error, unexpected '"mes"' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-07-16 12:34:22 --> syntax error, unexpected 'break' (T_BREAK)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
