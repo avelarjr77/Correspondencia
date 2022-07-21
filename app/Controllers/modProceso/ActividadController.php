@@ -100,7 +100,7 @@ class ActividadController extends BaseController
 
         $respuesta = $actividad->insertar($datos);
 
-        if ($respuesta) {
+        /* if ($respuesta) {
             $model = new ContactoModel();
             $anio = date('Y');
 
@@ -143,6 +143,12 @@ class ActividadController extends BaseController
             }
         } else {
 
+            $mensaje = 13;
+        } */
+
+        if ($respuesta > 0) {
+            $mensaje = 12;
+        } else {
             $mensaje = 13;
         }
 

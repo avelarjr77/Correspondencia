@@ -91,14 +91,13 @@ class ProcesoTiempoController extends BaseController
         
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            $file="../../../media/tmp/ProcesoTiempo.pdf";
+            $file_ruta="ProcesoTiempo.pdf";
 
-            return redirect()->to($mpdf->Output($file,'I'));
+            return redirect()->to($mpdf->Output($file_ruta,'I'));
         
         }else{
             echo json_encode($datos);
         }
 
-        //echo json_encode($procesoId);
     }
 }

@@ -132,6 +132,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('pruebaR', 'modReportes/PruebaController::index', ['as'=> 'pruebaR']);
     $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
     $routes->get('procesoDetalle', 'modReportes/ProcesoDetalleController::index', ['as'=> 'procesoDetalle']);
+    $routes->get('vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
     $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
     $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
 });
