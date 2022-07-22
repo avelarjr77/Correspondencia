@@ -36,8 +36,8 @@
                             <td><?php echo $key->direccion ?></< /td>
                             <td><?php echo $key->municipio ?></< /td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-tipoDireccion="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioId="<?php echo $key->municipioId ?>" data-personaId="<?php echo $key->personaId ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-td="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioid="<?php echo $key->municipioId ?>" data-personaid="<?php echo $key->personaId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $key->id ?>" data-nombre="<?php echo $key->nombre ?>" data-td="<?php echo $key->tipoDireccion ?>" data-direccion="<?php echo $key->direccion ?>" data-municipio="<?php echo $key->municipio ?>" data-municipioid="<?php echo $key->municipioId ?>" data-personaid="<?php echo $key->personaId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -61,7 +61,7 @@
 
                             <div class="form-group">
                                 <label>Persona: </label>
-                                <select name="personaId" class="form-control personaId" required="required">
+                                <select name="personaId" class="form-control" required="required">
                                     <option value="">-Selecciona una persona-</option>
                                     <?php foreach ($persona as $pers) : ?>
                                         <option value="<?php echo $pers->personaId ?>"><?php echo $pers->nombres ?></option>
@@ -71,7 +71,7 @@
 
                             <div class="form-group">
                                 <label>Tipo de Dirección:</label>
-                                <select name="tipoDireccion" class="form-control tipoDireccion" required="required">
+                                <select name="tipoDireccion" class="form-control" required="required">
                                     <option value="" disable>-Selecciona un tipo de dirección-</option>
                                     <option value="P">Principal</option>
                                     <option value="S">Secundaria</option>
@@ -80,12 +80,12 @@
 
                             <div class="form-group">
                                 <label>Dirección:</label>
-                                <input type="text" id="nombreDireccion" name="nombreDireccion" required="required" autocomplete="off" class="form-control nombreDireccion">
+                                <input type="text" id="nombreDireccion" name="nombreDireccion" required="required" autocomplete="off" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Departamento:</label>
-                                <select name="departamentoId" class="form-control departamentoId" required="required">
+                                <select name="departamentoId" class="form-control departamentoIdC" required="required">
                                     <option value="">-Selecciona un Departamento-</option>
                                     <?php foreach ($departamento as $dep) : ?>
                                         <option value="<?php echo $dep->deptoId ?>"><?php echo $dep->nombreDepto ?></option>
@@ -95,8 +95,8 @@
 
                             <div class="form-group" style="display: none" id="muni">
                                 <label>Municipio:</label>
-                                <select name="municipioId" class="form-control municipioId" required="required">
-                                    <option value="">-Selecciona un Municipio-</option>
+                                <select name="municipioId" class="form-control municipioIdC" required="required">
+                                    
                                 </select>
                             </div>
 
@@ -137,10 +137,7 @@
 
                             <div class="form-group">
                                 <label>Tipo de Dirección:</label>
-                                <select name="tipoDireccion" class="form-control tipoDireccion" required="required">
-                                    <option value="" disable>-Selecciona un tipo de dirección-</option>
-                                    <option value="P">Principal</option>
-                                    <option value="S">Secundaria</option>
+                                <select name="tipoDireccion" id="td" class="form-control td" required="required">
                                 </select>
                             </div>
 
@@ -231,11 +228,11 @@
 <script>
     $(document).ready(function() {
 
-        $('.departamentoId').on('change', function() {
-            var deptoId = $('.departamentoId').val();
+        $('.departamentoIdC').on('change', function() {
+            var deptoId = $('.departamentoIdC').val();
             console.log(deptoId);
 
-            var mData = $(".municipioId");
+            var mData = $(".municipioIdC");
 
             $.ajax({
                 type: "GET",
@@ -248,7 +245,8 @@
                     var dataMun = JSON.parse(data);
 
                     console.log(dataMun);
-                    $(".municipioId").empty();
+                    $(".municipioIdC").empty();
+                    $(".municipioIdC").append('<option value="">-Selecciona un Municipio-</option>');
 
                     $.each(dataMun, function(index, val) {
                         mData.append("<option value=" + val.municipioId + ">" + val.nombreMunicipio + "</option>")
@@ -265,21 +263,33 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            const tipoDireccion = $(this).data('tipoDireccion');
+            const td = $(this).data('td');
             const direccion = $(this).data('direccion');
             const municipio = $(this).data('municipio');
-            const municipioId = $(this).data('municipioId');
-            const persona = $(this).data('personaId');
+            const municipioid = $(this).data('municipioid');
+            const persona = $(this).data('personaid');
+            console.log(td);
 
+            if (td == 'Principal') {
+                $(".td").empty();
+                $(".td").append('<option disable>-Selecciona un tipo de dirección-</option>'+
+                            '<option value="P" selected>Principal</option>'+
+                            '<option value="S">Secundaria</option>');
+            }else{
+                $(".td").empty();
+                $(".td").append('<option disable>-Selecciona un tipo de dirección-</option>'+
+                            '<option value="P">Principal</option>'+
+                            '<option value="S" selected>Secundaria</option>');
+            }
 
             // Set data to Form Edit
             $('.direccionId').val(id);
-            $('.personaId').val(nombre).trigger('change');
-            $('.tipoDireccion').val(tipoDireccion);
+            //$('.personaId').val(nombre).trigger('change');
+            //$('.td').val(td);
             $('.nombreDireccion').val(direccion);
-            $('.municipioIdA').val(municipio).trigger('change');
-            //$('.municipioId').val(municipioId);
-            // $('.personaId').val(persona);
+            $('.municipioIdA').val(municipioid).trigger('change');
+            //$('.municipioId').val(municipioid);
+            $('.personaId').val(persona);
 
             // Call Modal Edit
             $('#editModal').modal('show');
@@ -290,11 +300,11 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
-            const tipoDireccion = $(this).data('tipoDireccion');
+            const tipoDireccion = $(this).data('tipodireccion');
             const direccion = $(this).data('direccion');
             const municipio = $(this).data('municipio');
-            const municipioId = $(this).data('municipioId');
-            const personaId = $(this).data('personaId');
+            const municipioId = $(this).data('municipioid');
+            const personaId = $(this).data('personaid');
 
             // Set data to Form Edit
             $('.direccionId').val(id);
