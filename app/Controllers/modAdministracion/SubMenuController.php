@@ -2,9 +2,11 @@
 
 namespace App\Controllers\modAdministracion;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\SubmenuModel;
 use App\Models\modAdministracion\MenuSubmenuModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class SubMenuController extends BaseController
 {
@@ -39,6 +41,25 @@ class SubMenuController extends BaseController
                     "nombreArchivo"     => $_POST['nombreArchivo']
                 ]
             );
+
+            $menu = new MenuSubmenuModel();
+            $menuId=$_POST['menuId'];
+            $nombreMenu = $menu->asArray()->select("nombreMenu")
+            ->where("menuId", $menuId)->first();
+
+            //PARA REGISTRAR EN BITACORA QUIEN CREO SUBMENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Agregó Submenú',
+                'descripcion'   => $_POST['nombreSubMenu'],
+                'hora'          => $hora,
+            ]);
+            //END
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '1');
         }
 
@@ -79,6 +100,23 @@ class SubMenuController extends BaseController
         $respuesta = $submenu->eliminar($data);
 
         if ($respuesta) {
+
+            $nombreSubMenu = $submenu->asArray()->select("nombreSubMenu")
+            ->where("subMenuId", $subMenuId)->first();
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL SUBMENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó Submenú',
+                'descripcion'   => $nombreSubMenu,
+                'hora'          => $hora,
+            ]);
+            //END
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '4');
         } else {
             return redirect()->to(base_url() . '/submenus')->with('mensaje', '5');

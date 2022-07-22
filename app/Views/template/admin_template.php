@@ -185,12 +185,6 @@
                   <img src="images/user.png" alt=""><?php echo session('usuario'); ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <!--<a class="dropdown-item" href="<?= base_url() . route_to('perfil') ?>"> Profile</a>
-                  <a class="dropdown-item" href="javascript:;">
-                    <span class="badge bg-red pull-right">50%</span>
-                    <span>Settings</span>
-                  </a>
-                  <a class="dropdown-item" href="javascript:;">Help</a>-->
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
@@ -204,7 +198,7 @@
       <div class="right_col" role="main">
         <div class="row"><br>
           <h6>Navegación&nbsp;&nbsp;<i class="fa fa-angle-right"> </i></h6>
-          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Modulos&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
+          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Módulos&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
           <h6>
             <a href="homeMenu">
               <?php

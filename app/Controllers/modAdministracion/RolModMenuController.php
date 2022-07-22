@@ -2,10 +2,12 @@
 
 namespace App\Controllers\modAdministracion;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\RolModel;
 use App\Models\modAdministracion\ModuloMenuModel;
 use App\Models\modAdministracion\RolModMenuModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class RolModMenuController extends BaseController
 {
@@ -14,8 +16,8 @@ class RolModMenuController extends BaseController
     {
         $rolModMenu = new RolModMenuModel();
         $ModuloMenu = new ModuloMenuModel();
-        $nombreRol = new RolModel();
-        $mensaje = session('mensaje');
+        $nombreRol  = new RolModel();
+        $mensaje    = session('mensaje');
 
         $datos = $rolModMenu->getRolMM();
 
@@ -37,9 +39,23 @@ class RolModMenuController extends BaseController
 
     public function crearRolModuloMenu(){
         $datos = [
-            "rolId"        => $_POST['rolId'],
-            "moduloMenuId"        => $_POST['moduloMenuId']
+            "rolId"         => $_POST['rolId'],
+            "moduloMenuId"  => $_POST['moduloMenuId']
         ];
+
+        //PARA REGISTRAR EN BITACORA QUIEN CREÓ EL ROL-MÓDULO-MENÚ
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó módulo',
+            'descripcion'   => $_POST['rolId'].'/'.$_POST['moduloMenuId'],
+            'hora'          => $hora,
+        ]);
+        //END
 
         $RolModuloMenu = new RolModMenuModel();
         $respuesta = $RolModuloMenu->insertar($datos);
@@ -56,20 +72,20 @@ class RolModMenuController extends BaseController
     {
         $rolModMenu = new RolModMenuModel();
 
-        $moduloId = $this->request->getVar('moduloId');
+        $moduloId   = $this->request->getVar('moduloId');
 
-        $modMenu = $rolModMenu->getModMenu($moduloId);
+        $modMenu    = $rolModMenu->getModMenu($moduloId);
 
         echo json_encode($modMenu);
     }
 
     public function menu()
     {
-        $rolM = new RolModMenuModel();
+        $rolM   = new RolModMenuModel();
 
-        $rolId = $this->request->getVar('rolId');
+        $rolId  = $this->request->getVar('rolId');
 
-        $rolMenu = $rolM->getRolMenu($rolId);
+        $rolMenu= $rolM->getRolMenu($rolId);
 
         echo json_encode($rolMenu);
     }
@@ -79,13 +95,13 @@ class RolModMenuController extends BaseController
 
         $rolMod = new RolModMenuModel();
         if ($this->validate([
-            'menu'        => 'required',
-            'rolId'        => 'required'
+            'menu'      => 'required',
+            'rolId'     => 'required'
 
         ])) {
             $datos = [
-                $menu = $_POST['menu'],
-                $rolId = $_POST['rolId']
+                $menu   = $_POST['menu'],
+                $rolId  = $_POST['rolId']
             ];
 
             for ($i = 0; $i < count($menu); $i++) {
@@ -103,13 +119,27 @@ class RolModMenuController extends BaseController
         $RolModuloMenu = new RolModMenuModel();
 
         $datos = [
-            "rolId"        => $_POST['rolId'],
-            "moduloMenuId"        => $_POST['moduloMenuId']
+            "rolId"         => $_POST['rolId'],
+            "moduloMenuId"  => $_POST['moduloMenuId']
         ];
 
         $rolModuloMenuId = $_POST['rolModuloMenuId'];
 
         $respuesta = $RolModuloMenu->actualizar($datos, $rolModuloMenuId);
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITO EL ROL-MODULO-MENÚ
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Editó Rol-Módulo-Menú',
+            'descripcion'   => $_POST['rolId'] . $_POST['moduloMenuId'],
+            'hora'          => $hora,
+        ]);
+        //END
 
         if ($respuesta > 0) {
             return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '4');
@@ -132,10 +162,22 @@ class RolModMenuController extends BaseController
         $respuesta = $nombre->eliminarR($data);
 
         if ($respuesta > 0) {
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL ROL-MODULO-MENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora   =new Time('now');
+            $session= session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó Rol-Módulo-Menú',
+                'descripcion'   => $rolModuloMenuId,
+                'hora'          => $hora,
+            ]);
+            //END
             return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '3');
         } else {
             return redirect()->to(base_url() . '/rolModMenu')->with('mensaje', '2');
         }
-        //echo json_encode($respuesta);
     }
 }

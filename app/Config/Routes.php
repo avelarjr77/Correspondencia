@@ -123,9 +123,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
-//BITACORA
-$routes->get('bitacora','modAdministracion/BitacoraController::index');
-
 //REPORTES
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('reportes', 'modReportes/ReportesController::index');

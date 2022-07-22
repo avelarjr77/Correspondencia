@@ -43,7 +43,7 @@ class RolController extends BaseController{
             $this->bitacora->save([
                 'bitacoraId' => null,
                 'usuario' => $session,
-                'accion' => 'Inserto un registro de la tabla rol',
+                'accion' => 'Agregó rol',
                 'descripcion' => $_POST['nombreRol'],
                 'hora' => $hora,
             ]);
@@ -67,6 +67,9 @@ class RolController extends BaseController{
 
         if ($respuesta > 0){
 
+            $nombreRol = $nombreRol->asArray()->select("nombreRol")
+            ->where("rolId", $rolId)->first();
+
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINO ROL
             $this->bitacora  = new MovimientosModel();
             $hora=new Time('now');
@@ -75,8 +78,8 @@ class RolController extends BaseController{
             $this->bitacora->save([
                 'bitacoraId' => null,
                 'usuario' => $session,
-                'accion' => 'Elimino un registro de la tabla rol: ',
-                'descripcion' => $data,
+                'accion' => 'Eliminó rol',
+                'descripcion' => $nombreRol,
                 'hora' => $hora,
             ]);
             //END
@@ -110,7 +113,7 @@ class RolController extends BaseController{
             $this->bitacora->save([
                 'bitacoraId' => null,
                 'usuario' => $session,
-                'accion' => 'Edito un registro de la tabla rol',
+                'accion' => 'Editó rol',
                 'descripcion' => $_POST['nombreRol'],
                 'hora' => $hora,
             ]);

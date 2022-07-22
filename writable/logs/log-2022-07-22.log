@@ -1,0 +1,325 @@
+CRITICAL - 2022-07-22 11:02:07 --> Object of class App\Models\modAdministracion\MenuSubmenuModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(318): strtr('INSERT INTO `wk...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(293): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `wk...', Array)
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#4 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#5 C:\wamp64\www\correspondencia-ucad\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#6 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#7 C:\wamp64\www\correspondencia-ucad\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#8 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(100): CodeIgniter\BaseModel->save(Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-07-22 11:02:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '), '2022-07-22 11:02:40', '2022-07-22 11:02:40')' at line 1
+CRITICAL - 2022-07-22 11:02:40 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '), '2022-07-22 11:02:40', '2022-07-22 11:02:40')' at line 1
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-07-22 11:04:52 --> Object of class stdClass could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(312): implode(',', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(293): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `wk...', Array)
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\Query.php(150): CodeIgniter\Database\Query->compileBinds()
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\Query->getQuery()
+#4 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#5 C:\wamp64\www\correspondencia-ucad\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#6 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#7 C:\wamp64\www\correspondencia-ucad\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#8 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(100): CodeIgniter\BaseModel->save(Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2022-07-22 11:18:37 --> Undefined index: nombreRol
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(136): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 136, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->actualizar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-07-22 11:30:53 --> Unknown column 'nombremenu' in 'field list'
+CRITICAL - 2022-07-22 11:30:53 --> Unknown column 'nombremenu' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nombrem...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nombrem...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nombrem...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `nombrem...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloController.php(72): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloController->eliminar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-07-22 12:13:21 --> A non-numeric value encountered
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\wamp64\\www\\c...', 58, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:13:59 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 58, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:19:15 --> A non-numeric value encountered
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\wamp64\\www\\c...', 58, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:42:59 --> Undefined variable: nombreModulo
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 59, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:43:23 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 59, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:45:33 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 59, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:47:17 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\wamp64\\www\\c...')
+#1 C:\wamp64\www\correspondencia-ucad\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(790): class_exists('\\App\\Controller...', true)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->startController()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-07-22 12:48:50 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 50, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 12:49:17 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 50, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-07-22 12:50:27 --> Column 'moduloId' in where clause is ambiguous
+CRITICAL - 2022-07-22 12:50:27 --> Column 'moduloId' in where clause is ambiguous
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nombre`...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nombre`...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nombre`...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `nombre`...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(48): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 12:50:58 --> Column 'moduloId' in where clause is ambiguous
+CRITICAL - 2022-07-22 12:50:58 --> Column 'moduloId' in where clause is ambiguous
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nombre`...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nombre`...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nombre`...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `nombre`...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(48): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 12:51:44 --> Column 'menuId' in where clause is ambiguous
+CRITICAL - 2022-07-22 12:51:44 --> Column 'menuId' in where clause is ambiguous
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nombreM...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nombreM...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nombreM...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `nombreM...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(44): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 12:53:30 --> Column 'menuId' in where clause is ambiguous
+CRITICAL - 2022-07-22 12:53:30 --> Column 'menuId' in where clause is ambiguous
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `m`.`nom...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `m`.`nom...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `m`.`nom...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `m`.`nom...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(46): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 12:53:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`m` = '1'
+ LIMIT 1' at line 4
+CRITICAL - 2022-07-22 12:53:51 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`m` = '1'
+ LIMIT 1' at line 4
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `m`.`nom...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `m`.`nom...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `m`.`nom...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `m`.`nom...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloMenuController.php(46): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloMenuController->crearModuloMenu()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-07-22 13:08:36 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 57, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->agregarSubMenu()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:13:21 --> Cannot use empty array elements in arrays
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-07-22 13:13:28 --> Cannot use empty array elements in arrays
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2022-07-22 13:14:53 --> Unknown column 'nombreenu' in 'field list'
+CRITICAL - 2022-07-22 13:14:53 --> Unknown column 'nombreenu' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nombree...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nombree...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nombree...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `nombree...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(103): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-07-22 13:16:34 --> Undefined index: menuId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(107): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 107, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-07-22 13:21:21 --> Column 'menuId' in field list is ambiguous
+CRITICAL - 2022-07-22 13:21:21 --> Column 'menuId' in field list is ambiguous
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `menuId`...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `menuId`...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `menuId`...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `menuId`...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(109): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 13:23:01 --> Table 'co_menu.m' doesn't exist
+CRITICAL - 2022-07-22 13:23:01 --> Table 'co_menu.m' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `m`.`men...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `m`.`men...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `m`.`men...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `m`.`men...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(109): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-07-22 13:23:49 --> Table 'co_menu.m' doesn't exist
+CRITICAL - 2022-07-22 13:23:49 --> Table 'co_menu.m' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `m`.`nom...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `m`.`nom...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `m`.`nom...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `m`.`nom...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(109): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-07-22 13:41:14 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 122, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:42:05 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 122, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:42:15 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 122, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:42:38 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 122, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:53:13 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(121): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 121, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-07-22 13:56:19 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\SubMenuController.php(112): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 112, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\SubMenuController->eliminar()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\SubMenuController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

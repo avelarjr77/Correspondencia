@@ -273,3 +273,16 @@ CRITICAL - 2022-07-21 15:59:28 --> Column 'personaId' cannot be null
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 >>>>>>> be5dc53b53a77910659d5a9d63837297eb0303a9
+ERROR - 2022-07-21 18:30:05 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+CRITICAL - 2022-07-21 18:30:05 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\PersonaModel.php(56): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\PersonaController.php(121): App\Models\modUsuario\PersonaModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\PersonaController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\PersonaController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
