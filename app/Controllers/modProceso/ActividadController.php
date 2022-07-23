@@ -2,9 +2,12 @@
 
 namespace App\Controllers\modProceso;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
-use App\Models\modProceso\ActividadModel;
 use App\Models\modUsuario\ContactoModel;
+use App\Models\modProceso\ActividadModel;
+use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modProceso\EtapaModel;
 
 class ActividadController extends BaseController
 {
@@ -14,11 +17,11 @@ class ActividadController extends BaseController
     public function actividad()
     {
 
-        $nombreActividad = new ActividadModel();
+        $nombreActividad= new ActividadModel();
 
-        $etapaId = $this->request->getVar('etapaId');
+        $etapaId        = $this->request->getVar('etapaId');
 
-        $datos = $nombreActividad->listarActividad($etapaId);
+        $datos          = $nombreActividad->listarActividad($etapaId);
 
         echo json_encode($datos);
     }
@@ -27,11 +30,11 @@ class ActividadController extends BaseController
     public function actList()
     {
 
-        $nombreActividad = new ActividadModel();
+        $nombreActividad= new ActividadModel();
 
-        $etapaId = $this->request->getVar('etapaId');
+        $etapaId        = $this->request->getVar('etapaId');
 
-        $datos = $nombreActividad->listarActividad($etapaId);
+        $datos          = $nombreActividad->listarActividad($etapaId);
 
         echo json_encode($datos);
     }
@@ -39,9 +42,9 @@ class ActividadController extends BaseController
     public function personaList()
     {
 
-        $actividad = new ActividadModel();
+        $actividad  = new ActividadModel();
 
-        $datos = $actividad->listarPersona();
+        $datos      = $actividad->listarPersona();
 
         echo json_encode($datos);
     }
@@ -49,9 +52,9 @@ class ActividadController extends BaseController
     public function personaListA()
     {
 
-        $actividad = new ActividadModel();
+        $actividad  = new ActividadModel();
 
-        $datos = $actividad->listarPersona();
+        $datos      = $actividad->listarPersona();
 
         echo json_encode($datos);
     }
@@ -59,9 +62,9 @@ class ActividadController extends BaseController
     public function personaListC()
     {
 
-        $actividad = new ActividadModel();
+        $actividad  = new ActividadModel();
 
-        $datos = $actividad->listarPersona();
+        $datos      = $actividad->listarPersona();
 
         echo json_encode($datos);
     }
@@ -69,11 +72,11 @@ class ActividadController extends BaseController
     public function etapaL()
     {
 
-        $etapa = new ActividadModel();
+        $etapa  = new ActividadModel();
 
-        $etapaId = $this->request->getVar('etapaId');
+        $etapaId= $this->request->getVar('etapaId');
 
-        $datos = $etapa->etapaL($etapaId);
+        $datos  = $etapa->etapaL($etapaId);
 
         echo json_encode($datos);
     }
@@ -84,19 +87,38 @@ class ActividadController extends BaseController
 
         $actividad = new ActividadModel();
 
-        $etapaId = $this->request->getVar('etapaId');
-        $nombreActividad = $this->request->getVar('nombreActividad');
-        $descripcion = $this->request->getVar('descripcion');
-        $orden = $this->request->getVar('orden');
-        $personaId = $this->request->getVar('personaId');
+        $etapaId        = $this->request->getVar('etapaId');
+        $nombreActividad= $this->request->getVar('nombreActividad');
+        $descripcion    = $this->request->getVar('descripcion');
+        $orden          = $this->request->getVar('orden');
+        $personaId      = $this->request->getVar('personaId');
 
         $datos = [
-            "nombreActividad" => $nombreActividad,
-            "descripcion" => $descripcion,
-            "ordenActividad" => $orden,
-            "etapaId" => $etapaId,
-            "personaId" => $personaId
+            "nombreActividad"   => $nombreActividad,
+            "descripcion"       => $descripcion,
+            "ordenActividad"    => $orden,
+            "etapaId"           => $etapaId,
+            "personaId"         => $personaId
         ];
+
+        $etapa = new EtapaModel();
+
+        $nombreEtapa = $etapa->asArray()->select("nombreEtapa")
+        ->where("etapaId", $etapaId)->first();
+
+        //PARA REGISTRAR EN BITACORA QUIEN CREÓ ETAPA
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó configuración de actividad',
+            'descripcion'   => $nombreEtapa['nombreEtapa'].': '.$nombreActividad,
+            'hora'          => $hora,
+        ]);
+        //END
 
         $respuesta = $actividad->insertar($datos);
 
@@ -165,9 +187,25 @@ class ActividadController extends BaseController
 
         $data = ["actividadId" => $actividadId];
 
+        $nombreAvtividad = $actividad->asArray()->select("nombreActividad")
+        ->where("actividadId", $actividadId)->first();
+
         $respuesta = $actividad->eliminar($data);
 
         if ($respuesta > 0) {
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINÓ ACTIVIDAD
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó configuración de actividad',
+                'descripcion'   => $nombreAvtividad,
+                'hora'          => $hora,
+            ]);
+            //END
             $mensaje = 14;
         } else {
             $mensaje = 15;
@@ -199,6 +237,25 @@ class ActividadController extends BaseController
         $respuesta = $actividad->actualizar($datos, $actividadId);
 
         $datos = ["datos" => $respuesta];
+
+        $etapa = new EtapaModel();
+
+        $nombreEtapa = $etapa->asArray()->select("nombreEtapa")
+        ->where("etapaId", $etapaId)->first();
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ ETAPA
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Editó configuración de actividad',
+            'descripcion'   => $nombreEtapa['nombreEtapa'].': '.$nombreActividad,
+            'hora'          => $hora,
+        ]);
+        //END
 
         if ($respuesta) {
             $mensaje = 16;

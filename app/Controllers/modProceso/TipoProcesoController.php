@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\modProceso;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\TipoProcesoModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class TipoProcesoController extends BaseController{
 
@@ -19,6 +21,7 @@ class TipoProcesoController extends BaseController{
             "mensaje" => $mensaje
         ];
 
+
         return view('modProceso/tipoProceso', $data);
     }
 
@@ -28,6 +31,19 @@ class TipoProcesoController extends BaseController{
         $datos = [
             "tipoProceso" => $_POST['tipoProceso']
         ];
+
+        //PARA REGISTRAR EN BITACORA QUIEN CREÓ TIPO DE PORCESO
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó tipo de prceso',
+            'descripcion'   => $_POST['tipoProceso'],
+            'hora'          => $hora,
+        ]);
 
         $tipoProceso = new TipoProcesoModel();
         $respuesta = $tipoProceso->insertar($datos);
@@ -47,9 +63,27 @@ class TipoProcesoController extends BaseController{
         $tipoProceso = new TipoProcesoModel();
         $data = ["tipoProcesoId" => $tipoProcesoId];
 
+        $nombreTipoProceso = $tipoProceso->asArray()->select("tipoProceso")
+        ->where("tipoProcesoId", $tipoProcesoId)->first();
+
         $respuesta = $tipoProceso->eliminar($data);
 
         if ($respuesta > 0){
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINÓ TIPO PROCESO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó tipo de proceso',
+                'descripcion'   => $nombreTipoProceso,
+                'hora'          => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/tipoProceso')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/tipoProceso')->with('mensaje','3');
@@ -69,6 +103,19 @@ class TipoProcesoController extends BaseController{
         $respuesta = $tipoProceso->actualizar($datos, $tipoProcesoId);
 
         $datos = ["datos" => $respuesta];
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ TIPO DE PORCESO
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Editó tipo de prceso',
+            'descripcion'   => $_POST['tipoProceso'],
+            'hora'          => $hora,
+        ]);
 
         if ($respuesta) {
             return redirect()->to(base_url() . '/tipoProceso')->with('mensaje', '4');

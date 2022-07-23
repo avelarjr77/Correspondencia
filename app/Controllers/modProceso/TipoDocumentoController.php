@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\modProceso;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\TipoDocumentoModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class TipoDocumentoController extends BaseController{
 
@@ -15,8 +17,8 @@ class TipoDocumentoController extends BaseController{
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "mensaje" => $mensaje
+            "datos"     => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modProceso/tipoDocumento', $data);
@@ -28,6 +30,19 @@ class TipoDocumentoController extends BaseController{
         $datos = [
             "tipoDocumento" => $_POST['tipoDocumento']
         ];
+
+        //PARA REGISTRAR EN BITACORA QUIEN CREÓ TIPO DOCUMENTO
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó tipo de documento',
+            'descripcion'   => $_POST['tipoDocumento'],
+            'hora'          => $hora,
+        ]);
 
         $tipoDocumento = new TipoDocumentoModel();
         $respuesta = $tipoDocumento->insertar($datos);
@@ -47,9 +62,27 @@ class TipoDocumentoController extends BaseController{
         $tipoDocumento = new TipoDocumentoModel();
         $data = ["tipoDocumentoId" => $tipoDocumentoId];
 
+        $nombreDocumento = $tipoDocumento->asArray()->select("tipoDocumento")
+        ->where("tipoDocumentoId", $tipoDocumentoId)->first();
+
         $respuesta = $tipoDocumento->eliminar($data);
 
         if ($respuesta > 0){
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINÓ TIPO DOCUMENTO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó tipo de documento',
+                'descripcion'   => $nombreDocumento,
+                'hora'          => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/tipoDocumento')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/tipoDocumento')->with('mensaje','3');
@@ -69,6 +102,19 @@ class TipoDocumentoController extends BaseController{
         $respuesta = $tipoDocumento->actualizar($datos, $tipoDocumentoId);
 
         $datos = ["datos" => $respuesta];
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ TIPO DOCUMENTO
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Editó tipo de documento',
+            'descripcion'   => $_POST['tipoDocumento'],
+            'hora'          => $hora,
+        ]);
 
         if ($respuesta) {
             return redirect()->to(base_url() . '/tipoDocumento')->with('mensaje', '4');
