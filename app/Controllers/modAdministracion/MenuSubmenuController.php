@@ -2,12 +2,14 @@
 
 namespace App\Controllers\modAdministracion;
 
+use mysqli;
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\IconoModel;
 use App\Models\modAdministracion\SubmenuModel;
-use App\Models\modAdministracion\MenuSubmenuModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
-use mysqli;
+use App\Models\modAdministracion\MenuSubmenuModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class MenuSubmenuController extends BaseController
 {
@@ -30,16 +32,6 @@ class MenuSubmenuController extends BaseController
         return view('modAdministracion/menu_submenu', $data);
     }
 
-    //Funcion para validar el Menú
-    public function new()
-    {
-        session('mensaje');
-        $validation = \Config\Services::validation();
-
-        var_dump($validation->listErrors());
-        return view('modAdministracion/menu_submenu');
-    }
-
     //Funcion para INSERTAR
     public function crear()
     {
@@ -52,6 +44,19 @@ class MenuSubmenuController extends BaseController
                     'iconoId' => $this->request->getPost('iconoId'),
                 ]
             );
+            //PARA REGISTRAR EN BITACORA QUIEN CREO MENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Agregó menú',
+                'descripcion' => $_POST['nombreMenu'],
+                'hora' => $hora,
+            ]);
+            //END
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
         }
 
@@ -64,12 +69,27 @@ class MenuSubmenuController extends BaseController
         $menuId = $_POST['menuId'];
 
         $menu = new MenuSubmenuModel();
+        $nombreMenu = $menu->asArray()->select("nombremenu")
+        ->where("menuId", $menuId)->first();
 
-        $data = ["menuId" => $menuId];
+        $data = ["menuId" => $menuId,];
 
         $respuesta = $menu->eliminar($data);
 
         if ($respuesta) {
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO MENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Eliminó menú',
+                'descripcion' => $nombreMenu,
+                'hora' => $hora,
+            ]);
+            //END
             return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '4');
         } else {
             return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '5');
@@ -95,6 +115,19 @@ class MenuSubmenuController extends BaseController
             $respuesta = $menu->actualizar($datos, $menuId);
             $datos = ["datos" => $respuesta];
 
+            //PARA REGISTRAR EN BITACORA QUIEN EDITO MENÚ
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId' => null,
+                'usuario' => $session,
+                'accion' => 'Editó menú',
+                'descripcion' => $_POST['nombreMenu'],
+                'hora' => $hora,
+            ]);
+            //END
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');
         } else {
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '3');

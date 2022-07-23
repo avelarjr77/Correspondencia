@@ -5,6 +5,10 @@ use CodeIgniter\Model;
 
 class DireccionModel extends Model{
 
+    protected $table = 'wk_direccion';
+    protected $primaryKey = 'direccionId';
+    protected $allowedFields = ['direccionId', 'personaId', 'tipoDireccion', 'nombreDireccion', 'municipioId'];
+
     //MODELO PARA LISTAR DIRECCIONES
     public function listarDireccion()
     {

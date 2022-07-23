@@ -43,7 +43,7 @@
                         </table>
                     </div>
                     <!--FIN LISTADO BITACORA-->
-                
+
             </div>
         </div>
     </div>

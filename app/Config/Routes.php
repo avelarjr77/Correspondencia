@@ -158,10 +158,10 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('contacto', 'modUsuario/ContactoController::contacto', ['as'=> 'contacto']);
     $routes->post('crearContacto', 'modUsuario/ContactoController::crearContacto');
-    $routes->post('crearTipoContacto', 'modUsuario/ContactoController::crearTipoContacto');
+    $routes->post('crearTipoContacto', 'modUsuario/TipoContactoController::crearTipoContacto');
     $routes->post('actualizarContacto', 'modUsuario/ContactoController::actualizarContacto');
-    $routes->post('actualizarTipoContacto', 'modUsuario/ContactoController::actualizar');
-    $routes->post('eliminarTipoContacto', 'modUsuario/ContactoController::eliminar');
+    $routes->post('actualizarTipoContacto', 'modUsuario/TipoContactoController::actualizar');
+    $routes->post('eliminarTipoContacto', 'modUsuario/TipoContactoController::eliminar');
     $routes->post('eliminarContacto', 'modUsuario/ContactoController::eliminarContacto');
 
 });

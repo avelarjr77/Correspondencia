@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\modUsuario;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\DepartamentoModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class DepartamentoController extends BaseController{
 
@@ -15,8 +17,8 @@ class DepartamentoController extends BaseController{
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "mensaje" => $mensaje
+            "datos"     => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modUsuario/departamento', $data);
@@ -30,9 +32,22 @@ class DepartamentoController extends BaseController{
         if($this->validate('validarDepart')){
             $departamento->insertar(
                 [
-                    "departamento"        => $_POST['departamento']
+                    "departamento"  => $_POST['departamento']
                 ]
             );
+
+            //PARA REGISTRAR EN BITACORA QUIEN CREÓ EL DEPARTAMENTO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Agregó departamento',
+                'descripcion'   => $_POST['departamento'],
+                'hora'          => $hora,
+            ]);
 
             return redirect()->to(base_url(). '/departamento')->with('mensaje','0');
         }
@@ -48,9 +63,27 @@ class DepartamentoController extends BaseController{
         $departamento = new DepartamentoModel();
         $data = ["departamentoId" => $departamentoId];
 
+        $nombreDepartamento = $departamento->asArray()->select("departamento")
+        ->where("departamentoId", $departamentoId)->first();
+
         $respuesta = $departamento->eliminar($data);
 
         if ($respuesta > 0){
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL DEPARTAMENTO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó departamento',
+                'descripcion'   => $nombreDepartamento,
+                'hora'          => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/departamento')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/departamento')->with('mensaje','3');
@@ -71,7 +104,21 @@ class DepartamentoController extends BaseController{
             $respuesta = $departamento->actualizar($datos, $departamentoId);
 
             $datos = ["datos" => $respuesta];
-            
+
+            //PARA REGISTRAR EN BITACORA QUIEN EDITO EL DEPARTAMENTO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Editó departamento',
+                'descripcion'   => $_POST['departamento'],
+                'hora'          => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url() . '/departamento')->with('mensaje', '4');
 
             } else {

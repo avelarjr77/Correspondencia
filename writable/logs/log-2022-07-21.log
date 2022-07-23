@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+ERROR - 2022-07-21 14:10:09 --> Error connecting to the database: Unknown database 'correspondencia'
+CRITICAL - 2022-07-21 14:10:09 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'correspondencia'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\DocumentoModel.php(12): CodeIgniter\Database\BaseConnection->query('SELECT d.docume...')
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(13): App\Models\modUsuario\DocumentoModel->listarDocumento()
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->documento()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-07-21 14:32:49 --> Unknown column 'd.documento' in 'field list'
+CRITICAL - 2022-07-21 14:32:49 --> Unknown column 'd.documento' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT d.docume...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT d.docume...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT d.docume...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\DocumentoModel.php(12): CodeIgniter\Database\BaseConnection->query('SELECT d.docume...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(13): App\Models\modUsuario\DocumentoModel->listarDocumento()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->documento()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-07-21 17:14:54 --> Unknown column 'usuario' in 'field list'
+CRITICAL - 2022-07-21 17:14:54 --> Unknown column 'usuario' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\wamp64\www\correspondencia-ucad\app\Controllers\Home.php(62): CodeIgniter\BaseModel->save(Array)
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\Home->login()
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-07-21 17:30:32 --> Undefined index: moduloId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 14, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-07-21 17:33:30 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_bitacora`, CONSTRAINT `FK_BITACORA_USUARIO` FOREIGN KEY (`usuario`) REFERENCES `wk_usuario` (`usuarioId`))
+CRITICAL - 2022-07-21 17:33:30 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_bitacora`, CONSTRAINT `FK_BITACORA_USUARIO` FOREIGN KEY (`usuario`) REFERENCES `wk_usuario` (`usuarioId`))
+=======
 CRITICAL - 2022-07-21 11:48:52 --> Undefined index: tipoDireccion
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DireccionController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 85, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DireccionController->actualizarDireccion()
@@ -185,10 +235,23 @@ CRITICAL - 2022-07-21 15:43:25 --> Trying to access array offset on value of typ
 #5 {main}
 ERROR - 2022-07-21 15:51:04 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
 CRITICAL - 2022-07-21 15:51:04 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_actividad`, CONSTRAINT `FK_ACTIVIDAD_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+>>>>>>> be5dc53b53a77910659d5a9d63837297eb0303a9
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
 #1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
 #2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
 #3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\wamp64\www\correspondencia-ucad\app\Controllers\Home.php(62): CodeIgniter\BaseModel->save(Array)
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\Home->login()
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+=======
 #4 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ActividadModel.php(43): CodeIgniter\Database\BaseBuilder->insert(Array)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(101): App\Models\modProceso\ActividadModel->insertar(Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->crear()
@@ -206,6 +269,20 @@ CRITICAL - 2022-07-21 15:59:28 --> Column 'personaId' cannot be null
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(101): App\Models\modProceso\ActividadModel->insertar(Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->crear()
 #7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+>>>>>>> be5dc53b53a77910659d5a9d63837297eb0303a9
+ERROR - 2022-07-21 18:30:05 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+CRITICAL - 2022-07-21 18:30:05 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modUsuario\PersonaModel.php(56): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\PersonaController.php(121): App\Models\modUsuario\PersonaModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\PersonaController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\PersonaController))
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}

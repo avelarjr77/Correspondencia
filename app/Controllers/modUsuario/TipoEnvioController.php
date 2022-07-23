@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\modUsuario;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\TipoEnvioModel;
+use App\Models\modAdministracion\MovimientosModel;
 
 class TipoEnvioController extends BaseController{
 
@@ -33,6 +35,20 @@ class TipoEnvioController extends BaseController{
                 ]
             );
 
+            //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA TIPO ENVIO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Agregó Tipo de envio',
+                'descripcion'   => $_POST['tipoEnvio'],
+                'hora'          => $hora,
+            ]);
+        //END
+
             return redirect()->to(base_url(). '/tipoEnvio')->with('mensaje','0');
         }
         
@@ -49,9 +65,27 @@ class TipoEnvioController extends BaseController{
             "tipoEnvioId" => $tipoEnvioId
         ];
 
+        $nombreEnvio = $tipoEnvio->asArray()->select("tipoEnvio")
+        ->where("tipoEnvioId", $tipoEnvioId)->first();
+
         $respuesta = $tipoEnvio->delete($data);
 
         if ($respuesta > 0){
+
+            //PARA REGISTRAR EN BITACORA QUIEN ELIMINO TIPO DE ENVIO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó Tipo de envio',
+                'descripcion'   => $nombreEnvio,
+                'hora'          => $hora,
+            ]);
+            //END
+
             return redirect()->to(base_url(). '/tipoEnvio')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/tipoEnvio')->with('mensaje','3');
@@ -74,6 +108,20 @@ class TipoEnvioController extends BaseController{
             $respuesta = $tipoEnvio->actualizar($datos, $tipoEnvioId);
 
             $datos = ["datos" => $respuesta];
+
+            //PARA REGISTRAR EN BITACORA QUIEN EDITÓ LA TIPO ENVIO
+            $this->bitacora  = new MovimientosModel();
+            $hora=new Time('now');
+            $session = session('usuario');
+
+            $this->bitacora->save([
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Editó Tipo de envio',
+                'descripcion'   => $_POST['tipoEnvio'],
+                'hora'          => $hora,
+            ]);
+        //END
             
             return redirect()->to(base_url() . '/tipoEnvio')->with('mensaje', '4');
 
