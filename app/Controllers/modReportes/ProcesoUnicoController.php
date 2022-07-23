@@ -16,7 +16,6 @@ class ProcesoUnicoController extends BaseController
     {
         $prueba = new PruebaModel();
 
-        //$procesoId = $this->request->getVar('procesoId');
         $procesoId = $_POST['procesoId'];
 
         $datos =  $prueba->reporteProceso($procesoId);

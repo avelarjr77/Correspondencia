@@ -44,22 +44,22 @@ class ProcesoTiempoController extends BaseController
                 $correlativo++;
             
         
-            $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Flujo de Procesos entre '.$fechaI.' y '.$fechaF.'</b></h3><br>
-            <table border="0" style="width:100%;">
-                <thead>
-                    <tr>
-                        <th style="width:5%;">#</th>
-                        <th style="width:28%;">Proceso</th>
-                        <th style="width:28%;">Persona</th>
-                        <th style="width:18%;">Institución</th>
-                        <th style="width:15%;">Estado del Proceso</th>
-                        <th style="width:15%;">Fecha de Inicio</th>
-                        <th style="width:15%;">Fecha Fin</th>
-                    </tr>
-                </thead><br>
-                <tbody>'.$contexto.'</tbody>
-            </table>';
+                $tabla_a_imprimir='
+                <h3 style="text-align:center;"><b>Flujo de Procesos entre '.$fechaI.' y '.$fechaF.'</b></h3><br>
+                <table border="0" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="width:5%;">#</th>
+                            <th style="width:28%;">Proceso</th>
+                            <th style="width:28%;">Persona</th>
+                            <th style="width:18%;">Institución</th>
+                            <th style="width:15%;">Estado del Proceso</th>
+                            <th style="width:15%;">Fecha de Inicio</th>
+                            <th style="width:15%;">Fecha Fin</th>
+                        </tr>
+                    </thead><br>
+                    <tbody>'.$contexto.'</tbody>
+                </table>';
 
             }
             

@@ -147,6 +147,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Departamento:</label>
+                                <select name="departamentoId" id="departamentoIdA" class="form-control departamentoIdA" required="required">
+                                    <!-- <option value="">-Selecciona un Departamento-</option>
+                                    <php foreach $departamento as $dep : ?>
+                                        <option value="<php echo $dep->deptoId ?>"><php echo $dep->nombreDepto ?></option>
+                                    <php endforeach; ?> -->
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="display: none" id="muniA">
                                 <label>Municipio:</label>
                                 <select name="municipioId" class="form-control municipioIdA" required="required">
                                     <option value="">-Selecciona una persona-</option>
@@ -159,8 +169,8 @@
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="direccionId" class="direccionId">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <button type="button" class="btn btn-secondary btn-editar" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary btn-editar">Editar</button>
                         </div>
                     </div>
                 </div>
@@ -255,10 +265,9 @@
                 }
             });
             $("#muni").css("display", "block");
-
         });
 
-        // get Edit Tipo Direccion
+        // get Edit Direccion
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
@@ -269,6 +278,39 @@
             const municipioid = $(this).data('municipioid');
             const persona = $(this).data('personaid');
             console.log(td);
+
+            $("#muniA").hide();
+            llenarDepto(municipioid);
+            seleccionarDepto(municipioid);
+
+            $('.departamentoIdA').on('change', function() {
+                var deptoId = $('.departamentoIdA').val();
+                console.log(deptoId);
+
+                var mData = $(".municipioIdA");
+
+                $.ajax({
+                    type: "GET",
+                    url: "<?= base_url() . route_to('obtenerMunA') ?>",
+                    data: {
+                        deptoId: deptoId
+                    },
+                    success: function(data) {
+
+                        var dataMun = JSON.parse(data);
+
+                        console.log(dataMun);
+                        $(".municipioIdA").empty();
+                        $(".municipioIdA").append('<option value="">-Selecciona un Municipio-</option>');
+
+                        $.each(dataMun, function(index, val) {
+                            mData.append("<option value=" + val.municipioId + ">" + val.nombreMunicipio + "</option>")
+                        });
+                    }
+                });
+
+                $("#muniA").css("display", "block");
+            });
 
             if (td == 'Principal') {
                 $(".td").empty();
@@ -284,16 +326,68 @@
 
             // Set data to Form Edit
             $('.direccionId').val(id);
-            //$('.personaId').val(nombre).trigger('change');
-            //$('.td').val(td);
             $('.nombreDireccion').val(direccion);
             $('.municipioIdA').val(municipioid).trigger('change');
-            //$('.municipioId').val(municipioid);
             $('.personaId').val(persona);
 
             // Call Modal Edit
             $('#editModal').modal('show');
         });
+
+        $('.btn-editar').on('click', function() {
+            $('.departamentoIdA').empty();
+            $("#muniA").hide();
+        });
+
+        function seleccionarDepto(municipio) {
+            var dData = $(".departamentoIdA");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('obtenerDepto') ?>",
+                data: {
+                    municipioId: municipio
+                },
+                success: function(data) {
+
+                    var dataMuni = JSON.parse(data);
+
+                    console.log(dataMuni);
+
+                    var sel = document.getElementById("departamentoIdA"); 
+
+                    for (var i = 0; i < sel.length; i++) {
+                        //  Aca haces referencia al "option" actual
+                        var opt = sel[i];
+
+                        if (opt.value == dataMuni[0]['deptoId']) {
+                            $('.departamentoIdA option[value='+opt.value+']').attr('selected','selected');
+                        }
+                    }
+                }
+            });
+        }
+
+        function llenarDepto(municipio) {
+            var mData = $(".departamentoIdA");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('obtenerDeptoList') ?>",
+                success: function(data) {
+
+                    var dataMun = JSON.parse(data);
+
+                    console.log(dataMun);
+                    $(".departamentoIdA").empty();
+                    $(".departamentoIdA").append('<option value="">-Selecciona un Departamento-</option>');
+
+                    $.each(dataMun, function(index, val) {
+                        mData.append("<option value=" + val.deptoId + ">" + val.nombreDepto + "</option>")
+                    });
+                }
+            });
+        }
 
         // get Delete Direccion
         $('.btn-delete').on('click', function() {
