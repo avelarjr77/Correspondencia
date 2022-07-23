@@ -40,6 +40,7 @@ class DocumentoController extends BaseController{
                     "transaccionActividadId" => $_POST['transaccionActividadId']
                 ]
             );
+            $this->_upload();
 
             return redirect()->to(base_url(). '/documento')->with('mensaje','0');
         }
@@ -139,6 +140,17 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url() . '/documento')->with('mensaje', '4');
         } else {
             return redirect()->to(base_url() . '/documento')->with('mensaje', '5');
+        }
+    }
+
+    private function _upload(){
+        if ($imagefile = $this->request->getFiles()) {
+            foreach ($imagefile['images'] as $imagefile) {
+                if ($imagefile->isValid() && ! $imagefile->hasMoved()) {
+                    $newName = $imagefile->getRandomName();
+                    $imagefile->move(WRITEPATH . 'uploads', $newName);
+                }
+            }
         }
     }
 

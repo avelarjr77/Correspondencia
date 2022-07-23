@@ -23,7 +23,7 @@
                         <option value="pruebaR">Listado de Procesos del mes de <?php echo $mes ?></option>
                         <option value="promedioActividad">Tiempo Promedio de Finalización de Actividades</option>
                         <option value="procesoDetalle">Detalle de Procesos del mes de <?php echo $mes ?></option>
-                        <option>Option four</option>
+                        <option value="vistaDetalle">Detalle de vista</option>
                     </select>
                 </div>
                 <div class="col-md-3 col-sm-3 "> 

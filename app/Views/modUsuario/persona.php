@@ -293,8 +293,8 @@
                                         <div class="col-md-8">
                                             <select name="genero" id="genero" class="form-control genero">
                                                 <option>Género</option>
-                                                <option>Masculino</option>
-                                                <option>Femenino</option>
+                                                <option value="M">Masculino</option>
+                                                <option value="M">Femenino</option>
                                             </select>
                                         </div>
                                     </div>

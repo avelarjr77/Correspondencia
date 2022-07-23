@@ -17,8 +17,8 @@ class MovimientosModel extends Model{
    public function listarBitacora()
     {
 
-        $persona = $this->db->query('SELECT*FROM  wk_bitacora');
-        return $persona->getResult();
+        $bitacora = $this->db->query('SELECT*FROM  wk_bitacora ORDER BY bitacoraId DESC');
+        return $bitacora->getResult();
     }
 
 }

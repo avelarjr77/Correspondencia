@@ -39,7 +39,7 @@
                                     <td><?php echo $key->contacto ?></td>
                                     <td>
                                         <a href="#" class="btn btn-warning btn-sm btn-edit-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>"> <i class="fa fa-pencil-square-o"></i> Editar</a>
-                                        <button type="submit" class="btn btn-danger btn-sm btn-delete-contacto" href="#" data-href="<?php echo base_url() . '/' . $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i> Eliminar</button>
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete-contacto" data-id="<?php echo $key->contactoId ?>" data-nombre="<?php echo $key->nombre ?>" ><i class="fa fa-trash"></i> Eliminar</button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Contacto:</label>
-                                <input type="text" id="contacto" name="contacto" required="required" minlength="6" maxlength="20" autocomplete="off" class="form-control contacto">
+                                <input type="text" id="contacto" name="contacto" required="required" minlength="6" maxlength="45" autocomplete="off" class="form-control contacto">
                             </div>
                             <div class="form-group">
                                 <label>Estado:</label>
@@ -199,10 +199,11 @@
 <!------------------------------------------------------------------->
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert.min.js"></script>
+
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';

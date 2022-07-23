@@ -323,24 +323,29 @@
             </div>
 
             <br><br>
-            <table class="table table-hover" id="tbl-actividad">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre de la Actividad</th>
-                        <th>Descripción</th>
-                        <th>Orden</th>
-                        <th>Nombre de la Etapa</th>
-                        <th>Encargado</th>
-                        <th scope="col" colspan="2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="actividadData">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover" id="tbl-actividad">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre de la Actividad</th>
+                                <th>Descripción</th>
+                                <th>Orden</th>
+                                <th>Nombre de la Etapa</th>
+                                <th>Encargado</th>
+                                <th scope="col" colspan="2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="actividadData">
 
-                </tbody>
-            </table>
-            <br>
-            <h4 id="aviso"></h4>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h4 id="aviso"></h4>
+                </div>
+            </div>
+            
         </div>
         <!--FIN LISTADO ACTIVIDAD-->
 
@@ -841,7 +846,7 @@
     });
 
     function actividad(idAC, etapa) {
-        // Set data to Form Edit
+        
         //idAC trae etapaId
         console.log(etapa);
         $('#actividadE').val(idAC);
@@ -862,7 +867,6 @@
 
                 var dataActividad = JSON.parse(data);
 
-                //$("#actividadData").empty();
 
                 if (dataActividad == '') {
                     $('#tbl-actividad').hide();
@@ -870,6 +874,7 @@
                     $("#actividadData").empty();
                 } else {
                     $("#actividadData").empty();
+
 
                     $.each(dataActividad, function(index, val) {
                         aData.append("<tr><td>" + val.id + "</td>" +
@@ -882,13 +887,14 @@
                             "<a href='#' onclick='borrarActividad(" + val.id + ", " + val.etapaId + ")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>" +
                             "</td></tr>")
                     });
+
                     $('#tbl-actividad').css("display", "block");
                     $("#aviso").html('');
                 }
             }
         });
 
-        personaCrear();
+        //personaCrear();
 
         // Call Modal Edit
         $('#actividad').css("display", "block");
@@ -908,6 +914,7 @@
                 //console.log(dataPersona[0]['personaId']);
                 //console.log(proceso);
                 $("#personaData").empty();
+                $('#personaData').append('<option disable>-Selecciona una persona-</option>');
 
                 $.each(dataPersona, function(index, val) {
                     pData.append("<option value=" + val.personaId + ">" + val.nombres + "</option>")
@@ -918,6 +925,7 @@
 
     function recargarActividad(idA) {
         var datosACC = $("#actividadData");
+        console.log(idA);
 
         $.ajax({
             type: "GET",
@@ -946,10 +954,17 @@
         });
     }
 
+    $('.btn-agregarActividad').on('click', function() {
+        $('#nombreActividad').val('');
+        $('#descripcion').val('');
+        //$('#personaData').val('');
+        personaCrear();
+    });
+
     $('.btn-crearActividad').on('click', function() {
 
         var dEtapAC = $('#actividadE').val();
-        //var datosACC = $("#actividadData");
+
         console.log(dEtapAC);
 
         $.ajax({
@@ -974,10 +989,10 @@
                     )
                 }
 
-                console.log(dataActividadCCN);
-                $('#nombreActividad').val('');
+                /* $('#nombreActividad').val('');
                 $('#descripcion').val('');
-                $('#personaData').val('');
+                $('#personaData').val(''); */
+                console.log(dataActividadCCN);
                 //listadoPersona();
                 recargarActividad(dEtapAC);
             }
@@ -1012,24 +1027,25 @@
         }); */
     });
 
-    function listadoPersona() {
+    /* function listadoPersona() {
         var pDataCrear = $("#personaData");
 
         $.ajax({
             type: "GET",
-            url: "<?= base_url() . route_to('personaListC') ?>",
+            url: "<= base_url() . route_to('personaListC') ?>",
             success: function(data) {
 
                 var dataPCrear = JSON.parse(data);
 
                 $('#personaData').empty();
+                $('#personaData').append('<option disable>-Selecciona una persona-</option>');
 
                 $.each(dataPCrear, function(index, val) {
                     pDataCrear.append("<option value=" + val.personaId + ">" + val.nombres + "</option>")
                 });
             }
         });
-    }
+    } */
 
     function borrarActividad(id, idEAc) {
         $('#actividadIdE').val(id);
@@ -1043,7 +1059,6 @@
     $('.btn-eliminarActividad').on('click', function() {
 
         var idEtapaActNew = $('#EtapaIdAE').val();
-        //var datosAN = $("#actividadData");
 
         $.ajax({
             type: "GET",
@@ -1153,7 +1168,6 @@
     $('.btn-editarActividad').on('click', function() {
 
         var idANew = $('#actEtapa').val();
-        //var datosActualizarNN = $("#actividadData");
 
         $.ajax({
             type: "GET",

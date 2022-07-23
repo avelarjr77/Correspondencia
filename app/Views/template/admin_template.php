@@ -14,7 +14,7 @@
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="vendors/jQuery-Smart-Wizard/wizard/style.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
@@ -26,10 +26,6 @@
   <!-- the fileinput plugin styling CSS file -->
   <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
   <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="vendors/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-
-  <!-- file input -->
-  <link href="vendors/fileinput/css/fileinput.min.css" rel="stylesheet">
 
 <!-- the fileinput plugin styling CSS file -->
 <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -189,12 +185,6 @@
                   <img src="images/user.png" alt=""><?php echo session('usuario'); ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <!--<a class="dropdown-item" href="<?= base_url() . route_to('perfil') ?>"> Profile</a>
-                  <a class="dropdown-item" href="javascript:;">
-                    <span class="badge bg-red pull-right">50%</span>
-                    <span>Settings</span>
-                  </a>
-                  <a class="dropdown-item" href="javascript:;">Help</a>-->
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
@@ -208,7 +198,7 @@
       <div class="right_col" role="main">
         <div class="row"><br>
           <h6>Navegación&nbsp;&nbsp;<i class="fa fa-angle-right"> </i></h6>
-          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Modulos&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
+          <h6><a href="<?= base_url() . route_to('homeModulos') ?>">&nbsp;&nbsp;Módulos&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>&nbsp;&nbsp;</h6>
           <h6>
             <a href="homeMenu">
               <?php
@@ -237,8 +227,6 @@
   <!-- Dropzone.js -->
   <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
 
-  <!-- Input file -->
-  <script src="vendors/fileinput/js/fileinput.min.js"></script>
 
   <!--KRAJEE
     <script src="vendors/kartik/js/locales/LANG.js"></script> -->

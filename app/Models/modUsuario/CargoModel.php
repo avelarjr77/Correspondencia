@@ -5,6 +5,11 @@ use CodeIgniter\Model;
 
 class CargoModel extends Model{
 
+    protected $table = 'wk_cargo';
+    protected $primaryKey = 'cargoId';
+    protected $allowedFields = ['cargoId', 'cargo'];
+
+
     //MODELO PARA LISTAR ROLES
     public function listarCargo()
     {
@@ -26,7 +31,6 @@ class CargoModel extends Model{
     public function eliminar($data){
         $nombres = $this->db->table('wk_cargo');
         $nombres->where($data);
-        
         return $nombres->delete();
     }
 
