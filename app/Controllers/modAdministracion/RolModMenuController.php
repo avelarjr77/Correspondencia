@@ -51,7 +51,7 @@ class RolModMenuController extends BaseController
         $this->bitacora->save([
             'bitacoraId'    => null,
             'usuario'       => $session,
-            'accion'        => 'Agregó módulo',
+            'accion'        => 'Agregó Rol-Módulo-Menú',
             'descripcion'   => $_POST['rolId'].'/'.$_POST['moduloMenuId'],
             'hora'          => $hora,
         ]);

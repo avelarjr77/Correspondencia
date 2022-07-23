@@ -60,15 +60,15 @@ class RolController extends BaseController{
 
         $rolId = $_POST['rolId'];
 
-        $nombreRol = new RolModel();
+        $Rol = new RolModel();
         $data = ["rolId" => $rolId];
 
-        $respuesta = $nombreRol->eliminar($data);
+        $nombreRol = $Rol->asArray()->select("nombreRol")
+            ->where("rolId", $rolId)->first();
+
+        $respuesta = $Rol->eliminar($data);
 
         if ($respuesta > 0){
-
-            $nombreRol = $nombreRol->asArray()->select("nombreRol")
-            ->where("rolId", $rolId)->first();
 
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINO ROL
             $this->bitacora  = new MovimientosModel();

@@ -45,11 +45,11 @@ class ModuloController extends BaseController
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Agregó módulo',
-                'descripcion' => $_POST['nombre'],
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Agregó módulo',
+                'descripcion'   => $_POST['nombre'],
+                'hora'          => $hora,
             ]);
             //END
 
@@ -71,23 +71,24 @@ class ModuloController extends BaseController
         $nombreModulo = $Modulo->asArray()->select("nombre")
         ->where("moduloId", $moduloId)->first();
 
-
         $respuesta = $Modulo->eliminar($data);
 
         if ($respuesta > 0) {
+
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL MODULO
             $this->bitacora  = new MovimientosModel();
             $hora=new Time('now');
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Eliminó módulo',
-                'descripcion' => $nombreModulo,
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó módulo',
+                'descripcion'   => $nombreModulo,
+                'hora'          => $hora,
             ]);
             //END
+
             return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '2');
         } else {
             return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '3');
@@ -117,11 +118,11 @@ class ModuloController extends BaseController
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Editó módulo',
-                'descripcion' => $_POST['nombre'],
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Editó módulo',
+                'descripcion'   => $_POST['nombre'],
+                'hora'          => $hora,
             ]);
             //END
 

@@ -5,6 +5,11 @@ use CodeIgniter\Model;
 
 class DepartamentoModel extends Model{
 
+    protected $table = 'wk_departamento';
+    protected $primaryKey = 'departamentoId';
+    protected $allowedFields = ['departamentoId', 'departamento'];
+
+
     //MODELO PARA LISTAR ROLES
     public function listarDepartamento()
     {
@@ -26,7 +31,6 @@ class DepartamentoModel extends Model{
     public function eliminar($data){
         $nombres = $this->db->table('wk_departamento');
         $nombres->where($data);
-        
         return $nombres->delete();
     }
 
