@@ -42,6 +42,39 @@ class DireccionController extends BaseController{
         echo json_encode($respuesta);
     }
 
+    public function municipioA(){
+
+        $mun = new DireccionModel();
+        
+        $deptoId = $this->request->getVar('deptoId');
+
+        $respuesta = $mun->listarMunicipioAC($deptoId);
+
+        echo json_encode($respuesta);
+    }
+
+    public function odepto(){
+
+        $mun = new DireccionModel();
+        
+        $municipioId = $this->request->getVar('municipioId');
+
+        $respuesta = $mun->listarDepto($municipioId);
+
+        echo json_encode($respuesta);
+    }
+
+    public function deptoList(){
+
+        $mun = new DireccionModel();
+        
+        //$deptoId = $this->request->getVar('deptoId');
+
+        $respuesta = $mun->listarDepartamento();
+
+        echo json_encode($respuesta);
+    }
+
     //CREAR DIRECCION
     public function crearDireccion(){
 

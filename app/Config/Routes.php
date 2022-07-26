@@ -129,9 +129,10 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('pruebaR', 'modReportes/PruebaController::index', ['as'=> 'pruebaR']);
     $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
     $routes->get('procesoDetalle', 'modReportes/ProcesoDetalleController::index', ['as'=> 'procesoDetalle']);
-    $routes->get('vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
+    $routes->match(['get', 'post'],'vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
     $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
     $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
+    $routes->match(['get', 'post'],'flujoActividad', 'modReportes/FlujoActividadesController::index', ['as'=> 'flujoActividad']);
 });
 
 
@@ -172,7 +173,9 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('actualizarDireccion', 'modUsuario/DireccionController::actualizarDireccion');
     $routes->post('eliminarDireccion', 'modUsuario/DireccionController::eliminarDireccion');
     $routes->match(['get', 'post'],'obtenerMun', 'modUsuario/DireccionController::municipio', ['as'=> 'obtenerMun']);
-
+    $routes->match(['get', 'post'],'obtenerMunA', 'modUsuario/DireccionController::municipioA', ['as'=> 'obtenerMunA']);
+    $routes->match(['get', 'post'],'obtenerDepto', 'modUsuario/DireccionController::odepto', ['as'=> 'obtenerDepto']);
+    $routes->match(['get', 'post'],'obtenerDeptoList', 'modUsuario/DireccionController::deptoList', ['as'=> 'obtenerDeptoList']);
 });
 
 //PERSONA

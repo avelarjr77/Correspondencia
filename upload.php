@@ -114,4 +114,5 @@ function getThumbnailUrl($path, $fileName) {
     }
 }
 
+echo $uploadfile;
 ?>
