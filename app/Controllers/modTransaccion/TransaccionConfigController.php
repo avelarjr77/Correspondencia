@@ -1,6 +1,9 @@
 <?php namespace App\Controllers\modTransaccion;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modProceso\ProcesoModel;
 use App\Models\modTransaccion\TransaccionConfigModel;
 
 class TransaccionConfigController extends BaseController{
@@ -237,7 +240,29 @@ class TransaccionConfigController extends BaseController{
         ];
 
         $transaccion = new TransaccionConfigModel();
+
+        $procesoId      = $_POST['procesoId'];
+        $observaciones  = $_POST['observaciones'];
+
+        $proceso = new ProcesoModel();
+
+        $procesoNombre = $proceso->asArray()->select("nombreProceso")
+        ->where("procesoId", $procesoId)->first();
+
         $respuesta = $transaccion->insertar($datos);
+
+        //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA TRANSACCION
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Creó Transacción de proceso',
+            'descripcion'   => $procesoNombre['nombreProceso'].'<br>'.$observaciones,
+            'hora'          => $hora,
+        ]);
 
         if ($respuesta > 0){
             return redirect()->to(base_url(). '/transaccionConfig')->with('mensaje','0');
@@ -257,6 +282,8 @@ class TransaccionConfigController extends BaseController{
 
         $respuesta = $transaccion->eliminarP($data);
 
+        
+
         echo json_encode($respuesta);
     }
 
@@ -272,7 +299,26 @@ class TransaccionConfigController extends BaseController{
 
         $respuesta = $transaccion->actualizar($datos, $transaccionId);
 
+        $nombreTransaccion = $transaccion->asArray()->select("p.nombreProceso")
+        ->from('wk_transaccion t')
+        ->join('wk_proceso p', 'p.procesoId = t.procesoId')
+        ->where("t.transaccionId", $transaccionId)->first();
+
         $datos = ["datos" => $respuesta];
+
+        //PARA REGISTRAR EN BITACORA QUE SE ANLÓ LA TRANSACCIÓN
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Anuló transacción',
+            'descripcion'   => $nombreTransaccion,
+            'hora'          => $hora,
+        ]);
+        //END
         
         echo json_encode($respuesta);
     }
@@ -310,7 +356,26 @@ class TransaccionConfigController extends BaseController{
         $transaccion = new TransaccionConfigModel();
         $respuesta = $transaccion->actualizar($datos, $transaccionId);
 
+        $nombreTransaccion = $transaccion->asArray()->select("p.nombreProceso")
+        ->from('wk_transaccion t')
+        ->join('wk_proceso p', 'p.procesoId = t.procesoId')
+        ->where("t.transaccionId", $transaccionId)->first();
+
         $datos = ["datos" => $respuesta];
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ Las observaciones
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó observación',
+            'descripcion'   => $nombreTransaccion['nombreProceso'].': <br>'.$_POST['observaciones'],
+            'hora'          => $hora,
+        ]);
+
 
         if ($respuesta) {
             return redirect()->to(base_url() . '/transaccionConfig')->with('mensaje', '4');
