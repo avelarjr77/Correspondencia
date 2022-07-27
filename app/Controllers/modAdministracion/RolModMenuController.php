@@ -197,28 +197,29 @@ class RolModMenuController extends BaseController
 
         $data = ["rolModuloMenuId" => $rolModuloMenuId];
 
-        $respuesta = $RolModuloMenu->eliminarR($data);
-
-        if ($respuesta > 0) {
-
-            $nombreRol = $RolModuloMenu->asArray()->select('r.nombreRol as nombreRol')
+        $nombreRol = $RolModuloMenu->asArray()->select('r.nombreRol')
         ->from('co_rol_modulo_menu rmm')
         ->join('wk_rol r', 'r.rolId = rmm.rolId')
-        ->where('rmm.rolModuloMenuId', $_POST['rolModuloMenuId'])
+        ->where('rmm.rolModuloMenuId', $rolModuloMenuId)
         ->first();
 
-        $nombreModulo = $RolModuloMenu->asArray()->select('m.nombre as nombre')
-        ->from('co_rol_modulo_menu rmm')
-        ->join('co_modulo_menu mm', 'mm.moduloMenuId = rmm.moduloMenuId')
-        ->join('co_modulo m', 'm.moduloId = mm.moduloId')
-        ->where('rmm.rolModuloMenuId', $_POST['rolModuloMenuId'])
-        ->first();
 
-        $nombreMenu = $RolModuloMenu->asArray()->select('m.nombreMenu as nombreMenu')
+        $nombreMenu = $RolModuloMenu->asArray()->select('m.nombreMenu')
         ->from('co_rol_modulo_menu rmm')
         ->join('co_modulo_menu mm', 'mm.moduloMenuId = rmm.moduloMenuId')
         ->join('co_menu m', 'm.menuId = mm.menuId')
         ->where('rmm.rolModuloMenuId', $_POST['rolModuloMenuId'])
+        ->first();
+
+        $respuesta = $RolModuloMenu->eliminarR($data);
+
+        if ($respuesta > 0) {
+
+            $nombreModulo = $RolModuloMenu->asArray()->select('mo.nombre as nombre')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('co_modulo_menu mm', 'mm.moduloMenuId = rmm.moduloMenuId')
+        ->join('co_modulo mo', 'mo.moduloId = mm.moduloId')
+        ->where('rmm.rolModuloMenuId', $rolModuloMenuId)
         ->first();
 
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL ROL-MODULO-MENÚ
@@ -230,7 +231,7 @@ class RolModMenuController extends BaseController
                 'bitacoraId'    => null,
                 'usuario'       => $session,
                 'accion'        => 'Eliminó Rol-Módulo-Menú',
-                'descripcion'   => $nombreRol['nombreRol'].'/'.$nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
+                'descripcion'   => $_POST['rolModuloMenuId'],
                 'hora'          => $hora,
             ]);
             //END

@@ -53,57 +53,11 @@ class PersonaController extends BaseController
             "departamentoId" => $_POST['departamentoId']
         ];
 
-        $datosCorreo = [
-            "contacto" => $_POST['contacto'],
-            "estado" => $_POST['estado'],
-        ];
-
         $persona = new PersonaModel();
         $respuesta = $persona->insertar($datosPersona);
 
         if ($respuesta > 0) {
-
-            $persona = new PersonaModel();
-
-            $usuario = new UsuarioModel();
-
-            $usuario->insertar(
-                [
-                    "personaId" => $persona->asArray()->select('p.personaId')->from('wk_persona p')
-                        ->orderBy('p.personaId', 'DESC')->limit(1)
-                        ->first(),
-                    "usuario" => $_POST['usuario'],
-                    "clave" => $_POST['clave'],
-                    "estado" => $_POST['estado'],
-                    "rolId" => $_POST['rolId']
-                ]
-            );
-
-            if ($usuario) {
-
-                $persona = new PersonaModel();
-
-                $contacto = new ContactoModel();
-
-                $tipoContacto = new TipoContactoModel();
-
-                $contacto->insertarContacto(
-                    [
-                        "personaId" => $persona->asArray()->select('p.personaId')->from('wk_persona p')
-                            ->orderBy('p.personaId', 'DESC')->limit(1)
-                            ->first(),
-                        "tipoContactoId" => $tipoContacto->asArray()->select('tipoContactoId')->where('tipoContactoId', '1')->first(),
-                        "contacto" => $_POST['contacto'],
-                        "estado" => 'Activo',
-                    ]
-                );
-
-                if ($contacto) {
-
-                    return redirect()->to(base_url() . '/persona')->with('mensaje', '0');
-
-                }
-            }
+            return redirect()->to(base_url() . '/persona')->with('mensaje', '0');
         } else {
             return redirect()->to(base_url() . '/persona')->with('mensaje', '1');
         }
