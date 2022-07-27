@@ -1,0 +1,20 @@
+CRITICAL - 2022-07-24 10:22:46 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(259): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 259, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->crear()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-07-24 10:23:36 --> Unknown column 'personaId' in 'field list'
+CRITICAL - 2022-07-24 10:23:36 --> Unknown column 'personaId' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ProcesoModel.php(33): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(263): App\Models\modProceso\ProcesoModel->insertar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->crear()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

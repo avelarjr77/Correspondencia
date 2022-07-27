@@ -43,6 +43,30 @@ class RolModMenuController extends BaseController
             "moduloMenuId"  => $_POST['moduloMenuId']
         ];
 
+        $RolModuloMenu = new RolModMenuModel();
+
+        $rolModuloMenuId = $_POST['moduloMenuId'];
+
+        $respuesta = $RolModuloMenu->insertar($datos);
+
+        $nombreRol = $RolModuloMenu->asArray()->select('r.nombreRol')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('wk_rol r', 'r.rolId = rmm.rolId')
+        ->where('rmm.rolId', $_POST['rolId'])
+        ->first();
+
+        $nombreModulo = $RolModuloMenu->asArray()->select('m.nombre as nombre')
+        ->from('co_modulo_menu mm')
+        ->join('co_modulo m', 'm.moduloId = mm.moduloId')
+        ->where('mm.moduloMenuId', $_POST['moduloMenuId'])
+        ->first();
+
+        $nombreMenu = $RolModuloMenu->asArray()->select('m.nombreMenu as nombreMenu')
+        ->from('co_modulo_menu mm')
+        ->join('co_menu m', 'm.menuId = mm.menuId')
+        ->where('mm.moduloMenuId', $_POST['moduloMenuId'])
+        ->first();
+
         //PARA REGISTRAR EN BITACORA QUIEN CREÓ EL ROL-MÓDULO-MENÚ
         $this->bitacora  = new MovimientosModel();
         $hora=new Time('now');
@@ -52,13 +76,10 @@ class RolModMenuController extends BaseController
             'bitacoraId'    => null,
             'usuario'       => $session,
             'accion'        => 'Agregó Rol-Módulo-Menú',
-            'descripcion'   => $_POST['rolId'].'/'.$_POST['moduloMenuId'],
+            'descripcion'   => $nombreRol['nombreRol'].'/'.$nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
             'hora'          => $hora,
         ]);
         //END
-
-        $RolModuloMenu = new RolModMenuModel();
-        $respuesta = $RolModuloMenu->insertar($datos);
 
         if ($respuesta > 0){
             return redirect()->to(base_url(). '/rolModMenu')->with('mensaje','1');
@@ -127,6 +148,24 @@ class RolModMenuController extends BaseController
 
         $respuesta = $RolModuloMenu->actualizar($datos, $rolModuloMenuId);
 
+        $nombreRol = $RolModuloMenu->asArray()->select('r.nombreRol')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('wk_rol r', 'r.rolId = rmm.rolId')
+        ->where('rmm.rolId', $_POST['rolId'])
+        ->first();
+
+        $nombreModulo = $RolModuloMenu->asArray()->select('m.nombre as nombre')
+        ->from('co_modulo_menu mm')
+        ->join('co_modulo m', 'm.moduloId = mm.moduloId')
+        ->where('mm.moduloMenuId', $_POST['moduloMenuId'])
+        ->first();
+
+        $nombreMenu = $RolModuloMenu->asArray()->select('m.nombreMenu as nombreMenu')
+        ->from('co_modulo_menu mm')
+        ->join('co_menu m', 'm.menuId = mm.menuId')
+        ->where('mm.moduloMenuId', $_POST['moduloMenuId'])
+        ->first();
+
         //PARA REGISTRAR EN BITACORA QUIEN EDITO EL ROL-MODULO-MENÚ
         $this->bitacora  = new MovimientosModel();
         $hora=new Time('now');
@@ -136,7 +175,7 @@ class RolModMenuController extends BaseController
             'bitacoraId'    => null,
             'usuario'       => $session,
             'accion'        => 'Editó Rol-Módulo-Menú',
-            'descripcion'   => $_POST['rolId'] . $_POST['moduloMenuId'],
+            'descripcion'   => $nombreRol['nombreRol'].'/'.$nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
             'hora'          => $hora,
         ]);
         //END
@@ -153,15 +192,36 @@ class RolModMenuController extends BaseController
     {
 
         $rolModuloMenuId = $_POST['rolModuloMenuId'];
-        // $id = $this->request->getVar('id');
 
-        $nombre = new RolModMenuModel();
+        $RolModuloMenu = new RolModMenuModel();
 
         $data = ["rolModuloMenuId" => $rolModuloMenuId];
 
-        $respuesta = $nombre->eliminarR($data);
+        $nombreRol = $RolModuloMenu->asArray()->select('r.nombreRol')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('wk_rol r', 'r.rolId = rmm.rolId')
+        ->where('rmm.rolModuloMenuId', $rolModuloMenuId)
+        ->first();
+
+
+        $nombreMenu = $RolModuloMenu->asArray()->select('m.nombreMenu')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('co_modulo_menu mm', 'mm.moduloMenuId = rmm.moduloMenuId')
+        ->join('co_menu m', 'm.menuId = mm.menuId')
+        ->where('rmm.rolModuloMenuId', $_POST['rolModuloMenuId'])
+        ->first();
+
+        $respuesta = $RolModuloMenu->eliminarR($data);
 
         if ($respuesta > 0) {
+
+            $nombreModulo = $RolModuloMenu->asArray()->select('mo.nombre as nombre')
+        ->from('co_rol_modulo_menu rmm')
+        ->join('co_modulo_menu mm', 'mm.moduloMenuId = rmm.moduloMenuId')
+        ->join('co_modulo mo', 'mo.moduloId = mm.moduloId')
+        ->where('rmm.rolModuloMenuId', $rolModuloMenuId)
+        ->first();
+
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINO EL ROL-MODULO-MENÚ
             $this->bitacora  = new MovimientosModel();
             $hora   =new Time('now');
@@ -171,7 +231,7 @@ class RolModMenuController extends BaseController
                 'bitacoraId'    => null,
                 'usuario'       => $session,
                 'accion'        => 'Eliminó Rol-Módulo-Menú',
-                'descripcion'   => $rolModuloMenuId,
+                'descripcion'   => $_POST['rolModuloMenuId'],
                 'hora'          => $hora,
             ]);
             //END
