@@ -57,7 +57,7 @@ class Home extends BaseController
             $this->bitacora->save([
                 'bitacoraId' => null,
                 'usuario' => $usuario,
-                'accion' => 'Inició sesión',
+                'accion' => 'Inicio de sesión',
                 'descripcion' => $descripcion,
                 'hora' => $hora,
             ]);

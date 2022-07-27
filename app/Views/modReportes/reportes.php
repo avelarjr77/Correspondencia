@@ -19,10 +19,10 @@
                 <div class="col-md-1 col-sm-1 "> </div>
                 <div class="col-md-8 col-sm-8 ">
                     <select id="url" class="form-control">
-                        <option>Seleciona un tipo de reporte</option>
+                        <option disabled selected>Seleciona un tipo de reporte</option>
                         <option value="pruebaR">Listado de Procesos del mes de <?php echo $mes ?></option>
                         <option value="promedioActividad">Tiempo Promedio de Finalización de Actividades</option>
-                        <option value="procesoDetalle">Detalle de Procesos del mes de <?php echo $mes ?></option>
+                        <option value="procesoDetalle">Flujo de Procesos del mes de <?php echo $mes ?></option>
                         <option value="vistaDetalle">Detalle de usuarios en el sistema</option>
                     </select>
                 </div>
@@ -57,7 +57,7 @@
                         <p>Por favor, seleccione el proceso del reporte que desea generar.</p>
                         <div class="col-md-6 col-sm-6 ">
                             <select name="procesoId" id="proceso" class="form-control">
-                                <option disable>Seleciona un proceso</option>
+                                <option disabled selected>Seleciona un proceso</option>
                                 <?php foreach($datos as $d): ?>
                                     <option value="<?= $d->procesoId ?>"><?= $d->proceso ?></option>
                                 <?php endforeach; ?> 
@@ -102,7 +102,7 @@
                         <p>Por favor, seleccione el proceso del reporte que desea generar.</p>
                         <div class="col-md-6 col-sm-6 ">
                             <select name="procesoId" id="procesoAct" class="form-control">
-                                <option disable>Seleciona un proceso</option>
+                                <option disabled selected>Seleciona un proceso</option>
                                 <?php foreach($datos as $d): ?>
                                     <option value="<?= $d->procesoId ?>"><?= $d->proceso ?></option>
                                 <?php endforeach; ?> 
