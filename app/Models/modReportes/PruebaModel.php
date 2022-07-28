@@ -159,4 +159,51 @@ class PruebaModel extends Model
         return $tr->getResult();
     }
 
+    public function reporteUsuario()
+    {
+        $tr = $this->db->query("SELECT u.usuario as 'usuario', 
+                                concat_ws(
+                                    ' ',
+                                    p.nombres,
+                                    p.primerApellido
+                                ) as 'persona', if(p.genero = 'F', 'Femenino', 'Masculino') as 'genero', d.departamento as 'departamento', c.cargo as 'cargo',
+                                if(u.estado = 'A', 'Activo', 'Inactivo') as 'estado'
+                                FROM wk_usuario u
+                                INNER JOIN wk_persona p ON u.personaId = p.personaId
+                                INNER JOIN wk_rol r ON u.rolId = r.rolId
+                                INNER JOIN wk_departamento d ON p.departamentoId = d.departamentoId
+                                INNER JOIN wk_cargo c ON p.cargoId = c.cargoId
+                                ORDER BY u.usuarioId");
+        return $tr->getResult();
+    }
+
+    public function reporteProcesoAct($procesoId)
+    {
+        $tr = $this->db->query("SELECT  p.nombreProceso as 'proceso', e.nombreEtapa as 'etapa', a.nombreActividad as 'actividad',
+                                concat_ws(
+                                    ' ',
+                                    pe.nombres,
+                                    pe.primerApellido
+                                ) as 'persona',
+                                (CASE
+                                    WHEN ta.estado = 'P' THEN 'En Progreso'
+                                    WHEN ta.estado = 'F' THEN 'Finalizado'
+                                    WHEN ta.estado = 'I' THEN 'Inactivo'
+                                    ELSE '-'
+                                END) as 'estado', 
+                                if(ta.fechaInicio = (length(ta.fechaInicio)=0), '-', ta.fechaInicio) as 'fechaInicio', 
+                                if(DATE_FORMAT(ta.horaInicio, '%H:%i') = (length(ta.horaInicio)=0), '-', DATE_FORMAT(ta.horaInicio, '%H:%i')) as 'horaInicio', 
+                                if(ta.fechaFin = (length(ta.fechaFin)=0), '-', ta.fechaFin) as 'fechaFin', 
+                                if(DATE_FORMAT(ta.horaFin, '%H:%i') = (length(ta.horaFin)=0), '-', DATE_FORMAT(ta.horaFin, '%H:%i')) as 'horaFin'
+                                FROM wk_transaccion t
+                                INNER JOIN wk_transaccion_detalle td ON t.transaccionId = td.transaccionId
+                                INNER JOIN wk_transaccion_actividades ta ON ta.transaccionDetalleId = td.transaccionDetalleId
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona pe ON pe.personaId = a.personaId
+                                INNER JOIN wk_etapa e ON a.etapaId = e.etapaId
+                                INNER JOIN wk_proceso p ON e.procesoId = p.procesoId
+                                WHERE e.procesoId = $procesoId");
+        return $tr->getResult();
+    }
+
 }

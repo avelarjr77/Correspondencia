@@ -39,13 +39,21 @@ class ModuloMenuController extends BaseController{
         $ModuloMenu = new ModuloMenuModel();
         $respuesta = $ModuloMenu->insertar($datos);
 
-        /*$nombreMenu = $ModuloMenu->asArray()->select("nombreMenu")
-        ->join("co_menu",'co_menu.menuId = co_modulo_menu.menuId')->where("moduloMenuId", $_POST['moduloId'])
+        $moduloId = $_POST['moduloId'];
+        $menuId = $_POST['menuId'];
+
+        $nombreModulo = $ModuloMenu->asArray()->select("m.nombre")
+        ->from('co_modulo_menu mm')
+        ->join("co_modulo m",'m.moduloId = mm.moduloId')
+        ->where("mm.moduloId", $moduloId)
         ->first();
-        $nombreModulo = $ModuloMenu->asArray()->select("nombre")
-        ->join("co_modulo",'co_modulo.moduloId = co_modulo_menu.moduloId')
-        ->where("moduloMenuId", $_POST['menuId'])
-        ->first();*/
+
+        $nombreMenu = $ModuloMenu->asArray()->select("m.nombreMenu")
+        ->from('co_modulo_menu mm')
+        ->join("co_menu m",'m.menuId = mm.menuId')
+        ->where("mm.menuId", $menuId)
+        ->first();
+        
 
         //PARA REGISTRAR EN BITACORA QUIEN CREO EL MODULO-MENÚ
         $this->bitacora  = new MovimientosModel();
@@ -56,7 +64,7 @@ class ModuloMenuController extends BaseController{
             'bitacoraId' => null,
             'usuario' => $session,
             'accion' => 'Agregó Módulo-Menú',
-            'descripcion' => $_POST['moduloId'].'/'.$_POST['menuId'],
+            'descripcion' => $nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
             'hora' => $hora,
         ]);
         //END
@@ -76,6 +84,18 @@ class ModuloMenuController extends BaseController{
         $ModuloMenu = new ModuloMenuModel();
         $data = ["moduloMenuId" => $moduloMenuId];
 
+        $nombreModulo = $ModuloMenu->asArray()->select("m.nombre")
+        ->from('co_modulo_menu mm')
+        ->join("co_modulo m",'m.moduloId = mm.moduloId')
+        ->where("mm.moduloMenuId", $moduloMenuId)
+        ->first();
+
+        $nombreMenu = $ModuloMenu->asArray()->select("m.nombreMenu")
+        ->from('co_modulo_menu mm')
+        ->join("co_menu m",'m.menuId = mm.menuId')
+        ->where("mm.moduloMenuId", $moduloMenuId)
+        ->first();
+
         $respuesta = $ModuloMenu->eliminar($data);
 
         if ($respuesta > 0){
@@ -88,7 +108,7 @@ class ModuloMenuController extends BaseController{
                 'bitacoraId' => null,
                 'usuario' => $session,
                 'accion' => 'Eliminó Módulo-Menú',
-                'descripcion' => $moduloMenuId,
+                'descripcion' => $nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
                 'hora' => $hora,
             ]);
             //END
@@ -110,6 +130,18 @@ class ModuloMenuController extends BaseController{
         $ModuloMenu = new ModuloMenuModel();
         $respuesta = $ModuloMenu->actualizar($datos, $moduloMenuId);
 
+        $nombreModulo = $ModuloMenu->asArray()->select("m.nombre")
+        ->from('co_modulo_menu mm')
+        ->join("co_modulo m",'m.moduloId = mm.moduloId')
+        ->where("mm.moduloMenuId", $moduloMenuId)
+        ->first();
+
+        $nombreMenu = $ModuloMenu->asArray()->select("m.nombreMenu")
+        ->from('co_modulo_menu mm')
+        ->join("co_menu m",'m.menuId = mm.menuId')
+        ->where("mm.moduloMenuId", $moduloMenuId)
+        ->first();
+
         $datos = ["datos" => $respuesta];
 
         //PARA REGISTRAR EN BITACORA QUIEN CREO EL MODULO-MENÚ
@@ -121,7 +153,7 @@ class ModuloMenuController extends BaseController{
             'bitacoraId' => null,
             'usuario' => $session,
             'accion' => 'Editó Módulo-Menú',
-            'descripcion' => $_POST['moduloId'].'/'.$_POST['menuId'],
+            'descripcion' => $nombreModulo['nombre'].'/'.$nombreMenu['nombreMenu'],
             'hora' => $hora,
         ]);
         //END

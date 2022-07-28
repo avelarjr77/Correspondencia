@@ -1,8 +1,10 @@
 <?php namespace App\Controllers\modTransaccion;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
-use App\Models\modTransaccion\TransaccionActividadModel;
+use App\Models\modAdministracion\MovimientosModel;
 use App\Models\modTransaccion\TransaccionConfigModel;
+use App\Models\modTransaccion\TransaccionActividadModel;
 
 class TransaccionActividadController extends BaseController{
 
@@ -245,7 +247,25 @@ class TransaccionActividadController extends BaseController{
         $transaccion = new TransaccionActividadModel();
         $respuesta = $transaccion->actualizarO($datos, $transaccionActividadId);
 
+        $nombreTransaccion = $transaccion->asArray()->select("a.nombreActividad")
+        ->from('wk_transaccion_actividades t')
+        ->join('wk_actividad a', 'a.actividadId = t.actividadId')
+        ->where("t.transaccionActividadId", $transaccionActividadId)->first();
+
         $datos = ["datos" => $respuesta];
+
+        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ Las observaciones
+        $this->bitacora  = new MovimientosModel();
+        $hora=new Time('now');
+        $session = session('usuario');
+
+        $this->bitacora->save([
+            'bitacoraId'    => null,
+            'usuario'       => $session,
+            'accion'        => 'Agregó observación',
+            'descripcion'   => $nombreTransaccion['nombreActividad'].': <br>'.$_POST['observaciones'],
+            'hora'          => $hora,
+        ]);
 
         if ($respuesta) {
             return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje', '4');

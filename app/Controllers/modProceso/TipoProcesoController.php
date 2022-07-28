@@ -40,7 +40,7 @@ class TipoProcesoController extends BaseController{
         $this->bitacora->save([
             'bitacoraId'    => null,
             'usuario'       => $session,
-            'accion'        => 'Agregó tipo de prceso',
+            'accion'        => 'Agregó tipo de proceso',
             'descripcion'   => $_POST['tipoProceso'],
             'hora'          => $hora,
         ]);
@@ -52,8 +52,8 @@ class TipoProcesoController extends BaseController{
             return redirect()->to(base_url(). '/tipoProceso')->with('mensaje','0');
         } else {
             return redirect()->to(base_url(). '/tipoProceso')->with('mensaje','1');
-        } 
-    } 
+        }
+    }
 
     //ELIMINAR TIPO PROCESO
     public function eliminar(){
@@ -112,7 +112,7 @@ class TipoProcesoController extends BaseController{
         $this->bitacora->save([
             'bitacoraId'    => null,
             'usuario'       => $session,
-            'accion'        => 'Editó tipo de prceso',
+            'accion'        => 'Editó tipo de proceso',
             'descripcion'   => $_POST['tipoProceso'],
             'hora'          => $hora,
         ]);
@@ -123,7 +123,6 @@ class TipoProcesoController extends BaseController{
             return redirect()->to(base_url() . '/tipoProceso')->with('mensaje', '5');
         }
     }
-    
 }
 
 ?>

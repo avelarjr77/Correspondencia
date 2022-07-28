@@ -11,7 +11,6 @@ require_once '../sql/conexion.php';
 
 class PromedioActividadController extends BaseController
 {
-    //LISTADO DE ROL MODULO MENU
     public function index()
     {
         $prueba = new PruebaModel();
@@ -20,12 +19,11 @@ class PromedioActividadController extends BaseController
 
         $contexto="";
         $correlativo=1;
-        $data = [];
 
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr>
+                <tr class="estilo" style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
                     <td>'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
@@ -36,10 +34,16 @@ class PromedioActividadController extends BaseController
             }
         
             $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Tiempo Promedio de Finalización de Actividades por persona</b></h3><br>
-            <table border="0" style="width:100%;">
+            <style>
+                .estilo{
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+            </style>
+            <p style="text-align:center; font-size:16;"><b>Tiempo Promedio de Finalización de Actividades por persona</b></p><br>
+            <table class="estilo" style="width:100%;">
                 <thead>
-                    <tr>
+                    <tr class="estilo">
                         <th style="width:5%;">#</th>
                         <th style="width:25%;">Actividad</th>
                         <th style="width:35%;">Encargado</th>
@@ -52,6 +56,9 @@ class PromedioActividadController extends BaseController
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
         
             $mpdf->allow_charset_conversion=true;
+
+            $mpdf->defaultheaderline = 0;
+            $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
             <table style="width=100%;">
@@ -66,8 +73,8 @@ class PromedioActividadController extends BaseController
                 <img src="images/Sin-título-1.jpg">
                 <table style="width=100%;">
                     <tr>
-                        <td style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:45%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                        <td style="float:left;width:68%;">Página {PAGENO} de {nb}</td>
+                        <td style="float:right;width:32%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '
@@ -77,9 +84,10 @@ class PromedioActividadController extends BaseController
         
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            $file="../../../media/tmp/reporte2.pdf";
+            $file="PromedioActividades.pdf";
 
-            return redirect()->to($mpdf->Output($file,'I'));
+            $mpdf->Output($file,'I');
+            $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{
             echo json_encode($datos);

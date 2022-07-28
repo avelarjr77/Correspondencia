@@ -7,56 +7,92 @@ use App\Models\modReportes\PruebaModel;
 
 use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
+require_once '../sql/conexion.php';
 
 class VistaController extends BaseController
 {
-    //LISTADO DE ROL MODULO MENU
     public function index()
     {
-        //$prueba = new PruebaModel();
+        $prueba = new PruebaModel();
 
+        $datos =  $prueba->reporteUsuario();
+
+        $contexto="";
+        $correlativo=1;
+
+        if ($datos>0) {
+            foreach($datos as $row) {
+                $contexto = $contexto . '
+                <tr class="estilo" style="font-size:12;">
+                    <td style="text-align:center;">'.$correlativo.'</td>
+                    <td style="text-align:center;">'.$row->usuario.'</td>
+                    <td style="text-align:center;">'.$row->persona.'</td>
+                    <td style="text-align:center;">'.$row->genero.'</td>
+                    <td style="text-align:center;">'.$row->departamento.'</td>
+                    <td style="text-align:center;">'.$row->cargo.'</td>
+                    <td style="text-align:center;">'.$row->estado.'</td>
+                </tr><br>
+                ';
+                $correlativo++;
             
-        //$mpdf = new \Mpdf\Mpdf();
-
-        $mpdf = new Mpdf(['mode' => 'utf-8']);
-        $mpdf->WriteHTML('Hello World');
-        return redirect()->to($mpdf->Output('filename.pdf', 'I'));
         
-        //$html = view('modReportes/vista',[]);
+                $tabla_a_imprimir='
+                <p style="text-align:center; font-size:16;"><b>Información de usuarios del sistema</b></p><br>
+                <table class="estilo" style="width:100%;">
+                    <thead>
+                        <tr class="estilo">
+                            <th style="width:5%;">#</th>
+                            <th style="width:12%;">Usuario</th>
+                            <th style="width:25%;">Persona</th>
+                            <th style="width:12%;">Género</th>
+                            <th style="width:30%;">Departamento</th>
+                            <th style="width:20%;">Cargo</th>
+                            <th style="width:15%;">Estado</th>
+                        </tr>
+                    </thead><br>
+                    <tbody>'.$contexto.'</tbody>
+                </table>';
 
-        //$mpdf->allow_charset_conversion=true;
-    
-        /* $mpdf->SetHeader('
-        <table style="width=100%;">
-            <tr>
-                <td><img src="images/membrete.jpg"></td>
-            </tr>
-        </table>
-        ');
-    
-        $mpdf->setHTMLFooter(
-            '
-            <img src="images/Sin-título-1.jpg">
+            }
+            
+            $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
+        
+            $mpdf->allow_charset_conversion=true;
+
+            $mpdf->defaultheaderline = 0;
+            $mpdf->defaultfooterline = 0;
+        
+            $mpdf->SetHeader('
             <table style="width=100%;">
                 <tr>
-                    <td style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                    <td style="float:right;width:45%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                    <td><img src="images/membrete.jpg"></td>
                 </tr>
             </table>
-            '
-        );
-    
-        //$mpdf->charset_in='utf8';
-    
-        $mpdf->writeHTML('Hola');
-    
-        $file_ruta="../../../media/tmp/Prueba.pdf";
+            ');
+        
+            $mpdf->setHTMLFooter(
+                '
+                <img src="images/Sin-título-1.jpg">
+                <table style="width=100%;">
+                    <tr>
+                        <td style="float:left;width:68%;">Página {PAGENO} de {nb}</td>
+                        <td style="float:right;width:32%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                    </tr>
+                </table>
+                '
+            );
+        
+            $mpdf->charset_in='utf8';
+        
+            $mpdf->writeHTML($tabla_a_imprimir);
+        
+            $file="Usuarios.pdf";
 
-        $mpdf->Output($file_ruta,'I'); */
-
-        //return view('modReportes/vista');
-
-        //return redirect()->to($mpdf->Output($file_ruta,'I'));
-
+            $mpdf->Output($file,'I');
+            $this->response->setHeader('Content-Type', 'application/pdf');
+        
+        }else{
+            echo json_encode($datos);
+        }
     }
 }

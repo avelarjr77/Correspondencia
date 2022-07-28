@@ -36,6 +36,21 @@ class DireccionModel extends Model{
         return $municipio->getResult();
     }
 
+    public function listarMunicipioAC($deptoId)
+    {
+        $municipio =  $this->db->query("SELECT*FROM  wk_municipio m WHERE m.deptoId = $deptoId");
+        return $municipio->getResult();
+    }
+
+    public function listarDepto($municipioId)
+    {
+        $municipio =  $this->db->query("SELECT m.deptoId, d.nombreDepto
+                                        FROM  wk_municipio m 
+                                        INNER JOIN wk_depto d ON d.deptoId = m.deptoId
+                                        WHERE m.municipioId = $municipioId");
+        return $municipio->getResult();
+    }
+
     public function listarMunicipioA()
     {
         $municipio =  $this->db->query("SELECT*FROM  wk_municipio");

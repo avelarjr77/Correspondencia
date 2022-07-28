@@ -11,7 +11,6 @@ require_once '../sql/conexion.php';
 
 class ProcesoDetalleController extends BaseController
 {
-    //LISTADO DE ROL MODULO MENU
     public function index()
     {
         $prueba = new PruebaModel();
@@ -25,9 +24,9 @@ class ProcesoDetalleController extends BaseController
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr>
-                    <td>'.$correlativo.'</td>
-                    <td>'.$row->proceso.'</td>
+                <tr class="estilo" style="font-size:12;">
+                    <td style="text-align:center;">'.$correlativo.'</td>
+                    <td style="text-align:center;">'.$row->proceso.'</td>
                     <td style="text-align:center;">'.$row->etapa.'</td>
                     <td style="text-align:center;">'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
@@ -36,35 +35,35 @@ class ProcesoDetalleController extends BaseController
                 $correlativo++;
             
         
-            $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Detalle de Procesos del mes de '.$row->mes.'</b></h3><br>
-            <table border="0" style="width:100%;">
-                <thead>
-                    <tr>
-                        <th style="width:5%;">#</th>
-                        <th style="width:30%;">Proceso</th>
-                        <th style="width:28%;">Etapa</th>
-                        <th style="width:22%;">Actividad</th>
-                        <th style="width:15%;">Estado del Proceso</th>
-                    </tr>
-                </thead><br>
-                <tbody>'.$contexto.'</tbody>
-            </table>';
+                $tabla_a_imprimir='
+                <style>
+                    .estilo{
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                    }
+                </style>
+                <p style="text-align:center; font-size:16;"><b>Flujo de Procesos del mes de '.$row->mes.'</b></p><br>
+                <table class="estilo" style="width:100%;">
+                    <thead>
+                        <tr class="estilo">
+                            <th style="width:5%;">#</th>
+                            <th style="width:30%;">Proceso</th>
+                            <th style="width:30%;">Etapa</th>
+                            <th style="width:25%;">Actividad</th>
+                            <th style="width:15%;">Estado</th>
+                        </tr>
+                    </thead><br>
+                    <tbody>'.$contexto.'</tbody>
+                </table>';
 
             }
             
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
-            //$mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
-            /* $mpdf->AddPage('L', // L - landscape, P - portrait
-            '', '', '', '',
-            '', // margin_left
-            '', // margin right
-            18, // margin top
-            '', // margin bottom
-            '', // margin header
-            ''); // margin footer */
         
             $mpdf->allow_charset_conversion=true;
+
+            $mpdf->defaultheaderline = 0;
+            $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
             <table style="width=100%;">
@@ -79,8 +78,8 @@ class ProcesoDetalleController extends BaseController
                 <img src="images/Sin-título-1.jpg">
                 <table style="width=100%;">
                     <tr>
-                        <td style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:45%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                        <td style="float:left;width:68%;">Página {PAGENO} de {nb}</td>
+                        <td style="float:right;width:32%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '
@@ -90,9 +89,10 @@ class ProcesoDetalleController extends BaseController
         
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            $file="../../../media/tmp/reporte3.pdf";
+            $file="FlujoDeProcesos.pdf";
 
-            return redirect()->to($mpdf->Output($file,'I'));
+            $mpdf->Output($file,'I');
+            $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{
             echo json_encode($datos);
