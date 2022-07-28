@@ -181,7 +181,7 @@
             <div class="form-group">
                 <form action="http://localhost/correspondencia-ucad/upload.php" enctype="multipart/form-data">
                     <div class="file-loading">
-                        <input id="input-ficons-1"  name="input-ficons-1[]" class="file" type="file"
+                        <input id="fileUpload"  name="fileUpload[]" class="file" type="file"
                         data-preview-file-type="any" data-browse-on-zone-click="true" required>
                     </div>
                 </form>
@@ -292,7 +292,7 @@
         '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
         '</div>';
 
-    $("#input-ficons-1").fileinput({
+    $("#fileUpload").fileinput({
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
