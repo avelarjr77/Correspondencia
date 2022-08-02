@@ -34,7 +34,6 @@ class DocumentoController extends BaseController{
             $nombreDocumento->insertar(
                 [
                     "nombreDocumento" => $_POST['nombreDocumento'],
-                    "documento" => $_POST['documento'],
                     "tipoDocumentoId" => $_POST['tipoDocumentoId'],
                     "tipoEnvioId" => $_POST['tipoEnvioId'],
                     "transaccionActividadId" => $_POST['transaccionActividadId']
@@ -49,56 +48,49 @@ class DocumentoController extends BaseController{
 
     } 
     public function crearImage(){
-            
-            $documento = $_POST['documento'];
 
-        
-   /*     if(empty($_FILES['documento']['name']))
-            {
-                $error=array(
-                    'error_img'=>'Image file empty !!!.'
-                );
-            }
-            else
-            {
-                $type=explode('.',$_FILES["documento"]["name"]);
-                $type=$type[count($type)-1];
-                $url="./public/uploads".uniqid(rand()).'.'.$type;
-                if(in_array($type,array("jpg","jpeg","gif","png")))
-                if(is_uploaded_file($_FILES["documento"]["tmp_name"]))
-                if(move_uploaded_file($_FILES["documento"]["tmp_name"],$url))
-                return $url;
-                return "";
-            }  */
-            $file = $this->request->getFile('documento');
+            $file=$_FILES["nombreDocumento"];
+
+            $fileName=$_FILES['nombreDocumento']['name'];
+            $fileTmpName=$_FILES['nombreDocumento']['tmp_name'];
+            $fileSize=$_FILES['nombreDocumento']['size'];
+            $fileError=$_FILES['nombreDocumento']['error'];
+            $fileType=$_FILES['nombreDocumento']['type'];
+
+
+
+            $fileExt=explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg','jpeg','png','pdf','doc');
+
+            if (in_array($fileActualExt, $allowed)) {
+                if ($fileError === 0) {
+                    if ($fileSize < 100000) {   
+                        $fileDestination = 'uploads/'.$fileName;
+
+                        move_uploaded_file($fileTmpName, $fileDestination);
+
+                        $datos = [
+                            "nombreDocumento" => $_POST['nombreDocumento'],
+                            "tipoDocumentoId" => $_POST['tipoDocumentoId'],
+                            "tipoEnvioId" => $_POST['tipoEnvioId'],
+                            "transaccionActividadId" => $_POST['transaccionActividadId']
+                        ];
                 
-                $path = './uploads/';
+                        $nombreDoc = new DocumentoModel();
+                        $respuesta = $nombreDoc->insertar($datos);
 
-                $name = $file->getName();
-                $file->move(WRITEPATH . $path);
-
-        $nombreDocumento = new DocumentoModel();
-        if($this->validate('validarDocumento')){
-            $nombreDocumento->insertar(
-                [
-                    "nombreDocumento" => $_POST['nombreDocumento'],
-                    "documento" => $_POST['documento'],
-                    "tipoDocumentoId" => $_POST['tipoDocumentoId'],
-                    "tipoEnvioId" => $_POST['tipoEnvioId'],
-                    "transaccionActividadId" => $_POST['transaccionActividadId']
-                ]
-
-                
-            );  
-
-                
-            
-
-            return redirect()->to(base_url(). '/documento')->with('mensaje','0');
-        }
-        
-            return redirect()->to(base_url(). '/documento')->with('mensaje','1');
-
+                        return redirect()->to(base_url() . '/documento')->with('mensaje','0');
+                    } else {
+                        return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+                    }
+                } else {
+                    return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+                }
+            } else {
+                return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+            }     
     }
 
     //ELIMINAR DOCUMENTO
@@ -123,7 +115,6 @@ class DocumentoController extends BaseController{
     {
         $datos = [
             "nombreDocumento" => $_POST['nombreDocumento'],
-            "documento" => $_POST['documento'],
             "tipoDocumentoId" => $_POST['tipoDocumentoId'],
             "tipoEnvioId" => $_POST['tipoEnvioId'],
             "transaccionActividadId" => $_POST['transaccionActividadId']
@@ -153,28 +144,6 @@ class DocumentoController extends BaseController{
             }
         }
     }
-
-    /* public function actualizarDoc()
-    {
-        $actualizarDoc = new DocumentoModel();
-
-        //$documentoI =  $actualizarDoc->asArray()->select('max(d.documentoId) AS id')->from('wk_documento d')->first();
-
-        $documentoId = 2;
-
-        $documento = $this->request->getVar('documento');
-
-        $datos = [
-            "documento" => $documento
-        ];
-
-        $respuesta = $actualizarDoc->actualizarDoc($datos, $documentoId);
-
-        $datos = ["datos" => $respuesta];
-
-        echo json_encode($documentoId);
-
-    } */
     
 }
 
