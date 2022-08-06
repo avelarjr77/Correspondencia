@@ -87,7 +87,7 @@ class Validation
         'estado'        => 'required'
     ];
 
-    public $validarDocumento = [
+    public $validarDoc = [
         'nombreDocumento'        => 'is_unique[wk_documento.nombreDocumento]'
     ];
 

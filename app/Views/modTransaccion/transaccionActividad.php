@@ -169,40 +169,48 @@
             <!-- name="fileUpload" id="fileUpload"
              enctype="multipart/form-data"-->
             <form  action="<?php echo base_url() . '/crearDocumentoImage' ?>" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label>Nombre Documento: </label>
-                    <input id="nombreDocumento"  name="nombreDocumento" type="file" multiple require >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <input id="nombreDocumento"  name="nombreDocumento" class="file" type="file" 
+                            data-preview-file-type="any" data-browse-on-zone-click="true"  require >
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                            <div id="errors"></div>
+                        <div class="mb-3 form-check">
+                            <label>Tipo de documento: </label>
+                            <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
+                                <option value="" disable>-Selecciona un tipo de documento-</option>
+                                <?php foreach ($tipoDoc as $td) : ?>
+                                    <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <label>Tipo de envio: </label>
+                            <select name="tipoEnvioId" id="tipoEnvioId" class="form-control" required>
+                                <option value="" disable>-Selecciona un tipo de envio-</option>
+                                <?php foreach ($tipoEnvio as $te) : ?>
+                                    <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <label>Tipo de transaccion: </label>
+                            <select name="transaccionActividadId" id="transaccionActividadId" class="form-control" required>
+                                <option value="" disable>-Selecciona una transaccion-</option>
+                                <?php foreach ($datos as $ta) : ?>
+                                    <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <br>
+                        <button type="submit" name="submit"  class="btn btn-primary">Guardar</button>
+                    </div>
                 </div>
-                <div id="errors"></div>
-                <div class="mb-3 form-check">
-                    <label>Tipo de documento: </label>
-                    <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
-                        <option value="" disable>-Selecciona un tipo de documento-</option>
-                        <?php foreach ($tipoDoc as $td) : ?>
-                            <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="mb-3 form-check">
-                    <label>Tipo de envio: </label>
-                    <select name="tipoEnvioId" id="tipoEnvioId" class="form-control" required>
-                        <option value="" disable>-Selecciona un tipo de envio-</option>
-                        <?php foreach ($tipoEnvio as $te) : ?>
-                            <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="mb-3 form-check">
-                    <label>Tipo de transaccion: </label>
-                    <select name="transaccionActividadId" id="transaccionActividadId" class="form-control" required>
-                        <option value="" disable>-Selecciona una transaccion-</option>
-                        <?php foreach ($datos as $ta) : ?>
-                            <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <br>
-                <button type="submit" name="submit"  class="btn btn-primary">Guardar</button>
+            </div>
             </form>
 
             <br><br><br>
@@ -269,7 +277,7 @@
     if (mensaje == '0') {
         swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal('No se agrego', 'Los datos ingresados contienen signos de puntuacion', 'error');
+        swal('', 'Este documento ya existe en la base de datos', 'error');
     }else if (mensaje == '2') {
         swal('', 'Eliminado', 'success');
     }else if (mensaje == '3') {
@@ -278,6 +286,10 @@
         swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'Este documento ya existe en la base de datos', 'error');
+    }else if (mensaje == '7') {
+        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
     }
 </script>
 

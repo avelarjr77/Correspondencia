@@ -243,6 +243,10 @@
         swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'Este documento ya existe en la base de datos', 'error');
+    }else if (mensaje == '7') {
+        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
     }
 </script>
 
