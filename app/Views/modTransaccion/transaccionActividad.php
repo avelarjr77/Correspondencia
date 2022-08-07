@@ -1,14 +1,6 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<style>
-    .dropzone {
-        width: 900px;
-        height: 200px;
-        min-height: 0px;
-    }
-</style>
-
 <div class="x_panel">
     <div class="x_title">
         <h2>Actividades</h2>
@@ -198,16 +190,10 @@
                             </select>
                         </div>
                         <div class="mb-3 form-check">
-                            <label>Tipo de transaccion: </label>
-                            <select name="transaccionActividadId" id="transaccionActividadId" class="form-control" required>
-                                <option value="" disable>-Selecciona una transaccion-</option>
-                                <?php foreach ($datos as $ta) : ?>
-                                    <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
                         </div>
                         <br>
-                        <button type="submit" name="submit"  class="btn btn-primary">Guardar</button>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumento">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -483,18 +469,11 @@
             $('#documento').hide();
         });
 
-        /* $('.btn-doc').on('click',function(){
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('actualizarDoc') ?>",
-                data: $("#frmDoc").serialize(),
-                success:function(data){
+        $('.btn-tDocumento').on('click', function() {
+            var id = $(this).data('id');
 
-                    var dataE = JSON.parse(data);
-                    console.log(dataE);
-                }
-            });
-        }); */
+            $('#transaccionActividadId').val(id);
+        });
 
     });
 </script>
