@@ -120,7 +120,7 @@ class PruebaModel extends Model
                                     WHEN t.estadoTransaccion = 'F' THEN 'Finalizado'
                                     WHEN t.estadoTransaccion = 'I' THEN 'Inactivo'
                                     ELSE '-'
-                                END) as 'estado'
+                                END) as 'estado', t.fechaInicio, t.horaInicio, t.fechaFin, t.horaFin
                                 FROM wk_transaccion t
                                 INNER JOIN wk_transaccion_detalle td ON t.transaccionId = td.transaccionId
                                 INNER JOIN wk_transaccion_actividades ta ON ta.transaccionDetalleId = td.transaccionDetalleId
@@ -132,9 +132,14 @@ class PruebaModel extends Model
         return $tr->getResult();
     }
 
-    public function reporteProcesoTiempo($fechaI, $fechaF)
+    public function reporteProcesoTiempo($fecha)
     {
-        $tr = $this->db->query("SELECT  p.nombreProceso as 'proceso', concat_ws(
+        $fechas = explode("a", $fecha);
+
+        $fechaI = $fechas[0];
+        $fechaF = $fechas[1]; 
+
+        /* $tr = $this->db->query("SELECT  p.nombreProceso as 'proceso', concat_ws(
                                     ' ',
                                     pe.nombres,
                                     pe.primerApellido
@@ -153,10 +158,11 @@ class PruebaModel extends Model
                                 INNER JOIN wk_proceso p ON e.procesoId = p.procesoId
                                 INNER JOIN wk_persona pe ON pe.personaId = a.personaId
                                 INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
-                                WHERE t.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
-                                AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
+                                WHERE t.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d-%m-%Y') 
+                                AND  STR_TO_DATE('$fechaF', '%d-%m-%Y')
                                 ORDER BY t.transaccionId");
-        return $tr->getResult();
+        return $tr->getResult(); */
+        return $fechaF;
     }
 
     public function reporteUsuario()

@@ -11,26 +11,28 @@ require_once '../sql/conexion.php';
 
 class ProcesoTiempoController extends BaseController
 {
-    public function index()
+    public function index($fecha)
     {
         $prueba = new PruebaModel();
 
-        $fecha = $_POST['fecha'];
-
-        $fechas = explode(" - ", $fecha);
+        /* $fechas = explode("a", $fecha);
 
         $fechaI = $fechas[0];
-        $fechaF = $fechas[1];
+        $fechaF = $fechas[1];  */
 
-        $datos =  $prueba->reporteProcesoTiempo($fechaI, $fechaF);
+        //print_r($fechaF.$fechaI);
 
-        $contexto="";
+        $datos =  $prueba->reporteProcesoTiempo($fecha);
+
+        print_r($datos);
+
+       /*  $contexto="";
         $correlativo=1;
 
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr class="estilo" style="font-size:12;">
+                <tr style="font-size:12;">
                     <td>'.$correlativo.'</td>
                     <td>'.$row->proceso.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
@@ -45,15 +47,18 @@ class ProcesoTiempoController extends BaseController
         
                 $tabla_a_imprimir='
                 <style>
-                    .estilo{
+                    table, th, td{
                         border: 1px solid black;
                         border-collapse: collapse;
+                    },
+                    .estilo{
+                        border: 0px;
                     }
                 </style>
                 <p style="text-align:center; font-size:16;"><b>Flujo de Procesos entre '.$fechaI.' y '.$fechaF.'</b></p><br>
-                <table class="estilo" style="width:100%;">
+                <table style="width:100%;">
                     <thead>
-                        <tr class="estilo">
+                        <tr>
                             <th style="width:5%;">#</th>
                             <th style="width:28%;">Proceso</th>
                             <th style="width:28%;">Persona</th>
@@ -76,9 +81,9 @@ class ProcesoTiempoController extends BaseController
             $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
-            <table style="width=100%;">
-                <tr>
-                    <td><img src="images/membrete.jpg"></td>
+            <table class="estilo" style="width=100%;">
+                <tr class="estilo">
+                    <td class="estilo"><img src="images/membrete.jpg"></td>
                 </tr>
             </table>
             ');
@@ -86,10 +91,10 @@ class ProcesoTiempoController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table style="width=100%;">
-                    <tr>
-                        <td style="float:left;width:68%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:32%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                <table class="estilo" style="width=100%;">
+                    <tr class="estilo">
+                        <td class="estilo" style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
+                        <td class="estilo" style="float:right;width:35%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '
@@ -107,6 +112,6 @@ class ProcesoTiempoController extends BaseController
         }else{
             echo json_encode($datos);
         }
-
+ */
     }
 }
