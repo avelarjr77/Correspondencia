@@ -177,8 +177,9 @@
                             data-preview-file-type="any" data-browse-on-zone-click="true"  require >
                         </div>
                     </div>
+                    
                     <div class="col-sm-6">
-                            <div id="errors"></div>
+                        <div id="errors"></div>
                         <div class="mb-3 form-check">
                             <label>Tipo de documento: </label>
                             <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
@@ -198,16 +199,10 @@
                             </select>
                         </div>
                         <div class="mb-3 form-check">
-                            <label>Tipo de transaccion: </label>
-                            <select name="transaccionActividadId" id="transaccionActividadId" class="form-control" required>
-                                <option value="" disable>-Selecciona una transaccion-</option>
-                                <?php foreach ($datos as $ta) : ?>
-                                    <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                                <input class="form-control" id="transaccionActividadId" name="transaccionActividadId"  type="text" hidden>
                         </div>
                         <br>
-                        <button type="submit" name="submit"  class="btn btn-primary">Guardar</button>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -483,18 +478,11 @@
             $('#documento').hide();
         });
 
-        /* $('.btn-doc').on('click',function(){
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('actualizarDoc') ?>",
-                data: $("#frmDoc").serialize(),
-                success:function(data){
-
-                    var dataE = JSON.parse(data);
-                    console.log(dataE);
-                }
-            });
-        }); */
+        $('.btn-tDocumento').on('click',function(){
+            var id = $(this).data('id');
+            
+            $('#transaccionActividadId').val(id);
+        });
 
     });
 </script>
