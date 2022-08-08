@@ -23,9 +23,9 @@ class PromedioActividadController extends BaseController
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr class="estilo" style="font-size:12;">
+                <tr style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
-                    <td>'.$row->actividad.'</td>
+                    <td style="text-align:center;">'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
                     <td style="text-align:center;">'.$row->promedio.'</td>
                 </tr><br>
@@ -35,19 +35,22 @@ class PromedioActividadController extends BaseController
         
             $tabla_a_imprimir='
             <style>
-                .estilo{
+                table, th, td{
                     border: 1px solid black;
                     border-collapse: collapse;
+                },
+                .estilo{
+                    border: 0px;
                 }
             </style>
             <p style="text-align:center; font-size:16;"><b>Tiempo Promedio de Finalización de Actividades por persona</b></p><br>
-            <table class="estilo" style="width:100%;">
+            <table style="width:100%;">
                 <thead>
-                    <tr class="estilo">
+                    <tr>
                         <th style="width:5%;">#</th>
-                        <th style="width:25%;">Actividad</th>
-                        <th style="width:35%;">Encargado</th>
-                        <th style="width:35%;">Tiempo Promedio (días)</th>
+                        <th style="width:35%;">Actividad</th>
+                        <th style="width:30%;">Encargado</th>
+                        <th style="width:30%;">Tiempo Promedio (días)</th>
                     </tr>
                 </thead><br>
                 <tbody>'.$contexto.'</tbody>
@@ -61,9 +64,9 @@ class PromedioActividadController extends BaseController
             $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
-            <table style="width=100%;">
-                <tr>
-                    <td><img src="images/membrete.jpg"></td>
+            <table class="estilo" style="width=100%;">
+                <tr class="estilo">
+                    <td class="estilo"><img src="images/membrete.jpg"></td>
                 </tr>
             </table>
             ');
@@ -71,10 +74,10 @@ class PromedioActividadController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table style="width=100%;">
-                    <tr>
-                        <td style="float:left;width:68%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:32%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                <table class="estilo" style="width=100%;">
+                    <tr class="estilo">
+                        <td class="estilo" style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
+                        <td class="estilo" style="float:right;width:35%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '

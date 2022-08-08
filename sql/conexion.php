@@ -5,7 +5,7 @@ error_reporting('E_ERROR');
     $host="localhost:3308";
     $user="root";
     $password="";
-    $bd="baseprueba";
+    $bd="correspondencia";
 
     $conn=mysqli_connect($host,$user,$password,$bd);
 

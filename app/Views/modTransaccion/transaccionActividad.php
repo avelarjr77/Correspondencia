@@ -1,14 +1,6 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<style>
-    .dropzone {
-        width: 900px;
-        height: 200px;
-        min-height: 0px;
-    }
-</style>
-
 <div class="x_panel">
     <div class="x_title">
         <h2>Actividades</h2>
@@ -199,10 +191,17 @@
                             </select>
                         </div>
                         <div class="mb-3 form-check">
+<<<<<<< HEAD
                                 <input class="form-control" id="transaccionActividadId" name="transaccionActividadId"  type="text" hidden>
                         </div>
                         <br>
                         <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
+=======
+                            <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
+                        </div>
+                        <br>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumento">Guardar</button>
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
                     </div>
                 </div>
             </div>
@@ -478,9 +477,15 @@
             $('#documento').hide();
         });
 
+<<<<<<< HEAD
         $('.btn-tDocumento').on('click',function(){
             var id = $(this).data('id');
             
+=======
+        $('.btn-tDocumento').on('click', function() {
+            var id = $(this).data('id');
+
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
             $('#transaccionActividadId').val(id);
         });
 
