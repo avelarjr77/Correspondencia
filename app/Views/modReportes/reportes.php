@@ -191,11 +191,11 @@
 
             var fi = fechaI.split("/");
 
-            var fic= ""+fi[0]+"-"+fi[1]+"-"+fi[2]+"";
+            var fic= ""+fi[2]+"-"+fi[1]+"-"+fi[0]+"";
 
             var ff = fechaF.split("/");
 
-            var ffc= ""+ff[0]+"-"+ff[1]+"-"+ff[2]+"";
+            var ffc= ""+ff[2]+"-"+ff[1]+"-"+ff[0]+"";
 
             var fechas = ""+fic+"a"+ffc+"";
 

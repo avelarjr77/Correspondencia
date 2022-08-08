@@ -162,7 +162,7 @@ class PruebaModel extends Model
                                 AND  STR_TO_DATE('$fechaF', '%d-%m-%Y')
                                 ORDER BY t.transaccionId");
         return $tr->getResult(); */
-        return $fechaF;
+        return $fecha;
     }
 
     public function reporteUsuario()
