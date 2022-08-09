@@ -191,12 +191,11 @@
                             </select>
                         </div>
                         <div class="mb-3 form-check">
-<<<<<<< HEAD
                                 <input class="form-control" id="transaccionActividadId" name="transaccionActividadId"  type="text" hidden>
                         </div>
                         <br>
                         <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
-=======
+
                             <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
                         </div>
                         <br>
