@@ -37,13 +37,12 @@
                             <tr>
                                 <td><?php echo $key->documentoId ?></td>
                                 <td><?php echo $key->nombreDocumento ?></td>
-                                <td><?php echo $key->documento ?></td>
                                 <td><?php echo $key->tipoDocumentoId ?></td>
                                 <td><?php echo $key->tipoEnvioId ?></td>
                                 <td><?php echo $key->transaccionActividadId ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-documento="<?php echo $key->documento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-documento="<?php echo $key->documento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?> 

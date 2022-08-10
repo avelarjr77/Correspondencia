@@ -12,9 +12,8 @@
   <!-- Bootstrap -->
   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="vendors/jQuery-Smart-Wizard/wizard/style.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Font Awesome 
+  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet"> -->
   <!-- NProgress -->
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
@@ -26,9 +25,6 @@
   <!-- the fileinput plugin styling CSS file -->
   <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
   <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
-
-<!-- the fileinput plugin styling CSS file -->
-<link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">

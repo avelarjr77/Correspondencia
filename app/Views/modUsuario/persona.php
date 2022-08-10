@@ -103,7 +103,7 @@
                         <label class="col-form-label col-md-3 col-sm-3  label-align">DUI<span
                                 class="required ">*</span></label>
                         <div class="col-md-8">
-                            <input type="text" minlength="3" maxlength="10" class="form-control dui" id="dui"
+                            <input type="text" minlength="9" maxlength="10" class="form-control dui" id="dui"
                                 name="dui" required="required" autocomplete="off" data-inputmask="'mask': '99999999-9'">
                             <span class="fa fa-credit-card form-control-feedback right" aria-hidden="true"></span>
                         </div>

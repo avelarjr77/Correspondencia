@@ -34,7 +34,6 @@ class DocumentoController extends BaseController{
             $nombreDocumento->insertar(
                 [
                     "nombreDocumento" => $_POST['nombreDocumento'],
-                    "documento" => $_POST['documento'],
                     "tipoDocumentoId" => $_POST['tipoDocumentoId'],
                     "tipoEnvioId" => $_POST['tipoEnvioId'],
                     "transaccionActividadId" => $_POST['transaccionActividadId']
@@ -82,7 +81,6 @@ class DocumentoController extends BaseController{
             $nombreDocumento->insertar(
                 [
                     "nombreDocumento" => $_POST['nombreDocumento'],
-                    "documento" => $_POST['documento'],
                     "tipoDocumentoId" => $_POST['tipoDocumentoId'],
                     "tipoEnvioId" => $_POST['tipoEnvioId'],
                     "transaccionActividadId" => $_POST['transaccionActividadId']
@@ -123,7 +121,6 @@ class DocumentoController extends BaseController{
     {
         $datos = [
             "nombreDocumento" => $_POST['nombreDocumento'],
-            "documento" => $_POST['documento'],
             "tipoDocumentoId" => $_POST['tipoDocumentoId'],
             "tipoEnvioId" => $_POST['tipoEnvioId'],
             "transaccionActividadId" => $_POST['transaccionActividadId']
@@ -176,6 +173,23 @@ class DocumentoController extends BaseController{
 
     } */
     
+    public function listadoDocumentos(){
+
+        $documento = new DocumentoModel();
+
+        //$documentoId = $_POST['documentoId'];
+
+        $data = [
+            "datos" => $documento->asObject()->select('d.documentoId, d.nombreDocumento, a.nombreActividad')
+            ->from('wk_documento d')
+            ->join('wk_transaccion_actividades ta', 'ta.transaccionActividadId = d.transaccionActividadId')
+            ->join(' wk_actividad a', 'a.actividadId = ta.actividadId')
+            ->groupBy('d.documentoId')
+            ->findAll(),
+        ];
+
+        return view('modTransaccion/listadoDocumentos', $data);
+    }
 }
 
 ?>

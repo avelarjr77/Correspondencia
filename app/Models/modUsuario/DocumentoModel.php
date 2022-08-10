@@ -5,13 +5,17 @@ use CodeIgniter\Model;
 
 class DocumentoModel extends Model{
 
+    protected $table = 'wk_documento';
+    protected $primaryKey = 'documentoId';
+    protected $allowedFields = ['documentoId', 'nombreDocumento', 'tipoDocumentoId', 'tipoEnvioId', 'transaccionActividadId'];
+
    
     //LISTADO DE DOCUMENTO
     public function listarDocumento()
     {
-        $documento = $this->db->query("SELECT d.documentoId as 'documentoId', d.nombreDocumento as 'nombreDocumento', 
-                                       d.documento as 'documento', td.tipoDocumento as 'tipoDocumentoId', 
-                                       te.tipoEnvio as 'tipoEnvioId', d.transaccionActividadId as 'transaccionActividadId'
+        $documento = $this->db->query("SELECT d.documentoId as 'documentoId', d.nombreDocumento as 'nombreDocumento',
+                                        td.tipoDocumento as 'tipoDocumentoId', 
+                                        te.tipoEnvio as 'tipoEnvioId', d.transaccionActividadId as 'transaccionActividadId'
                                         FROM wk_documento d
                                         INNER JOIN wk_tipo_documento td ON d.tipoDocumentoId = td.tipoDocumentoId
                                         INNER JOIN wk_tipo_envio te ON d.tipoEnvioId = te.tipoEnvioId

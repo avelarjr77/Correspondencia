@@ -1,0 +1,72 @@
+CRITICAL - 2022-07-30 12:37:39 --> You must set the database table to be used with your query.
+#0 C:\wamp64\www\correspondencia-ucad\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\Model.php(722): CodeIgniter\Model->builder()
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(186): CodeIgniter\Model->__call('select', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-07-30 12:39:01 --> You must set the database table to be used with your query.
+#0 C:\wamp64\www\correspondencia-ucad\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\Model.php(722): CodeIgniter\Model->builder()
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(186): CodeIgniter\Model->__call('select', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-07-30 12:39:40 --> You must set the database table to be used with your query.
+#0 C:\wamp64\www\correspondencia-ucad\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\Model.php(722): CodeIgniter\Model->builder()
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(186): CodeIgniter\Model->__call('select', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-07-30 12:39:44 --> You must set the database table to be used with your query.
+#0 C:\wamp64\www\correspondencia-ucad\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\Model.php(722): CodeIgniter\Model->builder()
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(186): CodeIgniter\Model->__call('select', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-07-30 14:08:31 --> Unknown column 'd.tipoEnvio' in 'field list'
+CRITICAL - 2022-07-30 14:08:31 --> Unknown column 'd.tipoEnvio' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `d`.`nom...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `d`.`nom...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `d`.`nom...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `d`.`nom...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(189): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-07-30 14:11:27 --> Undefined variable: documento
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\listadoDocumentos.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 12, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(195): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-07-30 14:18:31 --> Trying to get property 'nombreDocumento' of non-object
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\listadoDocumentos.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(195): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->listadoDocumentos()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

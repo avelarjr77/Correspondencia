@@ -304,11 +304,6 @@
         layoutTemplates: {
             footer: footerTemplate
         },
-        previewThumbTags: {
-            '{TAG_VALUE}': '', // no value
-            '{TAG_CSS_NEW}': '', // new thumbnail input
-            '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
-        },
     });
 </script>
 
