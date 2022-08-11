@@ -169,8 +169,9 @@
                             data-preview-file-type="any" data-browse-on-zone-click="true"  require >
                         </div>
                     </div>
+                    
                     <div class="col-sm-6">
-                            <div id="errors"></div>
+                        <div id="errors"></div>
                         <div class="mb-3 form-check">
                             <label>Tipo de documento: </label>
                             <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
@@ -190,10 +191,16 @@
                             </select>
                         </div>
                         <div class="mb-3 form-check">
+                                <input class="form-control" id="transaccionActividadId" name="transaccionActividadId"  type="text" hidden>
+                        </div>
+                        <br>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
+
                             <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
                         </div>
                         <br>
                         <button type="submit" name="submit"  class="btn btn-primary btn-tDocumento">Guardar</button>
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
                     </div>
                 </div>
             </div>
@@ -469,9 +476,15 @@
             $('#documento').hide();
         });
 
+<<<<<<< HEAD
+        $('.btn-tDocumento').on('click',function(){
+            var id = $(this).data('id');
+            
+=======
         $('.btn-tDocumento').on('click', function() {
             var id = $(this).data('id');
 
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
             $('#transaccionActividadId').val(id);
         });
 

@@ -160,8 +160,8 @@ class PruebaModel extends Model
                                 INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
                                 WHERE t.fechaInicio BETWEEN '$fechaI' AND '$fechaF'
                                 ORDER BY t.transaccionId");
-        return $tr->getResult();
-        //return $fechaI;
+        return $tr->getResult(); 
+        //return $fecha;
     }
 
     public function reporteUsuario()
