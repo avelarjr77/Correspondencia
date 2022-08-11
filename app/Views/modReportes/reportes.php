@@ -131,7 +131,25 @@
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
 <script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendors/sweetalert2/sweetalert2.min.js"></script>
+
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '0') {
+        Swal.fire(
+        'Error',
+        'No hay datos para mostrar en ese rango de fechas',
+        'error'
+        );
+    }else if (mensaje == '1'){
+        Swal.fire(
+        'Error',
+        'No hay datos para mostrar',
+        'error'
+        );
+    }
+</script>
 
 <script>
     $(document).ready(function() {

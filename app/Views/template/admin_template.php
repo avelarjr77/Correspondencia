@@ -296,9 +296,9 @@
   <!--SweetAlert-->
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
   <script src="vendors/sweetalert2/sweetalert.min.js"></script>
-<!--inpuy mask-->
-  <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
+  <!--inpuy mask-->
+  <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
   <!-- Smartwizard -->
   <script src="vendors/Smartwizard/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>

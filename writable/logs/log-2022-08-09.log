@@ -1,0 +1,14 @@
+CRITICAL - 2022-08-09 12:03:27 --> WriteHTML() requires $html be an integer, float, string, boolean or an object with the __toString() magic method.
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoTiempoController.php(105): Mpdf\Mpdf->WriteHTML(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoTiempoController->index('2022-01-09a2022...')
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoTiempoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-09 12:06:24 --> WriteHTML() requires $html be an integer, float, string, boolean or an object with the __toString() magic method.
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoTiempoController.php(105): Mpdf\Mpdf->WriteHTML(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoTiempoController->index('2022-01-09a2022...')
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoTiempoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
