@@ -13,14 +13,8 @@ class DocumentoModel extends Model{
     //LISTADO DE DOCUMENTO
     public function listarDocumento()
     {
-<<<<<<< HEAD
-        $documento = $this->db->query("SELECT d.documentoId as 'documentoId', d.nombreDocumento as 'nombreDocumento',
-                                        td.tipoDocumento as 'tipoDocumentoId', 
-                                        te.tipoEnvio as 'tipoEnvioId', d.transaccionActividadId as 'transaccionActividadId'
-=======
         $documento = $this->db->query("SELECT d.documentoId as 'documentoId', d.nombreDocumento as 'nombreDocumento', td.tipoDocumento as 'tipoDocumentoId', 
                                        te.tipoEnvio as 'tipoEnvioId', d.transaccionActividadId as 'transaccionActividadId'
->>>>>>> c222110bbd25a2704afb30c1cdd41b82e4159812
                                         FROM wk_documento d
                                         INNER JOIN wk_tipo_documento td ON d.tipoDocumentoId = td.tipoDocumentoId
                                         INNER JOIN wk_tipo_envio te ON d.tipoEnvioId = te.tipoEnvioId

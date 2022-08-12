@@ -125,30 +125,14 @@ class DocumentoController extends BaseController{
                         
                         return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','0');
                     } else {
-                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','6');
+                        //return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','6');
                     }
                 } else {
                     return redirect()->to(base_url() . '/documento')->with('mensaje','1');
                 }
             } else {
                 return redirect()->to(base_url() . '/documento')->with('mensaje','7');
-            }     
-    }
-
-    //ELIMINAR DOCUMENTO
-    public function eliminar(){
-
-        $documentoId = $_POST['documentoId'];
-
-        $documento = new DocumentoModel();
-        $data = ["documentoId" => $documentoId];
-
-        $respuesta = $documento->eliminar($data);
-
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/documento')->with('mensaje','2');
-        } else {
-            return redirect()->to(base_url(). '/documento')->with('mensaje','3');
+            }
         }
     }
 
