@@ -4,6 +4,7 @@ use App\Controllers\BaseController;
 use App\Models\modUsuario\DocumentoModel;
 use CodeIgniter\I18n\Time;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modTransaccion\TransaccionActividadModel;
 
 class DocumentoController extends BaseController{
 
@@ -114,9 +115,17 @@ class DocumentoController extends BaseController{
                         ]);
                         //END
 
-                        return redirect()->to(base_url() . '/documento')->with('mensaje','0');
+                        $transaccion = new TransaccionActividadModel();
+
+                        $etapaId =  $transaccion->asArray()->select('td.etapaId')
+                        ->from('wk_transaccion_actividades ta')
+                        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+                        ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
+
+                        
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','0');
                     } else {
-                        return redirect()->to(base_url() . '/documento')->with('mensaje','6');
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','6');
                     }
                 } else {
                     return redirect()->to(base_url() . '/documento')->with('mensaje','1');

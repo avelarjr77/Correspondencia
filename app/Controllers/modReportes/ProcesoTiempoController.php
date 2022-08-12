@@ -15,26 +15,28 @@ class ProcesoTiempoController extends BaseController
     {
         $prueba = new PruebaModel();
 
-        /* $fechas = explode("a", $fecha);
+        $fechas = explode("a", $fecha);
 
         $fechaI = $fechas[0];
-        $fechaF = $fechas[1];  */
+        $fechaF = $fechas[1]; 
 
         //print_r($fechaF.$fechaI);
 
         $datos =  $prueba->reporteProcesoTiempo($fecha);
 
-        print_r($datos);
+        //print_r($datos);
 
-       /*  $contexto="";
+        $contexto="";
         $correlativo=1;
 
-        if ($datos>0) {
+        if (empty($datos)){
+            return redirect()->to(base_url(). '/reportes')->with('mensaje','0');
+        }else if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
                 <tr style="font-size:12;">
-                    <td>'.$correlativo.'</td>
-                    <td>'.$row->proceso.'</td>
+                    <td style="text-align:center;">'.$correlativo.'</td>
+                    <td style="text-align:center;">'.$row->proceso.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
                     <td style="text-align:center;">'.$row->nombreInstitucion.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
@@ -106,12 +108,11 @@ class ProcesoTiempoController extends BaseController
         
             $file_ruta="ProcesoTiempo.pdf";
 
-            $mpdf->Output($file,'I');
+            $mpdf->Output($file_ruta,'I');
             $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{
             echo json_encode($datos);
         }
- */
     }
 }
