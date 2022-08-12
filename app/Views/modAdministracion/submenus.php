@@ -270,7 +270,9 @@
         $('#datatable').DataTable({
             language: {
                 url: 'vendors/datatables.net/es.json'
-            }
+            },
+            "order": [[1, 'asc']],
+            "ordering":true,
         });
     });
 </script>
