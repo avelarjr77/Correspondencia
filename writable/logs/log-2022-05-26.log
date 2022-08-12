@@ -22,3 +22,17 @@ CRITICAL - 2022-05-26 18:05:01 --> syntax error, unexpected 'echo' (T_ECHO)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2022-05-26 11:49:39 --> WriteHTML() requires $html be an integer, float, string, boolean or an object with the __toString() magic method.
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\PruebaController.php(82): Mpdf\Mpdf->WriteHTML(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-26 11:49:52 --> WriteHTML() requires $html be an integer, float, string, boolean or an object with the __toString() magic method.
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoDetalleController.php(81): Mpdf\Mpdf->WriteHTML(NULL)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

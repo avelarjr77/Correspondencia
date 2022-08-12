@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+CRITICAL - 2022-07-26 11:27:09 --> Class 'Mpdf\Mpdf' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-07-26 11:27:11 --> Class 'Mpdf\Mpdf' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\PruebaController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\PruebaController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+=======
 CRITICAL - 2022-07-26 00:08:20 --> Undefined variable: nombreModulo
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolModMenuController.php(214): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 214, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolModMenuController->eliminar()
@@ -63,6 +77,7 @@ CRITICAL - 2022-07-26 19:51:57 --> Undefined index: contacto
 #3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+<<<<<<< HEAD
 ERROR - 2022-07-26 23:01:19 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
 CRITICAL - 2022-07-26 23:01:19 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`wk_contacto`, CONSTRAINT `FK_CONTACTO_PERSONA` FOREIGN KEY (`personaId`) REFERENCES `wk_persona` (`personaId`))
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
@@ -89,3 +104,6 @@ CRITICAL - 2022-07-26 23:05:58 --> Cannot delete or update a parent row: a forei
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+=======
+>>>>>>> 4bed4dbba3779ddb6149dfa2434e8d8580b93578
+>>>>>>> c222110bbd25a2704afb30c1cdd41b82e4159812

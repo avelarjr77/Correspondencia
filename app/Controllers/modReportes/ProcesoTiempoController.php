@@ -11,27 +11,28 @@ require_once '../sql/conexion.php';
 
 class ProcesoTiempoController extends BaseController
 {
-    //LISTADO DE ROL MODULO MENU
-    public function index()
+    public function index($fecha)
     {
         $prueba = new PruebaModel();
 
-        $fecha = $_POST['fecha'];
-
-        $fechas = explode(" - ", $fecha);
+        /* $fechas = explode("a", $fecha);
 
         $fechaI = $fechas[0];
-        $fechaF = $fechas[1];
+        $fechaF = $fechas[1];  */
 
-        $datos =  $prueba->reporteProcesoTiempo($fechaI, $fechaF);
+        //print_r($fechaF.$fechaI);
 
-        $contexto="";
+        $datos =  $prueba->reporteProcesoTiempo($fecha);
+
+        print_r($datos);
+
+       /*  $contexto="";
         $correlativo=1;
 
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr>
+                <tr style="font-size:12;">
                     <td>'.$correlativo.'</td>
                     <td>'.$row->proceso.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
@@ -45,8 +46,17 @@ class ProcesoTiempoController extends BaseController
             
         
                 $tabla_a_imprimir='
-                <h3 style="text-align:center;"><b>Flujo de Procesos entre '.$fechaI.' y '.$fechaF.'</b></h3><br>
-                <table border="0" style="width:100%;">
+                <style>
+                    table, th, td{
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                    },
+                    .estilo{
+                        border: 0px;
+                    }
+                </style>
+                <p style="text-align:center; font-size:16;"><b>Flujo de Procesos entre '.$fechaI.' y '.$fechaF.'</b></p><br>
+                <table style="width:100%;">
                     <thead>
                         <tr>
                             <th style="width:5%;">#</th>
@@ -66,11 +76,14 @@ class ProcesoTiempoController extends BaseController
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
         
             $mpdf->allow_charset_conversion=true;
+
+            $mpdf->defaultheaderline = 0;
+            $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
-            <table style="width=100%;">
-                <tr>
-                    <td><img src="images/membrete.jpg"></td>
+            <table class="estilo" style="width=100%;">
+                <tr class="estilo">
+                    <td class="estilo"><img src="images/membrete.jpg"></td>
                 </tr>
             </table>
             ');
@@ -78,10 +91,10 @@ class ProcesoTiempoController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table style="width=100%;">
-                    <tr>
-                        <td style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:45%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                <table class="estilo" style="width=100%;">
+                    <tr class="estilo">
+                        <td class="estilo" style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
+                        <td class="estilo" style="float:right;width:35%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '
@@ -93,11 +106,12 @@ class ProcesoTiempoController extends BaseController
         
             $file_ruta="ProcesoTiempo.pdf";
 
-            return redirect()->to($mpdf->Output($file_ruta,'I'));
+            $mpdf->Output($file,'I');
+            $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{
             echo json_encode($datos);
         }
-
+ */
     }
 }

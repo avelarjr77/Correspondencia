@@ -2,6 +2,8 @@
 
 use App\Controllers\BaseController;
 use App\Models\modUsuario\DocumentoModel;
+use CodeIgniter\I18n\Time;
+use App\Models\modAdministracion\MovimientosModel;
 
 class DocumentoController extends BaseController{
 
@@ -48,33 +50,13 @@ class DocumentoController extends BaseController{
 
     } 
     public function crearImage(){
-            
-            $documento = $_POST['documento'];
 
-        
-   /*     if(empty($_FILES['documento']['name']))
-            {
-                $error=array(
-                    'error_img'=>'Image file empty !!!.'
-                );
-            }
-            else
-            {
-                $type=explode('.',$_FILES["documento"]["name"]);
-                $type=$type[count($type)-1];
-                $url="./public/uploads".uniqid(rand()).'.'.$type;
-                if(in_array($type,array("jpg","jpeg","gif","png")))
-                if(is_uploaded_file($_FILES["documento"]["tmp_name"]))
-                if(move_uploaded_file($_FILES["documento"]["tmp_name"],$url))
-                return $url;
-                return "";
-            }  */
-            $file = $this->request->getFile('documento');
-                
-                $path = './uploads/';
+            $nombreDocumento    = $this->request->getVar('nombreDocumento');
+            $tipoDocumentoId          = $this->request->getVar('tipoDocumentoId');
+            $tipoEnvioId      = $this->request->getVar('tipoEnvioId');
+            $transaccionActividadId      = $this->request->getVar('transaccionActividadId');
 
-                $name = $file->getName();
-                $file->move(WRITEPATH . $path);
+            $file=$_FILES["nombreDocumento"];
 
         $nombreDocumento = new DocumentoModel();
         if($this->validate('validarDocumento')){
@@ -84,19 +66,64 @@ class DocumentoController extends BaseController{
                     "tipoDocumentoId" => $_POST['tipoDocumentoId'],
                     "tipoEnvioId" => $_POST['tipoEnvioId'],
                     "transaccionActividadId" => $_POST['transaccionActividadId']
-                ]
+                ]);
 
-                
-            );  
+            $fileName=$_FILES['nombreDocumento']['name'];
+            $fileTmpName=$_FILES['nombreDocumento']['tmp_name'];
+            $fileSize=$_FILES['nombreDocumento']['size'];
+            $fileError=$_FILES['nombreDocumento']['error'];
+            $fileType=$_FILES['nombreDocumento']['type'];
 
-                
-            
 
-            return redirect()->to(base_url(). '/documento')->with('mensaje','0');
-        }
-        
-            return redirect()->to(base_url(). '/documento')->with('mensaje','1');
 
+            $fileExt=explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg','jpeg','png','pdf','docx');
+
+            if (in_array($fileActualExt, $allowed)) {
+                if ($fileError === 0) {
+                    
+                    if ($fileSize < 100000) { 
+
+                        $fileDestination = 'uploads/'.$fileName;
+
+                        move_uploaded_file($fileTmpName, $fileDestination);
+
+                        $nombreDoc = new DocumentoModel();
+
+                       $datos = [
+                            "nombreDocumento" => $fileName,
+                            "tipoDocumentoId" => $tipoDocumentoId,
+                            "tipoEnvioId" => $tipoEnvioId,
+                            "transaccionActividadId" => $transaccionActividadId
+                        ];
+                        $respuesta = $nombreDoc->insertar($datos);
+
+                        //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA DIRECCIÓN
+                        $this->bitacora  = new MovimientosModel();
+                        $hora=new Time('now');
+                        $session = session('usuario');
+
+                        $this->bitacora->save([
+                            'bitacoraId'    => null,
+                            'usuario'       => $session,
+                            'accion'        => 'Agregó un documento',
+                            'descripcion'   => $_POST['tipoDocumentoId'].$_POST['tipoEnvioId'],
+                            'hora'          => $hora,
+                        ]);
+                        //END
+
+                        return redirect()->to(base_url() . '/documento')->with('mensaje','0');
+                    } else {
+                        return redirect()->to(base_url() . '/documento')->with('mensaje','6');
+                    }
+                } else {
+                    return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+                }
+            } else {
+                return redirect()->to(base_url() . '/documento')->with('mensaje','7');
+            }     
     }
 
     //ELIMINAR DOCUMENTO
@@ -151,28 +178,6 @@ class DocumentoController extends BaseController{
         }
     }
 
-    /* public function actualizarDoc()
-    {
-        $actualizarDoc = new DocumentoModel();
-
-        //$documentoI =  $actualizarDoc->asArray()->select('max(d.documentoId) AS id')->from('wk_documento d')->first();
-
-        $documentoId = 2;
-
-        $documento = $this->request->getVar('documento');
-
-        $datos = [
-            "documento" => $documento
-        ];
-
-        $respuesta = $actualizarDoc->actualizarDoc($datos, $documentoId);
-
-        $datos = ["datos" => $respuesta];
-
-        echo json_encode($documentoId);
-
-    } */
-    
     public function listadoDocumentos(){
 
         $documento = new DocumentoModel();

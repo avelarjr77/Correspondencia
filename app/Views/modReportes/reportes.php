@@ -19,10 +19,10 @@
                 <div class="col-md-1 col-sm-1 "> </div>
                 <div class="col-md-8 col-sm-8 ">
                     <select id="url" class="form-control">
-                        <option>Seleciona un tipo de reporte</option>
+                        <option disabled selected>Seleciona un tipo de reporte</option>
                         <option value="pruebaR">Listado de Procesos del mes de <?php echo $mes ?></option>
                         <option value="promedioActividad">Tiempo Promedio de Finalización de Actividades</option>
-                        <option value="procesoDetalle">Detalle de Procesos del mes de <?php echo $mes ?></option>
+                        <option value="procesoDetalle">Flujo de Procesos del mes de <?php echo $mes ?></option>
                         <option value="vistaDetalle">Detalle de usuarios en el sistema</option>
                     </select>
                 </div>
@@ -52,19 +52,19 @@
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="container" id="personalizado" >
                 <br><br>
-                <form action="<?= base_url() . route_to('procesoUnico') ?>" id="frmProceso" method="POST">
+                <form id="frmProceso" method="POST">
                     <div class="col-md-12 col-sm-12 offset-md-12 right">
                         <p>Por favor, seleccione el proceso del reporte que desea generar.</p>
                         <div class="col-md-6 col-sm-6 ">
                             <select name="procesoId" id="proceso" class="form-control">
-                                <option disable>Seleciona un proceso</option>
+                                <option disabled selected>Seleciona un proceso</option>
                                 <?php foreach($datos as $d): ?>
                                     <option value="<?= $d->procesoId ?>"><?= $d->proceso ?></option>
                                 <?php endforeach; ?> 
                             </select>
                         </div>
                         <div class="col-md-3 col-sm-3 "> 
-                        <button type="submit" class="btn btn-primary btn-xs">Generar</button>
+                        <button type="button" class="btn btn-primary btn-xs btn-proceso">Generar</button>
                         </div>
                     </div>
                 </form>
@@ -73,7 +73,7 @@
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="container" id="tiempo" >
                 <br><br>
-                <form action="<?= base_url() . route_to('procesoTiempo') ?>" id="frmProcesoTiempo" method="POST">
+                <form id="frmProcesoTiempo" method="POST">
                     <div class="col-md-12 col-sm-12 offset-md-12 right">
                         <div class="col-md-6 col-sm-6 ">
                             <label for="">Escoge un período de tiempo para mostrar el flujo de los procesos:</label>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-3 col-sm-3 "> 
                             <br><br><br>
-                        <button type="submit" class="btn btn-primary btn-xs">Generar</button>
+                        <button type="button" class="btn btn-primary btn-xs btn-tiempo">Generar</button>
                         </div>
                     </div>
                 </form>
@@ -97,19 +97,24 @@
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <div class="container" id="actividadesP" >
                 <br><br>
-                <form action="<?= base_url() . route_to('flujoActividad') ?>" id="frmProcesoAct" method="POST">
+                <form id="frmProcesoAct" method="POST">
                     <div class="col-md-12 col-sm-12 offset-md-12 right">
                         <p>Por favor, seleccione el proceso del reporte que desea generar.</p>
                         <div class="col-md-6 col-sm-6 ">
                             <select name="procesoId" id="procesoAct" class="form-control">
-                                <option disable>Seleciona un proceso</option>
+                                <option disabled selected>Seleciona un proceso</option>
                                 <?php foreach($datos as $d): ?>
                                     <option value="<?= $d->procesoId ?>"><?= $d->proceso ?></option>
                                 <?php endforeach; ?> 
                             </select>
                         </div>
+
+                        <div>
+                            <input type="text" hidden value="flujoActividad" id="url2">
+                        </div>
                         <div class="col-md-3 col-sm-3 "> 
-                        <button type="submit" class="btn btn-primary btn-xs">Generar</button>
+                            <button type="button" class="btn btn-primary btn-xs btn-actividad">Generar</button>
+                            <!-- <a href="#" type="button" class="btn btn-primary btn-xs btn-proceso" hidden>Generar</a> -->
                         </div>
                     </div>
                 </form>
@@ -163,23 +168,46 @@
         });
 
         $('.btn-reporte').on('click', function() {
-            // get data from button edit
             var url = $('#url').val();
             location.href = "<?= base_url()?>/" + url;
         });
 
         $('.btn-proceso').on('click', function() {
-            // get data from button edit
-            $.ajax({
-                type: "GET",
-                url: "<?= base_url() . route_to('procesoUnico') ?>",
-                data: $("#frmProceso").serialize(),
-                success: function(data) {
+            var vl = $("#frmProceso").serializeArray();
+            var valor = vl[0]['value']
+            console.log(valor);
+            location.href = "<?= base_url()?>/" +"modReportes"+"/"+"ProcesoUnicoController"+"/"+"index"+"/"+valor;
+        });
 
-                    var dataEEtapaC = JSON.parse(data);
-                    console.log(dataEEtapaC); 
-                }
-            });
+        $('.btn-tiempo').on('click', function() {
+            var vl = $("#frmProcesoTiempo").serializeArray();
+            var valor = vl[0]['value'];
+            var f = valor.split(" - ");
+            //var fechas = ""+f+""
+            //var fe = fechas[0]+fechas[1];
+
+            var fechaI = f[0];
+            var fechaF = f[1];
+
+            var fi = fechaI.split("/");
+
+            var fic= ""+fi[0]+"-"+fi[1]+"-"+fi[2]+"";
+
+            var ff = fechaF.split("/");
+
+            var ffc= ""+ff[0]+"-"+ff[1]+"-"+ff[2]+"";
+
+            var fechas = ""+fic+"a"+ffc+"";
+
+            console.log(fic, ffc);
+            location.href = "<?= base_url()?>/" +"modReportes"+"/"+"ProcesoTiempoController"+"/"+"index"+"/"+fechas;
+        });
+
+        $('.btn-actividad').on('click', function() {
+            var vl = $("#frmProcesoAct").serializeArray();
+            var valor = vl[0]['value']
+            console.log(valor);
+            location.href = "<?= base_url()?>/" +"modReportes"+"/"+"FlujoActividadesController"+"/"+"index"+"/"+valor;
         });
 
         $('.abrir-menu').on('click', function() {

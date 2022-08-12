@@ -88,7 +88,10 @@ class Validation
     ];
 
     public $validarDocumento = [
-        'nombreDocumento'        => 'is_unique[wk_documento.nombreDocumento]',
+        'nombreDocumento'        => 'is_unique[wk_documento.nombreDocumento]'
+    ];
+    public $validarDoc = [
+        'nombreDocumento'        => 'is_unique[wk_documento.nombreDocumento]'
     ];
 
     public $validarPersona = [

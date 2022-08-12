@@ -1,14 +1,6 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
 
-<style>
-    .dropzone {
-        width: 900px;
-        height: 200px;
-        min-height: 0px;
-    }
-</style>
-
 <div class="x_panel">
     <div class="x_title">
         <h2>Actividades</h2>
@@ -166,67 +158,52 @@
                 </div>
             </div>
             <br>
-            <!--<div class="row justify-content-center">
-                <div class="col-md-10">
-                    <form action="http://localhost/correspondencia-ucad/upload.php" class="dropzone">
-                        <div class="fallback">
-                            <input id="file-5" class="file" type="file" multiple data-preview-file-type="any"
-                        data-upload-url="uploads" >
+            <!-- name="fileUpload" id="fileUpload"
+             enctype="multipart/form-data"-->
+            <form  action="<?php echo base_url() . '/crearDocumentoImage' ?>" method="POST" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <input id="nombreDocumento"  name="nombreDocumento" class="file" type="file" 
+                            data-preview-file-type="any" data-browse-on-zone-click="true"  require >
                         </div>
-
-                    </form>
-                </div>
-            </div>-->
-            <br>
-            <div class="form-group">
-                <form action="http://localhost/correspondencia-ucad/upload.php" enctype="multipart/form-data">
-                    <div class="file-loading">
-                        <input id="input-ficons-1"  name="input-ficons-1[]" class="file" type="file"
-                        data-preview-file-type="any" data-browse-on-zone-click="true" required>
                     </div>
-                </form>
-            </div>
-
-            <form action="<?php echo base_url() . '/crearDocumento' ?>" method="POST">
-                <div class="row justify-content-center">
-
-
-                    <div class="col-md-4">
-                        <label>Nombre: </label>
-                        <input type="text" name="nombreDocumento" id="nombreDocumento" class="form-control" placeholder="Esribe un nombre" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Tipo de documento: </label>
-                        <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
-                            <option value="" disable>-Selecciona un tipo de documento-</option>
-                            <?php foreach ($tipoDoc as $td) : ?>
-                                <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Tipo de envio: </label>
-                        <select name="tipoEnvioId" id="tipoEnvioId" class="form-control" required>
-                            <option value="" disable>-Selecciona un tipo de envio-</option>
-                            <?php foreach ($tipoEnvio as $te) : ?>
-                                <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Tipo de transaccion: </label>
-                        <select name="transaccionActividadId" id="transaccionActividadId" class="form-control" required>
-                            <option value="" disable>-Selecciona una transaccion-</option>
-                            <?php foreach ($datos as $ta) : ?>
-                                <option value="<?= $ta->id ?>"><?= $ta->id ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
+                    
+                    <div class="col-sm-6">
+                        <div id="errors"></div>
+                        <div class="mb-3 form-check">
+                            <label>Tipo de documento: </label>
+                            <select name="tipoDocumentoId" id="tipoDocumentoId" class="form-control" required>
+                                <option value="" disable>-Selecciona un tipo de documento-</option>
+                                <?php foreach ($tipoDoc as $td) : ?>
+                                    <option value="<?= $td->tipoDocumentoId ?>"><?= $td->tipoDocumento ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <label>Tipo de envio: </label>
+                            <select name="tipoEnvioId" id="tipoEnvioId" class="form-control" required>
+                                <option value="" disable>-Selecciona un tipo de envio-</option>
+                                <?php foreach ($tipoEnvio as $te) : ?>
+                                    <option value="<?= $te->tipoEnvioId ?>"><?= $te->tipoEnvio ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                                <input class="form-control" id="transaccionActividadId" name="transaccionActividadId"  type="text" hidden>
+                        </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
+
+                            <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
+                        </div>
+                        <br>
+                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumento">Guardar</button>
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
                     </div>
                 </div>
+            </div>
             </form>
 
             <br><br><br>
@@ -274,6 +251,7 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Input file -->
+
 <script src="vendors/fileinput/js/fileinput.min.js"></script>
 <script src="vendors/fileinput/js/plugins/buffer.min.js" type="text/javascript"></script>
 <script src="vendors/fileinput/js/plugins/filetype.js" type="text/javascript"></script>
@@ -284,7 +262,29 @@
 <script src="vendors/fileinput/js/locales/fr.js" type="text/javascript"></script>
 <script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
 <script src="vendors/fileinput/themes/fa5/theme.js" type="text/javascript"></script>
-<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script>
+<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script> 
+
+<script type="text/javascript">
+    let mensaje = '<?php echo $mensaje ?>';
+
+    if (mensaje == '0') {
+        swal('', 'Agregado', 'success');
+    } else if (mensaje == '1') {
+        swal('', 'Este documento ya existe en la base de datos', 'error');
+    }else if (mensaje == '2') {
+        swal('', 'Eliminado', 'success');
+    }else if (mensaje == '3') {
+        swal('', 'No se Elimino Registro', 'error');
+    }else if (mensaje == '4') {
+        swal('', 'Actualizado con exito', 'success');
+    }else if (mensaje == '5') {
+        swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'Este documento ya existe en la base de datos', 'error');
+    }else if (mensaje == '7') {
+        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
+    }
+</script>
 
 <script>
     var footerTemplate = '<div class="file-thumbnail-footer" style ="height:94px">\n' +
@@ -292,7 +292,7 @@
         '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
         '</div>';
 
-    $("#input-ficons-1").fileinput({
+    $("#fileUpload").fileinput({
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
@@ -471,18 +471,17 @@
             $('#documento').hide();
         });
 
-        /* $('.btn-doc').on('click',function(){
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('actualizarDoc') ?>",
-                data: $("#frmDoc").serialize(),
-                success:function(data){
+<<<<<<< HEAD
+        $('.btn-tDocumento').on('click',function(){
+            var id = $(this).data('id');
+            
+=======
+        $('.btn-tDocumento').on('click', function() {
+            var id = $(this).data('id');
 
-                    var dataE = JSON.parse(data);
-                    console.log(dataE);
-                }
-            });
-        }); */
+>>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
+            $('#transaccionActividadId').val(id);
+        });
 
     });
 </script>

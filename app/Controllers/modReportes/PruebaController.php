@@ -5,8 +5,10 @@ namespace App\Controllers\modReportes;
 use App\Controllers\BaseController;
 use App\Models\modReportes\PruebaModel;
 
+//use Fpdf;
 use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
+//require_once 'vendors/fpdf/fpdf.php';
 require_once '../sql/conexion.php';
 
 class PruebaController extends BaseController
@@ -17,51 +19,59 @@ class PruebaController extends BaseController
 
         $datos =  $prueba->reporte();
 
-        //$resultado=mysqli_query($conn, $datos);
-
         $contexto="";
         $correlativo=1;
-        $data = [];
 
         if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
-                <tr>
+                <tr style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
-                    <td>'.$row->proceso.'</td>
+                    <td style="text-align:center;">'.$row->proceso.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
                     <td style="text-align:center;">'.$row->institucion.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
-                </tr><br>
+                </tr>
                 ';
                 $correlativo++;
             
         
-            $tabla_a_imprimir='
-            <h3 style="text-align:center;"><b>Listado de Procesos del presente del mes de '.$row->mes.'</b></h3><br>
-            <table border="0" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Proceso</th>
-                        <th>Encargado</th>
-                        <th>Institución</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead><br>
-                <tbody>'.$contexto.'</tbody>
-            </table>';
+                $tabla_a_imprimir='
+                <style>
+                    table, th, td{
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                    },
+                    .estilo{
+                        border: 0px;
+                    }
+                </style>
+                <p style="text-align:center; font-size:16;"><b>Listado de Procesos del presente del mes de '.$row->mes.'</b></p><br>
+                <table style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="width:5%;">#</th>
+                            <th style="width:30%;">Proceso</th>
+                            <th style="width:25%;">Encargado</th>
+                            <th style="width:25%;">Institución</th>
+                            <th style="width:20%;">Estado</th>
+                        </tr>
+                    </thead><br>
+                    <tbody>'.$contexto.'</tbody>
+                </table>';
             }
             
             $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
-            //$mpdf=new Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
         
             $mpdf->allow_charset_conversion=true;
+
+            $mpdf->defaultheaderline = 0;
+            $mpdf->defaultfooterline = 0;
         
             $mpdf->SetHeader('
-            <table style="width=100%;">
-                <tr>
-                    <td><img src="images/membrete.jpg"></td>
+            <table class="estilo" class="estilo" style="width=100%;">
+                <tr class="estilo">
+                    <td class="estilo"><img src="images/membrete.jpg"></td>
                 </tr>
             </table>
             ');
@@ -69,39 +79,27 @@ class PruebaController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table style="width=100%;">
-                    <tr>
-                        <td style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                        <td style="float:right;width:45%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                <table class="estilo" style="width=100%;">
+                    <tr class="estilo">
+                        <td class="estilo" style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
+                        <td class="estilo" style="float:right;width:35%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '
             );
         
             $mpdf->charset_in='utf8';
-        
+            
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            //$file="../../../media/tmp/documento_imprimible.pdf";
-            $file="../../../media/tmp/documento_imprimible.pdf";
+            $file="ProcesosDelMes.pdf";
 
-            /* if (file_exists($file)) {
-                mysqli_close($conn);
-                unset($correlativo, $contexto,);
-        
-                $response=array('success'=>true, 'url'=>'media/tmp/documento_imprimible.pdf', 'resultado'=>$resultado);
-            }else{
-                $response=array('success'=>false, 'error'=>'No fue posible crear el archivo pdf');
-            } */
-        
-            //$mpdf->Output($file, 'I');
-            return redirect()->to($mpdf->Output($file,'I'));
+            $mpdf->Output($file,'I');
+            $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{
             echo json_encode($datos);
         }
-
-        
     }
 
 }
