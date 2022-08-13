@@ -30,7 +30,8 @@
                                     <td><?php echo $rol->rolId ?></td>
                                     <td><?php echo $rol->nombreRol ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $rol->rolId ?>" data-nombre="<?= $rol->nombreRol ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $rol->rolId ?>" data-nombre="<?= $rol->nombreRol ?>"><i class="fa fa-pencil-square-o"></i>
+                                            Editar</a>
                                         <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $rol->rolId ?>" data-nombre="<?= $rol->nombreRol ?>"><i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
@@ -188,12 +189,14 @@
 
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
-        language: {
-            url: 'vendors/datatables.net/es.json'
-        }
-    } );
-} );
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 0]],
+            "ordering":true,
+        });
+    });
 </script>
 
 <?= $this->endSection() ?>

@@ -674,7 +674,7 @@
         var infoData = $("#infoList");
 
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "<?= base_url() . route_to('transaccionActList') ?>",
             data: {
                 transaccionDetalleId: id
@@ -693,7 +693,7 @@
                         "<td>" + val.actividad + "</td>" +
                         "<td>" + val.persona + "</td>" +
                         "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
-                        "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
+                        "<td><a href='<?= base_url() . route_to('listadoDocumentos') ?> ' data-id="+val.id+" class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
                         "</td></tr>")
 
                     infoData.append("<tr><td>" + val.id + "</td>" +
@@ -816,12 +816,14 @@
 </script>
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
-        language: {
-            url: 'vendors/datatables.net/es.json'
-        }
-    } );
-} );
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 0]],
+            "ordering":true,
+        });
+    });
 </script>
 
 <?= $this->endSection() ?>

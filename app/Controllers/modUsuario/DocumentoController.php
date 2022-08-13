@@ -66,6 +66,16 @@ class DocumentoController extends BaseController{
 
             $file=$_FILES["nombreDocumento"];
 
+        $nombreDocumento = new DocumentoModel();
+        if($this->validate('validarDocumento')){
+            $nombreDocumento->insertar(
+                [
+                    "nombreDocumento" => $_POST['nombreDocumento'],
+                    "tipoDocumentoId" => $_POST['tipoDocumentoId'],
+                    "tipoEnvioId" => $_POST['tipoEnvioId'],
+                    "transaccionActividadId" => $_POST['transaccionActividadId']
+                ]);
+
             $fileName=$_FILES['nombreDocumento']['name'];
             $fileTmpName=$_FILES['nombreDocumento']['tmp_name'];
             $fileSize=$_FILES['nombreDocumento']['size'];
@@ -95,8 +105,7 @@ class DocumentoController extends BaseController{
                             "tipoDocumentoId" => $tipoDocumentoId,
                             "tipoEnvioId" => $tipoEnvioId,
                             "transaccionActividadId" => $transaccionActividadId
-                        ]; 
-                                      
+                        ];
                         $respuesta = $nombreDoc->insertar($datos);
 
                         //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA DIRECCIÓN
@@ -128,27 +137,11 @@ class DocumentoController extends BaseController{
                         return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
                     }
                 } else {
-                    return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+                    return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','1');
                 }
             } else {
-                return redirect()->to(base_url() . '/documento')->with('mensaje','7');
-            }     
-    }
-
-    //ELIMINAR DOCUMENTO
-    public function eliminar(){
-
-        $documentoId = $_POST['documentoId'];
-
-        $documento = new DocumentoModel();
-        $data = ["documentoId" => $documentoId];
-
-        $respuesta = $documento->eliminar($data);
-
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/documento')->with('mensaje','2');
-        } else {
-            return redirect()->to(base_url(). '/documento')->with('mensaje','3');
+                return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','7');
+            }
         }
     }
 
@@ -186,7 +179,24 @@ class DocumentoController extends BaseController{
             }
         }
     }
-    
+
+    public function listadoDocumentos(){
+
+        $documento = new DocumentoModel();
+
+        //$documentoId = $_POST['documentoId'];
+
+        $data = [
+            "datos" => $documento->asObject()->select('d.documentoId, d.nombreDocumento, a.nombreActividad')
+            ->from('wk_documento d')
+            ->join('wk_transaccion_actividades ta', 'ta.transaccionActividadId = d.transaccionActividadId')
+            ->join(' wk_actividad a', 'a.actividadId = ta.actividadId')
+            ->groupBy('d.documentoId')
+            ->findAll(),
+        ];
+
+        return view('modTransaccion/listadoDocumentos', $data);
+    }
 }
 
 ?>
