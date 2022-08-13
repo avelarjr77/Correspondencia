@@ -195,12 +195,6 @@
                         </div>
                         <br>
                         <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
-
-                            <input type="text" id="transaccionActividadId" name="transaccionActividadId" class="form-control" hidden>
-                        </div>
-                        <br>
-                        <button type="submit" name="submit"  class="btn btn-primary btn-tDocumento">Guardar</button>
->>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
                     </div>
                 </div>
             </div>
@@ -232,14 +226,12 @@
                     </table>
                 </div>
             </div>
+            <br><br><br><br>
+            <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
         </div>
         <!--FIN LISTADO PROCESO
     ------------------------------------------------------------------------------------------------------------
         -->
-
-
-        <br><br><br><br>
-        <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 </div>
 
@@ -475,16 +467,9 @@
             $('#proceso').css("display", "block");
             $('#documento').hide();
         });
-
-<<<<<<< HEAD
-        $('.btn-tDocumento').on('click',function(){
-            var id = $(this).data('id');
-            
-=======
+        
         $('.btn-tDocumento').on('click', function() {
             var id = $(this).data('id');
-
->>>>>>> 326ed52654070ac5def935f931b58f6255f91c66
             $('#transaccionActividadId').val(id);
         });
 

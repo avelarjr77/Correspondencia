@@ -43,6 +43,7 @@ class TransaccionActividadController extends BaseController{
                 ->findAll(),
             "doc" => $tActividad->asObject()->select('*')
                 ->from('wk_documento d')
+                ->orderBy('d.documentoId')
                 ->groupBy('d.documentoId')
                 ->findAll(),
             "tipoDoc" => $tActividad->asObject()->select('*')

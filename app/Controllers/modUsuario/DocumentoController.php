@@ -4,6 +4,7 @@ use App\Controllers\BaseController;
 use App\Models\modUsuario\DocumentoModel;
 use CodeIgniter\I18n\Time;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modTransaccion\TransaccionActividadModel;
 
 class DocumentoController extends BaseController{
 
@@ -51,10 +52,17 @@ class DocumentoController extends BaseController{
     } 
     public function crearImage(){
 
-            $nombreDocumento    = $this->request->getVar('nombreDocumento');
-            $tipoDocumentoId          = $this->request->getVar('tipoDocumentoId');
-            $tipoEnvioId      = $this->request->getVar('tipoEnvioId');
-            $transaccionActividadId      = $this->request->getVar('transaccionActividadId');
+            $nombreDocumento = $this->request->getVar('nombreDocumento');
+            $tipoDocumentoId = $this->request->getVar('tipoDocumentoId');
+            $tipoEnvioId = $this->request->getVar('tipoEnvioId');
+            $transaccionActividadId = $this->request->getVar('transaccionActividadId');
+
+            //print_r($nombreDocumento);
+            /* $transaccion = new TransaccionActividadModel();
+
+            $etapa =  $transaccion->asArray()->select('td.etapaId')
+            ->from('wk_transaccion_actividades ta')->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+            ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); */
 
             $file=$_FILES["nombreDocumento"];
 
@@ -69,7 +77,7 @@ class DocumentoController extends BaseController{
             $fileExt=explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-            $allowed = array('jpg','jpeg','png','pdf','docx');
+            $allowed = array('jpg','jpeg','png','pdf','docx', 'txt');
 
             if (in_array($fileActualExt, $allowed)) {
                 if ($fileError === 0) {
@@ -105,9 +113,19 @@ class DocumentoController extends BaseController{
                         ]);
                         //END
 
-                        return redirect()->to(base_url() . '/documento')->with('mensaje','0');
+                        $transaccion = new TransaccionActividadModel();
+
+                        $etapaId =  $transaccion->asArray()->select('td.etapaId')
+                        ->from('wk_transaccion_actividades ta')
+                        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+                        ->where('ta.transaccionActividadId', $transaccionActividadId)->first();
+
+                        $etapa = $etapaId['etapaId'];
+
+                        
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
                     } else {
-                        return redirect()->to(base_url() . '/documento')->with('mensaje','6');
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
                     }
                 } else {
                     return redirect()->to(base_url() . '/documento')->with('mensaje','1');
