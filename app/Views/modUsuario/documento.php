@@ -41,7 +41,7 @@
                                 <td><?php echo $key->transaccionActividadId ?></td>
                                 <td>
                                     <a href="#" class="btn btn-warning btn-sm btn-edit" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>"  data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documento="<?php echo $key->documentoId ?>" data-nombre="<?php echo $key->nombreDocumento ?>" data-tipodoc="<?php echo $key->tipoDocumentoId ?>" data-tipoenvio="<?php echo $key->tipoEnvioId ?>" data-transaccion="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?> 
@@ -209,6 +209,7 @@
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="documentoId" class="documentoId">
+                            <input type="hidden" name="nombre" class="nombre">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                             <button type="submit" class="btn btn-primary">SI</button>
                         </div>
@@ -244,7 +245,7 @@
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
     }else if (mensaje == '6') {
-        swal('', 'Este documento ya existe en la base de datos', 'error');
+        swal('', 'El archivo excede la capacidad de almacenamiento', 'error');
     }else if (mensaje == '7') {
         swal('', 'Tipo de documento no admitido en la base de datos', 'error');
     }
@@ -276,18 +277,20 @@
         // get Delete 
         $('.btn-delete').on('click',function(){
             // get data from button edit
-            const documentoId = $(this).data('documentoId');
-            const nombreDocumento = $(this).data('nombreDocumento');
-            const tipoDocumentoId = $(this).data('tipoDocumentoId');
-            const tipoEnvioId = $(this).data('tipoEnvioId');
-            const transaccionActividadId = $(this).data('transaccionActividadId');
+            const documento = $(this).data('documento');
+            const nombre = $(this).data('nombre');
+            const tipodoc = $(this).data('tipodoc');
+            const tipoenvio = $(this).data('tipoenvio');
+            const transaccion = $(this).data('transaccion');
             
             // Set data to Form Edit
-            $('.documentoId').val(documentoId);
+            $('.documentoId').val(documento);
+            $('.nombre').val(nombre);
             $('.documentoN').html(documento);
 
             // Call Modal Edit
             $('#eliminarModal').modal('show');
+
         });
         
     });

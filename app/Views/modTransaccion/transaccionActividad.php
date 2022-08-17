@@ -169,7 +169,6 @@
                             data-preview-file-type="any" data-browse-on-zone-click="true"  require >
                         </div>
                     </div>
-                    
                     <div class="col-sm-6">
                         <div id="errors"></div>
                         <div class="mb-3 form-check">
@@ -217,7 +216,7 @@
                                     <td><?= $d->documentoId ?></td>
                                     <td><?= $d->nombreDocumento ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad"><i class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documento="<?php echo $d->documentoId ?>" data-nombre="<?php echo $d->nombreDocumento ?>" data-tipodoc="<?php echo $d->tipoDocumentoId ?>" data-tipoenvio="<?php echo $d->tipoEnvioId ?>" data-transaccion="<?php echo $d->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                         <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"><i class="fa fa-tasks"></i> Ver</a>
                                     </td>
                                 </tr>
@@ -274,7 +273,7 @@
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
     }else if (mensaje == '6') {
-        swal('', 'Este documento ya existe en la base de datos', 'error');
+        swal('', 'El archivo excede la capacidad de almacenamiento', 'error');
     }else if (mensaje == '7') {
         swal('', 'Tipo de documento no admitido en la base de datos', 'error');
     }
@@ -469,10 +468,27 @@
             $('#proceso').css("display", "block");
             $('#documento').hide();
         });
-        
+
         $('.btn-tDocumento').on('click', function() {
             var id = $(this).data('id');
             $('#transaccionActividadId').val(id);
+        });
+
+        $('.btn-delete').on('click',function(){
+            // get data from button edit
+            const documento = $(this).data('documento');
+            const nombre = $(this).data('nombre');
+            const tipodoc = $(this).data('tipodoc');
+            const tipoenvio = $(this).data('tipoenvio');
+            const transaccion = $(this).data('transaccion');
+            
+            // Set data to Form Edit
+            $('.documentoId').val(documento);
+            $('.documentoN').html(documento);
+
+            // Call Modal Edit
+            $('#eliminarModal').modal('show');
+
         });
 
     });

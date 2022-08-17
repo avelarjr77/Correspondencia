@@ -57,6 +57,14 @@ class DocumentoController extends BaseController{
             $tipoEnvioId      = $this->request->getVar('tipoEnvioId');
             $transaccionActividadId      = $this->request->getVar('transaccionActividadId');
 
+                        $transaccion = new TransaccionActividadModel();
+                        $etapaId =  $transaccion->asArray()->select('td.etapaId')
+                        ->from('wk_transaccion_actividades ta')
+                        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+                        ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
+                        $etapa = $etapaId['etapaId'];
+                        // END
+
             $file=$_FILES["nombreDocumento"];
 
             $fileName=$_FILES['nombreDocumento']['name'];
@@ -74,60 +82,59 @@ class DocumentoController extends BaseController{
 
             if (in_array($fileActualExt, $allowed)) {
                 if ($fileError === 0) {
-                    
-                    if ($fileSize < 100000) { 
-
-                        $fileDestination = 'uploads/'.$fileName;
-
-                        move_uploaded_file($fileTmpName, $fileDestination);
-
+                    if ($fileSize < 100000000000) { 
                         $nombreDoc = new DocumentoModel();
+                        if ($this->validate('validarDoc')) {
+                            $nombreDoc->insertar(
+                                [
+                                    "nombreDocumento" => $fileName,
+                                    "tipoDocumentoId" => $tipoDocumentoId,
+                                    "tipoEnvioId" => $tipoEnvioId,
+                                    "transaccionActividadId" => $transaccionActividadId
+                                ]
+                            );
 
-                       $datos = [
-                            "nombreDocumento" => $fileName,
-                            "tipoDocumentoId" => $tipoDocumentoId,
-                            "tipoEnvioId" => $tipoEnvioId,
-                            "transaccionActividadId" => $transaccionActividadId
-                        ]; 
-                                      
-                        $respuesta = $nombreDoc->insertar($datos);
+                            //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA DIRECCIÓN
+                            $this->bitacora  = new MovimientosModel();
+                            $hora=new Time('now');
+                            $session = session('usuario');
 
-                        //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA DIRECCIÓN
-                        $this->bitacora  = new MovimientosModel();
-                        $hora=new Time('now');
-                        $session = session('usuario');
-
-                        $this->bitacora->save([
-                            'bitacoraId'    => null,
-                            'usuario'       => $session,
-                            'accion'        => 'Agregó un documento',
-                            'descripcion'   => $_POST['tipoDocumentoId'].$_POST['tipoEnvioId'],
-                            'hora'          => $hora,
-                        ]);
-                        //END
-
-                        $transaccion = new TransaccionActividadModel();
-
-                        $etapaId =  $transaccion->asArray()->select('td.etapaId')
-                        ->from('wk_transaccion_actividades ta')
-                        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
-                        ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
+                            $this->bitacora->save([
+                                'bitacoraId'    => null,
+                                'usuario'       => $session,
+                                'accion'        => 'Agregó un documento',
+                                'descripcion'   => $_POST['tipoDocumentoId'].$_POST['tipoEnvioId'],
+                                'hora'          => $hora,
+                            ]);
+                            //END       
 
                         
-                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','0');
+                            $fileDestination = 'uploads/'.$fileName;
+
+                            move_uploaded_file($fileTmpName, $fileDestination);
+
+                            
+
+                            return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
+                        }else {
+                            return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','1');
+                        }
                     } else {
-                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','6');
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
                     }
                 } else {
-                    return redirect()->to(base_url() . '/documento')->with('mensaje','1');
+                    return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
                 }
             } else {
                 return redirect()->to(base_url() . '/documento')->with('mensaje','7');
-            }     
+            }
     }
 
     //ELIMINAR DOCUMENTO
     public function eliminar(){
+        $nombreDocumento = $_POST['nombre'];
+
+        array_map('unlink', glob("uploads/".$nombreDocumento));
 
         $documentoId = $_POST['documentoId'];
 
@@ -140,6 +147,34 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url(). '/documento')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/documento')->with('mensaje','3');
+        }
+    }
+
+    //ELIMINAR DOCUMENTO - VISTA TRANSACCIÓN ACTIVIDAD
+    public function eliminarDoc(){
+
+        $documentoId = $_POST['documentoId'];
+        $nombreDocumento = $_POST['nombreDocumento'];
+        $transaccionActividadId = $_POST['transaccionActividadId'];
+
+        $transaccion = new TransaccionActividadModel();
+        $etapaId =  $transaccion->asArray()->select('td.etapaId')
+        ->from('wk_transaccion_actividades ta')
+        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+        ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
+        $etapa = $etapaId['etapaId'];
+
+        $documento = new DocumentoModel();
+        $data = ["documentoId" => $documentoId];
+
+        $respuesta = $documento->eliminar($data);
+
+        array_map('unlink', glob("uploads/".$nombreDocumento));
+
+        if ($respuesta > 0){
+            return redirect()->to(base_url(). '/transaccionActividades?etapaId='.$etapa)->with('mensaje','2');
+        } else {
+            return redirect()->to(base_url(). '/transaccionActividades?etapaId='.$etapa)->with('mensaje','3');
         }
     }
 
