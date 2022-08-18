@@ -271,7 +271,7 @@
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [[1, 'asc']],
+            "order": [[0, 0]],
             "ordering":true,
         });
     });
