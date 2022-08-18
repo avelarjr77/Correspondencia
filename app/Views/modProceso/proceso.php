@@ -850,6 +850,7 @@
         //idAC trae etapaId
         console.log(etapa);
         $('#actividadE').val(idAC);
+        $('#etapaNom').empty();
         $('#etapaNom').val(etapa);
         $('#actividadEtapa').val(etapa);
         $('#tituloE').css("color", "#010806");
@@ -866,14 +867,14 @@
             success: function(data) {
 
                 var dataActividad = JSON.parse(data);
-
+                $("#actividadData").empty();
 
                 if (dataActividad == '') {
                     $('#tbl-actividad').hide();
                     $("#aviso").html('No hay actividades para esta etapa.');
                     $("#actividadData").empty();
                 } else {
-                    $("#actividadData").empty();
+                    //$("#actividadData").empty();
 
 
                     $.each(dataActividad, function(index, val) {
@@ -889,7 +890,7 @@
                     });
 
                     $('#tbl-actividad').css("display", "block");
-                    $("#aviso").html('');
+                    $("#aviso").empty();
                 }
             }
         });
@@ -997,7 +998,6 @@
                 recargarActividad(dEtapAC);
             }
         });
-
 
         $('#agregarActividadModal').modal('hide');
         $('body').removeClass('modal-open'); //eliminamos la clase del body para poder hacer scroll

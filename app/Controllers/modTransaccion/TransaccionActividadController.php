@@ -182,6 +182,26 @@ class TransaccionActividadController extends BaseController{
         echo json_encode($etapaId);
     }
 
+    public function docLista(){
+
+        $transaccion = new TransaccionActividadModel();
+        $transaccionActividadId = $this->request->getVar('transaccionActividadId');
+
+        $datos = $transaccion->docLista($transaccionActividadId);
+        
+        echo json_encode($datos);
+    }
+
+    public function docVista(){
+
+        $transaccion = new TransaccionActividadModel();
+        $documentoId = $this->request->getVar('documentoId');
+
+        $datos = $transaccion->docVista($documentoId);
+        
+        echo json_encode($datos);
+    }
+
     //CREAR TRANSACCION
     public function crear(){
 
