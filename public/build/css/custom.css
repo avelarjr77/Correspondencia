@@ -2393,7 +2393,7 @@ h4.graph_title {
   text-decoration: none; }
 
 .fontawesome-icon-list .fa-hover a {
-  display: block;
+  display: grid;
   line-height: 32px;
   height: 32px;
   padding-left: 10px;

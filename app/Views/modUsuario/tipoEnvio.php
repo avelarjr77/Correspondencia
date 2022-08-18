@@ -186,12 +186,14 @@
 
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
-        language: {
-            url: 'vendors/datatables.net/es.json'
-        }
-    } );
-} );
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 0]],
+            "ordering":true,
+        });
+    });
 </script>
 
 

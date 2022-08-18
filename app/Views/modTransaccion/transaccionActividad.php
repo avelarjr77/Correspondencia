@@ -225,14 +225,12 @@
                     </table>
                 </div>
             </div>
+            <br><br><br><br>
+            <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
         </div>
         <!--FIN LISTADO PROCESO
     ------------------------------------------------------------------------------------------------------------
         -->
-
-
-        <br><br><br><br>
-        <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
 </div>
 
@@ -296,11 +294,6 @@
         initialPreviewAsData: true,
         layoutTemplates: {
             footer: footerTemplate
-        },
-        previewThumbTags: {
-            '{TAG_VALUE}': '', // no value
-            '{TAG_CSS_NEW}': '', // new thumbnail input
-            '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
         },
     });
 </script>

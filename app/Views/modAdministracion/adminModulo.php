@@ -191,7 +191,9 @@
         $('#datatable').DataTable({
             language: {
                 url: 'vendors/datatables.net/es.json'
-            }
+            },
+            "order": [[0, 0]],
+            "ordering":true,
         });
     });
 </script>

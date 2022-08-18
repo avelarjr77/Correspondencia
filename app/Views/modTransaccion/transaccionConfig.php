@@ -132,7 +132,7 @@
 
             <!-- Modal ver Observaciones-->
             <div class="modal fade" id="verModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Ver Observaciones</h5>
@@ -143,6 +143,10 @@
                         <div class="modal-body">
 
                             <div class="row">
+                                <div class="col-md-12">
+                                    <h2>Observaciones de proceso</h2>
+                                </div>
+
                                 <div class="col-md-12">
                                     <table class="table table-hover">
                                         <thead>
@@ -422,50 +426,38 @@
                 }
             });
 
+            verObservacionesAct(id);
             $('#verModal').modal('show');
         });
 
-        /* $('.btn-iniciarProceso').on('click',function(){
-            // get data from button edit
-            var id = $(this).data('id');
-            var proceso = $(this).data('proceso');
-            var procesoId = $(this).data('procesoid');
+        function verObservacionesAct(id) {
+            var etData = $("#etapasData");
 
-            $('#procesoN').html(proceso);
+            //console.log(list, id);
 
-            var estado = $(this).data('estado');
-            console.log(proceso);
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('transaccionObservaciones') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
 
-            if (estado == 'Inactivo') {
-                $.ajax({
-                    type: "GET",
-                    url: "<= base_url().route_to('transaccionEtapa') ?>",
-                    data: {procesoId: procesoId, transaccionId: id},
-                    success:function(data){
+                    var dataDetO = JSON.parse(data);
+                    console.log(dataDetO);
 
-                        var dataEtapa = JSON.parse(data);
-                        
-                        console.log(dataEtapa);
+                    $("#etapasData").empty();
 
-                        var listado = dataEtapa;
-
-                        if (dataEtapa == '') {
-                            $('#tbl-etapa').hide();
-                            $('#avisoE').html('No hay etapas configuradas para este proceso.');
-                        }else{
-                            insertTDetalle(listado, id);
-                            $('#recargarPP').attr('href', '<= base_url().route_to('transaccionConfig') ?>');
-                        }
-                    }
-                });
-            }else{
-                etapaLista(id);
-            }
-
-            // Call Modal Edit
-            $('#etapa').css("display", "block");
-            $('#proceso').hide();
-        }); */
+                    $.each(dataDetO, function(index, val) {
+                        obData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.proceso + "</td>" +
+                            "<td>" + val.observaciones + "</td>" +
+                            "</tr>")
+                    });
+                }
+            });
+        }
+        
 
         $('.btn-iniciarProceso').on('click', function() {
             // get data from button edit
@@ -515,47 +507,6 @@
             var etData = $("#etapasData");
 
             console.log(list, id);
-
-            /* $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('transaccionDetId') ?>",
-                success:function(data){
-
-                    var dataDetId = JSON.parse(data);
-                    
-                    //console.log(dataDetId, 'transaccionDetalle');
-
-                    var tranDetId = dataDetId[0]['id'];
-                    console.log(tranDetId, 'transaccionDetalle');
-                }
-            });
-
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('transaccionAcId') ?>",
-                success:function(data){
-
-                    var dataDetAAId = JSON.parse(data);
-                    
-                    console.log(dataDetAAId);
-
-                    var tranACId = dataDetAAId[0]['id'];
-                }
-            });
-
-            $.ajax({
-                type: "GET",
-                url: "<= base_url().route_to('transaccionActividad') ?>",
-                data:{etapaId:list},
-                success:function(data){
-
-                    var dataActId = JSON.parse(data);
-                    
-                    console.log(dataActId);
-
-                    var actividadList = dataActId[0]['actividadId'];
-                }
-            }); */
 
             $.ajax({
                 type: "GET",
@@ -723,7 +674,7 @@
         var infoData = $("#infoList");
 
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "<?= base_url() . route_to('transaccionActList') ?>",
             data: {
                 transaccionDetalleId: id
@@ -742,7 +693,7 @@
                         "<td>" + val.actividad + "</td>" +
                         "<td>" + val.persona + "</td>" +
                         "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
-                        "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
+                        "<td><a href='<?= base_url() . route_to('listadoDocumentos') ?> ' data-id="+val.id+" class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
                         "</td></tr>")
 
                     infoData.append("<tr><td>" + val.id + "</td>" +
@@ -865,12 +816,14 @@
 </script>
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
-        language: {
-            url: 'vendors/datatables.net/es.json'
-        }
-    } );
-} );
+        $('#datatable').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 0]],
+            "ordering":true,
+        });
+    });
 </script>
 
 <?= $this->endSection() ?>

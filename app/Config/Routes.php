@@ -216,6 +216,8 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
+$routes->get('listadoDocumentos', 'modUsuario/DocumentoController::listadoDocumentos', ['as'=> 'listadoDocumentos']);
+
 //CONFIGURACIÓN DE PROCESO
 
 //PROCESO

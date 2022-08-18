@@ -5,6 +5,10 @@ use CodeIgniter\Model;
 
 class DocumentoModel extends Model{
 
+    protected $table = 'wk_documento';
+    protected $primaryKey = 'documentoId';
+    protected $allowedFields = ['documentoId', 'nombreDocumento', 'tipoDocumentoId', 'tipoEnvioId', 'transaccionActividadId'];
+
    
     //LISTADO DE DOCUMENTO
     public function listarDocumento()
