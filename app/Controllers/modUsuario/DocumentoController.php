@@ -53,12 +53,6 @@ class DocumentoController extends BaseController{
     
     public function crearImage(){
 
-<<<<<<< HEAD
-            $nombreDocumento    = $this->request->getVar('nombreDocumento');
-            $tipoDocumentoId          = $this->request->getVar('tipoDocumentoId');
-            $tipoEnvioId      = $this->request->getVar('tipoEnvioId');
-            $transaccionActividadId      = $this->request->getVar('transaccionActividadId');
-=======
         $nombreDocumento = $this->request->getVar('nombreDocumento');
         $tipoDocumentoId = $this->request->getVar('tipoDocumentoId');
         $tipoEnvioId = $this->request->getVar('tipoEnvioId');
@@ -72,7 +66,6 @@ class DocumentoController extends BaseController{
         $etapa = $etapaId['etapaId'];
 
         $file=$_FILES["nombreDocumento"];
->>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
 
         $fileName=$_FILES['nombreDocumento']['name'];
         $fileTmpName=$_FILES['nombreDocumento']['tmp_name'];
@@ -119,51 +112,6 @@ class DocumentoController extends BaseController{
                     ]);
                     //END     
 
-<<<<<<< HEAD
-                        $nombreDoc = new DocumentoModel();
-
-                       $datos = [
-                            "nombreDocumento" => $fileName,
-                            "tipoDocumentoId" => $tipoDocumentoId,
-                            "tipoEnvioId" => $tipoEnvioId,
-                            "transaccionActividadId" => $transaccionActividadId
-                        ]; 
-                                      
-                        $respuesta = $nombreDoc->insertar($datos);
-
-                        //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA DIRECCIÓN
-                        $this->bitacora  = new MovimientosModel();
-                        $hora=new Time('now');
-                        $session = session('usuario');
-
-                        $this->bitacora->save([
-                            'bitacoraId'    => null,
-                            'usuario'       => $session,
-                            'accion'        => 'Agregó un documento',
-                            'descripcion'   => $_POST['tipoDocumentoId'].$_POST['tipoEnvioId'],
-                            'hora'          => $hora,
-                        ]);
-                        //END
-
-                        $transaccion = new TransaccionActividadModel();
-
-                        $etapaId =  $transaccion->asArray()->select('td.etapaId')
-                        ->from('wk_transaccion_actividades ta')
-                        ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
-                        ->where('ta.transaccionActividadId', $transaccionActividadId)->first();
-
-                        
-                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapaId)->with('mensaje','0');
-                    } else {
-                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
-                    }
-                } else {
-                    return redirect()->to(base_url() . '/documento')->with('mensaje','1');
-                }
-            } else {
-                return redirect()->to(base_url() . '/documento')->with('mensaje','7');
-            }     
-=======
                     return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
                 } else {
                     return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
@@ -174,7 +122,6 @@ class DocumentoController extends BaseController{
         } else {
             return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','7');
         }     
->>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
     }
 
     //ELIMINAR DOCUMENTO
@@ -191,8 +138,6 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url(). '/documento')->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/documento')->with('mensaje','3');
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -221,7 +166,6 @@ class DocumentoController extends BaseController{
             return redirect()->to(base_url(). '/transaccionActividades?etapaId='.$etapa)->with('mensaje','2');
         } else {
             return redirect()->to(base_url(). '/transaccionActividades?etapaId='.$etapa)->with('mensaje','3');
->>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
         }
     }
 

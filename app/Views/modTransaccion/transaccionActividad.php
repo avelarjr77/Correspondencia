@@ -211,20 +211,7 @@
                             </tr>
                         </thead>
                         <tbody id="docList">
-<<<<<<< HEAD
-                            <?php foreach ($doc as $d) : ?>
-                                <tr>
-                                    <td><?= $d->documentoId ?></td>
-                                    <td><?= $d->nombreDocumento ?></td>
-                                    <td>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documento="<?php echo $d->documentoId ?>" data-nombre="<?php echo $d->nombreDocumento ?>" data-tipodoc="<?php echo $d->tipoDocumentoId ?>" data-tipoenvio="<?php echo $d->tipoEnvioId ?>" data-transaccion="<?php echo $d->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
-                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad"><i class="fa fa-tasks"></i> Ver</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-=======
                             
->>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
                         </tbody>
                     </table>
                 </div>
@@ -338,7 +325,7 @@
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
     }else if (mensaje == '6') {
-        swal('', 'El archivo excede la capacidad de almacenamiento', 'error');
+        swal('', 'Este documento ya existe en la base de datos', 'error');
     }else if (mensaje == '7') {
         swal('', 'Tipo de documento no admitido en la base de datos', 'error');
     }
@@ -568,26 +555,8 @@
             $('#transaccionActividadId').val(id);
         });
 
-<<<<<<< HEAD
-        $('.btn-delete').on('click',function(){
-            // get data from button edit
-            const documento = $(this).data('documento');
-            const nombre = $(this).data('nombre');
-            const tipodoc = $(this).data('tipodoc');
-            const tipoenvio = $(this).data('tipoenvio');
-            const transaccion = $(this).data('transaccion');
-            
-            // Set data to Form Edit
-            $('.documentoId').val(documento);
-            $('.documentoN').html(documento);
-
-            // Call Modal Edit
-            $('#eliminarModal').modal('show');
-
-=======
         $('.btn-delete').on('click', function() {
             $( "#frmEliminarDoc" ).submit();
->>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
         });
 
     });
