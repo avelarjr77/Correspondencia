@@ -67,5 +67,11 @@ class DocumentoModel extends Model{
         
         return $nombreDocumento->delete();
     }
+    public function eliminarImg($img){
+        $imagen = $this->db->query("SELECT nombreDocumento FROM wk_documento");
+        $imagen->where($img);
+        
+        return $imagen->getResult();
+    }
 
 }

@@ -154,56 +154,6 @@
         swal('No se agrego', 'El nombre cargo no debe contener numeros o signos', 'error');
     }
 </script>
-<!--
-<script type="text/javascript">
-    let mensaje = '<?php //echo $mensaje ?>';
-    if (mensaje == '0') {
-        swal({
-            text: "¡Cargo agregado!",
-            icon: "success",
-            button: "Ok",
-        });
-
-    } else if (mensaje == '1') {
-        swal({
-            text: "¡Lo sentimos, no se agrego!",
-            icon: "error",
-            button: "Ok",
-        });
-    } else if (mensaje == '2') {
-        swal({
-            text: "¡Se ha eliminado!",
-            icon: "success",
-            button: "Ok",
-        });
-    } else if (mensaje == '3') {
-        swal({
-            text: "¡Lo sentimos, no se eliminó!",
-            icon: "error",
-            button: "Ok",
-        });
-    } else if (mensaje == '4') {
-        swal({
-            icon: 'success',
-            text: '¡Actualizado con exito!',
-            button: "Ok"
-        });
-    } else if (mensaje == '5') {
-        swal({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No se actualizo', 'Datos incorrectos',  'error'
-        });
-    }  else if (mensaje == '6') {
-        swal({
-            icon: 'success',
-            text: '¡Actualizado con exito!',
-            button: "Ok"
-        });
-    }
-    
-</script>
--->
 
 <script>
     $(document).ready(function(){
