@@ -283,6 +283,13 @@
                     <h4><i id="avisoA"></i></h4>
                 </div>
             </div>
+
+            <div>
+                <form action="<?php echo base_url() . '/listadoDocumentos' ?>" id="frm-id" method="GET">
+                    <input type="hidden" name="transaccionActividadId" class="transaccionActividadId">
+                    <!-- <input type="submit" value="Go"> -->
+                </form>
+            </div>
         </div>
         <!--FIN LISTADO PROCESO-->
         <br>
@@ -458,7 +465,6 @@
             });
         }
         
-
         $('.btn-iniciarProceso').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
@@ -693,7 +699,7 @@
                         "<td>" + val.actividad + "</td>" +
                         "<td>" + val.persona + "</td>" +
                         "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
-                        "<td><a href='<?= base_url() . route_to('listadoDocumentos') ?> ' data-id="+val.id+" class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>" +
+                        "<td><a href='#' onclick='documentoLista(" + val.id + ")' class='btn btn-primary btn-sm'><i class='fa fa-tasks'></i> Ver Documentos</a>" +
                         "</td></tr>")
 
                     infoData.append("<tr><td>" + val.id + "</td>" +
@@ -712,6 +718,15 @@
         // ACTIVAR DIV
         $('#actividad').css("display", "block");
         $('#etapa').hide();
+    }
+
+    function documentoLista(id){
+
+        $('.transaccionActividadId').val(id);
+
+        $( "#frm-id" ).submit();
+
+        location.href = "<?= base_url() . route_to('listadoDocumentos') ?>?transaccionActividadId=" +id;
     }
 
     function insertTActividades(listadoA, id) {
@@ -750,35 +765,6 @@
         });
     }
 
-    /* function actividadesLista(id){
-        var actData = $("#actividadData");
-        $.ajax({
-            type: "GET",
-            url: "<= base_url().route_to('transaccionActList') ?>",
-            data: {transaccionDetalleId: id},
-            success:function(data){
-
-                var dataActividadList = JSON.parse(data);
-                
-                console.log(dataActividadList);
-
-                $("#actividadData").empty();
-
-                $.each(dataActividadList, function(index, val) {
-                    actData.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.actividad+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td>"+val.fechaInicio+"</td>"+
-                    "<td>"+val.horaInicio+"</td>"+
-                    "<td>"+val.fechaFin+"</td>"+
-                    "<td>"+val.horaFin+"</td>"+
-                    "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>"+val.estado+"</a></td>"+
-                    "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>"+
-                    "</td></tr>")
-                });
-            }
-        });
-    } */
 
     // volver a proceso 
     $('.volver-proceso').on('click', function() {
@@ -814,6 +800,7 @@
         swal('', 'Falló actualizar', 'error');
     }
 </script>
+
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable({

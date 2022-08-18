@@ -201,7 +201,7 @@
 
             <br><br><br>
             <div class="row" id="tbl-actividad">
-                <div class="col-md-12">
+                <div class="col-md-12" id="tablaDoc">
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
@@ -211,6 +211,7 @@
                             </tr>
                         </thead>
                         <tbody id="docList">
+<<<<<<< HEAD
                             <?php foreach ($doc as $d) : ?>
                                 <tr>
                                     <td><?= $d->documentoId ?></td>
@@ -221,10 +222,76 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+=======
+                            
+>>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
                         </tbody>
                     </table>
                 </div>
             </div>
+
+            <!-- MODAL PARA VISUALIZAR EL ARCHIVO -->
+            <div class="modal fade" id="modalArchivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header kv-zoom-header">
+                            <h5 class="modal-title kv-zoom-title nombreD" id="kvFileinputModalLabel"><span class="kv-zoom-caption"
+                                    title="Marco legal.docx"></span> <span class="kv-zoom-size prueba"> 
+                                </span>
+                            </h5>
+                            <div class="">
+                                <button type="button" class="btn btn-sm btn-kv btn-default btn-outline-secondary btn-kv-close"
+                                    title="Close detailed preview" data-dismiss="modal" aria-hidden="true">
+                                    <i class="bi-x-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="floating-buttons"></div>
+                            <div class="" style="height: 550px;">
+                                <div class="kv-preview-data kv-zoom-body file-zoom-content krajee-default" width="100%">
+                                    <iframe id="iframePDF" width="600px" height="550px" class="kv-preview-data file-preview-office file-zoom-detail"
+                                        src="uploads/Readme.txt" frameborder="0">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL PARA VISUALIZAR EL ARCHIVO -->
+
+            <!-- Modal Delete DOCUMENTO-->
+            <form action="<?php echo base_url() . '/eliminarDoc' ?>" id="frmEliminarDoc" method="POST">
+                <div class="modal fade" id="eliminarDocModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Documento</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <h4>¿Esta seguro que desea eliminar la Documento: <b><i class="docN"></i></b> ?</h4>
+                                <input type="hidden" name="transaccionActividadId" id="docAcId" class="transaccionActividadE">
+                                <input type="hidden" name="nombreDocumento" id="doc" class="nombreDocumentoE">
+
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" name="documentoId" id="documentoId" class="documentoIdE">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="submit" class="btn btn-primary btn-delete">SI</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- End Modal Delete DOCUMENTO-->
+
             <br><br><br><br>
             <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
         </div>
@@ -294,6 +361,11 @@
         initialPreviewAsData: true,
         layoutTemplates: {
             footer: footerTemplate
+        },
+        previewThumbTags: {
+            '{TAG_VALUE}': '', // no value
+            '{TAG_CSS_NEW}': '', // new thumbnail input
+            '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
         },
     });
 </script>
@@ -424,9 +496,7 @@
                     title: 'Error',
                     text: 'No es posible iniciar una actividad Activa o Finalizada'
                 })
-            } else {
-
-            }
+            } 
         });
 
         $('.btn-documento').on('click', function() {
@@ -434,6 +504,37 @@
             var actividad = $(this).data('actividad');
             var actividadId = $(this).data('actividadid');
             var estado = $(this).data('estado');
+
+            var lista = $("#docList");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('docLista') ?>",
+                data: {
+                    transaccionActividadId: id
+                },
+                success: function(data) {
+
+                    var dataList = JSON.parse(data);
+
+                    console.log(dataList);
+
+                    $("#docList").empty();
+
+                    if (dataList.length === 0) {
+                        $("#docList").empty();
+                        $("#docList").html("<h6>Aún no hay archivos anexados a esta actividad.</h6>")
+                    }else{
+                        $.each(dataList, function(index, val) {
+                        lista.append("<tr><td>" + val.documentoId + "</td>" +
+                            "<td>" + val.nombreDocumento + "</td>" +
+                            "<td><a href='#' onclick='eliminar(" + val.documentoId + " , \"" + val.nombreDocumento + "\", " + val.id + ")' class='btn btn-danger btn-sm btn-elimnar'><i class='fa fa-trash'></i> Eliminar</a>" +
+                            "<a href='#' onclick='verDoc(" + val.documentoId + ")' class='btn btn-success btn-sm btn-verDoc'><i class='fa fa-tasks'></i> Ver</a>" +
+                            "</td></tr>")
+                        });
+                    }
+                }
+            });
 
             $('#actividadN').html(actividad);
             $('#transaccionActividadId').val(id);
@@ -467,6 +568,7 @@
             $('#transaccionActividadId').val(id);
         });
 
+<<<<<<< HEAD
         $('.btn-delete').on('click',function(){
             // get data from button edit
             const documento = $(this).data('documento');
@@ -482,9 +584,58 @@
             // Call Modal Edit
             $('#eliminarModal').modal('show');
 
+=======
+        $('.btn-delete').on('click', function() {
+            $( "#frmEliminarDoc" ).submit();
+>>>>>>> 107795aa56b97ba2a48dc61d2b34ca5e7a93c42b
         });
 
     });
+
+    function verDoc(id){
+
+        $('.nombreD').html(' ');
+        $('iframe').attr("src", " ");
+
+        $.ajax({
+            type: "GET",
+            url: "<?= base_url() . route_to('docVista') ?>",
+            data: {
+                documentoId: id
+            },
+            success: function(data) {
+
+                var dataListaDoc = JSON.parse(data);
+
+                console.log(dataListaDoc);
+
+                var nombre = dataListaDoc[0]['nombre'];
+
+                $('.nombreD').html(nombre);
+                $('iframe').attr("src", "uploads/"+nombre+"");
+
+            }
+        });
+
+        /* $('.nombreD').html(nombre);
+        $('iframe').attr("src", "uploads/"+nombre+""); */
+        $('#modalArchivo').modal('show');
+        /* location.href = "<= base_url() . route_to('listadoDocumentos') ?>?transaccionActividadId=" +id; */
+    }
+
+    function eliminar(id, nombre, transaccionActividadId){
+        $('.documentoIdE').val(id);
+        $('.docN').html(nombre);
+        $('.transaccionActividadE').val(transaccionActividadId);
+        $('.nombreDocumentoE').val(nombre);
+
+        /* $( "#frmEliminarDoc" ).submit(); */
+
+        // Call Modal 
+        $('#eliminarDocModal').modal('show');
+
+    }
+
 </script>
 
 

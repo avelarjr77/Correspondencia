@@ -37,6 +37,26 @@ class TransaccionActividadModel extends Model
                                         LIMIT 1");
         return $actividadTO->getResult();
     }
+
+    public function docLista($id)
+    {
+        $actividadTO = $this->db->query("SELECT d.documentoId, nombreDocumento, d.transaccionActividadId as 'id'
+                                        FROM wk_documento d
+                                        INNER JOIN wk_transaccion_actividades ta ON d.transaccionActividadId = ta.transaccionActividadId
+                                        WHERE d.transaccionActividadId = $id
+                                        ORDER BY d.documentoId");
+        return $actividadTO->getResult();
+    }
+
+    public function docVista($id)
+    {
+        $actividadTO = $this->db->query("SELECT d.documentoId, nombreDocumento as 'nombre', d.transaccionActividadId as 'id'
+                                        FROM wk_documento d
+                                        INNER JOIN wk_transaccion_actividades ta ON d.transaccionActividadId = ta.transaccionActividadId
+                                        WHERE d.documentoId = $id
+                                        ORDER BY d.documentoId");
+        return $actividadTO->getResult();
+    }
     
     
     //MODELO PARA AGREGAR TRANSACCION

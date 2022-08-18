@@ -123,19 +123,6 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 
 });
 
-//REPORTES
-$routes->group('/',['filter'=>'auth'],function($routes){
-    $routes->get('reportes', 'modReportes/ReportesController::index');
-    $routes->get('pruebaR', 'modReportes/PruebaController::index', ['as'=> 'pruebaR']);
-    $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
-    $routes->get('procesoDetalle', 'modReportes/ProcesoDetalleController::index', ['as'=> 'procesoDetalle']);
-    $routes->match(['get', 'post'],'vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
-    $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
-    $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
-    $routes->match(['get', 'post'],'flujoActividad', 'modReportes/FlujoActividadesController::index', ['as'=> 'flujoActividad']);
-});
-
-
 //CARGO
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('cargo', 'modUsuario/CargoController::cargo', ['as'=> 'cargo']);
@@ -212,11 +199,10 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('crearDocumentoImage', 'modUsuario/DocumentoController::crearImage');
     $routes->post('actualizarDocumento', 'modUsuario/DocumentoController::actualizar');
     $routes->match(['get', 'post'],'actualizarDoc', 'modUsuario/DocumentoController::actualizarDoc', ['as'=> 'actualizarDoc']);
-    $routes->post('eliminarDocumento', 'modUsuario/DocumentoController::eliminar');
-
+    $routes->post('eliminarDocumento', 'modUsuario/DocumentoController::eliminar', ['as'=> 'eliminarDocumento']);
+    $routes->post('eliminarDoc', 'modUsuario/DocumentoController::eliminarDoc', ['as'=> 'eliminarDoc']);
 });
 
-$routes->get('listadoDocumentos', 'modUsuario/DocumentoController::listadoDocumentos', ['as'=> 'listadoDocumentos']);
 
 //CONFIGURACIÓN DE PROCESO
 
@@ -311,15 +297,19 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->match(['get', 'post'],'actividadI', 'modTransaccion/TransaccionActividadController::iniciarActividad', ['as'=> 'actividadI']);
     $routes->match(['get', 'post'],'actualizarActO', 'modTransaccion/TransaccionActividadController::actualizarO', ['as'=> 'actualizarActO']);
     $routes->match(['get', 'post'],'actividadDoc', 'modTransaccion/DocController::doc', ['as'=> 'actividadDoc']);
+    $routes->match(['get', 'post'],'docLista', 'modTransaccion/TransaccionActividadController::docLista', ['as'=> 'docLista']);
+    $routes->match(['get', 'post'],'docVista', 'modTransaccion/TransaccionActividadController::docVista', ['as'=> 'docVista']);
 
     //TRANSACCION LIST
     $routes->get('transaccionLista', 'modTransaccion/TransaccionListController::list', ['as'=> 'transaccionLista']);
 
     $routes->post('eliminarTransaccion', 'modTransaccion/TransaccionConfigController::eliminar');
 
+    $routes->get('listadoDocumentos', 'modUsuario/DocumentoController::listadoDocumentos', ['as'=> 'listadoDocumentos']);
+
 });  
 
-//DOCUMENTO
+//GRAFICAS
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('graficas', 'modGraficas/GraficasController::index', ['as'=> 'graficas']);
     $routes->match(['get', 'post'],'gBarraFecha', 'modGraficas/GraficasController::barraF', ['as'=> 'gBarraFecha']);
@@ -329,6 +319,18 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('graficaLineal', 'modGraficas/GraficasController::line', ['as'=> 'graficaLineal']);
     $routes->get('graficasProceso', 'modGraficas/GraficasController::proceso', ['as'=> 'graficasProceso']);
 
+});
+
+//REPORTES
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('reportes', 'modReportes/ReportesController::index');
+    $routes->get('pruebaR', 'modReportes/PruebaController::index', ['as'=> 'pruebaR']);
+    $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
+    $routes->get('procesoDetalle', 'modReportes/ProcesoDetalleController::index', ['as'=> 'procesoDetalle']);
+    $routes->match(['get', 'post'],'vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
+    $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
+    $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
+    $routes->match(['get', 'post'],'flujoActividad', 'modReportes/FlujoActividadesController::index', ['as'=> 'flujoActividad']);
 });
 
 //BITACORA
