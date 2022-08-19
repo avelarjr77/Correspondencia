@@ -133,8 +133,8 @@ function displayMessage(){
 	}
 }
 
-function getFechaMexico(){
-	date_default_timezone_set('America/Mexico_City');
+function getFechaElSalvadot(){
+	date_default_timezone_set('America/El_Salvador');
 	$timezone = date_default_timezone_get();
 	return date("Y-m-d H:i:s");
 }
@@ -369,81 +369,6 @@ function cleanStr($s){
 	return str_replace(array('¡','.',',','!','&','<','>','/','\\','"',"'",'?','+'), '', $s);
 }
 
-function new_uuid(){
-	// use uuid extension from PECL if available
-	if (function_exists("uuid_create")) {
-		return uuid_create();
-	}
-	// fallback
-	$uuid = md5(microtime() . getmypid());
-	// this should be random enough for now
-	// set variant and version fields for 'true' random uuid
-	$uuid[12] = "4";
-	$n = 8 + (ord($uuid[16]) & 3);
-	$hex = "0123456789abcdef";
-	$uuid[16] = $hex[$n];
-	// return formated uuid
-	return substr($uuid, 0, 8) . "-" . substr($uuid, 8, 4) . "-" . substr($uuid, 12, 4) . "-" . substr($uuid, 16, 4) . "-" . substr($uuid, 20);
- }
-
-
- function paginate($reload, $page, $tpages, $adjacents, $fuc_load) {
-	$prevlabel 	= '<i class="fas fa-chevron-left"></i>';
-	$nextlabel 	= '<i class="fas fa-chevron-right"></i>';
-	$out 		= '<nav aria-label="..."><ul class="pagination pagination-large justify-content-end">';
-	
-	// previous label
-	if($page==1) {
-		$out .= '<li class="page-item disabled"><a class="page-link">'.$prevlabel.'</a></li>';
-	} else if($page==2) {
-		$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'(1);">'.$prevlabel.'</a></li>';
-	}else {
-		$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'('.($page-1).');">'.$prevlabel.'</a></li>';
-	}
-	
-	// first label
-	if($page>($adjacents+1)) {
-		$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'(1);">1</a></li>';
-	}
-
-	// interval
-	if($page>($adjacents+2)) {
-		$out .= '<li class="page-item"><a class="page-link">...</a></li>';
-	}
-
-	// pages
-	$pmin = ($page>$adjacents) ? ($page-$adjacents) : 1;
-	$pmax = ($page<($tpages-$adjacents)) ? ($page+$adjacents) : $tpages;
-	for($i=$pmin; $i<=$pmax; $i++) {
-		if($i==$page) {
-			$out .= '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
-		}else if($i==1) {
-			$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'(1);">'.$i.'</a></li>';
-		}else {
-			$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'('.$i.');">'.$i.'</a></li>';
-		}
-	}
-
-	// interval
-	if($page<($tpages-$adjacents-1)) {
-		$out .= '<li class="page-item"><a class="page-link">...</a></li>';
-	}
-
-	// last
-	if($page<($tpages-$adjacents)) {
-		$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="'.$fuc_load.'('.$tpages.');">'.$tpages.'</a></li>';
-	}
-
-	// next
-	if($page<$tpages) {
-		$out .= '<li class="page-item"><a class="page-link" href="javascript:void(0);"" onclick="'.$fuc_load.'('.($page+1).');">'.$nextlabel.'</a></li>';
-	}else {
-		$out .= '<li class="page-item disabled"><a class="page-link">'.$nextlabel.'</a></li>';
-	}
-	
-	$out .= '</ul></nav>';
-	return $out;
-}
 
 function timeago($date){
 	if(empty($date)) {

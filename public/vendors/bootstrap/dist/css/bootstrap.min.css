@@ -433,8 +433,9 @@ h6 {
 }
 
 .lead {
-	font-size: 1.25rem;
-	font-weight: 300
+  font-size: calc(0.4em + 1vw);
+  z-index: 2;
+  padding: 0 3em;
 }
 
 .display-1 {
@@ -460,6 +461,16 @@ h6 {
 	font-weight: 300;
 	line-height: 1.2
 }
+
+.display-5 {
+	font-size: calc(1em + 2vw);
+  font-style: bold;
+	font-weight: 900;
+  padding: 0 1em;
+	line-height: 1;
+  z-index: 2;
+}
+
 
 hr {
 	margin-top: 1rem;
@@ -5550,12 +5561,22 @@ a.badge-dark:focus {
 }
 
 .jumbotron1 {
-	padding: 2rem 1rem;
-	margin-bottom: 2rem;
+	padding: 2em 1em;
+	margin-bottom: 2em;
 	background-image: url("../../../../images/banner.ucad.png") ;
-  background-position: center center;
-	border-radius: .3rem
+  background-repeat:  no-repeat;
+  background-size: contain;
+  z-index: 2;
+  height: auto;
+	border-radius: .3em;
 }
+
+.text1-jumbotron{
+  color:#2A3F54;
+  text-align: right;
+  font-weight: bold;
+}
+
 .jumbotron {
 	padding: 2rem 1rem;
 	margin-bottom: 2rem;
@@ -5677,11 +5698,11 @@ a.badge-dark:focus {
 .alert-danger {
 	color: #721c24;
 	background-color: #f8d7da;
-	border-color: #f5c6cb
+	border-color: #f5c6cb;
 }
 
 .alert-danger hr {
-	border-top-color: #f1b0b7
+	border-top-color: #000000
 }
 
 .alert-danger .alert-link {
@@ -10601,3 +10622,22 @@ a.text-dark:hover {
 
 /*# sourceMappingURL=bootstrap.min.css.map */
 /*# sourceMappingURL=bootstrap.min.css.map */
+@media (max-width: 720px) {
+  .jumbotron1 {
+    background-image: url("../../../../images/banner.ucad.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    font-size: calc(0.1em + 0.1vw);
+
+  }
+  .lead {
+    font-size: calc(0.4em + 1.8vw);
+    padding: 0.6em;
+  }
+  .display-5 {
+    font-size: calc(1em + 2vw);
+    font-style: bold;
+    padding: 0.5em;
+  }
+}

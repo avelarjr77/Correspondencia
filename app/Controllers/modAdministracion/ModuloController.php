@@ -9,19 +9,23 @@ use App\Models\modAdministracion\MovimientosModel;
 
 class ModuloController extends BaseController
 {
-
+    public function __construct(){
+		helper(['system_helper']);
+	}
 
     //LISTAR MODULOS
     public function adminModulo()
     {
 
         $Modulo = new ModuloModel();
+        helper(['form']);
 
         $mensaje = session('mensaje');
 
         $data = [
             "datos"     => $Modulo->asObject()->findAll(),
-            "mensaje"   => $mensaje
+            "mensaje"   => $mensaje,
+            "prueba" => fraseAleatoria()
         ];
 
         return view('modAdministracion/adminModulo', $data);

@@ -20,7 +20,7 @@ a:hover {
     color: #4FDA8C;
 }
 #slideshow .one {
-    background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/dots.png");
+    background-image: url("../../../../../public/images/dots.png");
     background-repeat: no-repeat;
     background-position: 0% 50%;
 }
@@ -522,11 +522,12 @@ a.button:hover {
     line-height: .5em;
 }
 #slideshow h3 {
-  margin: .0em auto .0em auto;
+  position: static;
+  margin: auto  auto;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.8em;
   color: #fff;
-  line-height: .5em;
+  line-height: 1.2em;
 }
 
 
@@ -934,4 +935,15 @@ input {
 .element.inactive {
   opacity: 0.0;
   transform: scale(1) translate3d(0,0,0);
+}
+
+@media (max-width:1000px) {
+  #slideshow h3 {
+    position: relative;
+    margin: auto  auto;
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    line-height: 1em;
+  }
 }

@@ -21,11 +21,10 @@
     <div class="x_content"><br><br>
         <div class="col-md-12 col-sm-12  text-center">
             <div class="jumbotron1 jumbotron-fluid shadow" style="border-radius: 10PX;">
-                <div class="container" style="color:#2A3F54;;  text-align: right; font-weight: bold; ">
-                    <h2 class="display-4"> <b>Sistema de Correspondencia &nbsp;&nbsp;</b></h2>
-                    <p class="lead" style="font-style: italic;">
-                        <b> Univerdidad Cristiana de las Asambleas de Dios &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                <div class="container text1-jumbotron">
+                    <h3 class="display-5" style="font-weight: 100;"><b>Sistema de Correspondencia</b></h3>
+                    <p class="lead" style="font-style: italic; ">
+                        <b> Universidad Cristiana de las Asambleas de Dios</b>
                     </p>
                 </div>
             </div>
