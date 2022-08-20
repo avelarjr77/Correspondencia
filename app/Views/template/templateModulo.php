@@ -43,7 +43,8 @@
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
-              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?> </h2>
+              <!-- strtoupper: se usa para cambiar un array a mayusculas -->
+              <h2 style="font-size: 20px;"><?php echo strtoupper(session('usuario')); ?> </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->

@@ -166,15 +166,15 @@ class App extends BaseConfig
 
     /**
      * --------------------------------------------------------------------------
-     * Session Expiration
+     * Expiración de la sesión
      * --------------------------------------------------------------------------
      *
-     * The number of SECONDS you want the session to last.
-     * Setting to 0 (zero) means expire when the browser is closed.
+     * El número de SEGUNDOS que quieres que dure la sesión.
+     * Establecer en 0 (cero) significa que expira cuando se cierra el navegador.
      *
      * @var int
      */
-    public $sessionExpiration = 7200;
+    public $sessionExpiration = 600;
 
     /**
      * --------------------------------------------------------------------------
@@ -211,14 +211,14 @@ class App extends BaseConfig
 
     /**
      * --------------------------------------------------------------------------
-     * Session Time to Update
+     * Tiempo de sesión para actualizar
      * --------------------------------------------------------------------------
      *
-     * How many seconds between CI regenerating the session ID.
+     * Cuántos segundos entre CI que regenera el ID de sesión.
      *
      * @var int
      */
-    public $sessionTimeToUpdate = 300;
+    public $sessionTimeToUpdate = 550;
 
     /**
      * --------------------------------------------------------------------------
