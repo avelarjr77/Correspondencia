@@ -42,27 +42,8 @@
                                 <td><?php echo $key->tipoEnvioId ?></td>
                                 <td><?php echo $key->transaccionActividadId ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit"
-                                        data-documentoId="<?php echo $key->documentoId ?>"
-                                        data-nombreDocumento="<?php echo $key->nombreDocumento ?>"
-                                        data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>"
-                                        data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>"
-                                        data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>"><i
-                                            class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-warning btn-sm btn-edit"
-                                        data-documentoId="<?php echo $key->documentoId ?>"
-                                        data-nombreDocumento="<?php echo $key->nombreDocumento ?>"
-                                        data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>"
-                                        data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>"
-                                        data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>"><i
-                                            class="fa fa-pencil-square-o"></i> Editar</a>
-                                    <a href="#" class="btn btn-danger btn-sm btn-delete"
-                                        data-documentoId="<?php echo $key->documentoId ?>"
-                                        data-nombreDocumento="<?php echo $key->nombreDocumento ?>"
-                                        data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>"
-                                        data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>"
-                                        data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>"><i
-                                            class="fa fa-trash"></i> Eliminar</a>
+                                    <a href="#" class="btn btn-warning btn-sm btn-edit" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>"  data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                    <a href="#" class="btn btn-danger btn-sm btn-delete" data-documentoId="<?php echo $key->documentoId ?>" data-nombreDocumento="<?php echo $key->nombreDocumento ?>" data-tipoDocumentoId="<?php echo $key->tipoDocumentoId ?>" data-tipoEnvioId="<?php echo $key->tipoEnvioId ?>" data-transaccionActividadId="<?php echo $key->transaccionActividadId ?>" ><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -239,29 +220,27 @@
 
                 <!-- Modal Delete documento-->
                 <form action="<?php echo base_url() . '/eliminarDocumento' ?>" method="POST">
-                    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Documento</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <h4>¿Esta seguro que desea eliminar el registro de: <b><i
-                                                class="documentoN"></i></b> ?</h4>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="hidden" name="documentoId" class="documentoId">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                    <button type="submit" class="btn btn-primary">SI</button>
-                                </div>
-                            </div>
+                    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Documento</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <div class="modal-body">
+                        
+                        <h4>¿Esta seguro que desea eliminar el registro de: <b><i class="documentoN"></i></b> ?</h4>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="documentoId" class="documentoId">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary">SI</button>
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </form>
                 <!-- End Modal Delete documento-->
@@ -285,23 +264,23 @@
 <script type="text/javascript">
 let mensaje = '<?php echo $mensaje ?>';
 
-if (mensaje == '0') {
-    swal('', 'Agregado', 'success');
-} else if (mensaje == '1') {
-    swal('No se agrego', 'Los datos ingresados contienen signos de puntuacion', 'error');
-} else if (mensaje == '2') {
-    swal('', 'Eliminado', 'success');
-} else if (mensaje == '3') {
-    swal('', 'No se Elimino Registro', 'error');
-} else if (mensaje == '4') {
-    swal('', 'Actualizado con exito', 'success');
-} else if (mensaje == '5') {
-    swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
-} else if (mensaje == '6') {
-    swal('', 'Este documento ya existe en la base de datos', 'error');
-} else if (mensaje == '7') {
-    swal('', 'Tipo de documento no admitido en la base de datos', 'error');
-}
+    if (mensaje == '0') {
+        swal('', 'Agregado', 'success');
+    } else if (mensaje == '1') {
+        swal('No se agrego', 'Los datos ingresados contienen signos de puntuacion', 'error');
+    }else if (mensaje == '2') {
+        swal('', 'Eliminado', 'success');
+    }else if (mensaje == '3') {
+        swal('', 'No se Elimino Registro', 'error');
+    }else if (mensaje == '4') {
+        swal('', 'Actualizado con exito', 'success');
+    }else if (mensaje == '5') {
+        swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
+    }else if (mensaje == '6') {
+        swal('', 'Este documento ya existe en la base de datos', 'error');
+    }else if (mensaje == '7') {
+        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
+    }
 </script>
 
 <script>
@@ -323,22 +302,22 @@ $(document).ready(function() {
         $('.tipoEnvioId').val(tipoEnvioId).trigger('change');
         $('.transaccionActividadId').val(transaccionActividadId);
 
-        // Call Modal Edit
-        $('#editModal').modal('show');
-    });
+            // Call Modal Edit
+            $('#editModal').modal('show');
+        });
 
-    // get Delete 
-    $('.btn-delete').on('click', function() {
-        // get data from button edit
-        const documentoId = $(this).data('documentoId');
-        const nombreDocumento = $(this).data('nombreDocumento');
-        const tipoDocumentoId = $(this).data('tipoDocumentoId');
-        const tipoEnvioId = $(this).data('tipoEnvioId');
-        const transaccionActividadId = $(this).data('transaccionActividadId');
-
-        // Set data to Form Edit
-        $('.documentoId').val(documentoId);
-        $('.documentoN').html(documento);
+        // get Delete 
+        $('.btn-delete').on('click',function(){
+            // get data from button edit
+            const documentoId = $(this).data('documentoId');
+            const nombreDocumento = $(this).data('nombreDocumento');
+            const tipoDocumentoId = $(this).data('tipoDocumentoId');
+            const tipoEnvioId = $(this).data('tipoEnvioId');
+            const transaccionActividadId = $(this).data('transaccionActividadId');
+            
+            // Set data to Form Edit
+            $('.documentoId').val(documentoId);
+            $('.documentoN').html(documento);
 
         // Call Modal Edit
         $('#eliminarModal').modal('show');

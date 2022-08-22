@@ -9,33 +9,12 @@
   <title>Login - Correspondencia </title>
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/login.css">
-  <link rel="stylesheet" href="vendors/bootstrap/dist/css/all.min.css">
-  <link rel="stylesheet" href="vendors/bootstrap/dist/css/pnotify.css">
-  <link rel="stylesheet" href="vendors/bootstrap/dist/css/pnotify.buttons.css">
-  <link rel="stylesheet" href="vendors/bootstrap/dist/css/pnotify.nonblock.css">
-  <link rel="stylesheet" href="vendors/bootstrap/dist/css/styles__ltr.css">
 
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 </head>
 
 <body>
   <div class="container">
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/login.css" rel="stylesheet">
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/pnotify.nonblock.css">
-    <!-- PNotify -->
-    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-
-    <meta name="robots" content="noindex">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <meta name="robots" content="noindex">
 
     <!-- LOGIN -->
     <div class="login"><br>
@@ -45,7 +24,7 @@
         <div class="col-md-3" style="z-index: 300;">
 
           <?php if (session()->get('success')) : ?>
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <div class="alert alert-info alert-dismissible fade show" role="alert" style="background-color: f44336;">
               <i class="fa fa-check-circle"></i>
               <button type="button" class="close" data-dismiss="alert">&times;</button>
               <?= session()->get('success') ?>
@@ -65,7 +44,7 @@
       <div class="wrap">
         <!-- TOGGLE -->
         <div id="toggle-wrap">
-          <div id="toggle-terms">
+          <div id="toggle-terms" class="">
             <div id="cross">
               <span></span>
               <span></span>
@@ -92,9 +71,9 @@
           <!-- SLIDESHOW -->
           <div id="slideshow">
 
-            <div class="one" style="display: block; opacity: 1;">
-              <h2 style="font-size:3.6vw;"><span>UCAD</span></h2><br>
-              <h3 style="font-size:3vh; ">SISTEMA DE CORRESPONDENCIA</h3>
+            <div class="one">
+              <h2 ><span>UCAD</span></h2><br>
+              <h3 >SISTEMA DE CORRESPONDENCIA</h3>
             </div>
           </div>
         </div>
@@ -105,7 +84,7 @@
           <div class="form-wrap">
             <!-- TABS -->
             <div class="tabs">
-              <h4 class="login-tab"><a class="log-in active" href="<?= base_url() . route_to('homeModulos') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
+              <h4 class="login-tab"><a class="log-in active" href="<?= base_url() . route_to('login') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
             </div>
 
             <!-- TABS CONTENT -->
@@ -135,10 +114,20 @@
 <script>
   function recuperar() {
     document.getElementById("recovery").classList.toggle("open");
+    document.getElementById("toggle-terms").classList.toggle("open");
   }
   document.getElementById("forgot").onclick = function() {
     recuperar();
   }
+</script>
+<script>
+  function cerrar() {
+    document.getElementById("recovery").classList.remove("open");
+    document.getElementById("toggle-terms").classList.remove("open");
+  }
+  document.getElementById("cross").onclick = function() {
+    cerrar();
+};
 </script>
 <script>
   window.setTimeout(function() {
@@ -151,11 +140,6 @@
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- PNotify -->
-<script src="vendors/pnotify/dist/pnotify.js"></script>
-<script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
-<script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>

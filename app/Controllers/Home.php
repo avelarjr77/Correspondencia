@@ -16,7 +16,8 @@ class Home extends BaseController
     {
         $mensaje = session('mensaje');
         $data = [
-            "mensaje"   => $mensaje
+            "mensaje"   => $mensaje,
+            "prueba" => fraseAleatoria()
         ];
         if (!session()->is_logged) {
             return redirect()->to(base_url('/'));

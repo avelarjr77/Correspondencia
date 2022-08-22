@@ -1,0 +1,63 @@
+ERROR - 2022-08-17 20:01:06 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Host desconocido. 
+ERROR - 2022-08-17 20:01:23 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Host desconocido. 
+ERROR - 2022-08-17 20:04:38 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Host desconocido. 
+ERROR - 2022-08-17 21:44:58 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+CRITICAL - 2022-08-17 21:44:58 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `co...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `co...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `co...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `co...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\MenuSubmenuModel.php(50): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(77): App\Models\modAdministracion\MenuSubmenuModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-08-17 21:45:47 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+CRITICAL - 2022-08-17 21:45:47 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `co...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `co...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `co...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `co...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\MenuSubmenuModel.php(50): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\MenuSubmenuController.php(77): App\Models\modAdministracion\MenuSubmenuModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\MenuSubmenuController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\MenuSubmenuController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-08-17 22:06:19 --> Call to undefined function App\Controllers\modAdministracion\fraseAleatoria()
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloController->adminModulo()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-17 22:14:48 --> Undefined property: App\Controllers\modAdministracion\ModuloController::$load
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\ModuloController.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 25, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\ModuloController->adminModulo()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\ModuloController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-17 23:33:53 --> Undefined index: nombreDocumento
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 73, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->crearImage()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-17 23:37:33 --> Undefined index: nombreDocumento
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 73, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->crearImage()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-17 23:44:31 --> Undefined index: nombreDocumento
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modUsuario\DocumentoController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 73, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modUsuario\DocumentoController->crearImage()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modUsuario\DocumentoController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
