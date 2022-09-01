@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nombre de Clave:</label>
+                                <label>Contraseña:</label>
                                 <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control">
                             </div>
 
@@ -145,7 +145,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nombre de Clave:</label>
+                                <label>Contraseña:</label>
                                 <input type="password" id="clave" name="clave" minlength="6" maxlength="45" required="required" autocomplete="off" class="form-control clave">
                             </div>
 

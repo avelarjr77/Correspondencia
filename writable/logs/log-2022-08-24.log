@@ -1,0 +1,1 @@
+ERROR - 2022-08-24 02:48:13 --> Email: sendWithSmtp throwed fsockopen(): php_network_getaddresses: getaddrinfo failed: Host desconocido. 

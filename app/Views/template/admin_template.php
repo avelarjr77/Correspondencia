@@ -183,8 +183,8 @@
                   <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('#') ?>"><i class="fa fa-key pull-right"></i> Cambiar Contraseña</a>
-                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                <a class="dropdown-item" href="<?php echo base_url('perfil') ?>"><i class="fa fa-user pull-right"></i> Perfil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>
                 </div>
               </li>
             </ul>

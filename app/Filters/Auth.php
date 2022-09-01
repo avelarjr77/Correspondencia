@@ -12,7 +12,7 @@ class Auth implements FilterInterface
     {
         if(!session()->is_logged){
             return redirect()->route('/');
-        } 
+        }
 
      /*   $usuarios = model('Usuarios');
         if(!$user=$usuarios->obtenerUsuario('usuario', session()->usuarioId)){

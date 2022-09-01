@@ -17,62 +17,10 @@ class Home extends BaseController
         $mensaje = session('mensaje');
         $data = [
             "mensaje"   => $mensaje,
-            "prueba" => fraseAleatoria()
         ];
-        if (!session()->is_logged) {
-            return redirect()->to(base_url('/'));
-        }
         return view('homeModulos', $data);
     }
 
-    public function login()
-    {
-        $session = \Config\Services::session();
-
-        $usuario = trim($this->request->getVar('usuario'));
-        $clave = $this->request->getVar('clave');
-
-        
-
-        $usuarios = model('Usuarios');
-        $pass = $usuarios->obtenerUsuario('clave', $clave);
-
-        $obtenerRol = new UsuarioModel();
-        $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
-            ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $usuario)->first();
-
-        if ($user = $usuarios->obtenerId('usuario', $usuario) && isset($pass['clave'])) {
-
-            $data = array(
-                'usuario' => $usuario,
-                'rol' => $rol['nombreRol'],
-                'is_logged' => true
-            );
-
-            //PARA REGISTRAR QUIEN INICIO SESSION
-            $this->bitacora  = new MovimientosModel();
-
-            $descripcion  = $_SERVER['REMOTE_ADDR'];
-            $hora=new Time('now');
-
-            $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $usuario,
-                'accion' => 'Inicio de sesión',
-                'descripcion' => $descripcion,
-                'hora' => $hora,
-            ]);
-
-            //END
-
-            $session = session();
-            $session->set($data);
-
-            return redirect()->to(base_url('/homeModulos'))->with('success', '<strong>¡Bienvenido!</strong><br>'.$session->usuario);
-        } else {
-            return redirect()->to(base_url('/'))->with('danger', 'El usuario y contraseña no coiciden, intente de nuevo.');
-        }
-    }
 
     public function modulo()
     {

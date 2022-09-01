@@ -69,7 +69,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $defaultLocale = 'en';
+    public $defaultLocale = 'es';
 
     /**
      * --------------------------------------------------------------------------
@@ -174,7 +174,7 @@ class App extends BaseConfig
      *
      * @var int
      */
-    public $sessionExpiration = 600;
+    public $sessionExpiration = 6000;
 
     /**
      * --------------------------------------------------------------------------

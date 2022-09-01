@@ -106,10 +106,16 @@ class TransaccionActividadController extends BaseController{
 
         //$respuesta = $transaccion->obtenerActividadOrden($etapaId, $ordenActividad);
 
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $datos = [ 
             "estado" => 'F',
             "fechaFin" => $porciones[0],
-            "horaFin" => $porciones[1]
+            "horaFin" => $porciones[1],
+            "usuarioModifica"   => $session,
+            "fechaModifica"     => $hora,
         ]; //etapa y actividad finalizar
 
         $datosP = [ 
@@ -118,12 +124,18 @@ class TransaccionActividadController extends BaseController{
             "horaFin" => $porciones[1]
         ]; //proceso
 
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $data = [
             'transaccionDetalleId' => $transaccionDetalleId, 
             'actividadId' => $actividadId,
             "estado" => 'I',
             "fechaCreacion" => $porciones[0],
-            "horaCreacion" => $porciones[1]
+            "horaCreacion" => $porciones[1],
+            "usuarioModifica"   => $session,
+            "fechaModifica"     => $hora,
         ]; //actividad
 
         $dataAN = [
@@ -139,7 +151,9 @@ class TransaccionActividadController extends BaseController{
             'etapaId' => $etapa,
             "estado" => 'I',
             "fechaInicio" => $porciones[0],
-            "horaInicio" => $porciones[1]
+            "horaInicio" => $porciones[1],
+            "usuarioModifica"   => $session,
+            "fechaModifica"     => $hora,
         ]; //etapa
 
         if ($actividadId == '') {
