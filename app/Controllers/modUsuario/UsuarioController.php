@@ -34,20 +34,26 @@ class UsuarioController extends BaseController{
         $usuario = new UsuarioModel();
 
         if($this->validate('validarUsuario')){
+
+            //Campos de auditoria
+            $hora=new Time('now');
+            $session = session('usuario');
+
             $usuario->insertar(
                 [
-                    "personaId" => $_POST['personaId'],
-                    "usuario"   => $_POST['usuario'],
-                    "clave"     => $_POST['clave'],
-                    "estado"    => $_POST['estado'],
-                    "rolId"     => $_POST['rolId']
+                    "personaId"     => $_POST['personaId'],
+                    "usuario"       => $_POST['usuario'],
+                    "clave"         => $_POST['clave'],
+                    "estado"        => $_POST['estado'],
+                    "rolId"         => $_POST['rolId'],
+                    "usuarioCrea"   => $session,
+                    "fechaCrea"     => $hora,
                 ]
             );
 
             //PARA REGISTRAR EN BITACORA QUIEN CREÓ USUARIO
             $this->bitacora  = new MovimientosModel();
-            $hora=new Time('now');
-            $session = session('usuario');
+
 
             $this->bitacora->save([
                 'bitacoraId'    => null,
@@ -107,12 +113,19 @@ class UsuarioController extends BaseController{
         if ($this->validate([
             'usuario'        => 'is_unique[wk_usuario.usuario]|alpha_numeric'
             ])) {
+
+                //Campos de auditoria
+                $hora=new Time('now');
+                $session = session('usuario');
+                
                 $datos = [
                     "personaId" => $_POST['personaId'],
                     "usuario"   => $_POST['usuario'],
                     "clave"     => $_POST['clave'],
                     "estado"    => $_POST['estado'],
-                    "rolId"     => $_POST['rolId']
+                    "rolId"     => $_POST['rolId'],
+                    "usuarioModifica"   => $session,
+                    "fechaModifica"     => $hora,
                 ];
 
             $usuarioId = $_POST['usuarioId'];
@@ -123,8 +136,7 @@ class UsuarioController extends BaseController{
 
             //PARA REGISTRAR EN BITACORA QUIEN EDITÓ USUARIO
             $this->bitacora  = new MovimientosModel();
-            $hora=new Time('now');
-            $session = session('usuario');
+
 
             $this->bitacora->save([
                 'bitacoraId'    => null,

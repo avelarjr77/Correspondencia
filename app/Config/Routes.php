@@ -35,22 +35,23 @@ $routes->setAutoRoute(true);
                                     //['filter'=> 'auth']
 $routes->get('/', 'Login::index' ) ;
 
-$routes->post('/homeUser', 'HomeUser::index');
-
-$routes->post('/homeModulos', 'Home::login', ['as'=> 'homeModulos']);
+$routes->post('/homeModulos', 'Login::login', ['as'=> 'homeModulos']);
 $routes->get('/salir', 'Home::salir');
 
-$routes->get('/homeModulos', 'Home::modulo', ['as'=> 'homeModulos']);
 
 $routes->get('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 $routes->post('/recuperarContraseña', 'Login::recuperarContraseña' ) ;
 
-$routes->get('homeMenus', 'HomeMenusController::index');
-$routes->post('homeMenus', 'HomeMenusController::index');
-$routes->get('homeMenu', 'HomeMenusController::homeMenu', ['as'=> 'homeMenu']);
 
-
-$routes->get('perfil', 'PerfilController::index', ['as'=> 'perfil']);
+$routes->group('/',['filter'=>'auth'],function($routes){
+    $routes->get('/homeModulos', 'Home::modulo', ['as'=> 'homeModulos']);
+    $routes->get('homeMenus', 'HomeMenusController::index');
+    $routes->post('homeMenus', 'HomeMenusController::index');
+    $routes->get('homeMenu', 'HomeMenusController::homeMenu', ['as'=> 'homeMenu']);
+    $routes->get('perfil', 'PerfilController::index');
+    $routes->post('nuevaContraseña', 'PerfilController::nuevaContraseña');
+    $routes->post('editarPerfil', 'PerfilController::editarPerfil');
+});
 
 //MENU
 $routes->group('/',['filter'=>'auth'],function($routes){

@@ -971,7 +971,7 @@
   color: #C4CFDA; }
 
 .active a span.fa {
-  text-align: right !important;
+  text-align: right ;
   margin-right: 4px; }
 
 .nav-sm .menu_section {
@@ -1337,7 +1337,7 @@ a:hover, a:focus {
   background-color: rgba(255, 255, 255, 0.06); }
 
 .nav.child_menu li {
-  padding-left: 36px; }
+  padding-left: 6px; }
 
 .nav-md ul.nav.child_menu li:before {
   background: #425668;
@@ -1349,7 +1349,6 @@ a:hover, a:focus {
   position: absolute;
   right: auto;
   width: 8px;
-  z-index: 1;
   border-radius: 50%; }
 
 .nav-md ul.nav.child_menu li:after {

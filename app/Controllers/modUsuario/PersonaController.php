@@ -2,6 +2,7 @@
 
 namespace App\Controllers\modUsuario;
 
+use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\PersonaModel;
 use App\Models\modUsuario\UsuarioModel;
@@ -41,6 +42,8 @@ class PersonaController extends BaseController
     //CREAR PERSONA
     public function crear()
     {
+        $hora=new Time('now');
+        $session = session('usuario');
 
         $datosPersona = [
             "dui" => $_POST['dui'],
@@ -50,7 +53,9 @@ class PersonaController extends BaseController
             "fechaNacimiento" => $_POST['fechaNacimiento'],
             "genero" => $_POST['genero'],
             "cargoId" => $_POST['cargoId'],
-            "departamentoId" => $_POST['departamentoId']
+            "departamentoId" => $_POST['departamentoId'],
+            "usuarioCrea"   => $session,
+            "fechaCrea"     => $hora,
         ];
 
         $persona = new PersonaModel();
@@ -91,6 +96,10 @@ class PersonaController extends BaseController
             'primerApellido'        => 'alpha',
             'segundoApellido'        => 'alpha'
         ])) {
+
+            $hora=new Time('now');
+            $session = session('usuario');
+
             $datos = [
                 "nombres" => $_POST['nombres'],
                 "primerApellido" => $_POST['primerApellido'],
@@ -98,7 +107,9 @@ class PersonaController extends BaseController
                 "fechaNacimiento" => $_POST['fechaNacimiento'],
                 "genero" => $_POST['genero'],
                 "cargoId" => $_POST['cargoId'],
-                "departamentoId" => $_POST['departamentoId']
+                "departamentoId" => $_POST['departamentoId'],
+                "usuarioModifica"   => $session,
+                "fechaModifica"     => $hora,
             ];
             $personaId = $_POST['personaId'];
 

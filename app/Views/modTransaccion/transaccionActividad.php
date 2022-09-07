@@ -224,7 +224,7 @@
                     <div class="modal-content">
                         <div class="modal-header kv-zoom-header">
                             <h5 class="modal-title kv-zoom-title nombreD" id="kvFileinputModalLabel"><span class="kv-zoom-caption"
-                                    title="Marco legal.docx"></span> <span class="kv-zoom-size prueba"> 
+                                    title=""></span> <span class="kv-zoom-size prueba"> 
                                 </span>
                             </h5>
                             <div class="">
@@ -238,7 +238,7 @@
                             <div class="floating-buttons"></div>
                             <div class="" style="height: 550px;">
                                 <div class="kv-preview-data kv-zoom-body file-zoom-content krajee-default" width="100%">
-                                    <iframe id="iframePDF" width="600px" height="550px" class="kv-preview-data file-preview-office file-zoom-detail"
+                                    <iframe id="iframePDF" width="800px" height="550px" class="kv-preview-data file-preview-office file-zoom-detail"
                                         src="uploads/Readme.txt" frameborder="0">
                                     </iframe>
                                 </div>

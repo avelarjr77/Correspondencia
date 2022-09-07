@@ -96,7 +96,8 @@
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
-              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?> </h2>
+              <!-- strtoupper: se usa para cambiar un array a mayusculas -->
+              <h2 style="font-size: 20px;"><?php echo strtoupper(session('usuario')); ?> </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -178,11 +179,12 @@
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/user.png" alt=""><?php echo session('usuario'); ?>
+                  <!-- strtoupper: se usa para cambiar un array a mayusculas -->
+                  <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('#') ?>"><i class="fa fa-key pull-right"></i> Cambiar Contraseña</a>
-                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                <a class="dropdown-item" href="<?php echo base_url('perfil') ?>"><i class="fa fa-user pull-right"></i> Perfil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>
                 </div>
               </li>
             </ul>

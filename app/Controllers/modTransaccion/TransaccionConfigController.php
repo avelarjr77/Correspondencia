@@ -231,12 +231,18 @@ class TransaccionConfigController extends BaseController{
     //CREAR TRANSACCION
     public function crear(){
 
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $datos = [
             "procesoId" => $_POST['procesoId'],
             "personaId" => $_POST['personaId'],
             "institucionId" => $_POST['institucionId'],
             "observaciones" => $_POST['observaciones'],
-            "estadoTransaccion" => 'I'
+            "estadoTransaccion" => 'I',
+            "usuarioCrea"   => $session,
+            "fechaCrea"     => $hora,
         ];
 
         $transaccion = new TransaccionConfigModel();
@@ -253,8 +259,6 @@ class TransaccionConfigController extends BaseController{
 
         //PARA REGISTRAR EN BITACORA QUIEN CREÓ LA TRANSACCION
         $this->bitacora  = new MovimientosModel();
-        $hora=new Time('now');
-        $session = session('usuario');
 
         $this->bitacora->save([
             'bitacoraId'    => null,
@@ -347,8 +351,14 @@ class TransaccionConfigController extends BaseController{
     //ACTUALIZAR OBSERVACIONES
     public function actualizarO()
     {
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $datos = [
-            "observaciones" => $_POST['observaciones']
+            "observaciones" => $_POST['observaciones'],
+            "usuarioModifica"   => $session,
+            "fechaModifica"     => $hora,
         ];
 
         $transaccionId = $_POST['transaccionId'];
