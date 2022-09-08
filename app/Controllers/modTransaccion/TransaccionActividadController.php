@@ -160,7 +160,7 @@ class TransaccionActividadController extends BaseController{
             if ($etapa == '') {
                 $actalizarEstadoAc = $transaccionConfig->actualizarA($datos, $transaccionActividadId); // finalizo actividad
                 $actalizarEstadoE = $transaccionConfig->actualizarT($datos, $transaccionDetalleId);//finalizo etapa
-                $actalizarEstadoP = $transaccionConfig->actualizar($datosP, $transaccionId);// finalizo proceso
+                $actalizarEstadoP = $transaccionConfig->actualizar($datosP, $transaccionId);// finalizo proceso AQUI
             }else{
                 $actalizarEstadoE = $transaccionConfig->actualizarT($datos, $transaccionDetalleId);//finalizo etapa
                 $actalizarEstadoAc = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //finalizo actividad
@@ -169,7 +169,7 @@ class TransaccionActividadController extends BaseController{
             }
         }else{
             $insertar = $transaccionConfig->insertarAct($data); //insertar actividad
-            $actalizarEstadoA = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //actividad
+            $actalizarEstadoA = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //actividad AQUI
         }
 
         $lista = $transaccionConfig->listarTransaccionAct($transaccionDetalleId);

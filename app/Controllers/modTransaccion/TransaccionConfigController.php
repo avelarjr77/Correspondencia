@@ -183,7 +183,7 @@ class TransaccionConfigController extends BaseController{
             "horaCreacion" => $porciones[1]
         ];
 
-        $insertar = $actividad->insertarAct($data);
+        $insertar = $actividad->insertarAct($data);//AQUI CREAR ACTIVIDAD
 
         /* for ($i=0; $i < count($actividadId); $i++) 
         {
