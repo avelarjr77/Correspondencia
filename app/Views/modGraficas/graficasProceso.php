@@ -42,7 +42,7 @@
                         </form>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-md-10" id="barChart2" style="display: none">
+                        <div class="col-md-8" id="barChart2" style="display: none">
                             <canvas id="barChartProceso"></canvas>
                         </div>
                     </div>

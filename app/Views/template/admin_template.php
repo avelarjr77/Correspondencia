@@ -150,7 +150,7 @@
                   $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
                 ?>
                   <?php if ($u->nombreMenu) : ?>
-                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>
                     <?php endif ?>
                     <ul class="nav child_menu">
                       <?php foreach ($submenus as $s) : ?>

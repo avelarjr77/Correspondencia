@@ -77,7 +77,7 @@
                 <div class="panel">
                     <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion"
                         href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h4 class="panel-title">Actividad</h4>
+                        <h4 class="panel-title">Actividad <span class="fa fa-chevron-down right"></span></h4>
                     </a>
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
                         aria-labelledby="headingOne">
@@ -89,8 +89,8 @@
                                     <thead>
                                         <tr>
                                             <th>Accion</th>
-                                            <th>descripcion</th>
-                                            <th>fecha</th>
+                                            <th>Descripción</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,7 +113,7 @@
                 <div class="panel">
                     <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse"
                         data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <h4 class="panel-title">Procesos</h4>
+                        <h4 class="panel-title">Procesos <span class="fa fa-chevron-down right"></h4>
                     </a>
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
@@ -148,16 +148,16 @@
                     <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse"
                         data-parent="#accordion" href="#collapseThree" aria-expanded="false"
                         aria-controls="collapseThree">
-                        <h4 class="panel-title">Más detalles</h4>
+                        <h4 class="panel-title">Más detalles <span class="fa fa-chevron-down right"></h4>
                     </a>
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
                         aria-labelledby="headingThree">
                         <div class="panel-body">
-                            <div class="col-md-7 col-sm-7">
-                                <ul class="list-unstyled user_data">
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="list-unstyled user_data"><br>
                                     <li>
-                                        <h6>Dirección:</h6>
-                                        <i class=""></i> San Salvador
+                                        <h6>Cargo:</h6>
+                                        <i class=""></i> Docente
                                     </li>
                                     <li>
                                         <h6>Departamento:</h6>
@@ -165,7 +165,23 @@
                                     </li>
                                     <li>
                                         <h6>Institución:</h6>
-                                        <i class=""></i> Universidad Cristiana de las Asambleas de Dios
+                                        <i class=""></i> UCAD
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6"><br>
+                                <ul class="list-unstyled user_data">
+                                    <li>
+                                        <h6>Correo:</h6>
+                                        <i class=""></i> usuario138@gmail.com
+                                    </li>
+                                    <li>
+                                        <h6>Celular:</h6>
+                                        <i class=""></i> 7610 6550
+                                    </li>
+                                    <li>
+                                        <h6>Dirección:</h6>
+                                        <i class=""></i> Santa Ana, El Porvenir, Santa Ana
                                     </li>
                                 </ul>
                             </div>

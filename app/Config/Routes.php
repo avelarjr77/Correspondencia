@@ -196,6 +196,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 //DOCUMENTO
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('documento', 'modUsuario/DocumentoController::documento', ['as'=> 'documento']);
+    $routes->get('manual', 'modManuales/ManualController::manual', ['as'=> 'manual']);
     $routes->post('crearDocumento', 'modUsuario/DocumentoController::crear');
     $routes->post('crearDocumentoImage', 'modUsuario/DocumentoController::crearImage');
     $routes->post('actualizarDocumento', 'modUsuario/DocumentoController::actualizar');
