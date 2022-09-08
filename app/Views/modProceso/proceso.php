@@ -169,20 +169,22 @@
             </div>
 
             <br><br>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre de Etapa</th>
-                        <th>Orden</th>
-                        <th>Nombre del Proceso</th>
-                        <th scope="col" colspan="2">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="etapaData">
+            <div id="tabla-etapa" style="display: none">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre de Etapa</th>
+                            <th>Orden</th>
+                            <th>Nombre del Proceso</th>
+                            <th scope="col" colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="etapaData">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!--FIN LISTADO ETAPA-->
 
@@ -550,11 +552,13 @@
             $('#tituloP').css("font-size", 16);
             //$("#etapaData").find("tr:gt(0)").remove();
 
-            var eData = $("#etapaData");
+            //var eData = $("#etapaData");
+            $("#etapaData").empty();
+            recargarEtapa(idE);
 
-            $.ajax({
+            /* $.ajax({
                 type: "GET",
-                url: "<?= base_url() . route_to('etapa') ?>",
+                url: "<= base_url() . route_to('etapa') ?>",
                 data: {
                     procesoId: idE
                 },
@@ -576,7 +580,7 @@
                             "</td></tr>")
                     });
                 }
-            });
+            }); */
 
             // Call Modal Edit
             //$('#editModal').modal('show');
@@ -674,9 +678,11 @@
                         "<td>" + val.proceso + "</td>" +
                         "<td><a href='#' onclick='actualizarEtapa(" + val.procesoId + " , " + val.id + ")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> </a>" +
                         "<a href='#' onclick='borrarEtapa(" + val.id + " , " + val.procesoId + " )' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> </a>" +
-                        "<a href='#' onclick='actividad(" + val.id + ")' class='btn btn-primary btn-sm btn-actividad' data-i='" + val.id + "' data-n='" + val.nombre + "'><i class='fa fa-tasks'></i> Actividades</a>" +
+                        "<a href='#' onclick='actividad(" + val.id + ", \"" + val.nombre + "\")' class='btn btn-primary btn-sm btn-actividad' data-i='" + val.id + "' data-n='" + val.nombre + "'><i class='fa fa-tasks'></i> Actividades</a>" +
                         "</td></tr>")
                 });
+
+                $('#tabla-etapa').css("display", "block");
             }
         });
     }
@@ -846,7 +852,7 @@
     });
 
     function actividad(idAC, etapa) {
-        
+        console.log(idAC, etapa);
         //idAC trae etapaId
         console.log(etapa);
         $('#actividadE').val(idAC);
@@ -856,11 +862,13 @@
         $('#tituloE').css("color", "#010806");
         $('#tituloE').css("font-size", 16);
 
-        var aData = $("#actividadData");
+        //var aData = $("#actividadData");
+        $("#actividadData").empty();
+        recargarActividad(idAC);
 
-        $.ajax({
+        /* $.ajax({
             type: "GET",
-            url: "<?= base_url() . route_to('actividad') ?>",
+            url: "<= base_url() . route_to('actividad') ?>",
             data: {
                 etapaId: idAC
             },
@@ -874,26 +882,14 @@
                     $("#aviso").html('No hay actividades para esta etapa.');
                     $("#actividadData").empty();
                 } else {
-                    //$("#actividadData").empty();
-
-
-                    $.each(dataActividad, function(index, val) {
-                        aData.append("<tr><td>" + val.id + "</td>" +
-                            "<td>" + val.nombre + "</td>" +
-                            "<td>" + val.descripcion + "</td>" +
-                            "<td>" + val.ordenA + "</td>" +
-                            "<td>" + val.etapa + "</td>" +
-                            "<td>" + val.persona + "</td>" +
-                            "<td><a href='#' onclick='actualizarActividad(" + val.id + " , " + val.etapaId + ")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>" +
-                            "<a href='#' onclick='borrarActividad(" + val.id + ", " + val.etapaId + ")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>" +
-                            "</td></tr>")
-                    });
+                    $("#actividadData").empty();
+                    recargarActividad(idAC);
 
                     $('#tbl-actividad').css("display", "block");
                     $("#aviso").empty();
                 }
             }
-        });
+        }); */
 
         //personaCrear();
 
@@ -958,6 +954,7 @@
     $('.btn-agregarActividad').on('click', function() {
         $('#nombreActividad').val('');
         $('#descripcion').val('');
+        $('#ordenA').val('');
         //$('#personaData').val('');
         personaCrear();
     });
