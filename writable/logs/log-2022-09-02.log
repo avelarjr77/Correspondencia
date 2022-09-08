@@ -1,0 +1,78 @@
+ERROR - 2022-09-02 17:41:03 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:41:03 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `vp`.`ac...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `vp`.`ac...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `vp`.`ac...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `vp`.`ac...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(96): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-09-02 17:41:57 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:41:57 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `vp`.`ac...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `vp`.`ac...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `vp`.`ac...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `vp`.`ac...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(96): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-09-02 17:42:13 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:42:13 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `vp`.`ac...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `vp`.`ac...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `vp`.`ac...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `vp`.`ac...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(96): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-09-02 17:49:10 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:49:10 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT vp.etapa...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT vp.etapa...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT vp.etapa...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(109): CodeIgniter\Database\BaseConnection->query('SELECT vp.etapa...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(37): App\Models\modTransaccion\TransaccionConfigModel->listarEtapa('23')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->etapas()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-02 17:52:56 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:52:56 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT vp.etapa...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT vp.etapa...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT vp.etapa...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(109): CodeIgniter\Database\BaseConnection->query('SELECT vp.etapa...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(37): App\Models\modTransaccion\TransaccionConfigModel->listarEtapa('22')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->etapas()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-02 17:53:03 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+CRITICAL - 2022-09-02 17:53:03 --> Table 'correspondencia.vista_con_procesos' doesn't exist
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT vp.etapa...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT vp.etapa...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT vp.etapa...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(109): CodeIgniter\Database\BaseConnection->query('SELECT vp.etapa...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(37): App\Models\modTransaccion\TransaccionConfigModel->listarEtapa('22')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->etapas()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

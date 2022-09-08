@@ -25,6 +25,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'auth'          => \App\Filters\Auth::class,
         'SessionAdmin'  => \App\Filters\SessionAdmin::class,
+        'SessionUsuario'  => \App\Filters\SessionUsuario::class,
     ];
 
     /**
@@ -69,8 +70,27 @@ class Filters extends BaseConfig
     public $filters = [
         'SessionAdmin'=>[
             'before'=>[
+                '',
+            ]
+        ],
+        'SessionUsuario'=>[
+            'before'=>[
+                '/adminRol',
+                '/rolModMenu',
                 '/menu_submenu',
                 '/submenus',
+                '/moduloMenu',
+                '/adminModulo',
+                '/persona',
+                '/cargo',
+                '/departamento',
+                '/contacto',
+                '/direccion',
+                '/tipoEnvio',
+                '/tipoProceso',
+                '/tipoDocumento',
+                '/institucion',
+                '/bitacora',
             ]
         ]
     ];

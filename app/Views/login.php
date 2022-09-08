@@ -55,11 +55,11 @@
         <!-- RECOVERY -->
         <div class="recovery" id="recovery"><br><br><br>
           <h2>¿Olvidaste tu Contraseña?</h2>
-          <p>Por favor, digite <strong> su correo electrónico</strong> para poder recuperar su contraseña.</p>
+          <p>Por favor, digite <strong> su correo electrónico</strong> para poder proporcionarle una contraseña temporal para que pueda cambiar su contraseña.</p>
           <p><strong>Verifica que los datos de tu correo electrónico sean correctos.</strong></p>
           <form class="login-form" action="<?= base_url() . '/recuperarContraseña' ?>" method="POST">
             <input type="email" class="input" id="email" name="email" placeholder="Ingresa tu correo electrónico aquí" required>
-            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECORDAR CONTRASEÑA</button>
+            <button type="submit" class="btn btn-secondary source" style="width:100%;background:#2a3f54 ">RECUPERAR CONTRASEÑA</button>
           </form>
         </div>
         <!-- SLIDER -->
