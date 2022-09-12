@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modAdministracion\MovimientosModel;
 use App\Models\modProceso\ProcesoModel;
+use App\Models\modUsuario\ContactoModel;
 use App\Models\modTransaccion\TransaccionConfigModel;
 
 class TransaccionConfigController extends BaseController{
@@ -64,66 +65,20 @@ class TransaccionConfigController extends BaseController{
         echo json_encode($datos);
     }
 
-    /* public function tDetalle(){
-
-        $etapa = new TransaccionConfigModel();
-        $transaccionId = $this->request->getVar('transaccionId');
-        $etapaId = $this->request->getVar('etapaId');
-        $fechaHora = date('Y-m-d H:i:s');
-        $porciones = explode(" ", $fechaHora);
-
-        $datos = [ 
-            "estadoTransaccion" => 'A',
-            "fechaInicio" => $porciones[0],
-            "horaInicio" => $porciones[1]
-        ];
-
-        for ($i=0; $i < count($etapaId); $i++) 
-        {
-            if ($i == 0) {
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i], "fechaInicio" => $porciones[0], "horaInicio" => $porciones[1]);
-                $insertar = $etapa->insertarT($data);
-            }else{
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i]);
-                $insertar = $etapa->insertarT($data);
-            }
-        }
-
-        $tDetalle = $etapa->listarTransaccionDet($transaccionId);
-        $actalizarEstado = $etapa->actualizar($datos, $transaccionId);
-        
-        echo json_encode($tDetalle);
-    } */
-
     public function tDetalle(){
 
         $etapa = new TransaccionConfigModel();
         $transaccionId = $this->request->getVar('transaccionId');
-        //$tActividadId = $this->request->getVar('transaccionActividadId');
-        //$transaccionDetId = $this->request->getVar('transaccionDetalleId');
+
         $etapaId = $this->request->getVar('etapaId');
-        //$actividadId = $this->request->getVar('actividadId');
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
-        /* $transaccionDetalleId = $transaccionDetId + 1;
-        $transaccionActividadId = $tActividadId +1; */
 
         $datos = [ 
             "estadoTransaccion" => 'P',
             "fechaInicio" => $porciones[0],
             "horaInicio" => $porciones[1]
         ];
-
-        /* for ($i=0; $i < count($etapaId); $i++) 
-        {
-            if ($i == 0) {
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i], "fechaInicio" => $porciones[0], "horaInicio" => $porciones[1]);
-                $insertar = $etapa->insertarT($data);
-            }else{
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i]);
-                $insertar = $etapa->insertarT($data);
-            }
-        } */
 
         $data = [
             'transaccionId' => $transaccionId, 
@@ -133,17 +88,9 @@ class TransaccionConfigController extends BaseController{
             "horaInicio" => $porciones[1]
         ];
 
-        /* $dataA = [
-            'transaccionDetalleId' => $transaccionDetalleId, 
-            'actividadId' => $actividadId
-        ]; */
-
         $insertar = $etapa->insertarT($data);
-        //$insertarActividad = $etapa->insertarAct($dataA);
 
         $actalizarEstado = $etapa->actualizar($datos, $transaccionId);
-        //$actalizarEstadoE = $etapa->actualizarT($datos, $transaccionDetalleId);
-        //$actalizarEstadoA = $etapa->actualizarA($datos, $transaccionActividadId);
 
         $tDetalle = $etapa->listarTransaccionDet($transaccionId);
         
@@ -169,12 +116,6 @@ class TransaccionConfigController extends BaseController{
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
-        /* $datos = [ 
-            "estadoTransaccion" => 'A',
-            "fechaInicio" => $porciones[0],
-            "horaInicio" => $porciones[1]
-        ]; */
-
         $data = [
             'transaccionDetalleId' => $transaccionDetalleId, 
             'actividadId' => $actividadId,
@@ -183,17 +124,67 @@ class TransaccionConfigController extends BaseController{
             "horaCreacion" => $porciones[1]
         ];
 
+        //obtener persona encargado
+        $personaId =  $actividad->asArray()->select('a.personaId')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+
+        //obtener nombre de la actividad
+        $nombreActividad =  $actividad->asArray()->select('a.nombreActividad')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+
+        //obtener descripcion de la actividad
+        $descripcion =  $actividad->asArray()->select('a.descripcion')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+
         $insertar = $actividad->insertarAct($data);//AQUI CREAR ACTIVIDAD
 
-        /* for ($i=0; $i < count($actividadId); $i++) 
-        {
-            $data = array('transaccionDetalleId' => $transaccionDetalleId, 'actividadId' => $actividadId[$i]);
-            $insertar = $actividad->insertarAct($data);
-            //$data = array($etapaId[$i]);
-        } */
+        if ($insertar) {
+
+            $modelContacto = new ContactoModel();
+            $anio = date('Y');
+
+            $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
+            ->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
+
+            $msm ='
+            <tbody>
+                <tr>
+                    <td style="background-color:#fff;text-align:left;padding:0">
+                        <img width="100%" style="display:block" src="https://ci5.googleusercontent.com/proxy/P25cH7v50GgGMWFREqDuajcm2OkK3RY5n34zWsarDel-wtDsvs1Oljgt504DztdGajplibawaNrACXM7NVKg=s0-d-e1-ft#https://ucadvirtual.com/EduWS/encabezado.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 816px; top: 64px;"><div id=":vp" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Descargar el archivo adjunto " data-tooltip-class="a1V" data-tooltip="Descargar"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                    </td>
+                <tr>
+                <tr>
+                    <td style="background-color:#ffffff">
+                    <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
+                        <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
+                        <p style="margin:2px;font-size:15px">
+                            Se le ha asignado una actividad.<br><br>
+                            '.$nombreActividad['nombreActividad'].'<br>
+                        </p>
+                        <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
+                        </p>Descripcion:</p>'.$descripcion['descripcion'].'<p></p>
+                        <div style="width:100%;text-align:center;margin-top:10%">
+                            <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                        </div>
+                        <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+            ';
+            $email = \Config\Services::email();
+            $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad['nombreActividad']);
+            $email->setTo($contactoA['contacto']);
+            $email->setSubject('Nueva Actividad Asignada');
+            $email->setMessage($msm);
+            if ($email->send()) {
+                $mensaje = 12;
+            }
+        }else{
+            $mensaje = 13;
+        } 
 
         $tActDetalle = $actividad->listarTransaccionAct($transaccionDetalleId);
-        //$actalizarEstado = $actividad->actualizar($datos, $transaccionDetalleId);
         
         echo json_encode($tActDetalle);
     }

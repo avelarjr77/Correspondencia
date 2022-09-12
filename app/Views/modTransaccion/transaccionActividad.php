@@ -49,7 +49,7 @@
                                     </td>
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-stop"></i> </a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>" data-actividadid="<?= $key->actividadId ?>" data-personaid="<?= $key->personaId ?>" data-descripcion="<?= $key->descripcion ?>"><i class="fa fa-stop"></i> </a>
                                         <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>" data-observaciones="<?= $key->observaciones ?>" data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     </td>
                                     <td>
@@ -328,7 +328,12 @@
         swal('', 'Este documento ya existe en la base de datos', 'error');
     }else if (mensaje == '7') {
         swal('', 'Tipo de documento no admitido en la base de datos', 'error');
+    }else if (mensaje == '12') {
+        swal('', 'No se envio correo proceso', 'error');
+    }else if (mensaje == '13') {
+        swal('', 'No se envio correo actividad', 'error');
     }
+
 </script>
 
 <script>
@@ -357,14 +362,14 @@
     });
 </script>
 
-
 <script>
     $(document).ready(function() {
 
         $('.btn-finalizarActividad').on('click', function() {
             // get data from button edit
             var id = $(this).data('id');
-            var actividad = $(this).data('actividad'); //actividadId
+            var actividad = $(this).data('actividad'); //nombre actividad
+            var actividadId = $(this).data('actividadid'); //actividadId
             var etapaId = $(this).data('etapaid');
             var persona = $(this).data('persona');
             var estado = $(this).data('estado');
@@ -373,9 +378,11 @@
             var ordenEtapa = $(this).data('ordenetapa');
             var procesoId = $(this).data('procesoid');
             var nombreProceso = $(this).data('nombreproceso');
+            var personaId = $(this).data('personaid');
+            var descripcion = $(this).data('descripcion');
             var transaccionId = $(this).data('transaccionid');
 
-            console.log(id, actividad, etapaId, persona, estado, transacciond, ordenActividad, ordenEtapa,
+            console.log(id, actividad, etapaId, actividadId, persona, estado, transacciond, ordenActividad, ordenEtapa,
                 procesoId, transaccionId, nombreProceso);
 
             if (estado == 'En Progreso') {
@@ -395,11 +402,16 @@
                             data: {
                                 transaccionActividadId: id,
                                 etapaId: etapaId,
+                                actividadId: actividadId,
                                 ordenActividad: ordenActividad,
                                 procesoId: procesoId,
                                 ordenEtapa: ordenEtapa,
                                 transaccionDetalleId: transacciond,
-                                transaccionId: transaccionId
+                                transaccionId: transaccionId,
+                                nombreProceso: nombreProceso,
+                                personaId: personaId,
+                                nombreActividad: actividad,
+                                descripcion: descripcion
                             },
                             success: function(data) {
 
