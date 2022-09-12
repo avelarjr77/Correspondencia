@@ -210,6 +210,13 @@
 
             // Call Modal Edit
             $('#editModal').modal('show');
+
+            
+            <a href="#" class="btn btn-warning btn-sm btn-edit"
+             data-id="<?php echo $key->id ?>" 
+             data-nombremod="<?php echo $key->modulo ?>" 
+             data-moduloid="<?php echo $key->moduloId ?>" 
+             data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
         });
 
         // get Delete Product
