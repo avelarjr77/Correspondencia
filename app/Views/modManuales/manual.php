@@ -27,38 +27,12 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script type="text/javascript">
-let mensaje = '<?php echo $mensaje ?>';
+<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
+<script src="vendors/popper/umd/popper.min.js"></script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
-    if (mensaje == '0') {
-        swal('', 'Agregado', 'success');
-    } else if (mensaje == '1') {
-        swal('No se agrego', 'Los datos ingresados contienen signos de puntuacion', 'error');
-    }else if (mensaje == '2') {
-        swal('', 'Eliminado', 'success');
-    }else if (mensaje == '3') {
-        swal('', 'No se Elimino Registro', 'error');
-    }else if (mensaje == '4') {
-        swal('', 'Actualizado con exito', 'success');
-    }else if (mensaje == '5') {
-        swal('No se actualizo', 'Los datos ingresados contienen signos de puntuacion', 'error');
-    }else if (mensaje == '6') {
-        swal('', 'Este documento ya existe en la base de datos', 'error');
-    }else if (mensaje == '7') {
-        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
-    }
-</script>
 
 <script>
 $(document).ready(function() {
