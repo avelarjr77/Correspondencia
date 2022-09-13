@@ -1,0 +1,88 @@
+CRITICAL - 2022-09-11 12:13:25 --> unlink(C:\wamp64\www\correspondencia-ucad\writable\debugbar/debugbar_1662849495.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\wamp6...', 'C:\\wamp64\\www\\c...', 74, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar\Collectors\History.php(74): unlink('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(487): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1662920000, 20)
+#3 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\wamp64\www\correspondencia-ucad\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#5 C:\wamp64\www\correspondencia-ucad\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(302): CodeIgniter\Events\Events::trigger('pre_system')
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-09-11 12:13:33 --> Undefined property: stdClass::$actividadId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\transaccionActividad.php(56): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 56, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(73): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-11 12:13:41 --> Undefined property: stdClass::$actividadId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\transaccionActividad.php(56): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 56, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(73): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-11 12:13:54 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modProceso/proc...', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ProcesoController.php(26): view('modProceso/proc...', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ProcesoController->proceso()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ProcesoController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-11 12:13:58 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-11 12:20:10 --> Undefined variable: actvidadPersona
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(175): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 175, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->tActividades()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-09-11 12:20:22 --> Undefined property: stdClass::$actividadId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\transaccionActividad.php(56): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 56, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(73): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-11 13:00:44 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 162, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->tActividades()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-09-11 13:01:15 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 162, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->tActividades()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

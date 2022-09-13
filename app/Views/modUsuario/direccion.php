@@ -156,7 +156,7 @@
                                 </select>
                             </div>
 
-                            <div class="form-group" style="display: none" id="muniA">
+                            <div class="form-group" id="muniA">
                                 <label>Municipio:</label>
                                 <select name="municipioId" class="form-control municipioIdA" required="required">
                                     <option value="">-Selecciona una persona-</option>
@@ -169,8 +169,8 @@
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="direccionId" class="direccionId">
-                            <button type="button" class="btn btn-secondary btn-editar" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary btn-editar">Editar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
                         </div>
                     </div>
                 </div>
@@ -278,7 +278,8 @@
             const persona = $(this).data('personaid');
             console.log(td);
 
-            $("#muniA").hide();
+            //$("#muniA").hide();
+            $(".departamentoIdA").empty();
             llenarDepto(municipioid);
             seleccionarDepto(municipioid);
 
@@ -326,7 +327,7 @@
             // Set data to Form Edit
             $('.direccionId').val(id);
             $('.nombreDireccion').val(direccion);
-            $('.municipioIdA').val(municipioid).trigger('change');
+            $('.municipioIdA').val(municipioid);
             $('.personaId').val(persona);
 
             // Call Modal Edit
@@ -335,7 +336,6 @@
 
         $('.btn-editar').on('click', function() {
             $('.departamentoIdA').empty();
-            $("#muniA").hide();
         });
 
         function seleccionarDepto(municipio) {

@@ -798,7 +798,7 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('', 'Falló actualizar', 'error');
-    }
+    } 
 </script>
 
 <script>
