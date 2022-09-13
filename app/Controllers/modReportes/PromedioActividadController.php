@@ -20,7 +20,9 @@ class PromedioActividadController extends BaseController
         $contexto="";
         $correlativo=1;
 
-        if ($datos>0) {
+        if (empty($datos)){
+            return redirect()->to(base_url(). '/reportes')->with('mensaje','1');
+        }else if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
                 <tr style="font-size:12;">

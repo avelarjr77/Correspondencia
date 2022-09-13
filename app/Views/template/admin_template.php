@@ -143,11 +143,12 @@
                   ->join('wk_icono i', 'm.iconoId=i.iconoId')
                   ->where('r.nombreRol', $rol)
                   ->where('mo.moduloId', $session->modulo)
+                  ->orderBy('menuId')
                   ->groupBy('menuId')
                   ->findAll();
 
                 foreach ($menu as $key => $u) :
-                  $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
+                  $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->orderBy('menuId')->findAll();
                 ?>
                   <?php if ($u->nombreMenu) : ?>
                     <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>

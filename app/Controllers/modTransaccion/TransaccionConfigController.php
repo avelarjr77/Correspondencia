@@ -4,7 +4,10 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\ProcesoModel;
 use App\Models\modUsuario\ContactoModel;
+<<<<<<< HEAD
 use App\Models\modAdministracion\MovimientosModel;
+=======
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
 use App\Models\modTransaccion\TransaccionConfigModel;
 
 class TransaccionConfigController extends BaseController{
@@ -65,66 +68,20 @@ class TransaccionConfigController extends BaseController{
         echo json_encode($datos);
     }
 
-    /* public function tDetalle(){
-
-        $etapa = new TransaccionConfigModel();
-        $transaccionId = $this->request->getVar('transaccionId');
-        $etapaId = $this->request->getVar('etapaId');
-        $fechaHora = date('Y-m-d H:i:s');
-        $porciones = explode(" ", $fechaHora);
-
-        $datos = [ 
-            "estadoTransaccion" => 'A',
-            "fechaInicio" => $porciones[0],
-            "horaInicio" => $porciones[1]
-        ];
-
-        for ($i=0; $i < count($etapaId); $i++) 
-        {
-            if ($i == 0) {
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i], "fechaInicio" => $porciones[0], "horaInicio" => $porciones[1]);
-                $insertar = $etapa->insertarT($data);
-            }else{
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i]);
-                $insertar = $etapa->insertarT($data);
-            }
-        }
-
-        $tDetalle = $etapa->listarTransaccionDet($transaccionId);
-        $actalizarEstado = $etapa->actualizar($datos, $transaccionId);
-        
-        echo json_encode($tDetalle);
-    } */
-
     public function tDetalle(){
 
         $etapa = new TransaccionConfigModel();
         $transaccionId = $this->request->getVar('transaccionId');
-        //$tActividadId = $this->request->getVar('transaccionActividadId');
-        //$transaccionDetId = $this->request->getVar('transaccionDetalleId');
+
         $etapaId = $this->request->getVar('etapaId');
-        //$actividadId = $this->request->getVar('actividadId');
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
-        /* $transaccionDetalleId = $transaccionDetId + 1;
-        $transaccionActividadId = $tActividadId +1; */
 
         $datos = [ 
             "estadoTransaccion" => 'P',
             "fechaInicio" => $porciones[0],
             "horaInicio" => $porciones[1]
         ];
-
-        /* for ($i=0; $i < count($etapaId); $i++) 
-        {
-            if ($i == 0) {
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i], "fechaInicio" => $porciones[0], "horaInicio" => $porciones[1]);
-                $insertar = $etapa->insertarT($data);
-            }else{
-                $data = array('transaccionId' => $transaccionId, 'etapaId' => $etapaId[$i]);
-                $insertar = $etapa->insertarT($data);
-            }
-        } */
 
         $data = [
             'transaccionId' => $transaccionId, 
@@ -134,17 +91,9 @@ class TransaccionConfigController extends BaseController{
             "horaInicio" => $porciones[1]
         ];
 
-        /* $dataA = [
-            'transaccionDetalleId' => $transaccionDetalleId, 
-            'actividadId' => $actividadId
-        ]; */
-
         $insertar = $etapa->insertarT($data);
-        //$insertarActividad = $etapa->insertarAct($dataA);
 
         $actalizarEstado = $etapa->actualizar($datos, $transaccionId);
-        //$actalizarEstadoE = $etapa->actualizarT($datos, $transaccionDetalleId);
-        //$actalizarEstadoA = $etapa->actualizarA($datos, $transaccionActividadId);
 
         $tDetalle = $etapa->listarTransaccionDet($transaccionId);
         
@@ -170,6 +119,7 @@ class TransaccionConfigController extends BaseController{
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
+<<<<<<< HEAD
         $personaId      = $this->request->getVar('personaId');
         $nombreActividad= $this->request->getVar('nombreActividad');
         $descripcion    = $this->request->getVar('descripcion');
@@ -180,6 +130,8 @@ class TransaccionConfigController extends BaseController{
             "horaInicio" => $porciones[1]
         ]; */
 
+=======
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
         $data = [
             'transaccionDetalleId' => $transaccionDetalleId, 
             'actividadId' => $actividadId,
@@ -188,13 +140,34 @@ class TransaccionConfigController extends BaseController{
             "horaCreacion" => $porciones[1]
         ];
 
-        $insertar = $actividad->insertarAct($data);
+        //obtener persona encargado
+        $personaId =  $actividad->asArray()->select('a.personaId')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
 
+<<<<<<< HEAD
         if ($insertar) {
             $model = new ContactoModel();
             $anio = date('Y');
 
             $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')
+=======
+        //obtener nombre de la actividad
+        $nombreActividad =  $actividad->asArray()->select('a.nombreActividad')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+
+        //obtener descripcion de la actividad
+        $descripcion =  $actividad->asArray()->select('a.descripcion')
+        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+
+        $insertar = $actividad->insertarAct($data);//AQUI CREAR ACTIVIDAD
+
+        if ($insertar) {
+
+            $modelContacto = new ContactoModel();
+            $anio = date('Y');
+
+            $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
             ->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
 
             $msm ='
@@ -210,10 +183,17 @@ class TransaccionConfigController extends BaseController{
                         <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
                         <p style="margin:2px;font-size:15px">
                             Se le ha asignado una actividad.<br><br>
+<<<<<<< HEAD
                             '.$nombreActividad.'<br>
                         </p>
                         <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
                         </p>Descripcion:</p>'.$descripcion.'<p></p>
+=======
+                            '.$nombreActividad['nombreActividad'].'<br>
+                        </p>
+                        <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
+                        </p>Descripcion:</p>'.$descripcion['descripcion'].'<p></p>
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
                         <div style="width:100%;text-align:center;margin-top:10%">
                             <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
                         </div>
@@ -224,13 +204,19 @@ class TransaccionConfigController extends BaseController{
             </tbody>
             ';
             $email = \Config\Services::email();
+<<<<<<< HEAD
             $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad);
             $email->setTo($contacto['contacto']);
+=======
+            $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad['nombreActividad']);
+            $email->setTo($contactoA['contacto']);
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
             $email->setSubject('Nueva Actividad Asignada');
             $email->setMessage($msm);
             if ($email->send()) {
                 $mensaje = 12;
             }
+<<<<<<< HEAD
         }
 
         /* for ($i=0; $i < count($actividadId); $i++) 
@@ -239,9 +225,13 @@ class TransaccionConfigController extends BaseController{
             $insertar = $actividad->insertarAct($data);
             //$data = array($etapaId[$i]);
         } */
+=======
+        }else{
+            $mensaje = 13;
+        } 
+>>>>>>> 663072620f0c42101182ce8e235c82667a81fd0b
 
         $tActDetalle = $actividad->listarTransaccionAct($transaccionDetalleId);
-        //$actalizarEstado = $actividad->actualizar($datos, $transaccionDetalleId);
         
         echo json_encode($tActDetalle);
     }

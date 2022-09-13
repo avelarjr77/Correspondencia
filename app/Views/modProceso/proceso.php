@@ -866,33 +866,6 @@
         $("#actividadData").empty();
         recargarActividad(idAC);
 
-        /* $.ajax({
-            type: "GET",
-            url: "<= base_url() . route_to('actividad') ?>",
-            data: {
-                etapaId: idAC
-            },
-            success: function(data) {
-
-                var dataActividad = JSON.parse(data);
-                $("#actividadData").empty();
-
-                if (dataActividad == '') {
-                    $('#tbl-actividad').hide();
-                    $("#aviso").html('No hay actividades para esta etapa.');
-                    $("#actividadData").empty();
-                } else {
-                    $("#actividadData").empty();
-                    recargarActividad(idAC);
-
-                    $('#tbl-actividad').css("display", "block");
-                    $("#aviso").empty();
-                }
-            }
-        }); */
-
-        //personaCrear();
-
         // Call Modal Edit
         $('#actividad').css("display", "block");
         $('#etapa').hide();
@@ -1023,26 +996,6 @@
             }
         }); */
     });
-
-    /* function listadoPersona() {
-        var pDataCrear = $("#personaData");
-
-        $.ajax({
-            type: "GET",
-            url: "<= base_url() . route_to('personaListC') ?>",
-            success: function(data) {
-
-                var dataPCrear = JSON.parse(data);
-
-                $('#personaData').empty();
-                $('#personaData').append('<option disable>-Selecciona una persona-</option>');
-
-                $.each(dataPCrear, function(index, val) {
-                    pDataCrear.append("<option value=" + val.personaId + ">" + val.nombres + "</option>")
-                });
-            }
-        });
-    } */
 
     function borrarActividad(id, idEAc) {
         $('#actividadIdE').val(id);

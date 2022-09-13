@@ -33,23 +33,23 @@
                                 <td><?= $key->id ?></td>
                                 <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm btn-edit" data-id="<?= $key->id ?>"
-                                        data-r="<?= $key->rolId ?>" data-rol="<?= $key->rol ?>"
-                                        data-mod="<?= $key->moduloId ?>" data-modulo="<?= $key->modulo ?>"><i
-                                            class="fa fa-plus"></i>
-                                        Agregar Menú</a>
+                                    <a href="#" class="btn btn-primary btn-sm btn-edit" 
+                                        data-id="<?= $key->id ?>"
+                                        data-r="<?= $key-> rolId?>" data-rol="<?= $key->rol ?>"
+                                        data-mod="<?= $key->moduloId ?>" 
+                                        data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>Agregar Menú</a>
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-warning btn-sm btn-editRMM"
-                                        data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"
-                                        data-moduloid="<?php echo $key->moduloId ?>"
-                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i>
-                                        Editar</a>
+                                        data-id="<?php echo $key->id ?>" 
+                                        data-rol="<?php echo $key->rolId ?>"
+                                        data-modulomenuid="<?php echo $key->moduloId ?>" <i class="fa fa-pencil-square-o"></i>Editar</a>
+                                        
+
                                     <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
                                         data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"
                                         data-moduloid="<?php echo $key->moduloId ?>"
-                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i>
-                                        Eliminar</a>
+                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i>Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -296,9 +296,9 @@ $(document).ready(function() {
     $('.btn-edit').on('click', function() {
         // get data from button edit
         var id = $(this).data('id');
-        var moduloId = $(this).data('mod');
         var rolId = $(this).data('r');
-        var rol = $(this).data('rol');
+        var rol = $(this).data('rol'); 
+        var moduloId = $(this).data('mod');
         var modulo = $(this).data('modulo');
 
         $('.roli').val(rolId);
