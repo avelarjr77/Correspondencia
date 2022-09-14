@@ -34,3 +34,99 @@ CRITICAL - 2022-09-12 14:31:51 --> Trying to access array offset on value of typ
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+ERROR - 2022-09-12 18:14:27 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_transaccion_actividades`, CONSTRAINT `FK_TRANACT_TRADET` FOREIGN KEY (`transaccionDetalleId`) REFERENCES `wk_transaccion_detalle` (`transaccionDetalleId`))
+CRITICAL - 2022-09-12 18:14:27 --> Cannot add or update a child row: a foreign key constraint fails (`correspondencia`.`wk_transaccion_actividades`, CONSTRAINT `FK_TRANACT_TRADET` FOREIGN KEY (`transaccionDetalleId`) REFERENCES `wk_transaccion_detalle` (`transaccionDetalleId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(193): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(223): App\Models\modTransaccion\TransaccionConfigModel->insertarAct(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-12 18:17:09 --> Illegal string offset 'nombreActividad'
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(246): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal string ...', 'C:\\wamp64\\www\\c...', 246, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-09-12 18:20:17 --> Undefined index: moduloId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 14, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-09-12 18:20:22 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+CRITICAL - 2022-09-12 18:20:22 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(64): CodeIgniter\Database\BaseConnection->query('SELECT*FROM  wk...')
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(16): App\Models\modTransaccion\TransaccionConfigModel->listarProceso()
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->index()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-09-12 18:20:47 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+CRITICAL - 2022-09-12 18:20:47 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `r`.`nom...', Array, false)
+#2 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(135): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2022-09-12 18:21:26 --> unlink(C:\wamp64\www\correspondencia-ucad\writable\debugbar/debugbar_1663018076.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\wamp6...', 'C:\\wamp64\\www\\c...', 74, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar\Collectors\History.php(74): unlink('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(487): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1663028479, 20)
+#3 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\wamp64\www\correspondencia-ucad\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#5 C:\wamp64\www\correspondencia-ucad\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(302): CodeIgniter\Events\Events::trigger('pre_system')
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-09-12 18:23:29 --> Column 'actividadId' cannot be null
+CRITICAL - 2022-09-12 18:23:29 --> Column 'actividadId' cannot be null
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(193): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(223): App\Models\modTransaccion\TransaccionConfigModel->insertarAct(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-12 18:24:12 --> Column 'actividadId' cannot be null
+CRITICAL - 2022-09-12 18:24:12 --> Column 'actividadId' cannot be null
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(193): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(223): App\Models\modTransaccion\TransaccionConfigModel->insertarAct(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

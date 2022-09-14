@@ -43,7 +43,7 @@
                                     <a href="#" class="btn btn-warning btn-sm btn-editRMM"
                                         data-id="<?php echo $key->id ?>" 
                                         data-rol="<?php echo $key->rolId ?>"
-                                        data-modulomenuid="<?php echo $key->moduloId ?>" <i class="fa fa-pencil-square-o"></i>Editar</a>
+                                        data-modulomenuid="<?php echo $key->moduloId ?>"> <i class="fa fa-pencil-square-o"></i>Editar</a>
                                         
 
                                     <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
