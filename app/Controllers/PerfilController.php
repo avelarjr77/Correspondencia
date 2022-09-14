@@ -96,19 +96,24 @@ class PerfilController extends BaseController
     public function nuevaContraseña()
     {
         $usuarioId = $_POST['usuarioId'];
-        $contraseña    = $_POST['clave'];
+        $clave    = $_POST['clave'];
         $nueva    = $_POST['nueva'];
         $usuario = session('usuario');
         $pass = new UsuarioModel();
 
-        $clave = $pass->asArray()->select('clave')->where('usuario', $usuario)
+        $claveCifrada = $pass->asArray()->select('clave')->where('usuario', $usuario)
         ->first();
 
+        //Para desencriptar la contraseña y poder ingresar al sistema
+        $claveDesencriptada =password_verify($clave, $claveCifrada['clave']);
 
-        if (strcmp($clave['clave'], $contraseña)===0) {
+
+        if ($claveDesencriptada == 1) {
+
+            $nuevaCifrada = password_hash($nueva, PASSWORD_BCRYPT);
 
             $datos = [
-                "clave"     => $nueva,
+                "clave"     => $nuevaCifrada,
             ];
 
 

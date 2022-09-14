@@ -116,7 +116,7 @@
 
               ?>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-home"></i>Inicio<span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="homeMenu">Inicio</a></li>
                   </ul>
