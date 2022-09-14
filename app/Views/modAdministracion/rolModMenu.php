@@ -37,19 +37,19 @@
                                         data-id="<?= $key->id ?>"
                                         data-r="<?= $key-> rolId?>" data-rol="<?= $key->rol ?>"
                                         data-mod="<?= $key->moduloId ?>" 
-                                        data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>Agregar Menú</a>
+                                        data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i> Agregar Menú</a>
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-warning btn-sm btn-editRMM"
                                         data-id="<?php echo $key->id ?>" 
                                         data-rol="<?php echo $key->rolId ?>"
-                                        data-modulomenuid="<?php echo $key->moduloId ?>" <i class="fa fa-pencil-square-o"></i>Editar</a>
+                                        data-modulomenuid="<?php echo $key->moduloId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
                                         
 
                                     <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
                                         data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"
                                         data-moduloid="<?php echo $key->moduloId ?>"
-                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i>Eliminar</a>
+                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

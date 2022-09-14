@@ -10,6 +10,7 @@ use App\Models\modUsuario\DepartamentoModel;
 use App\Models\modUsuario\TipoContactoModel;
 use App\Models\modAdministracion\MovimientosModel;
 use App\Models\modTransaccion\TransaccionConfigModel;
+use App\Models\modUsuario\PersonaModel;
 
 class PerfilController extends BaseController
 {
@@ -20,6 +21,7 @@ class PerfilController extends BaseController
     {
         $actividad = new MovimientosModel();
         $usuario = new UsuarioModel();
+        $persona = new PersonaModel();
         $nombreProceso = new TransaccionConfigModel();
 
         $user = session('usuario');
@@ -68,6 +70,33 @@ class PerfilController extends BaseController
             ->join('wk_usuario u'       ,'pe.personaId=u.personaId')
             ->where('u.usuario'         ,$user)
             ->groupBy('t.transaccionId')->findAll(),
+
+            "cargo" =>$persona->asObject()
+            ->select('c.cargo')
+            ->from('wk_persona p')
+            ->join('wk_cargo c'         ,'c.cargoId = p.cargoId')
+            ->join('wk_usuario u'       ,'u.personaId=p.personaId')
+            ->where('u.usuario'         , $user)
+            ->groupBy('c.cargo')->findAll(),
+
+            "correo" =>$persona->asObject()
+            ->select('c.contacto')
+            ->from('wk_persona p')
+            ->join('wk_contacto c'         ,'c.personaId = p.personaId')
+            ->join('wk_usuario u'       ,'u.personaId=p.personaId')
+            ->where('u.usuario'         , $user)
+            ->where('c.tipoContactoId', 1)
+            ->groupBy('c.contacto')->findAll(),
+
+            "celular" =>$persona->asObject()
+            ->select('c.contacto')
+            ->from('wk_persona p')
+            ->join('wk_contacto c'         ,'c.personaId = p.personaId')
+            ->join('wk_usuario u'       ,'u.personaId=p.personaId')
+            ->join('wk_tipo_contacto tc'       ,'tc.tipoContactoId = c.tipoContactoId')
+            ->where('u.usuario'         , $user)
+            ->where('tc.tipoContacto', 'Celular')
+            ->groupBy('c.contacto')->findAll(),
 
             "mensaje" => $mensaje
         ];
