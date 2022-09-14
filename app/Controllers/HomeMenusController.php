@@ -28,6 +28,7 @@ class HomeMenusController extends BaseController
         return view('homeMenus', $data);
         return view ('/template/admin_template', $dataM);
     }
+    
     public function homeMenu()
     {
 

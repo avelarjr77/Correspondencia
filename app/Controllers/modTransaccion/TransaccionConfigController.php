@@ -16,6 +16,7 @@ class TransaccionConfigController extends BaseController{
         $datos = $nombreProceso->listarProceso();
         $institucion = $nombreProceso->listarInstitucion();
         $transaccion = $nombreProceso->transaccionData();
+        $transaccionFin = $nombreProceso->transaccionDataFin();
         $persona= $nombreProceso->listarPersona();
 
         $mensaje = session('mensaje');
@@ -24,6 +25,7 @@ class TransaccionConfigController extends BaseController{
             "datos" => $datos,
             "institucion" => $institucion,
             "transaccion" => $transaccion,
+            "transaccionFin" => $transaccionFin,
             "persona" => $persona,
             "mensaje" => $mensaje
         ];

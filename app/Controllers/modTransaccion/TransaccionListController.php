@@ -27,6 +27,7 @@ class TransaccionListController extends BaseController{
                 ->join('wk_transaccion_detalle td', 'td.transaccionDetalleId = ta.transaccionDetalleId')
                 ->join('wk_transaccion t', 't.transaccionId = td.transaccionId')
                 ->where('p.personaId', $personaId)
+                ->where('t.estadoTransaccion', 'P')
                 ->orderBy('td.etapaId')
                 ->groupBy('t.transaccionId')
                 ->findAll(),
