@@ -4,10 +4,9 @@ namespace App\Controllers\modUsuario;
 
 use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
+use App\Models\modProceso\ActividadModel;
 use App\Models\modUsuario\PersonaModel;
 use App\Models\modUsuario\UsuarioModel;
-use App\Models\modUsuario\ContactoModel;
-use App\Models\modUsuario\TipoContactoModel;
 
 class PersonaController extends BaseController
 {
@@ -17,23 +16,23 @@ class PersonaController extends BaseController
     public function persona()
     {
 
-        $nombrePersona = new PersonaModel();
-        $nombreUsuario = new UsuarioModel();
-        $usuario = $nombreUsuario->listarUsuario();
-        $datos = $nombrePersona->listarPersona();
-        $cargo = $nombrePersona->listarCargo();
-        $departamento = $nombrePersona->listarDepartamento();
-        $rol = $nombreUsuario->listarRol();
+        $nombrePersona  = new PersonaModel();
+        $nombreUsuario  = new UsuarioModel();
+        $usuario        = $nombreUsuario->listarUsuario();
+        $datos          = $nombrePersona->listarPersona();
+        $cargo          = $nombrePersona->listarCargo();
+        $departamento   = $nombrePersona->listarDepartamento();
+        $rol            = $nombreUsuario->listarRol();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "usuario" => $usuario,
-            "cargo" => $cargo,
-            "departamento" => $departamento,
-            "rol" => $rol,
-            "mensaje" => $mensaje
+            "datos"         => $datos,
+            "usuario"       => $usuario,
+            "cargo"         => $cargo,
+            "departamento"  => $departamento,
+            "rol"           => $rol,
+            "mensaje"       => $mensaje
         ];
 
         return view('modUsuario/persona', $data);
@@ -42,24 +41,24 @@ class PersonaController extends BaseController
     //CREAR PERSONA
     public function crear()
     {
-        $hora=new Time('now');
-        $session = session('usuario');
+        $hora       = new Time('now');
+        $session    = session('usuario');
 
         $datosPersona = [
-            "dui" => $_POST['dui'],
-            "nombres" => $_POST['nombres'],
-            "primerApellido" => $_POST['primerApellido'],
-            "segundoApellido" => $_POST['segundoApellido'],
-            "fechaNacimiento" => $_POST['fechaNacimiento'],
-            "genero" => $_POST['genero'],
-            "cargoId" => $_POST['cargoId'],
-            "departamentoId" => $_POST['departamentoId'],
-            "usuarioCrea"   => $session,
-            "fechaCrea"     => $hora,
+            "dui"               => $_POST['dui'],
+            "nombres"           => $_POST['nombres'],
+            "primerApellido"    => $_POST['primerApellido'],
+            "segundoApellido"   => $_POST['segundoApellido'],
+            "fechaNacimiento"   => $_POST['fechaNacimiento'],
+            "genero"            => $_POST['genero'],
+            "cargoId"           => $_POST['cargoId'],
+            "departamentoId"    => $_POST['departamentoId'],
+            "usuarioCrea"       => $session,
+            "fechaCrea"         => $hora,
         ];
 
-        $persona = new PersonaModel();
-        $respuesta = $persona->insertar($datosPersona);
+        $persona    = new PersonaModel();
+        $respuesta  = $persona->insertar($datosPersona);
 
         if ($respuesta > 0) {
             return redirect()->to(base_url() . '/persona')->with('mensaje', '0');
@@ -72,10 +71,17 @@ class PersonaController extends BaseController
     public function eliminar()
     {
 
-        $personaId = $_POST['personaId'];
+        $personaId      = $_POST['personaId'];
 
-        $persona = new PersonaModel();
-        $data = ["personaId" => $personaId];
+        $persona        = new PersonaModel();
+        $activividad    = new ActividadModel();
+        $data           = ["personaId" => $personaId];
+
+        //Para buscar si la Persona está relacionado con otros datos
+        $buscarRelacion = $activividad->select('personaId')->where('personaId', $personaId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/persona')->with('mensaje', '6');
+        }
 
         $respuesta = $persona->eliminar($data);
 
@@ -92,22 +98,22 @@ class PersonaController extends BaseController
 
         $persona = new PersonaModel();
         if ($this->validate([
-            'nombres'        => 'alpha_space',
-            'primerApellido'        => 'alpha',
-            'segundoApellido'        => 'alpha'
+            'nombres'           => 'alpha_space',
+            'primerApellido'    => 'alpha',
+            'segundoApellido'   => 'alpha'
         ])) {
 
             $hora=new Time('now');
             $session = session('usuario');
 
             $datos = [
-                "nombres" => $_POST['nombres'],
-                "primerApellido" => $_POST['primerApellido'],
-                "segundoApellido" => $_POST['segundoApellido'],
-                "fechaNacimiento" => $_POST['fechaNacimiento'],
-                "genero" => $_POST['genero'],
-                "cargoId" => $_POST['cargoId'],
-                "departamentoId" => $_POST['departamentoId'],
+                "nombres"           => $_POST['nombres'],
+                "primerApellido"    => $_POST['primerApellido'],
+                "segundoApellido"   => $_POST['segundoApellido'],
+                "fechaNacimiento"   => $_POST['fechaNacimiento'],
+                "genero"            => $_POST['genero'],
+                "cargoId"           => $_POST['cargoId'],
+                "departamentoId"    => $_POST['departamentoId'],
                 "usuarioModifica"   => $session,
                 "fechaModifica"     => $hora,
             ];

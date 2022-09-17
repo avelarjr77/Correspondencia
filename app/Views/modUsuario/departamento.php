@@ -150,6 +150,12 @@
         swal('', 'Actualizado con exito', 'success');
     }else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
+    } else if (mensaje == '6') {
+        swal({
+            icon: "error",
+            title: "¡Este Departamento no puede ser eliminado!", 
+            text: "Lo sentimos, no se puede eliminar el Departamento porque está siendo utilizado por una Persona."
+        });
     }
 </script>
 

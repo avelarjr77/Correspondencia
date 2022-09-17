@@ -16,7 +16,7 @@
             <div class="x_content">
                     <!--LISTADO DE BITACORA-->
                     <div class="card-box table-responsive"><br>
-                        <table id="datatable" class="table table-bordered">
+                        <table id="datatable" class="table table-striped no-margin">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -49,8 +49,6 @@
     </div>
 </div>
 
-<script src="vendors/jquery/dist/jquery.slim.min.js"></script>
-<script src="vendors/popper/umd/popper.min.js"></script>
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 

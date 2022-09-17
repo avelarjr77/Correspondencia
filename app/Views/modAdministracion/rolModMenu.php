@@ -43,13 +43,7 @@
                                     <a href="#" class="btn btn-warning btn-sm btn-editRMM"
                                         data-id="<?php echo $key->id ?>" 
                                         data-rol="<?php echo $key->rolId ?>"
-<<<<<<< HEAD
                                         data-modulomenuid="<?php echo $key->moduloId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-=======
-                                        data-modulomenuid="<?php echo $key->moduloId ?>"> <i class="fa fa-pencil-square-o"></i>Editar</a>
->>>>>>> 5713473598815c20f9dde19e3f32ece9d736398e
-                                        
-
                                     <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
                                         data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"
                                         data-moduloid="<?php echo $key->moduloId ?>"

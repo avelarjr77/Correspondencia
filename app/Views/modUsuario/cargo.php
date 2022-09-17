@@ -152,6 +152,12 @@
         swal('No se actualizo', 'Datos incorrectos', 'error');
     }else if (mensaje == '6') {
         swal('No se agrego', 'El nombre cargo no debe contener numeros o signos', 'error');
+    } else if (mensaje == '7') {
+        swal({
+            icon: "error",
+            title: "¡Este Cargo no puede ser eliminado!", 
+            text: "Lo sentimos, no se puede eliminar el Cargo porque está siendo utilizado por una Persona."
+        });
     }
 </script>
 

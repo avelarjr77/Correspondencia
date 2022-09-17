@@ -16,16 +16,16 @@ class MenuSubmenuController extends BaseController
     //Funcion para MOSTRAR DATOS DE LA TABLA MENU
     public function menu_submenu()
     {
-        $menu = new MenuSubmenuModel();
-        $submenu = new SubmenuModel();
-        $icono = new IconoModel();
+        $menu   = new MenuSubmenuModel();
+        $submenu= new SubmenuModel();
+        $icono  = new IconoModel();
 
         $mensaje = session('mensaje');
 
         $data = [
-            "submenu"     => $submenu->select()->asObject()->join('co_menu','co_menu.menuId = co_submenu.menuId')->findAll(),
-            "menu" => $menu->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
-            "icono" => $icono->asObject()->findAll(),
+            "submenu"   => $submenu->select()->asObject()->join('co_menu','co_menu.menuId = co_submenu.menuId')->findAll(),
+            "menu"      => $menu->asObject()->join('wk_icono','wk_icono.iconoId = co_menu.iconoId')->findAll(),
+            "icono"     => $icono->asObject()->findAll(),
             "mensaje"   => $mensaje
         ];
 
@@ -40,8 +40,8 @@ class MenuSubmenuController extends BaseController
         if ($this->validate('menuValidation')) {
             $menu->insertar(
                 [
-                    'nombreMenu' => $this->request->getPost('nombreMenu'),
-                    'iconoId' => $this->request->getPost('iconoId'),
+                    'nombreMenu'=> $this->request->getPost('nombreMenu'),
+                    'iconoId'   => $this->request->getPost('iconoId'),
                 ]
             );
             //PARA REGISTRAR EN BITACORA QUIEN CREO MENÚ
@@ -50,11 +50,11 @@ class MenuSubmenuController extends BaseController
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Agregó menú',
-                'descripcion' => $_POST['nombreMenu'],
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Agregó menú',
+                'descripcion'   => $_POST['nombreMenu'],
+                'hora'          => $hora,
             ]);
             //END
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '1');
@@ -68,11 +68,18 @@ class MenuSubmenuController extends BaseController
     {
         $menuId = $_POST['menuId'];
 
-        $menu = new MenuSubmenuModel();
+        $menu       = new MenuSubmenuModel();
+        $submenu    = new SubmenuModel();
         $nombreMenu = $menu->asArray()->select("nombremenu")
         ->where("menuId", $menuId)->first();
 
         $data = ["menuId" => $menuId,];
+
+        //Para buscar si el menú está relacionado con un submenu
+        $buscarRelacion = $submenu->select('menuId')->where('menuId', $menuId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '7');
+        }
 
         $respuesta = $menu->eliminar($data);
 
@@ -83,11 +90,11 @@ class MenuSubmenuController extends BaseController
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Eliminó menú',
-                'descripcion' => $nombreMenu,
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Eliminó menú',
+                'descripcion'   => $nombreMenu,
+                'hora'          => $hora,
             ]);
             //END
             return redirect()->to(base_url().'/menu_submenu')->with('mensaje', '4');
@@ -121,11 +128,11 @@ class MenuSubmenuController extends BaseController
             $session = session('usuario');
 
             $this->bitacora->save([
-                'bitacoraId' => null,
-                'usuario' => $session,
-                'accion' => 'Editó menú',
-                'descripcion' => $_POST['nombreMenu'],
-                'hora' => $hora,
+                'bitacoraId'    => null,
+                'usuario'       => $session,
+                'accion'        => 'Editó menú',
+                'descripcion'   => $_POST['nombreMenu'],
+                'hora'          => $hora,
             ]);
             //END
             return redirect()->to(base_url() . '/menu_submenu')->with('mensaje', '2');

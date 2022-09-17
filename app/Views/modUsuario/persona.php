@@ -255,7 +255,7 @@
                             <select name="genero" id="genero" class="form-control genero">
                                 <option>Género</option>
                                 <option value="M">Masculino</option>
-                                <option value="M">Femenino</option>
+                                <option value="F">Femenino</option>
                             </select>
                         </div>
                     </div>
@@ -343,7 +343,13 @@ if (mensaje == '0') {
     swal('', 'Actualizado con exito', 'success');
 } else if (mensaje == '5') {
     swal('No se actualizo', 'Datos incorrectos', 'error');
-}
+} else if (mensaje == '6') {
+        swal({
+            icon: "error",
+            title: "¡Esta Persona no puede ser eliminada!", 
+            text: "Lo sentimos, no se puede eliminar la Persona porque está siendo utilizado por otras dependencias."
+        });
+    }
 </script>
 
 <script>
@@ -373,7 +379,7 @@ $(document).ready(function() {
         $('.primerApellido').val(primerApe);
         $('.segundoApellido').val(segundoApe);
         $('.fechaNacimiento').val(fechaN);
-        $('.genero').val(genero);
+        $('.genero').val(genero).trigger('change');;
         $('.cargoId').val(cargo).trigger('change');
         $('.departamentoId').val(departamento).trigger('change');
 

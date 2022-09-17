@@ -5578,15 +5578,15 @@ a.badge-dark:focus {
 }
 
 .jumbotron {
-	padding: 2rem 1rem;
+	padding: 8rem 1rem;
 	margin-bottom: 2rem;
 	background-color: #e9ecef;
 	border-radius: .3rem
 }
 
-@media (min-width:576px) {
+@media (min-width:760px) {
 	.jumbotron {
-		padding: 4rem 2rem
+		padding: 4rem 2rem;
 
 	}
 }
@@ -5704,6 +5704,7 @@ a.badge-dark:focus {
 .alert-danger hr {
 	border-top-color: #000000
 }
+
 
 .alert-danger .alert-link {
 	color: #491217

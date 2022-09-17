@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\TipoContactoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modUsuario\ContactoModel;
 
 class TipoContactoController extends BaseController{
 
@@ -17,8 +18,8 @@ class TipoContactoController extends BaseController{
         $mensaje = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "mensaje" => $mensaje
+            "datos"     => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modUsuario/contacto', $data);
@@ -61,11 +62,18 @@ class TipoContactoController extends BaseController{
 
         $tipoContactoId = $_POST['tipoContactoId'];
 
-        $contacto = new TipoContactoModel();
-        $data = ["tipoContactoId" => $tipoContactoId];
+        $contacto       = new TipoContactoModel();
+        $tContacto      = new ContactoModel();
+        $data           = ["tipoContactoId" => $tipoContactoId];
 
         $nombreTipoContacto = $contacto->asArray()->select("tipoContacto")
         ->where("tipoContactoId", $tipoContactoId)->first();
+
+        //Para buscar si el TipoContacto está relacionado con una dependencia
+        $buscarRelacion = $tContacto->select('tipoContactoId')->where('tipoContactoId', $tipoContactoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/contacto')->with('mensaje', '8');
+        }
 
         $respuesta = $contacto->eliminar($data);
 

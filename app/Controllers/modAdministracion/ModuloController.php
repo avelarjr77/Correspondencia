@@ -4,6 +4,7 @@ namespace App\Controllers\modAdministracion;
 
 use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
+use App\Models\modAdministracion\ModuloMenuModel;
 use App\Models\modAdministracion\ModuloModel;
 use App\Models\modAdministracion\MovimientosModel;
 
@@ -70,10 +71,17 @@ class ModuloController extends BaseController
         $moduloId = $_POST['moduloId'];
 
         $Modulo = new ModuloModel();
+        $moduloMenu = new ModuloMenuModel();
         $data = ["moduloId" => $moduloId];
 
         $nombreModulo = $Modulo->asArray()->select("nombre")
         ->where("moduloId", $moduloId)->first();
+
+        //Para buscar si el Módulo está relacionado con un Modulo-menu
+        $buscarRelacion = $moduloMenu->select('moduloId')->where('moduloId', $moduloId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/adminModulo')->with('mensaje', '7');
+        }
 
         $respuesta = $Modulo->eliminar($data);
 
