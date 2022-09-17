@@ -10,7 +10,7 @@
   <link rel="icon" href="images/ucad.ico" type="image/ico" />
 
   <!-- Para mostrar el diseño del template -->
-  <?= $this->include('template/head'); ?>
+  <?= $this->include('template/header'); ?>
 
 </head>
 
@@ -164,7 +164,7 @@
   </div>
 
   <!-- Para Agregar scripts -->
-  <?= $this->include('template/scripts'); ?>
+  <?= $this->include('template/footer'); ?>
 </body>
 
 </html>
