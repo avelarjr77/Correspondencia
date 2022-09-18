@@ -153,7 +153,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Seleccionar el Menu<span class="required"></span>
                             </label>
                             <div class="col-md-7 col-sm-6 ">
-                                <select name="menuId" class="form-control">
+                                <select name="menuId" id="menuId" class="form-control">
                                     <option value="">-Selecciona un Menú-</option>
                                     <?php foreach ($menu as $key) : ?>
                                         <option value="<?php echo $key->menuId ?>"><?php echo $key->nombreMenu ?></option>

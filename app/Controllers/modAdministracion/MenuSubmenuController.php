@@ -101,7 +101,7 @@ class MenuSubmenuController extends BaseController
     {
         $menu = new MenuSubmenuModel();
         if ($this->validate([
-            'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
+            'nombreMenu' => 'required|alpha_space',
             'iconoId' => 'required',
         ])) {
             $datos = [

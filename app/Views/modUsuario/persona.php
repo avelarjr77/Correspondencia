@@ -343,6 +343,8 @@ if (mensaje == '0') {
     swal('', 'Actualizado con exito', 'success');
 } else if (mensaje == '5') {
     swal('No se actualizo', 'Datos incorrectos', 'error');
+}else if (mensaje == '6') {
+    swal('No se agrero', 'Numero de DUI incorrecto', 'error');
 }
 </script>
 

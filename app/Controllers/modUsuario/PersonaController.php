@@ -4,10 +4,28 @@ namespace App\Controllers\modUsuario;
 
 use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
+use App\Controllers\modUsuario\isDUI;
 use App\Models\modUsuario\PersonaModel;
 use App\Models\modUsuario\UsuarioModel;
 use App\Models\modUsuario\ContactoModel;
 use App\Models\modUsuario\TipoContactoModel;
+
+//FUNCION VALIDAR DUI
+function isDUI($dui) {
+
+    $dui = $_POST['dui'];
+
+    if ((bool)preg_match('/(^\d{8})-(\d$)/', $dui) === true) {
+            [$digits, $digit_veri] = explode('-', $dui);
+            $sum = 0;
+
+            for ($i = 0, $l = strlen($digits); $i < $l; $i++) {
+                $sum += (9 - $i) * (int)$digits[$i];
+            }
+            
+        return (int)$digit_veri === (10 - ($sum % 10)) % 10;
+    }  return false;        
+}
 
 class PersonaController extends BaseController
 {
@@ -42,30 +60,34 @@ class PersonaController extends BaseController
     //CREAR PERSONA
     public function crear()
     {
-        $hora=new Time('now');
-        $session = session('usuario');
-
-        $datosPersona = [
-            "dui" => $_POST['dui'],
-            "nombres" => $_POST['nombres'],
-            "primerApellido" => $_POST['primerApellido'],
-            "segundoApellido" => $_POST['segundoApellido'],
-            "fechaNacimiento" => $_POST['fechaNacimiento'],
-            "genero" => $_POST['genero'],
-            "cargoId" => $_POST['cargoId'],
-            "departamentoId" => $_POST['departamentoId'],
-            "usuarioCrea"   => $session,
-            "fechaCrea"     => $hora,
-        ];
-
-        $persona = new PersonaModel();
-        $respuesta = $persona->insertar($datosPersona);
-
-        if ($respuesta > 0) {
-            return redirect()->to(base_url() . '/persona')->with('mensaje', '0');
-        } else {
-            return redirect()->to(base_url() . '/persona')->with('mensaje', '1');
+        if($this->validate('validarDUI')){
+            if (isDui($_POST['dui']) == true) {
+                $hora=new Time('now');
+                $session = session('usuario');
+    
+                $datosPersona = [
+                    "dui" => $_POST['dui'],
+                    "nombres" => $_POST['nombres'],
+                    "primerApellido" => $_POST['primerApellido'],
+                    "segundoApellido" => $_POST['segundoApellido'],
+                    "fechaNacimiento" => $_POST['fechaNacimiento'],
+                    "genero" => $_POST['genero'],
+                    "cargoId" => $_POST['cargoId'],
+                    "departamentoId" => $_POST['departamentoId'],
+                    "usuarioCrea"   => $session,
+                    "fechaCrea"     => $hora,
+                ];
+    
+                $persona = new PersonaModel();
+                $respuesta = $persona->insertar($datosPersona);
+    
+                if ($respuesta > 0) {
+                    return redirect()->to(base_url() . '/persona')->with('mensaje', '0');
+                } else {
+                return redirect()->to(base_url() . '/persona')->with('mensaje', '6');
+            }}
         }
+        return redirect()->to(base_url() . '/persona')->with('mensaje', '6');
     }
 
     //ELIMINAR PERSONA

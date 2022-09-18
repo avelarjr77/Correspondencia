@@ -31,8 +31,15 @@
                                     <td><?php echo $key->nombreMenu ?></td>
                                     <td><i class="<?php echo $key->nombreIcono ?>"></i> <?php echo $key->nombreIcono ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $key->menuId ?>" data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-trash"></i> Eliminar</a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-edit" 
+                                        data-id="<?= $key->menuId ?>" 
+                                        data-nombre="<?php echo $key->nombreMenu ?>"
+                                        data-nombre="<?php echo $key->nombreIcono ?>"
+                                        data-iconoId="<?php echo $key->iconoId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                        
+                                        <a href="#" class="btn btn-danger btn-sm btn-delete" 
+                                        data-id="<?= $key->menuId ?>" 
+                                        data-nombre="<?php echo $key->nombreMenu ?>"><i class="fa fa-trash"></i> Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -129,7 +136,7 @@
                         </div>
                         <div class="form-group">
                             <label>Seleccionar Icono:</label>
-                            <select name="iconoId" required="required" class="form-control ">
+                            <select name="iconoId"  id="iconoId" required="required" class="form-control iconoId">
                                 <option value="">-Selecciona un Icono-</option>
                                 <?php foreach ($icono as $key) : ?>
                                     <option value="<?php echo $key->iconoId ?>"> <?php echo $key->nombreIcono ?>
@@ -190,11 +197,13 @@
             // get data from button edit
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
+            const iconoId = $(this).data('iconoid');
 
             // Set data to Form Edit
             $('.menuId').val(id);
             $('.nombreMenu').val(nombre);
             $('.nombreIcono').val(nombre);
+            $('.iconoId').val(iconoId);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
