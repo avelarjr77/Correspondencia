@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\TipoDocumentoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modUsuario\DocumentoModel;
 
 class TipoDocumentoController extends BaseController{
 
@@ -60,10 +61,17 @@ class TipoDocumentoController extends BaseController{
         $tipoDocumentoId = $_POST['tipoDocumentoId'];
 
         $tipoDocumento = new TipoDocumentoModel();
+        $documento = new DocumentoModel();
         $data = ["tipoDocumentoId" => $tipoDocumentoId];
 
         $nombreDocumento = $tipoDocumento->asArray()->select("tipoDocumento")
         ->where("tipoDocumentoId", $tipoDocumentoId)->first();
+
+        //Para buscar si el Tipo de documento está relacionado
+        $buscarRelacion = $documento->select('tipoDocumentoId')->where('tipoDocumentoId', $tipoDocumentoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/tipoDocumento')->with('mensaje', '6');
+        }
 
         $respuesta = $tipoDocumento->eliminar($data);
 

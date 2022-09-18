@@ -157,15 +157,22 @@
                                 <ul class="list-unstyled user_data"><br>
                                     <li>
                                         <h6>Cargo:</h6>
-                                        <i class=""></i> Docente
+                                        <?php foreach ($cargo as $key) : ?>
+                                        <i class=""></i> </i> <?php echo $key->cargo ?>
+                                        <?php endforeach; ?>
                                     </li>
                                     <li>
                                         <h6>Departamento:</h6>
-                                        <i class=""></i> Administración Academica
+                                        <?php foreach ($departamento as $key) : ?>
+                                        <i class=""></i> <?php echo $key->departamento ?>
+                                        <?php endforeach; ?>
                                     </li>
+                                    
                                     <li>
-                                        <h6>Institución:</h6>
-                                        <i class=""></i> UCAD
+                                        <h6>Celular:</h6>
+                                        <?php foreach ($celular as $key) : ?>
+                                        <i class=""></i> <?php echo $key->contacto ?>
+                                        <?php endforeach; ?>
                                     </li>
                                 </ul>
                             </div>
@@ -173,15 +180,15 @@
                                 <ul class="list-unstyled user_data">
                                     <li>
                                         <h6>Correo:</h6>
-                                        <i class=""></i> usuario138@gmail.com
-                                    </li>
-                                    <li>
-                                        <h6>Celular:</h6>
-                                        <i class=""></i> 7610 6550
+                                        <?php foreach ($correo as $key) : ?>
+                                        <i class=""></i> <?php echo $key->contacto ?> <br>
+                                        <?php endforeach; ?>
                                     </li>
                                     <li>
                                         <h6>Dirección:</h6>
-                                        <i class=""></i> Santa Ana, El Porvenir, Santa Ana
+                                        <?php foreach ($direccion as $key) : ?>
+                                        <i class=""></i><?php echo $key->direccion,', ', $key->municipio,', ', $key->departamento?>
+                                        <?php endforeach; ?>
                                     </li>
                                 </ul>
                             </div>

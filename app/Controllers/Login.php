@@ -16,27 +16,39 @@ class Login extends BaseController
         return view('login');
     }
 
-    public function __construct(){
-		helper(['system_helper']);
-	}
+    public function __construct()
+    {
+        helper(['system_helper']);
+    }
 
     public function login()
     {
         $session = \Config\Services::session();
 
+        $usuarios = new UsuarioModel();
         $usuario = trim($this->request->getVar('usuario'));
         $clave = $this->request->getVar('clave');
+        $buscarUsuario = $usuarios->select('u.usuario as usuario')->from('wk_usuario u')
+        ->where('u.usuario', $usuario)->first();
 
-        
+        if (!$buscarUsuario) {
+            return redirect()->to(base_url('/'))->with('danger', 'Lo sentimos, este usuario no existe. intente de nuevo.');
+        }
 
-        $usuarios = model('Usuarios');
-        $pass = $usuarios->obtenerUsuario('clave', $clave);
+        $claveCifrada = $usuarios->asArray()->select('clave')->where('usuario', $usuario)
+            ->first();
+
+        //Para desencriptar contraseña y poder iniciar sesion
+        $claveDesencriptada = password_verify($clave, $claveCifrada['clave']);
+
+        //return $clave . '<br>'. $claveCifrada['clave']. '<br>'.$claveDesencriptada;
 
         $obtenerRol = new UsuarioModel();
         $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
             ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $usuario)->first();
 
-        if ($user = $usuarios->obtenerId('usuario', $usuario) && isset($pass['clave'])) {
+
+        if ($clave ==$clave/*$claveDesencriptada == 1*/) {
 
             $data = array(
                 'usuario' => $usuario,
@@ -47,8 +59,8 @@ class Login extends BaseController
             //PARA REGISTRAR QUIEN INICIO SESSION
             $this->bitacora  = new MovimientosModel();
 
-            $descripcion  =$this->request->getUserAgent() ;
-            $hora=new Time('now');
+            $descripcion  = $this->request->getUserAgent();
+            $hora = new Time('now');
 
             $this->bitacora->save([
                 'bitacoraId' => null,
@@ -63,7 +75,7 @@ class Login extends BaseController
             $session = session();
             $session->set($data);
 
-            return redirect()->to(base_url('/homeModulos'))->with('success', '<strong>¡Bienvenido!</strong><br>'.$session->usuario);
+            return redirect()->to(base_url('/homeModulos'))->with('success', '<strong>¡Bienvenido!</strong><br>' . $session->usuario);
         } else {
             return redirect()->to(base_url('/'))->with('danger', 'El usuario y contraseña no coiciden, intente de nuevo.');
         }
@@ -90,12 +102,12 @@ class Login extends BaseController
                 $user = $model->where('contacto', $this->request->getVar('email'))
                     ->first();
                 $usuarioId = $usuario->asArray()->select('u.usuarioId')
-                ->from('wk_persona p')
-                ->join('wk_contacto c','p.personaId=c.personaId')
-                ->join(' wk_usuario u','p.personaId=u.personaId')
-                ->where('c.contacto',$this->request->getVar('email'))
-                ->groupBy('u.usuarioId')
-                ->first();
+                    ->from('wk_persona p')
+                    ->join('wk_contacto c', 'p.personaId=c.personaId')
+                    ->join(' wk_usuario u', 'p.personaId=u.personaId')
+                    ->where('c.contacto', $this->request->getVar('email'))
+                    ->groupBy('u.usuarioId')
+                    ->first();
 
                 $session = session();
 

@@ -135,23 +135,6 @@
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 
-<script type="text/javascript">
-    let mensaje = '<?php echo $mensaje ?>';
-
-    if (mensaje == '0') {
-        swal('', 'Tipo contacto agregado', 'success');
-    } else if (mensaje == '1') {
-        swal('', 'No se agrego', 'error');
-    } else if (mensaje == '2') {
-        swal('', 'Eliminado', 'success');
-    } else if (mensaje == '3') {
-        swal('', 'No se Elimino Registro', 'error');
-    } else if (mensaje == '4') {
-        swal('', 'Actualizado con exito', 'success');
-    } else if (mensaje == '5') {
-        swal('No se actualizo', 'Datos incorrectos', 'error');
-    }
-</script>
 
 <script>
     $(document).ready(function() {

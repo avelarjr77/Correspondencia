@@ -22,14 +22,6 @@ class MenuSubmenuModel extends Model
         return $submenu->getResult();
     }
 
-
-   /* public function listarSubMenu($menuId)
-    {
-        $notificacion = $this->db->table('SELECT nombreSubMenu from co_submenu');
-        $notificacion->where('menuId', $menuId);
-        return $notificacion->get()->getResultArray();
-    }*/
-
     public function insertar($datos)
     {
         $nombreMenu = $this->db->table('co_menu');

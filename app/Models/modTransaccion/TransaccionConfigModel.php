@@ -23,7 +23,25 @@ class TransaccionConfigModel extends Model
                                 INNER JOIN wk_proceso p ON p.procesoId = t.procesoId
                                 INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
                                 INNER JOIN wk_persona pe ON pe.personaId = t.personaId
-                                WHERE t.estadoTransaccion != 'A'
+                                WHERE t.estadoTransaccion != 'A' AND t.estadoTransaccion != 'F'
+                                ORDER BY t.transaccionId");
+        return $tr->getResult();
+    }
+
+    public function transaccionDataFin()
+    {
+        $tr = $this->db->query("SELECT t.transaccionId as 'id', p.nombreProceso as 'proceso', pe.nombres as 'persona', t.procesoId,
+                                i.nombreInstitucion as 'institucion', 
+                                (CASE
+                                    WHEN t.estadoTransaccion = 'P' THEN 'En Progreso'
+                                    WHEN t.estadoTransaccion = 'F' THEN 'Finalizado'
+                                    ELSE 'Inactivo'
+                                END) as 'estado', t.observaciones
+                                FROM wk_transaccion t
+                                INNER JOIN wk_proceso p ON p.procesoId = t.procesoId
+                                INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
+                                INNER JOIN wk_persona pe ON pe.personaId = t.personaId
+                                WHERE t.estadoTransaccion = 'F'
                                 ORDER BY t.transaccionId");
         return $tr->getResult();
     }

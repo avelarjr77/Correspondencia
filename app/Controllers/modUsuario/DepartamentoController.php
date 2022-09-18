@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\DepartamentoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modUsuario\PersonaModel;
 
 class DepartamentoController extends BaseController{
 
@@ -60,11 +61,18 @@ class DepartamentoController extends BaseController{
 
         $departamentoId = $_POST['departamentoId'];
 
-        $departamento = new DepartamentoModel();
-        $data = ["departamentoId" => $departamentoId];
+        $departamento   = new DepartamentoModel();
+        $persona        = new PersonaModel();
+        $data           = ["departamentoId" => $departamentoId];
 
         $nombreDepartamento = $departamento->asArray()->select("departamento")
         ->where("departamentoId", $departamentoId)->first();
+
+        //Para buscar si el Departamento está relacionado con una Persona
+        $buscarRelacion = $persona->select('departamentoId')->where('departamentoId', $departamentoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/departamento')->with('mensaje', '6');
+        }
 
         $respuesta = $departamento->eliminar($data);
 

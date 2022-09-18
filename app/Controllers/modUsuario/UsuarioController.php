@@ -30,6 +30,7 @@ class UsuarioController extends BaseController{
 
     //CREAR USUARIO
     public function crear(){
+        helper(['form']);
 
         $usuario = new UsuarioModel();
 
@@ -39,11 +40,15 @@ class UsuarioController extends BaseController{
             $hora=new Time('now');
             $session = session('usuario');
 
+            //Cifrado de contraseña
+            $clave = $_POST['clave'];
+            $claveCifrada = password_hash($clave, PASSWORD_BCRYPT);
+
             $usuario->insertar(
                 [
                     "personaId"     => $_POST['personaId'],
                     "usuario"       => $_POST['usuario'],
-                    "clave"         => $_POST['clave'],
+                    'clave'         => $claveCifrada, //Contraseña cifrada
                     "estado"        => $_POST['estado'],
                     "rolId"         => $_POST['rolId'],
                     "usuarioCrea"   => $session,
@@ -117,11 +122,14 @@ class UsuarioController extends BaseController{
                 //Campos de auditoria
                 $hora=new Time('now');
                 $session = session('usuario');
+                //Cifrado de contraseña
+                $clave = $_POST['clave'];
+                $claveCifrada = password_hash($clave, PASSWORD_BCRYPT);
                 
                 $datos = [
                     "personaId" => $_POST['personaId'],
                     "usuario"   => $_POST['usuario'],
-                    "clave"     => $_POST['clave'],
+                    "clave"     => $claveCifrada,
                     "estado"    => $_POST['estado'],
                     "rolId"     => $_POST['rolId'],
                     "usuarioModifica"   => $session,

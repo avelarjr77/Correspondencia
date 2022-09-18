@@ -57,7 +57,53 @@ class TransaccionActividadModel extends Model
                                         ORDER BY d.documentoId");
         return $actividadTO->getResult();
     }
-    
+
+    public function actividadesPendientes($persona)
+    {
+        //var_dump($persona);
+        $actividadTO = $this->db->query("SELECT count(*) as 'totalAct'
+                                        FROM wk_transaccion_actividades ta 
+                                        INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                        INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                        INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                        WHERE ta.estado = 'P' AND u.usuarioId = $persona");
+        return $actividadTO->getResult();
+    }
+
+    public function procesosEncargados($persona)
+    {
+        //var_dump($persona);
+        $actividadTO = $this->db->query("SELECT count(*) as 'totalP'
+                                        FROM wk_transaccion t 
+                                        INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                        INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                        WHERE t.estadoTransaccion = 'P' AND u.usuarioId = $persona");
+        return $actividadTO->getResult();
+    }
+
+    public function etapasActivas($persona)
+    {
+        //var_dump($persona);
+        $actividadTO = $this->db->query("SELECT count(*) as 'totalE'
+                                        FROM wk_transaccion_detalle td 
+                                        INNER JOIN wk_transaccion_actividades ta ON td.transaccionDetalleId = ta.transaccionDetalleId
+                                        INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                        INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                        INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                        WHERE td.estado = 'P' AND u.usuarioId = $persona");
+        return $actividadTO->getResult();
+    }
+
+    public function totalUsuarios($persona, $depto)
+    {
+        //var_dump($persona);
+        $actividadTO = $this->db->query("SELECT count(*) as 'totalU', d.departamento
+                                        FROM wk_usuario u
+                                        INNER JOIN wk_persona p ON p.personaId = u.personaId
+                                        INNER JOIN wk_departamento d ON d.departamentoId = p.departamentoId
+                                        WHERE u.usuarioId = $persona AND d.departamentoId = $depto");
+        return $actividadTO->getResult();
+    }
     
     //MODELO PARA AGREGAR TRANSACCION
     public function insertar($datos){

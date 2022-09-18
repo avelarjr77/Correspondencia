@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/login.css">
 
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
+  <link rel="icon" href="images/ucad.ico" type="image/ico" />
 </head>
 
 <body>
@@ -83,9 +83,9 @@
         <div class="user">
           <div class="form-wrap">
             <!-- TABS -->
-            <div class="tabs">
-              <h4 class="login-tab"><a class="log-in active" href="<?= base_url() . route_to('login') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
-            </div>
+            <!-- <div class="tabs">
+              <h4 class="login-tab"><a class="log-in active" href="<= base_url() . route_to('login') ?>"><span>Iniciar Sesión<span></span></span></a></h4>
+            </div> -->
 
             <!-- TABS CONTENT -->
             <div class="tabs-content">
@@ -99,7 +99,7 @@
                 </form>
 
                 <div class="help-action"><br>
-                  <p><a style="color: #2a3f54" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
+                  <p><a style="color: #2a3f54;" id="forgot" class="forgot" href="#">¿Olvidó su Contraseña?</a></p>
                 </div>
               </div>
             </div>

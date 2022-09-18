@@ -150,6 +150,12 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos o duplicados', 'error');
+    } else if (mensaje == '6') {
+        swal({
+            icon: "error",
+            title: "¡Este Tipo de envío no puede ser eliminado!", 
+            text: "Lo sentimos, no se puede eliminar el Tipo de envío porque está siendo utilizado por otra dependencia."
+        });
     }
 </script>
 

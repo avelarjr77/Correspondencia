@@ -243,10 +243,10 @@ class TransaccionActividadController extends BaseController{
                                 <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
                                 <p style="margin:2px;font-size:15px">
                                     Se le ha asignado una actividad.<br><br>
-                                    '.$nombreActividad['nombreActividad'].'<br>
+                                    '.$nombreActividad.'<br>
                                 </p>
                                 <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
-                                </p>Descripcion:</p>'.$descripcion['descripcion'].'<p></p>
+                                </p>Descripcion:</p>'.$descripcion.'<p></p>
                                 <div style="width:100%;text-align:center;margin-top:10%">
                                     <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
                                 </div>
@@ -257,7 +257,7 @@ class TransaccionActividadController extends BaseController{
                     </tbody>
                     ';
                     $email = \Config\Services::email();
-                    $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad['nombreActividad']);
+                    $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad);
                     $email->setTo($contactoA['contacto']);
                     $email->setSubject('Nueva Actividad Asignada');
                     $email->setMessage($msm);

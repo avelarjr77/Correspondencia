@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\TipoEnvioModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modUsuario\DocumentoModel;
 
 class TipoEnvioController extends BaseController{
 
@@ -11,13 +12,13 @@ class TipoEnvioController extends BaseController{
 
     public function tipoEnvio(){
 
-        $tipoEnvio = new TipoEnvioModel();
+        $tipoEnvio  = new TipoEnvioModel();
 
-        $mensaje = session('mensaje');
+        $mensaje    = session('mensaje');
 
         $data = [
-            'datos'=>$tipoEnvio->select("tipoEnvioId,tipoEnvio")->asObject()->findAll(),
-            'mensaje' => $mensaje
+            'datos'     =>$tipoEnvio->select("tipoEnvioId,tipoEnvio")->asObject()->findAll(),
+            'mensaje'   => $mensaje
         ];
 
         return view('modUsuario/tipoEnvio',$data);
@@ -58,15 +59,21 @@ class TipoEnvioController extends BaseController{
     //ELIMINAR TIPO DE ENVIO
     public function eliminar(){
 
-        $tipoEnvioId = $_POST['tipoEnvioId'];
-        $tipoEnvio = new TipoEnvioModel();
-
+        $tipoEnvioId    = $_POST['tipoEnvioId'];
+        $tipoEnvio      = new TipoEnvioModel();
+        $documento      = new DocumentoModel();
         $data = [
             "tipoEnvioId" => $tipoEnvioId
         ];
 
         $nombreEnvio = $tipoEnvio->asArray()->select("tipoEnvio")
         ->where("tipoEnvioId", $tipoEnvioId)->first();
+
+        //Para buscar si el Departamento está relacionado con una Persona
+        $buscarRelacion = $documento->select('tipoEnvioId')->where('tipoEnvioId', $tipoEnvioId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/tipoEnvio')->with('mensaje', '6');
+        }
 
         $respuesta = $tipoEnvio->delete($data);
 

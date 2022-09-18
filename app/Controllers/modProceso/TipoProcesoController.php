@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\TipoProcesoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modProceso\ProcesoModel;
 
 class TipoProcesoController extends BaseController{
 
@@ -61,10 +62,17 @@ class TipoProcesoController extends BaseController{
         $tipoProcesoId = $_POST['tipoProcesoId'];
 
         $tipoProceso = new TipoProcesoModel();
+        $proceso = new ProcesoModel();
         $data = ["tipoProcesoId" => $tipoProcesoId];
 
         $nombreTipoProceso = $tipoProceso->asArray()->select("tipoProceso")
         ->where("tipoProcesoId", $tipoProcesoId)->first();
+
+        //Para buscar si el Tipo está relacionado con un Proceso
+        $buscarRelacion = $proceso->select('tipoProcesoId')->where('tipoProcesoId', $tipoProcesoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/tipoProceso')->with('mensaje', '6');
+        }
 
         $respuesta = $tipoProceso->eliminar($data);
 

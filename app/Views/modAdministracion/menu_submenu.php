@@ -179,6 +179,12 @@
         swal('', 'No', 'error');
     } else if (mensaje == '6') {
         swal('', '¡No se agregó, este Menú ya ha sido ingresado!', 'error');
+    } else if (mensaje == '7') {
+        swal({
+            icon: "error",
+            title: "¡Este Menú no puede ser eliminado!", 
+            text: "Lo sentimos, no se puede eliminar el menú porque aún poseé submenus.",
+        });
     }
 </script>
 

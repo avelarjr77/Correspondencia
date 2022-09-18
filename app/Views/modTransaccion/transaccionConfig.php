@@ -59,13 +59,16 @@
                 </div>
             </form>
             <br><br><br>
-            <div class="row text-center">
-                <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <a href="#" class="btn btn-secondary btn-sm btn-procesosFin"><i class="fa fa-check-circle"></i> Procesos Finalizados</a>
+                </div> <br><br>
+                <div class="col-md-12 text-center">
                     <h4><b>PROCESOS CREADOS PARA DAR SEGUIMIENTO</b></h4>
-                </div>
+                </div>               
                 <br><br><br>
                 <div class="card-box table-responsive"><br>
-                    <table id="datatable" class="table table-bordered">
+                    <table id="datatable" class="table table-bordered text-center">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -295,6 +298,175 @@
         <br>
         <a href="#" id="recargarET" class="btn btn-outline-secondary mb-2 volver-etapa"><i class="fa fa-angle-double-left"></i> Volver</a>
     </div>
+    <div class="x_content" id="procesoFinalizado" style="display: none">
+        <br>
+        <!--LISTADO DE PROCESO-->
+        <div class="x_content">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h4><b>PROCESOS FINALIZADOS</b></h4>
+                </div>
+                <br><br><br>
+                <div class="card-box table-responsive"><br>
+                    <table id="datatable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Proceso</th>
+                                <th>Institución</th>
+                                <th>Encargado</th>
+                                <th>Acciones</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="procesoList">
+                            <?php foreach ($transaccionFin as $fin) : ?>
+                                <tr>
+                                    <td><?= $fin->id ?></td>
+                                    <td><?= $fin->proceso ?></td>
+                                    <td><?= $fin->institucion ?></td>
+                                    <td><?= $fin->persona ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger btn-sm btn-eliminarProceso" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>"><i class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-editarO" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm btn-verO" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarProcesoFin" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>"><i class="fa fa-long-arrow-right"></i> Ver</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" id="estadoProceso" class="btn btn-info btn-sm" data-estado="<?= $fin->estado ?>" disable><?= $fin->estado ?></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <a href="#" class="btn btn-outline-secondary mb-2 volver-procesoFin"><i class="fa fa-angle-double-left"></i> Volver</a>
+        </div>
+        <!--FIN LISTADO PROCESO-->
+    </div>
+    <div class="x_content" id="etapaFin" style="display: none">
+        <br>
+        <!--LISTADO DE PROCESO-->
+        <div class="x_content">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4 id="tituloEtapas"><b> INFORMACIÓN DEL FLUJO DE ETAPAS</b></h4>
+                </div><br><br><br>
+                <div class="col-md-12 ">
+                    <h4 id="tituloPp"><b> Proceso: <i id="procesoN2"></i></b></h4>
+                </div>
+            </div>
+            <br>
+            <div class="row" id="tbl-etapa">
+                <div class="col-md-12">
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Etapa</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Hora de Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Hora Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody id="etapasData2">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4><i id="avisoE"></i></h4>
+                </div>
+            </div>
+        </div>
+        <!--FIN LISTADO PROCESO-->
+        <br>
+        <a href="#" id="recargarPP" class="btn btn-outline-secondary mb-2 volver-procesoFinEtapa"><i class="fa fa-angle-double-left"></i> Volver</a>
+    </div>
+    <div class="x_content" id="actividadFin" style="display: none">
+        <br>
+        <!--LISTADO DE PROCESO-->
+        <div class="x_content">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4 id="tituloActividades"><b> INFORMACIÓN DEL FLUJO DE ACTIVIDADES</b></h4>
+                </div><br><br><br>
+                <div class="col-md-12 ">
+                    <h4 id="tituloAC"><b> Etapa: <i id="etapaN2"></i></b></h4>
+                </div>
+            </div>
+            <br>
+            <div class="row" id="tbl-actividad">
+                <div class="col-md-12">
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Actividad</th>
+                                <th>Responsable</th>
+                                <th>Estado</th>
+                                <th>Ver Documento</th>
+                            </tr>
+                        </thead>
+                        <tbody id="actividadData2">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-info-circle"></i> Información Adicional
+                        </button>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Actividad</th>
+                                        <th>Fecha Creación</th>
+                                        <th>Hora Creación</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Hora Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Hora Fin</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="infoList2">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4><i id="avisoA"></i></h4>
+                </div>
+            </div>
+
+            <div>
+                <form action="<?php echo base_url() . '/listadoDocumentos' ?>" id="frm-id" method="GET">
+                    <input type="hidden" name="transaccionActividadId" class="transaccionActividadId">
+                    <!-- <input type="submit" value="Go"> -->
+                </form>
+            </div>
+        </div>
+        <!--FIN LISTADO PROCESO-->
+        <br>
+        <a href="#" id="recargarET" class="btn btn-outline-secondary mb-2 volver-etapaFin"><i class="fa fa-angle-double-left"></i> Volver</a>
+    </div>
 </div>
 
 <script src="vendors/jquery/dist/jquery.slim.min.js"></script>
@@ -402,6 +574,15 @@
             $('#observacionesA').val(observaciones);
             // Call Modal Edit
             $('#editModal').modal('show');
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
+        });
+
+        $('.btn-procesosFin').on('click', function() {
+            $('#procesoFinalizado').css("display", "block");
+            $('#proceso').hide();
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
         });
 
         $('.btn-verO').on('click', function() {
@@ -435,6 +616,8 @@
 
             verObservacionesAct(id);
             $('#verModal').modal('show');
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
         });
 
         function verObservacionesAct(id) {
@@ -507,6 +690,56 @@
             // Call Modal Edit
             $('#etapa').css("display", "block");
             $('#proceso').hide();
+            $('#procesoFinalizado').hide();
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
+        });
+
+        $('.btn-iniciarProcesoFin').on('click', function() {
+            // get data from button edit
+            var id = $(this).data('id');
+            var proceso = $(this).data('proceso');
+            var procesoId = $(this).data('procesoid');
+
+            $('#procesoN2').html(proceso);
+
+            var estado = $(this).data('estado');
+            console.log(proceso);
+
+            if (estado == 'Inactivo') {
+                $.ajax({
+                    type: "GET",
+                    url: "<?= base_url() . route_to('transaccionEtapa') ?>",
+                    data: {
+                        procesoId: procesoId
+                    },
+                    success: function(data) {
+
+                        var dataEtapa = JSON.parse(data);
+
+                        console.log(dataEtapa);
+
+                        var listado = dataEtapa[0]['etapaId'];
+
+                        if (dataEtapa == '') {
+                            $('#tbl-etapa').hide();
+                            $('#avisoE').html('No hay etapas configuradas para este proceso.');
+                        } else {
+                            insertTDetalle(listado, id);
+                            $('#recargarPP').attr('href', '<?= base_url() . route_to('transaccionConfig') ?>');
+                        }
+                    }
+                });
+            } else {
+                etapaLista2(id);
+            }
+
+            // Call Modal Edit
+            $('#etapaFin').css("display", "block");
+            //$('#proceso').hide();
+            $('#procesoFinalizado').hide();
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
         });
 
         function insertTDetalle(list, id) {
@@ -583,7 +816,38 @@
             });
         }
 
-        // get Etapa
+        function etapaLista2(id) {
+            var etapaData = $("#etapasData2");
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('transaccionList') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
+
+                    var dataEtapaList = JSON.parse(data);
+
+                    console.log(dataEtapaList);
+
+                    $("#etapasData2").empty();
+
+                    $.each(dataEtapaList, function(index, val) {
+                        etapaData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.etapa + "</td>" +
+                            "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
+                            "<td><a href='#' onclick='actividad2(" + val.etapaId + " , " + val.id + " , \"" + val.estado + "\" , \"" + val.etapa + "\")' class='btn btn-primary btn-sm btn-actividad' ><i class='fa fa-tasks'></i> Actividades</a>" +
+                            "</td>" +
+                            "<td>" + val.fechaInicio + "</td>" +
+                            "<td>" + val.horaInicio + "</td>" +
+                            "<td>" + val.fechaFin + "</td>" +
+                            "<td>" + val.horaFin + "</td>" +
+                            "</tr>")
+                    });
+                }
+            });
+        }
+
         $('.btn-estado').on('click', function() {
             // get data from button edit
             const idE = $(this).data('id');
@@ -633,6 +897,9 @@
             //$('#editModal').modal('show');
             $('#etapa').css("display", "block");
             $('#proceso').hide();
+            $('#procesoFinalizado').hide();
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
         });
 
     });
@@ -720,6 +987,56 @@
         $('#etapa').hide();
     }
 
+    function actividad2(etapaId, id, estado, etapa) {
+        //id: es esl id de transaccionDetalleId
+
+        $('#etapaN2').html(etapa);
+
+        console.log(etapaId, id, estado, etapa);
+
+        var actData = $("#actividadData2");
+        var infoData = $("#infoList2");
+
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url() . route_to('transaccionActList') ?>",
+            data: {
+                transaccionDetalleId: id
+            },
+            success: function(data) {
+
+                var dataActividadList = JSON.parse(data);
+
+                console.log(dataActividadList);
+
+                $("#actividadData2").empty();
+                $("#infoList2").empty();
+
+                $.each(dataActividadList, function(index, val) {
+                    actData.append("<tr><td>" + val.id + "</td>" +
+                        "<td>" + val.actividad + "</td>" +
+                        "<td>" + val.persona + "</td>" +
+                        "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>" + val.estado + "</a></td>" +
+                        "<td><a href='#' onclick='documentoLista(" + val.id + ")' class='btn btn-primary btn-sm'><i class='fa fa-tasks'></i> Ver Documentos</a>" +
+                        "</td></tr>")
+
+                    infoData.append("<tr><td>" + val.id + "</td>" +
+                        "<td>" + val.actividad + "</td>" +
+                        "<td>" + val.fechaCreacion + "</td>" +
+                        "<td>" + val.horaCreacion + "</td>" +
+                        "<td>" + val.fechaInicio + "</td>" +
+                        "<td>" + val.horaInicio + "</td>" +
+                        "<td>" + val.fechaFin + "</td>" +
+                        "<td>" + val.horaFin + "</td></tr>")
+                });
+            }
+        });
+
+        // ACTIVAR DIV
+        $('#actividadFin').css("display", "block");
+        $('#etapaFin').hide();
+    }
+
     function documentoLista(id){
 
         $('.transaccionActividadId').val(id);
@@ -746,31 +1063,28 @@
                 var dataDetAct = JSON.parse(data);
 
                 console.log(dataDetAct);
-
-                /* $("#actividadData").empty();
-
-                $.each(dataDetAct, function(index, val) {
-                    aData.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.actividad+"</td>"+
-                    "<td>"+val.persona+"</td>"+
-                    "<td>"+val.fechaInicio+"</td>"+
-                    "<td>"+val.horaInicio+"</td>"+
-                    "<td>"+val.fechaFin+"</td>"+
-                    "<td>"+val.horaFin+"</td>"+
-                    "<td><a href='#' id='estadoTDet' class='btn btn-info btn-sm btn-estadoTDet' disable>"+val.estado+"</a></td>"+
-                    "<td><a href='#' onclick='documento()' class='btn btn-primary btn-sm btn-actividad'><i class='fa fa-tasks'></i> Documento</a>"+
-                    "</td></tr>")
-                }); */
             }
         });
     }
 
-
     // volver a proceso 
     $('.volver-proceso').on('click', function() {
 
-        $('#proceso').css("display", "block");
         $('#etapa').hide();
+        $('#proceso').css("display", "block");
+        
+    });
+
+    // volver a proceso 
+    $('.volver-procesoFin').on('click', function() {
+
+        $('#proceso').css("display", "block");
+        $('#procesoFinalizado').hide();
+    });
+
+    $('.volver-procesoFinEtapa').on('click', function() {
+        $('#etapaFin').hide();
+        $('#procesoFinalizado').css("display", "block");
     });
 
     // volver a etapa 
@@ -778,13 +1092,20 @@
 
         $('#etapa').css("display", "block");
         $('#actividad').hide();
+        $('#procesoFinalizado').hide();
     });
+
+    $('.volver-etapaFin').on('click', function() {
+
+        $('#etapaFin').css("display", "block");
+        $('#actividadFin').hide();
+        $('#procesoFinalizadoFin').hide();
+    });
+
 </script>
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
-
-    //console.log(mensaje);
 
     if (mensaje == '0') {
         swal('', 'Agregado', 'success');
@@ -798,7 +1119,7 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('', 'Falló actualizar', 'error');
-    }
+    } 
 </script>
 
 <script>

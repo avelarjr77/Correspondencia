@@ -6,6 +6,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modUsuario\CargoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modUsuario\PersonaModel;
 
 class CargoController extends BaseController
 {
@@ -15,14 +16,14 @@ class CargoController extends BaseController
     public function cargo()
     {
 
-        $nombreCargo = new CargoModel();
-        $datos = $nombreCargo->listarCargo();
+        $nombreCargo    = new CargoModel();
+        $datos          = $nombreCargo->listarCargo();
 
-        $mensaje = session('mensaje');
+        $mensaje        = session('mensaje');
 
         $data = [
-            "datos" => $datos,
-            "mensaje" => $mensaje
+            "datos"     => $datos,
+            "mensaje"   => $mensaje
         ];
 
         return view('modUsuario/cargo', $data);
@@ -56,22 +57,30 @@ class CargoController extends BaseController
             //END
 
             return redirect()->to(base_url() . '/cargo')->with('mensaje', '0');
+
         }
 
-        return redirect()->to(base_url() . '/cargo')->with('mensaje', '1');
+            return redirect()->to(base_url() . '/cargo')->with('mensaje', '1');
     }
 
     //ELIMINAR CARGO
     public function eliminar()
     {
 
-        $cargoId = $_POST['cargoId'];
+        $cargoId    = $_POST['cargoId'];
 
-        $cargo = new CargoModel();
-        $data = ["cargoId" => $cargoId];
+        $cargo      = new CargoModel();
+        $persona    = new PersonaModel();
+        $data       = ["cargoId" => $cargoId];
 
         $nombreCargo = $cargo->asArray()->select("cargo")
         ->where("cargoId", $cargoId)->first();
+
+        //Para buscar si el Cargo está relacionado con una Persona
+        $buscarRelacion = $persona->select('cargoId')->where('cargoId', $cargoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/cargo')->with('mensaje', '7');
+        }
 
         $respuesta = $cargo->eliminar($data);
 
@@ -101,18 +110,18 @@ class CargoController extends BaseController
     {
         $cargo = new CargoModel();
         if ($this->validate([
-            'cargo'        => 'min_length[3]|max_length[45]|is_unique[wk_cargo.cargo]'
+            'cargo'         => 'min_length[3]|max_length[45]|is_unique[wk_cargo.cargo]'
         ])) {
 
             $datos = [
-                "cargo"        => $_POST['cargo']
+                "cargo"     => $_POST['cargo']
             ];
 
-            $cargoId = $_POST['cargoId'];
+            $cargoId    = $_POST['cargoId'];
 
-            $respuesta = $cargo->actualizar($datos, $cargoId);
+            $respuesta  = $cargo->actualizar($datos, $cargoId);
 
-            $datos = ["datos" => $respuesta];
+            $datos      = ["datos" => $respuesta];
 
             //PARA REGISTRAR EN BITACORA QUIEN EDITÓ EL CARGO
             $this->bitacora  = new MovimientosModel();
