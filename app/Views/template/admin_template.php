@@ -12,8 +12,9 @@
   <!-- Bootstrap -->
   <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendors/icons-1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Font Awesome 
-  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link href="vendors/jQuery-Smart-Wizard/wizard/style.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="vendors/fontawesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
@@ -25,6 +26,9 @@
   <!-- the fileinput plugin styling CSS file -->
   <link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
   <link href="vendors/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css" />
+
+<!-- the fileinput plugin styling CSS file -->
+<link href="vendors/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- bootstrap-progressbar -->
   <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
@@ -96,8 +100,7 @@
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
-              <!-- strtoupper: se usa para cambiar un array a mayusculas -->
-              <h2 style="font-size: 20px;"><?php echo strtoupper(session('usuario')); ?> </h2>
+              <h2 style="font-size: 20px;"><?php echo session('usuario'); ?> </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -116,7 +119,7 @@
 
               ?>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i>Inicio<span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>
+                <li><a><i class="fa fa-home"></i>Inicio<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="homeMenu">Inicio</a></li>
                   </ul>
@@ -148,10 +151,10 @@
                   ->findAll();
 
                 foreach ($menu as $key => $u) :
-                  $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->orderBy('menuId')->findAll();
+                  $submenus  = $submenu->asObject()->select()->where('menuId', $u->menuId)->findAll();
                 ?>
                   <?php if ($u->nombreMenu) : ?>
-                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>
+                    <li><a><i class="<?php echo $u->nombreIcono ?>"></i> <?= $u->nombreMenu ?><span class="fa fa-chevron-down"></span></a>
                     <?php endif ?>
                     <ul class="nav child_menu">
                       <?php foreach ($submenus as $s) : ?>
@@ -180,12 +183,10 @@
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <!-- strtoupper: se usa para cambiar un array a mayusculas -->
-                  <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <img src="images/user.png" alt=""><?php echo session('usuario'); ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('perfil') ?>"><i class="fa fa-user pull-right"></i> Perfil</a>
-                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>
+                  <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
             </ul>
@@ -296,9 +297,9 @@
   <!--SweetAlert-->
   <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
   <script src="vendors/sweetalert2/sweetalert.min.js"></script>
-
-  <!--inpuy mask-->
+<!--inpuy mask-->
   <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+
 
   <!-- Smartwizard -->
   <script src="vendors/Smartwizard/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
