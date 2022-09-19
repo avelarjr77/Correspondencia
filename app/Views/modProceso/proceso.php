@@ -1185,6 +1185,12 @@
         swal('', 'Falló actualizar', 'error');
     } else if (mensaje == '6') {
         swal('', 'Datos duplicados o caracteres de puntuación no admitidos', 'error');
+    } else if (mensaje == '7') {
+        swal({
+            icon: "error",
+            title: "¡Este Proceso no puede ser eliminado!",
+            text: "Lo sentimos, no se puede eliminar el Proceso porque está en uso por una Transacción."
+        });
     }
 </script>
 

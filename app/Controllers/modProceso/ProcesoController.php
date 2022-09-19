@@ -4,6 +4,8 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\ProcesoModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modProceso\ActividadModel;
+use App\Models\modTransaccion\TransaccionModel;
 
 class ProcesoController extends BaseController{
 
@@ -64,15 +66,22 @@ class ProcesoController extends BaseController{
         $procesoId = $_POST['procesoId'];
 
         $proceso = new ProcesoModel();
+        $transaccion = new TransaccionModel();
         $data = ["procesoId" => $procesoId];
 
         $nombreProceso = $proceso->asArray()->select("nombreProceso")
         ->where("procesoId", $procesoId)->first();
 
+        //Para buscar si el Proceso está relacionado
+        $buscarRelacion = $transaccion->select('procesoId')->where('procesoId', $procesoId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '7');
+        }
+
         $respuesta = $proceso->eliminar($data);
 
         if ($respuesta > 0){
-
+$
             //PARA REGISTRAR EN BITACORA QUIEN ELIMINÓ EL PROCESO
             $this->bitacora  = new MovimientosModel();
             $hora=new Time('now');

@@ -4,6 +4,7 @@ use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\InstitucionModel;
 use App\Models\modAdministracion\MovimientosModel;
+use App\Models\modTransaccion\TransaccionModel;
 
 class InstitucionController extends BaseController{
 
@@ -61,10 +62,17 @@ class InstitucionController extends BaseController{
         $institucionId = $_POST['institucionId'];
 
         $Institucion = new InstitucionModel();
+        $transaccion = new TransaccionModel();
         $data = ["institucionId" => $institucionId];
 
         $nombreInstitucion = $Institucion->asArray()->select("nombreInstitucion")
         ->where("institucionId", $institucionId)->first();
+
+        //Para buscar si el Tipo está relacionado con un Proceso
+        $buscarRelacion = $transaccion->select('institucionId')->where('institucionId', $institucionId)->first();
+        if ($buscarRelacion) {
+            return redirect()->to(base_url() . '/institucion')->with('mensaje', '6');
+        }
 
         $respuesta = $Institucion->eliminar($data);
 

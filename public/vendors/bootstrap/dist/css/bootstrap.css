@@ -22,6 +22,9 @@
     color: #666;
     text-decoration: none;
 }
+.swal-text {
+  text-align: center
+}
 
 a:hover {
     color: #4FDA8C;
@@ -6012,7 +6015,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
+  padding: 6rem 1rem;
   margin-bottom: 2rem;
   background-color: #e9ecef;
   border-radius: 0.3rem;
@@ -6020,7 +6023,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 8rem 2rem;
   }
 }
 

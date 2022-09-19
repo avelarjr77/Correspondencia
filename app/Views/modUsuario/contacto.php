@@ -224,6 +224,12 @@
         swal('No se agrego', 'Seleccione en que estado se encuentra el contacto', 'error');
     } else if (mensaje == '7') {
         swal('No se actualizo', 'Seleccione en que estado se encuentra el contacto', 'error');
+    } else if (mensaje == '8') {
+        swal({
+            icon: "error",
+            title: "¡Este Tipo de Contacto no puede ser eliminado!",
+            text: "Lo sentimos, no se puede eliminar el Tipo de Contacto porque está siendo utilizado por un Contacto."
+        });
     }
 </script>
 

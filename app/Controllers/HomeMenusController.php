@@ -15,7 +15,7 @@ class HomeMenusController extends BaseController
         $session = \Config\Services::session();
         $modulo = $_POST['moduloId'];
         //para obtener el Id de modulo por medio de session
-        $dataM=[
+        $dataM = [
             "modulo" => $modulo,
             'is_logged' => true,
         ];

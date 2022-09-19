@@ -1,60 +1,68 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
-<!-- Formulario para agregar ROL-MODULO-MENU -->
-<div class="x_panel">
-    <div class="x_title">
-        <h2>Configuración de Rol-Módulo-Menú</h2>
-        <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-        </ul>
-        <div class="clearfix"></div>
-    </div>
-    <div class="x_content">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 offset-md-12 right">
+<div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Configuración de Rol-Módulo-Menú</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
                 <button type="button" class="btn btn-outline-success mb-2" data-toggle="modal"
-                    data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Rol-Módulo-Menu
-                </button>
-                <br>
-                <!--LISTADO DE ROL-MODULO-MENU-->
-                <div class="card-box table-responsive"><br>
-                    <table id="datatable" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>ROL/MÓDULO/MENÚ</th>
-                                <th>ADMIN MENÚ</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($datos as $key) : ?>
-                            <tr role="row" class="odd">
-                                <td><?= $key->id ?></td>
-                                <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
-                                <td>
-                                    <a href="#" class="btn btn-primary btn-sm btn-edit" 
-                                        data-id="<?= $key->id ?>"
-                                        data-r="<?= $key-> rolId?>" data-rol="<?= $key->rol ?>"
-                                        data-mod="<?= $key->moduloId ?>" 
-                                        data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>Agregar Menú</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm btn-editRMM"
-                                        data-id="<?php echo $key->id ?>" 
-                                        data-rol="<?php echo $key->rolId ?>"
-                                        data-modulomenuid="<?php echo $key->moduloId ?>"> <i class="fa fa-pencil-square-o"></i>Editar</a>
-                                        
-
-                                    <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
-                                        data-id="<?php echo $key->id ?>" data-nombremod="<?php echo $key->modulo ?>"
-                                        data-moduloid="<?php echo $key->moduloId ?>"
-                                        data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-trash"></i>Eliminar</a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    data-target="#agregarModal"><i class="fa fa-plus"></i> Agregar Rol-Módulo-Menu</button>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box table-responsive">
+                            <div id="datatable_wrapper" class="dataTables_wrapper container-fluid ">
+                                <div class="row">
+                                    <div class="col-sm-12" id="lista"><br>
+                                        <table id="datatable" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>ROL/MÓDULO/MENÚ</th>
+                                                    <th>ADMIN MENÚ</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($datos as $key) : ?>
+                                                <tr role="row" class="odd">
+                                                    <td><?= $key->id ?></td>
+                                                    <td><?= $key->rol ?>/<?= $key->modulo ?>/<?= $key->menu ?></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary btn-sm btn-edit"
+                                                            data-id="<?= $key->id ?>" data-r="<?= $key->rolId ?>"
+                                                            data-rol="<?= $key->rol ?>" data-mod="<?= $key->moduloId ?>"
+                                                            data-modulo="<?= $key->modulo ?>"><i class="fa fa-plus"></i>
+                                                            Agregar Menú</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-warning btn-sm btn-editRMM"
+                                                            data-id="<?php echo $key->id ?>"
+                                                            data-nombremod="<?php echo $key->modulo ?>"
+                                                            data-moduloid="<?php echo $key->moduloId ?>"
+                                                            data-menuid="<?php echo $key->menuId ?>"><i
+                                                                class="fa fa-pencil-square-o"></i> Editar</a>
+                                                        <a href="#" class="btn btn-danger btn-sm btn-deleteRMM"
+                                                            data-id="<?php echo $key->id ?>"
+                                                            data-nombremod="<?php echo $key->modulo ?>"
+                                                            data-moduloid="<?php echo $key->moduloId ?>"
+                                                            data-menuid="<?php echo $key->menuId ?>"><i
+                                                                class="fa fa-trash"></i> Eliminar</a>
+                                                    </td>
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,7 +70,7 @@
 </div>
 
 
-<!-- Modal Agregar Rol-Módulo-Menu-->
+<!-- Modal Agregar Módulo-->
 <form action="<?php echo base_url() . '/crearRMM' ?>" method="POST">
     <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -296,9 +304,9 @@ $(document).ready(function() {
     $('.btn-edit').on('click', function() {
         // get data from button edit
         var id = $(this).data('id');
-        var rolId = $(this).data('r');
-        var rol = $(this).data('rol'); 
         var moduloId = $(this).data('mod');
+        var rolId = $(this).data('r');
+        var rol = $(this).data('rol');
         var modulo = $(this).data('modulo');
 
         $('.roli').val(rolId);
@@ -345,7 +353,7 @@ $(document).ready(function() {
                     roles.append('<tr><td id="la">' + val.menu + '</td>' +
                         '<td><button href="#" onclick="eliminar(' + val.id +
                         ')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>'
-                    )
+                        )
 
                 });
             }
@@ -377,11 +385,7 @@ $(document).ready(function() {
     $('#datatable').DataTable({
         language: {
             url: 'vendors/datatables.net/es.json'
-        },
-        "order": [
-            [0, 0]
-        ],
-        "ordering": true,
+        }
     });
 });
 </script>

@@ -1,5 +1,13 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
+<style>
+    @media (max-width: 770px) {
+        .jumbotron {
+            padding: 8rem 2rem;
+            height: 650px;
+        }
+    }
+</style>
 
 <h3>Inicio</h3>
 <!-- top tiles -->
@@ -37,15 +45,6 @@
 </div>
 <br>
 <!-- /top tiles -->
-<div class="x_content">
 
-    <div class="bs-example" data-example-id="simple-jumbotron">
-        <div class="jumbotron">
-            <h1>Bienvenido/da!</h1>
-            <p style="font-style: italic; font-size:medium;">Sistema de correspondencia UCAD.</p>
-        </div>
-    </div>
-
-</div>
 
 <?= $this->endSection() ?>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CRITICAL - 2022-09-14 16:03:36 --> Undefined variable: tActividad
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 17, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
@@ -6,10 +7,198 @@ CRITICAL - 2022-09-14 16:03:36 --> Undefined variable: tActividad
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
 CRITICAL - 2022-09-14 16:04:32 --> Trying to access array offset on value of type null
+=======
+ERROR - 2022-09-14 17:13:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
+CRITICAL - 2022-09-14 17:13:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT a.activi...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT a.activi...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT a.activi...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ActividadModel.php(19): CodeIgniter\Database\BaseConnection->query('SELECT a.activi...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(24): App\Models\modProceso\ActividadModel->listarActividad(NULL)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->actividad()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 17:13:41 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY e.orden' at line 5
+CRITICAL - 2022-09-14 17:13:41 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY e.orden' at line 5
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT e.etapaI...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT e.etapaI...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT e.etapaI...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\EtapaModel.php(18): CodeIgniter\Database\BaseConnection->query('SELECT e.etapaI...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\EtapaController.php(17): App\Models\modProceso\EtapaModel->listarEtapa(NULL)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\EtapaController->etapa()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\EtapaController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 17:14:54 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY e.orden' at line 5
+CRITICAL - 2022-09-14 17:14:54 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY e.orden' at line 5
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT e.etapaI...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT e.etapaI...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT e.etapaI...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\EtapaModel.php(18): CodeIgniter\Database\BaseConnection->query('SELECT e.etapaI...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\EtapaController.php(17): App\Models\modProceso\EtapaModel->listarEtapa(NULL)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\EtapaController->etapa()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\EtapaController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 17:14:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
+CRITICAL - 2022-09-14 17:14:57 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT a.activi...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT a.activi...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT a.activi...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modProceso\ActividadModel.php(19): CodeIgniter\Database\BaseConnection->query('SELECT a.activi...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modProceso\ActividadController.php(24): App\Models\modProceso\ActividadModel->listarActividad(NULL)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modProceso\ActividadController->actividad()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modProceso\ActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 18:17:53 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 18:17:53 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(69): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 18:20:34 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 18:20:34 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(69): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 18:26:48 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 18:26:48 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(69): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 18:51:48 --> Call to a member function find() on string
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-09-14 18:52:38 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 18:52:38 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:00:33 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:00:33 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:00:43 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:00:43 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:01:06 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:01:06 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:01:10 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:01:10 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:01:35 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:01:35 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 19:01:46 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+CRITICAL - 2022-09-14 19:01:46 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_rol_modulo_menu`, CONSTRAINT `FK_ROL_MODULO_MENU_ROL` FOREIGN KEY (`rolId`) REFERENCES `wk_rol` (`rolId`))
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(2225): CodeIgniter\Database\BaseConnection->query('DELETE FROM `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modAdministracion\RolModel.php(36): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modAdministracion\RolController.php(74): App\Models\modAdministracion\RolModel->eliminar(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modAdministracion\RolController->eliminar()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modAdministracion\RolController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -18,10 +207,21 @@ CRITICAL - 2022-09-14 16:04:32 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:04:47 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -30,10 +230,21 @@ CRITICAL - 2022-09-14 16:04:47 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:05:07 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:52:00 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -42,10 +253,21 @@ CRITICAL - 2022-09-14 16:05:07 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:06:36 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:52:23 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -54,10 +276,21 @@ CRITICAL - 2022-09-14 16:06:36 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:06:50 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:52:45 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -66,10 +299,21 @@ CRITICAL - 2022-09-14 16:06:50 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:09:47 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:52:46 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -78,10 +322,21 @@ CRITICAL - 2022-09-14 16:09:47 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:11:17 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:53:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -90,10 +345,21 @@ CRITICAL - 2022-09-14 16:11:17 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:12:26 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:54:26 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -102,10 +368,21 @@ CRITICAL - 2022-09-14 16:12:26 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:20:35 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 19:54:36 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -134,10 +411,21 @@ Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo 
 #13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #14 {main}
 CRITICAL - 2022-09-14 16:41:36 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:02:59 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -146,10 +434,21 @@ CRITICAL - 2022-09-14 16:41:36 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:44:25 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:03:01 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -158,10 +457,21 @@ CRITICAL - 2022-09-14 16:44:25 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 16:44:35 --> Trying to access array offset on value of type null
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:03:16 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
@@ -581,3 +891,171 @@ CRITICAL - 2022-09-14 21:24:48 --> Object of class App\Models\modTransaccion\Tra
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #8 {main}
+=======
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:03:49 --> Class 'App\Filters\sessionModulos' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(386): CodeIgniter\Filters\Filters->run('perfil', 'before')
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-09-14 20:04:41 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:13:54 --> Undefined property: CodeIgniter\View\View::$session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 206, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:13:55 --> Undefined property: CodeIgniter\View\View::$session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 206, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:15:21 --> Undefined property: CodeIgniter\View\View::$session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 206, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:15:24 --> Undefined property: CodeIgniter\View\View::$session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 206, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:17:01 --> syntax error, unexpected '}', expecting ';'
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#2 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-09-14 20:20:37 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(208): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 208, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:21:12 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:32:51 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:33:57 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(210): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 210, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:34:38 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(210): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 210, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:34:42 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(210): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 210, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:50:24 --> Trying to access array offset on value of type null
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(208): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 208, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396

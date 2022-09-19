@@ -112,6 +112,10 @@ class Validation
         'nombreProceso' => 'is_unique[wk_proceso.nombreProceso]|alpha_numeric_space'
     ];
 
+    public $validarDUI = [
+        'dui' => 'is_unique[wk_persona.dui]'
+    ];
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

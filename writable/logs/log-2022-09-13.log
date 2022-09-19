@@ -1,3 +1,40 @@
+<<<<<<< HEAD
+ERROR - 2022-09-13 00:11:21 --> Unknown column 'u.usuario' in 'where clause'
+CRITICAL - 2022-09-13 00:11:21 --> Unknown column 'u.usuario' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `c`.`car...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `c`.`car...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `c`.`car...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `c`.`car...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(79): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-09-13 00:28:53 --> Unknown column 'co.tipoContactoId' in 'on clause'
+CRITICAL - 2022-09-13 00:28:53 --> Unknown column 'co.tipoContactoId' in 'on clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `c`.`con...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `c`.`con...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `c`.`con...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `c`.`con...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(98): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PerfilController))
+#9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-09-13 20:42:19 --> Undefined index: moduloId
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 14, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+=======
 ERROR - 2022-09-13 19:51:42 --> Unknown column 't.estado' in 'where clause'
 CRITICAL - 2022-09-13 19:51:42 --> Unknown column 't.estado' in 'where clause'
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `ta`.`tr...', 0)
@@ -12,3 +49,4 @@ CRITICAL - 2022-09-13 19:51:42 --> Unknown column 't.estado' in 'where clause'
 #9 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #10 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #11 {main}
+>>>>>>> 5713473598815c20f9dde19e3f32ece9d736398e

@@ -186,6 +186,12 @@
         swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
         swal('No se actualizo', 'Datos incorrectos', 'error');
+    }else if (mensaje == '6') {
+        swal({
+            icon: "error",
+            title: "¡Este Módulo/Menú no puede ser eliminado!", 
+            text: "Lo sentimos, no se puede eliminar el Módulo/Menú porque está en uso en Rol/Módulo/Menú."
+        });
     }
 </script>
 
@@ -210,13 +216,6 @@
 
             // Call Modal Edit
             $('#editModal').modal('show');
-
-            
-            <a href="#" class="btn btn-warning btn-sm btn-edit"
-             data-id="<?php echo $key->id ?>" 
-             data-nombremod="<?php echo $key->modulo ?>" 
-             data-moduloid="<?php echo $key->moduloId ?>" 
-             data-menuid="<?php echo $key->menuId ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
         });
 
         // get Delete Product

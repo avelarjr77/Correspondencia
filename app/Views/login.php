@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/bootstrap/dist/css/login.css">
 
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
+  <link rel="icon" href="images/ucad.ico" type="image/ico" />
 </head>
 
 <body>
