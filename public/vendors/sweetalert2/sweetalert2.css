@@ -440,7 +440,6 @@
   word-wrap: break-word;
 }
 
-.swal2-input,
 .swal2-file,
 .swal2-textarea,
 .swal2-select,
@@ -449,7 +448,6 @@
   margin: 1em auto;
 }
 
-.swal2-input,
 .swal2-file,
 .swal2-textarea {
   box-sizing: border-box;
@@ -558,31 +556,6 @@
   margin: 1em auto;
 }
 
-.swal2-validation-message {
-  align-items: center;
-  justify-content: center;
-  margin: 0 -2.7em;
-  padding: 0.625em;
-  overflow: hidden;
-  background: #f0f0f0;
-  color: #666666;
-  font-size: 1em;
-  font-weight: 300;
-}
-.swal2-validation-message::before {
-  content: "!";
-  display: inline-block;
-  width: 1.5em;
-  min-width: 1.5em;
-  height: 1.5em;
-  margin: 0 0.625em;
-  border-radius: 50%;
-  background-color: #f27474;
-  color: #fff;
-  font-weight: 600;
-  line-height: 1.5em;
-  text-align: center;
-}
 
 .swal2-icon {
   position: relative;
@@ -1361,8 +1334,5 @@ body.swal2-toast-column .swal2-toast .swal2-loading {
 body.swal2-toast-column .swal2-toast .swal2-input {
   height: 2em;
   margin: 0.3125em auto;
-  font-size: 1em;
-}
-body.swal2-toast-column .swal2-toast .swal2-validation-message {
   font-size: 1em;
 }

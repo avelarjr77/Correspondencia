@@ -386,7 +386,7 @@
                 procesoId, transaccionId, nombreProceso);
 
             if (estado == 'En Progreso') {
-                Swal.fire({
+                swal({
                     title: '¿Desea Finalizar esta actividad?',
                     text: "No podrá reverir este cambio",
                     icon: 'warning',
@@ -419,11 +419,7 @@
 
                                 console.log(dataAct);
 
-                                Swal.fire(
-                                    '¡Finalizada!',
-                                    'La actividad ha finalizado',
-                                    'success'
-                                )
+                                swal('', 'La actividad ha finalizado', 'success');
 
                                 location.href =
                                     "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
@@ -434,7 +430,7 @@
                     }
                 })
             } else if (estado == 'Inactivo' || estado == 'Finalizado') {
-                Swal.fire({
+                swal({
                     icon: 'error',
                     title: 'Error',
                     text: 'No es posible finalizar una actividad Inactiva o Finalizada'
@@ -452,7 +448,7 @@
             console.log(id);
 
             if (estado == 'Inactivo') {
-                Swal.fire({
+                swal({
                     title: '¿Desea Iniciar esta actividad?',
                     text: "No podrá reverir este cambio",
                     icon: 'warning',
@@ -475,11 +471,7 @@
 
                                 console.log(dataActi);
 
-                                Swal.fire(
-                                    '¡Iniciada!',
-                                    'La actividad ' + actividad + ' ha iniciado',
-                                    'success'
-                                )
+                                swal('', 'La actividad ' + actividad + ' ha iniciado', 'success');
 
                                 location.href =
                                     "<?= base_url() . route_to('transaccionActividades') ?>?etapaId=" +
@@ -490,7 +482,7 @@
                     }
                 })
             } else if (estado == 'En Progreso' || estado == 'Finalizado') {
-                Swal.fire({
+                swal({
                     icon: 'error',
                     title: 'Error',
                     text: 'No es posible iniciar una actividad Activa o Finalizada'
