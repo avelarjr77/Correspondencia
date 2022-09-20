@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+ERROR - 2022-09-16 15:08:19 --> Unknown column 'vp.actividad' in 'where clause'
+CRITICAL - 2022-09-16 15:08:19 --> Unknown column 'vp.actividad' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT*\r\n      ...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT*\r\n      ...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT*\r\n      ...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(82): CodeIgniter\Database\BaseConnection->query('SELECT*\r\n      ...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(16): App\Models\modTransaccion\TransaccionConfigModel->listarProceso()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-16 16:04:16 --> Subquery returns more than 1 row
+CRITICAL - 2022-09-16 16:04:16 --> Subquery returns more than 1 row
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT*\r\n      ...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT*\r\n      ...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT*\r\n      ...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(82): CodeIgniter\Database\BaseConnection->query('SELECT*\r\n      ...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(16): App\Models\modTransaccion\TransaccionConfigModel->listarProceso()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-16 16:05:24 --> Subquery returns more than 1 row
+CRITICAL - 2022-09-16 16:05:24 --> Subquery returns more than 1 row
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT*\r\n      ...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT*\r\n      ...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT*\r\n      ...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(82): CodeIgniter\Database\BaseConnection->query('SELECT*\r\n      ...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(16): App\Models\modTransaccion\TransaccionConfigModel->listarProceso()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionConfigController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionConfigController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+=======
 ERROR - 2022-09-16 09:37:16 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
 CRITICAL - 2022-09-16 09:37:16 --> Cannot delete or update a parent row: a foreign key constraint fails (`correspondencia`.`co_modulo_menu`, CONSTRAINT `FK_MODULO_MENU_MENU` FOREIGN KEY (`menuId`) REFERENCES `co_menu` (`menuId`))
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `co...', 0)
@@ -118,3 +156,4 @@ CRITICAL - 2022-09-16 23:58:17 --> Cannot delete or update a parent row: a forei
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396

@@ -10,6 +10,28 @@
     <div class="clearfix"></div>
 
     <div class="row justify-content-center">
+        <div class="col-md-12 col-sm-12  ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Cantidad de procesos por persona</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <canvas id="procesoPersona"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
         <div class="col-md-12 col-sm-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -126,6 +148,68 @@
     });
 
     //var fechas = $("#fecha").val();
+
+    //get the bar chart canvas
+    var cData = JSON.parse(`<?php echo $chart_dataL; ?>`);
+    var ctx = $("#procesoPersona");
+
+    //bar chart data
+    var data = {
+        labels: cData.label,
+        datasets: [{
+            label: 'Procesos',
+            data: cData.data,
+            backgroundColor: [
+                "#26b99a",
+                "#03586A",
+                "#34495E",
+                "#26B99A",
+                "#CFD4D8",
+                "#036475",
+                "#BCE9E0",
+                "#B3CDD2",
+                "#b1bfc9",
+                "#b3dee2",
+                "#82c9ae",
+            ],
+            borderColor: [
+                "#26b99a",
+                "#03586A",
+                "#34495E",
+                "#26B99A",
+                "#CFD4D8",
+                "#036475",
+                "#BCE9E0",
+                "#B3CDD2",
+                "#b1bfc9",
+                "#b3dee2",
+                "#82c9ae",
+            ],
+            borderWidth: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }]
+    };
+
+    //options
+    var options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Total de procesos Finalizados por persona este mes'
+            }
+        }
+    };
+
+    //create bar Chart class object
+    var chart1 = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+    ///////////
 
     $('#btn_filtro_bar').on('click',function(){
         $.ajax({

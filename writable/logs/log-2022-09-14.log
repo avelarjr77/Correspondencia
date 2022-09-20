@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+CRITICAL - 2022-09-14 16:03:36 --> Undefined variable: tActividad
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 17, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-09-14 16:04:32 --> Trying to access array offset on value of type null
+=======
 ERROR - 2022-09-14 17:13:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
 CRITICAL - 2022-09-14 17:13:03 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY a.ordenActividad' at line 6
 #0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT a.activi...', 0)
@@ -183,10 +193,21 @@ CRITICAL - 2022-09-14 19:01:46 --> Cannot delete or update a parent row: a forei
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:04:47 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -195,10 +216,21 @@ CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:05:07 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -207,10 +239,21 @@ CRITICAL - 2022-09-14 19:51:18 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:52:00 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:06:36 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -219,10 +262,21 @@ CRITICAL - 2022-09-14 19:52:00 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:52:23 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:06:50 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -231,10 +285,21 @@ CRITICAL - 2022-09-14 19:52:23 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:52:45 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:09:47 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -243,10 +308,21 @@ CRITICAL - 2022-09-14 19:52:45 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:52:46 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:11:17 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -255,10 +331,21 @@ CRITICAL - 2022-09-14 19:52:46 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:53:18 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:12:26 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -267,10 +354,21 @@ CRITICAL - 2022-09-14 19:53:18 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:54:26 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:20:35 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -279,10 +377,41 @@ CRITICAL - 2022-09-14 19:54:26 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 19:54:36 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-09-14 16:36:43 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+CRITICAL - 2022-09-14 16:36:43 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `r`.`nom...', Array, false)
+#2 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(138): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2022-09-14 16:41:36 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -291,10 +420,21 @@ CRITICAL - 2022-09-14 19:54:36 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 20:02:59 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(42): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:44:25 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -303,10 +443,21 @@ CRITICAL - 2022-09-14 20:02:59 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 20:03:01 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 16:44:35 --> Trying to access array offset on value of type null
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -315,10 +466,432 @@ CRITICAL - 2022-09-14 20:03:01 --> Trying to access array offset on value of typ
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
 CRITICAL - 2022-09-14 20:03:16 --> Trying to access array offset on value of type null
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
 #0 C:\wamp64\www\correspondencia-ucad\app\Views\template\admin_template.php(207): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\wamp64\\www\\c...', 207, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
 #2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #3 C:\wamp64\www\correspondencia-ucad\system\View\View.php(226): CodeIgniter\View\View->render('template/admin_...', Array, true)
+<<<<<<< HEAD
+#4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(37): view('homeMenus', Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-14 20:20:05 --> Class 'TransaccionListModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include()
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-09-14 20:21:13 --> Undefined variable: session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 21, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:23:42 --> Undefined variable: session
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 23, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:24:11 --> Undefined index: totalAct
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:24:34 --> Undefined index: totalAct
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:25:02 --> Undefined index: totalAct
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:25:13 --> Undefined variable: pr
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 32, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:26:14 --> Array to string conversion
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:26:31 --> Undefined index: totalAct
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 27, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 20:34:01 --> Unknown column 'u.usuario' in 'where clause'
+CRITICAL - 2022-09-14 20:34:01 --> Unknown column 'u.usuario' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT count(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#8 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#9 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#10 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#13 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+ERROR - 2022-09-14 20:39:29 --> Unknown column 'e.etapaId' in 'on clause'
+CRITICAL - 2022-09-14 20:39:29 --> Unknown column 'e.etapaId' in 'on clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT count(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(21): CodeIgniter\BaseModel->first()
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#8 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#9 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#10 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(31): view('homeMenus', Array)
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#13 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2022-09-14 20:48:50 --> Undefined variable: session
+#0 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionActividadModel.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 68, Array)
+#1 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(27): App\Models\modTransaccion\TransaccionActividadModel->actividadesPendientes()
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-09-14 20:49:17 --> Unknown column 'rebeca' in 'where clause'
+CRITICAL - 2022-09-14 20:49:17 --> Unknown column 'rebeca' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT count(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionActividadModel.php(69): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(27): App\Models\modTransaccion\TransaccionActividadModel->actividadesPendientes()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 20:52:13 --> Unknown column 'rebeca' in 'where clause'
+CRITICAL - 2022-09-14 20:52:13 --> Unknown column 'rebeca' in 'where clause'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT count(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionActividadModel.php(69): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(27): App\Models\modTransaccion\TransaccionActividadModel->actividadesPendientes()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:53:21 --> Trying to get property 'totalAct' of non-object
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\c...', 24, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:53:52 --> Trying to get property 'totalAct' of non-object
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\c...', 24, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:54:46 --> Trying to get property 'totalAct' of non-object
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\c...', 24, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 20:55:52 --> Trying to get property 'totalAct' of non-object
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\wamp64\\www\\c...', 24, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 21:03:35 --> Call to undefined method App\Models\modTransaccion\TransaccionActividadModel::count_all_results
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->__call('count_all_resul...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 21:06:34 --> Object of class App\Models\modTransaccion\TransaccionActividadModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include()
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-09-14 21:06:52 --> Object of class App\Models\modTransaccion\TransaccionActividadModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include()
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-09-14 21:07:59 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting end of file
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#2 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-09-14 21:08:12 --> Call to undefined method App\Models\modTransaccion\TransaccionActividadModel::count_all_results
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->__call('count_all_resul...', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-14 21:11:39 --> Duplicate column name 'transaccionActividadId'
+CRITICAL - 2022-09-14 21:11:39 --> Duplicate column name 'transaccionActividadId'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:12:25 --> Duplicate column name 'transaccionActividadId'
+CRITICAL - 2022-09-14 21:12:25 --> Duplicate column name 'transaccionActividadId'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:12:48 --> Duplicate column name 'transaccionActividadId'
+CRITICAL - 2022-09-14 21:12:48 --> Duplicate column name 'transaccionActividadId'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:13:12 --> Duplicate column name 'transaccionActividadId'
+CRITICAL - 2022-09-14 21:13:12 --> Duplicate column name 'transaccionActividadId'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:15:41 --> Unknown column 'totalAct' in 'field list'
+CRITICAL - 2022-09-14 21:15:41 --> Unknown column 'totalAct' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:16:02 --> Unknown column 'as' in 'field list'
+CRITICAL - 2022-09-14 21:16:02 --> Unknown column 'as' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2022-09-14 21:16:54 --> Duplicate column name 'transaccionActividadId'
+CRITICAL - 2022-09-14 21:16:54 --> Duplicate column name 'transaccionActividadId'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->countAllResults()
+#6 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#7 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#8 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#9 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#10 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#11 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#12 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2022-09-14 21:18:51 --> Call to undefined method App\Models\modTransaccion\TransaccionActividadModel::num_rows
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(22): CodeIgniter\Model->__call('num_rows', Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 21:24:35 --> Undefined property: CodeIgniter\View\View::$db
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\homeMenus.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 14, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-14 21:24:48 --> Object of class App\Models\modTransaccion\TransaccionActividadModel could not be converted to string
+#0 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include()
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('homeMenus', Array, true)
+#3 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(32): view('homeMenus', Array)
+#4 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+=======
 #4 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('perfil', Array, true)
 #5 C:\wamp64\www\correspondencia-ucad\app\Controllers\PerfilController.php(104): view('perfil', Array)
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\PerfilController->index()
@@ -485,3 +1058,4 @@ CRITICAL - 2022-09-14 20:50:24 --> Trying to access array offset on value of typ
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+>>>>>>> fc10657f9d1da706162154f1fdfc79fb6963b396
