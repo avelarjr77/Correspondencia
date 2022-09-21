@@ -14,7 +14,7 @@
         <br>
         <!--LISTADO DE TIPOCONTACTO-->
         <div class="card-box table-responsive">
-            <table id="datatable" class="table table-bordered">
+            <table id="datatable1" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -164,6 +164,16 @@
             $('#eliminarModal').modal('show');
         });
 
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#datatable1').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 'asc']],
+        });
     });
 </script>
 
