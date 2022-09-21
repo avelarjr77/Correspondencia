@@ -13,6 +13,31 @@
   <link rel="icon" href="images/ucad.ico" type="image/ico" />
 </head>
 
+<style>
+  .alert {
+  width: 130%;
+  padding: 1.7rem 1rem;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 29px;
+  font-size: 16px;
+  position: relative;
+  text-align: justify;
+  transition: 0.3s;
+}
+.close {
+  margin-left: 19px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 27px;
+  line-height: 0.5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+</style>
+
 <body>
   <div class="container">
 
@@ -24,9 +49,9 @@
         <div class="col-md-3" style="z-index: 300;">
 
           <?php if (session()->get('success')) : ?>
-            <div class="alert alert-info alert-dismissible fade show" role="alert" style="background-color: f44336;">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
               <i class="fa fa-check-circle"></i>
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <span class="close" onclick="this.parentElement.style.display='none';" data-dismiss="alert">&times;</span>
               <?= session()->get('success') ?>
             </div>
           <?php endif; ?>
