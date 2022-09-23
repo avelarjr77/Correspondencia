@@ -3,7 +3,7 @@
 
 <div class="x_panel">
     <div class="x_title">
-        <h2>Configuración de Contactos</h2>
+        <h2>Configuración de Tipo de Contactos</h2>
         <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
         </ul>
@@ -14,7 +14,7 @@
         <br>
         <!--LISTADO DE TIPOCONTACTO-->
         <div class="card-box table-responsive">
-            <table id="datatable" class="table table-bordered">
+            <table id="datatable1" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -164,6 +164,16 @@
             $('#eliminarModal').modal('show');
         });
 
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#datatable1').DataTable({
+            language: {
+                url: 'vendors/datatables.net/es.json'
+            },
+            "order": [[0, 'asc']],
+        });
     });
 </script>
 

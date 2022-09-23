@@ -39,9 +39,18 @@ class GraficasController extends BaseController{
   public function proceso(){
 
     $grafica = new GraficasModel();
+    $query =  $grafica->barraProcesoPersona(); 
 
+    $data = [];
 
-    return view('modGraficas/graficasProceso');
+    foreach($query as $row) {
+        $data['label'][] = $row->persona;
+        $data['data'][] = (int) $row->total;
+    }
+
+    $data['chart_dataL'] = json_encode($data);
+
+    return view('modGraficas/graficasProceso', $data);
   }
 
   public function barraF(){

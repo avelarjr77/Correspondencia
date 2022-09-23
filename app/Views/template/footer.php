@@ -61,6 +61,7 @@
 <!--SweetAlert-->
 <script src="vendors/sweetalert2/sweetalert2.min.js"></script>
 <script src="vendors/sweetalert2/sweetalert.min.js"></script>
+<script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <!--inpuy mask-->
 <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>

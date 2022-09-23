@@ -83,7 +83,6 @@ class Login extends BaseController
 
     public function recuperarContraseña()
     {
-        $data = [];
         helper(['form']);
         if ($this->request->getMethod() == 'post') {
             $rules = [
@@ -174,6 +173,6 @@ class Login extends BaseController
                 }
             }
         }
-        return view('login', $data);
+        return redirect()->to(base_url(). '/');
     }
 }

@@ -52,13 +52,25 @@ class GraficasModel extends Model
     public function barraProm($fechaI, $fechaF)
     {
         $tr = $this->db->query("SELECT p.nombres as 'persona', 
-                                AVG(TIMESTAMPDIFF(DAY, ta.fechaInicio, ta.fechaFin)) as 'promedio'
+                                AVG(DATEDIFF(ta.fechaInicio, ta.fechaFin)) as 'promedio'
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
                                 WHERE ta.estado = 'F' AND ta.fechaInicio 
                                 BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
                                 AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
+                                GROUP BY p.personaId
+                                ORDER BY p.personaId");
+        return $tr->getResult();
+    }
+
+    public function barraProcesoPersona()
+    {
+        $tr = $this->db->query("SELECT p.nombres as 'persona', 
+                                COUNT(*) as 'total'
+                                FROM wk_transaccion t
+                                INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                WHERE t.estadoTransaccion = 'F' AND MONTH (t.fechaInicio) = MONTH (NOW())
                                 GROUP BY p.personaId
                                 ORDER BY p.personaId");
         return $tr->getResult();

@@ -604,17 +604,9 @@
                 var dataEEtapaC = JSON.parse(data);
 
                 if (dataEEtapaC == '6') {
-                    Swal.fire(
-                        '¡Agregado!',
-                        'Etapa aregada con éxito',
-                        'success'
-                    )
+                    swal('', 'Etapa aregada con éxito', 'success');
                 } else if (dataEEtapaC == '7') {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló agregar etapa',
-                        'error'
-                    )
+                    swal('', 'Falló agregar etapa', 'error');
                 }
                 console.log(dataEEtapaC);
                 $('#nE').val('');
@@ -710,17 +702,9 @@
                 var dataEEtapa = JSON.parse(data);
 
                 if (dataEEtapa == '8') {
-                    Swal.fire(
-                        '¡Eliminado!',
-                        'Etapa eliminada con éxito',
-                        'success'
-                    )
+                    swal('', 'Etapa eliminada con éxito', 'success');
                 } else if (dataEEtapa == '9') {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló eliminar etapa',
-                        'error'
-                    )
+                    swal('', 'Falló eliminar etapa', 'error');
                 }
 
                 console.log(dataEEtapa);
@@ -803,17 +787,9 @@
                 var dataEAtapa = JSON.parse(data);
 
                 if (dataEAtapa == '10') {
-                    Swal.fire(
-                        '¡Actualizado!',
-                        'Etapa actualizada con éxito',
-                        'success'
-                    )
+                    swal('', 'Etapa actualizada con éxito', 'success');
                 } else if (dataEAtapa == '11') {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló actualizar etapa',
-                        'error'
-                    )
+                    swal('', 'Falló actualizar etapa', 'error');
                 }
 
                 console.log(dataEAtapa);
@@ -947,17 +923,9 @@
                 var dataActividadCCN = JSON.parse(data);
 
                 if (dataActividadCCN == '12') {
-                    Swal.fire(
-                        '¡Agregado!',
-                        'Actividad aregada con éxito',
-                        'success'
-                    )
+                    swal('', 'Actividad aregada con éxito', 'success');
                 } else if (dataActividadCCN == '13') {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló agregar actividad',
-                        'error'
-                    )
+                    swal('', 'Falló agregar actividad', 'error');
                 }
 
                 /* $('#nombreActividad').val('');
@@ -1019,17 +987,9 @@
                 var dataActividadEl = JSON.parse(data);
 
                 if (dataActividadEl == '14') {
-                    Swal.fire(
-                        '¡Eliminado!',
-                        'Actividad eliminada con éxito',
-                        'success'
-                    )
+                    swal('', 'Actividad eliminada con éxito', 'success');
                 } else {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló eliminar actividad',
-                        'error'
-                    )
+                    swal('', 'Falló eliminar actividad', 'error');
                 }
 
                 console.log(dataActividadEl);
@@ -1128,17 +1088,9 @@
                 var dataEActividadN = JSON.parse(data);
 
                 if (dataEActividadN == '16') {
-                    Swal.fire(
-                        '¡Actualizado!',
-                        'Actividad actualizada con éxito',
-                        'success'
-                    )
+                    swal('', 'Actividad actualizada con éxito', 'success');
                 } else if (dataEActividadN == '17') {
-                    Swal.fire(
-                        '¡Error!',
-                        'Falló actualizar actividad',
-                        'error'
-                    )
+                    swal('', 'Falló actualizar actividad', 'success');
                 }
 
                 console.log(dataEActividadN);
@@ -1201,8 +1153,7 @@
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [[0, 0]],
-            "ordering":true,
+            "order": [[0, 'asc']],
         });
     });
 </script>
