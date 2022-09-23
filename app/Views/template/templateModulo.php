@@ -35,11 +35,23 @@
                 <P style="font-size:19px;">Correspondencia <b>UCAD</b></P>
               </span></a>
           </div>
+              <?php
+              use App\Models\modUsuario\UsuarioModel;
+
+              $session = session();
+              $usuario  = new UsuarioModel();
+              $foto =$usuario->asArray()->select('u.imagenPerfil')->from('wk_usuario u')->where('u.usuario', $session->usuario)->first();
+
+              ?>
 
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic center">
-              <img src="images/logo.jpeg" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
+                  <?php if ($foto['imagenPerfil'] === NULL): ?>
+                    <img src="images/user.png" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
+                  <?php elseif ($foto['imagenPerfil'] === $foto['imagenPerfil']): ?>
+                    <img src="uploads/<?php echo $foto['imagenPerfil']; ?>" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
+                  <?php endif ?>
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
@@ -73,7 +85,11 @@
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php if ($foto['imagenPerfil'] === NULL): ?>
+                    <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php elseif ($foto['imagenPerfil'] === $foto['imagenPerfil']): ?>
+                    <img src="uploads/<?php echo $foto['imagenPerfil']; ?>" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php endif ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="<?php echo base_url('/salir') ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a>

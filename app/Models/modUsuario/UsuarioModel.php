@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class UsuarioModel extends Model{
     protected $table 			= 'wk_usuario';
 	protected $primaryKey 		= 'usuarioId';
-	protected $allowedFields 	= ['usuarioId', 'personaId', 'usuario', 'clave', 'estado', 'rolId'];
+	protected $allowedFields 	= ['usuarioId', 'personaId', 'usuario', 'clave', 'estado',  'imagenPerfil', 'rolId'];
 
    
     //LISTADO DE USUARIOS
