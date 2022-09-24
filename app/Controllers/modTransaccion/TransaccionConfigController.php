@@ -46,11 +46,6 @@ class TransaccionConfigController extends BaseController
         $datos = $etapa->listarEtapa($procesoId);
         echo json_encode($datos);
 
-        //obtener persona encargado
-        $personaId = $etapa->asArray()->select('t.personaId')
-            ->from('wk_transaccion_actividades t')->where('t.procesoId', $procesoId)->first();
-
-        
     }
 
     public function tDetId()

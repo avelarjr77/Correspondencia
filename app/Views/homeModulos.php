@@ -31,7 +31,7 @@
     <div class="x_content"><br><br>
         <div class="row">
             <?php foreach ($modulo as $key) : ?><br>
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding: 1em;">
                     <div class="card shadow text-center" style="max-width: 400px;">
                         <div class="row no-gutters">
                             <div class="col-md-5">
