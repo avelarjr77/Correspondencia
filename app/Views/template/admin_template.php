@@ -26,12 +26,28 @@
               </span>
             </a>
           </div>
+              <?php
 
+              use App\Models\modAdministracion\SubmenuModel;
+              use App\Models\modAdministracion\MenuSubmenuModel;
+              use App\Models\modAdministracion\ModuloModel;
+              use App\Models\modAdministracion\RolModMenuModel;
+              use App\Models\modUsuario\UsuarioModel;
+
+              $session = session();
+              $usuario  = new UsuarioModel();
+              $foto =$usuario->asArray()->select('u.imagenPerfil')->from('wk_usuario u')->where('u.usuario', $session->usuario)->first();
+
+              ?>
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic center">
-              <img src="images/logo.jpeg" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
-            </div>
+                  <?php if ($foto['imagenPerfil'] === NULL): ?>
+                    <img src="images/user.png" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
+                  <?php elseif ($foto['imagenPerfil'] === $foto['imagenPerfil']): ?>
+                    <img src="uploads/<?php echo $foto['imagenPerfil']; ?>" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
+                  <?php endif ?>
+              </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
               <!-- strtoupper: se usa para cambiar un array a mayusculas -->
@@ -44,15 +60,7 @@
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <h3>Menú</h3>
-              <?php
-
-              use App\Models\modAdministracion\SubmenuModel;
-              use App\Models\modAdministracion\MenuSubmenuModel;
-              use App\Models\modAdministracion\ModuloModel;
-              use App\Models\modAdministracion\RolModMenuModel;
-              use App\Models\modUsuario\UsuarioModel;
-
-              ?>
+              
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i>Inicio<span style="z-index: 1;" class="fa fa-chevron-down lefht"></span></a>
                   <ul class="nav child_menu">
@@ -120,7 +128,11 @@
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                   <!-- strtoupper: se usa para cambiar un array a mayusculas -->
-                  <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php if ($foto['imagenPerfil'] === NULL): ?>
+                    <img src="images/user.png" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php elseif ($foto['imagenPerfil'] === $foto['imagenPerfil']): ?>
+                    <img src="uploads/<?php echo $foto['imagenPerfil']; ?>" alt=""><?php echo strtoupper(session('usuario')); ?>
+                  <?php endif ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="<?php echo base_url('perfil') ?>"><i class="fa fa-user pull-right"></i> Perfil</a>
