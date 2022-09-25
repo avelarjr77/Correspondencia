@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+CRITICAL - 2022-09-22 09:38:12 --> Call to undefined method App\Models\modTransaccion\TransaccionConfigModel::select_min
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(304): CodeIgniter\Model->__call('select_min', Array)
+=======
 CRITICAL - 2022-09-22 01:14:30 --> Too few arguments to function CodeIgniter\Database\BaseBuilder::join(), 1 passed in C:\wamp64\www\correspondencia-ucad\system\Model.php on line 728 and at least 2 expected
 #0 C:\wamp64\www\correspondencia-ucad\system\Model.php(728): CodeIgniter\Database\BaseBuilder->join('wk_proceso p')
 #1 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionConfigController.php(48): CodeIgniter\Model->__call('join', Array)
@@ -260,18 +264,63 @@ CRITICAL - 2022-09-22 01:45:00 --> Call to a member function where() on array
 #4 {main}
 CRITICAL - 2022-09-22 02:28:07 --> Undefined variable: procesoPersona
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(321): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 321, Array)
+>>>>>>> a8a34201c6b20bd28f4450bc5889df8e8b34eb04
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->iniciarActividad()
 #2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
 #3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+<<<<<<< HEAD
+CRITICAL - 2022-09-22 09:38:41 --> Call to undefined method App\Models\modTransaccion\TransaccionConfigModel::select_min
+#0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(304): CodeIgniter\Model->__call('select_min', Array)
+=======
 CRITICAL - 2022-09-22 02:29:21 --> Array to string conversion
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(334): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 334, Array)
+>>>>>>> a8a34201c6b20bd28f4450bc5889df8e8b34eb04
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->iniciarActividad()
 #2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
 #3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+<<<<<<< HEAD
+ERROR - 2022-09-22 11:15:43 --> Column 'actividadId' cannot be null
+CRITICAL - 2022-09-22 11:15:43 --> Column 'actividadId' cannot be null
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `wk...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `wk...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `wk...')
+#3 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `wk...', Array, false)
+#4 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionConfigModel.php(212): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(240): App\Models\modTransaccion\TransaccionConfigModel->insertarAct(Array)
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->finalizarA()
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-09-22 20:00:09 --> Class 'App\Models\modReportes\PruebaModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ReportesController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ReportesController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-09-22 20:00:59 --> Class 'App\Models\modReportes\ReportesModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ReportesController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ReportesController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-09-22 20:01:28 --> Class 'App\Models\modReportes\ReportesModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ReportesController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ReportesController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-09-22 20:02:18 --> Class 'App\Models\modReportes\PruebaModel' not found
+#0 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoDetalleController->index()
+#1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoDetalleController))
+#2 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+=======
 CRITICAL - 2022-09-22 02:31:47 --> Array to string conversion
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(333): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\wamp64\\www\\c...', 333, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->iniciarActividad()
@@ -630,3 +679,4 @@ CRITICAL - 2022-09-22 22:16:32 --> Undefined index: imagenPerfil
 #3 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+>>>>>>> a8a34201c6b20bd28f4450bc5889df8e8b34eb04

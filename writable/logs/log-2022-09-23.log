@@ -1,0 +1,170 @@
+ERROR - 2022-09-23 14:22:05 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE
+                                    WHEN t.estadoTransaccion = 'P' THEN '' at line 6
+CRITICAL - 2022-09-23 14:22:05 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE
+                                    WHEN t.estadoTransaccion = 'P' THEN '' at line 6
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT  concat_...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT  concat_...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT  concat_...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(132): CodeIgniter\Database\BaseConnection->query('SELECT  concat_...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('37')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('37')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 14:22:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE
+                                    WHEN t.estadoTransaccion = 'P' THEN '' at line 6
+CRITICAL - 2022-09-23 14:22:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE
+                                    WHEN t.estadoTransaccion = 'P' THEN '' at line 6
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT  concat_...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT  concat_...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT  concat_...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(132): CodeIgniter\Database\BaseConnection->query('SELECT  concat_...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('37')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('37')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-23 17:25:47 --> unlink(C:\wamp64\www\correspondencia-ucad\writable\debugbar/debugbar_1663963713.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\wamp6...', 'C:\\wamp64\\www\\c...', 74, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar\Collectors\History.php(74): unlink('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(487): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1663975539, 20)
+#3 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\wamp64\www\correspondencia-ucad\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#5 C:\wamp64\www\correspondencia-ucad\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(302): CodeIgniter\Events\Events::trigger('pre_system')
+#7 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-09-23 18:05:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN ROUND(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin))
+                  ' at line 12
+CRITICAL - 2022-09-23 18:05:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN ROUND(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin))
+                  ' at line 12
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(144): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 18:05:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN ROUND(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin))
+                  ' at line 12
+CRITICAL - 2022-09-23 18:05:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN ROUND(TIMESTAMPDIFF(SECOND, ta.horaInicio, ta.horaFin))
+                  ' at line 12
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(144): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 18:06:06 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CASE WHEN ROUND(DATEDIFF(ta.fechaFin, ta.fechaInicio)) IS NULL || ROUND(DATEDIFF' at line 14
+CRITICAL - 2022-09-23 18:06:06 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CASE WHEN ROUND(DATEDIFF(ta.fechaFin, ta.fechaInicio)) IS NULL || ROUND(DATEDIFF' at line 14
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(144): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 18:11:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'm
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaIni' at line 10
+CRITICAL - 2022-09-23 18:11:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'm
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaIni' at line 10
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(140): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 18:11:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'm
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaIni' at line 10
+CRITICAL - 2022-09-23 18:11:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'm
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaIni' at line 10
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(140): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 18:11:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''m'
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaI' at line 10
+CRITICAL - 2022-09-23 18:11:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''m'
+                                    WHEN ROUND(TIMESTAMPDIFF(HOUR, ta.horaI' at line 10
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT p.nombre...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT p.nombre...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT p.nombre...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(140): CodeIgniter\Database\BaseConnection->query('SELECT p.nombre...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoUnicoController.php(18): App\Models\modReportes\ReportesModel->reporteProceso('32')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoUnicoController->index('32')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoUnicoController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 20:59:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'concat_ws(
+                                    ' ',
+                          ' at line 1
+CRITICAL - 2022-09-23 20:59:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'concat_ws(
+                                    ' ',
+                          ' at line 1
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT  p.nombr...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT  p.nombr...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT  p.nombr...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(214): CodeIgniter\Database\BaseConnection->query('SELECT  p.nombr...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoTiempoActController.php(25): App\Models\modReportes\ReportesModel->reporteProcesoTiempoAct('2022-09-01a2022...')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoTiempoActController->index('2022-09-01a2022...')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoTiempoActController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-09-23 20:59:46 --> Unknown column 'i.nombreInstitucion' in 'field list'
+CRITICAL - 2022-09-23 20:59:46 --> Unknown column 'i.nombreInstitucion' in 'field list'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT  p.nombr...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT  p.nombr...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT  p.nombr...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modReportes\ReportesModel.php(215): CodeIgniter\Database\BaseConnection->query('SELECT  p.nombr...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ProcesoTiempoActController.php(25): App\Models\modReportes\ReportesModel->reporteProcesoTiempoAct('2022-09-01a2022...')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ProcesoTiempoActController->index('2022-09-01a2022...')
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ProcesoTiempoActController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-23 22:24:26 --> Undefined property: stdClass::$personaId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modReportes\reportes.php(192): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 192, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modReportes/rep...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ReportesController.php(72): view('modReportes/rep...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ReportesController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ReportesController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-23 22:24:34 --> Undefined property: stdClass::$personaId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modReportes\reportes.php(192): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 192, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modReportes/rep...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modReportes\ReportesController.php(72): view('modReportes/rep...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modReportes\ReportesController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modReportes\ReportesController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

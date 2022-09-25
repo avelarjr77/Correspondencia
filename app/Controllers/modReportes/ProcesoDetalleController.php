@@ -3,7 +3,7 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
+use App\Models\modReportes\ReportesModel;
 
 use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
@@ -11,11 +11,11 @@ require_once '../sql/conexion.php';
 
 class ProcesoDetalleController extends BaseController
 {
-    public function index()
+    public function index($persona)
     {
-        $prueba = new PruebaModel();
+        $prueba = new ReportesModel();
 
-        $datos =  $prueba->reporte3();
+        $datos =  $prueba->reporte3($persona);
 
         $contexto="";
         $correlativo=1;
@@ -46,7 +46,7 @@ class ProcesoDetalleController extends BaseController
                         border: 0px;
                     }
                 </style>
-                <p style="text-align:center; font-size:16;"><b>Flujo de Procesos del mes de '.$row->mes.'</b></p><br>
+                <p style="text-align:center; font-size:16;"><b>Rendimiento de '.$row->persona.'</b></p><br>
                 <table style="width:100%;">
                     <thead>
                         <tr>

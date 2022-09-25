@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\modGraficas;
 
 use App\Controllers\BaseController;
+use App\Models\modUsuario\UsuarioModel;
 use App\Models\modGraficas\GraficasModel;
 
 class GraficasController extends BaseController{
@@ -41,6 +42,21 @@ class GraficasController extends BaseController{
     $grafica = new GraficasModel();
     $query =  $grafica->barraProcesoPersona(); 
 
+    $session = session();
+
+    $usuario = $session->usuario;
+
+    $tact = new UsuarioModel();
+    $personaId = $tact->asArray()->select('u.personaId, p.departamentoId')
+        ->from('wk_usuario u')
+        ->join('wk_persona p', 'u.personaId = p.personaId')
+        ->where('u.usuario', $session->usuario)
+        ->first();
+
+    $pP = $grafica->progresoP($personaId['personaId']);
+    $iP = $grafica->inactivoP($personaId['personaId']);
+    $fP = $grafica->finalizadoP($personaId['personaId']);
+
     $data = [];
 
     foreach($query as $row) {
@@ -49,6 +65,10 @@ class GraficasController extends BaseController{
     }
 
     $data['chart_dataL'] = json_encode($data);
+
+    $data['pP'] = $pP;
+    $data['iP'] = $iP;
+    $data['fP'] = $fP;
 
     return view('modGraficas/graficasProceso', $data);
   }
@@ -134,12 +154,21 @@ class GraficasController extends BaseController{
 
     $query =  $grafica->line(); 
 
-    $p = $grafica->progreso();
-    $i = $grafica->inactivo();
-    $f = $grafica->finalizado();
-    
+    $session = session();
 
-    //$record = $query->result();
+    $usuario = $session->usuario;
+
+    $tact = new UsuarioModel();
+    $personaId = $tact->asArray()->select('u.personaId, p.departamentoId')
+        ->from('wk_usuario u')
+        ->join('wk_persona p', 'u.personaId = p.personaId')
+        ->where('u.usuario', $session->usuario)
+        ->first();
+
+    $p = $grafica->progreso($personaId['personaId']);
+    $i = $grafica->inactivo($personaId['personaId']);
+    $f = $grafica->finalizado($personaId['personaId']);
+    
     $data = [];
 
     foreach($query as $row) {

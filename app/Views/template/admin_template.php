@@ -89,8 +89,8 @@
                   ->join('wk_icono i', 'm.iconoId=i.iconoId')
                   ->where('r.nombreRol', $rol)
                   ->where('mo.moduloId', $session->modulo)
-                  ->orderBy('menuId')
-                  ->groupBy('menuId')
+                  ->orderBy('m.menuId')
+                  ->groupBy('m.menuId')
                   ->findAll();
 
                 foreach ($menu as $key => $u) :

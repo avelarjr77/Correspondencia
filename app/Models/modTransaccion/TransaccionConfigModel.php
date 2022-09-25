@@ -79,11 +79,8 @@ class TransaccionConfigModel extends Model
    
     public function listarProceso()
     {
-        $proceso =  $this->db->query("SELECT p.nombreProceso, p.procesoId 
-                                        FROM  wk_proceso p
-                                        INNER JOIN wk_etapa e ON e.procesoId = p.procesoId
-                                        INNER JOIN wk_actividad a ON a.etapaId = e.etapaId
-                                        group by p.procesoId");
+        $proceso =  $this->db->query("SELECT*
+                                    FROM  wk_proceso p");
         return $proceso->getResult();
     }
 

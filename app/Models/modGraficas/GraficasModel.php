@@ -23,8 +23,6 @@ class GraficasModel extends Model
 
     public function barra($fechaI, $fechaF)
     {
-        //$fecha=explode(" - ", $fechas);
-
         $tr = $this->db->query("SELECT COUNT(*) as 'total',p.nombres as 'persona'
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
@@ -38,7 +36,7 @@ class GraficasModel extends Model
 
     public function barraP($fechaI, $fechaF)
     {
-        $tr = $this->db->query("SELECT p.nombreProceso as 'proceso', TIMESTAMPDIFF(MINUTE, t.horaInicio, t.horaFin) as 'tiempo'
+        $tr = $this->db->query("SELECT p.nombreProceso as 'proceso', ROUND(DATEDIFF(t.fechaFin, t.fechaInicio)) as 'tiempo'
                                 FROM wk_transaccion t
                                 INNER JOIN wk_proceso p ON p.procesoId = t.procesoId
                                 INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
@@ -52,7 +50,7 @@ class GraficasModel extends Model
     public function barraProm($fechaI, $fechaF)
     {
         $tr = $this->db->query("SELECT p.nombres as 'persona', 
-                                AVG(DATEDIFF(ta.fechaInicio, ta.fechaFin)) as 'promedio'
+                                DATEDIFF(ta.fechaFin, ta.fechaInicio) as 'promedio'
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
@@ -106,10 +104,7 @@ class GraficasModel extends Model
     }
 
     public function line()
-    {
-        /* $fechaHora = date('Y-m-d H:i:s');
-        $porciones = explode(" ", $fechaHora); */
-        
+    {   
         $ln = $this->db->query("SELECT  
                                 (CASE
                                     WHEN MONTH(ta.fechaInicio) = 1 THEN 'Enero'
@@ -129,12 +124,13 @@ class GraficasModel extends Model
                                 FROM wk_transaccion_actividades ta
                                 INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                 INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                WHERE YEAR (ta.fechaFin) = YEAR (NOW())
                                 GROUP BY mes
                                 ORDER BY ta.fechaInicio");
         return $ln->getResult();
     }
 
-    public function progreso()
+    public function progreso($personaId)
     {
         $ln = $this->db->query("SELECT COUNT(*) as 'total', 
                                 (CASE
@@ -143,11 +139,14 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'P' AND MONTH (ta.fechaInicio) = MONTH (NOW())");
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                WHERE ta.estado = 'P' AND u.personaId = $personaId AND MONTH (ta.fechaInicio) = MONTH (NOW())");
         return $ln->getResult();
     }
 
-    public function inactivo()
+    public function inactivo($personaId)
     {
         $ln = $this->db->query("SELECT COUNT(*) as 'total', 
                                 (CASE
@@ -156,11 +155,14 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'I' AND MONTH (ta.fechaCreacion) = MONTH (NOW())");
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                WHERE ta.estado = 'I' AND u.personaId = $personaId AND MONTH (ta.fechaCreacion) = MONTH (NOW())");
         return $ln->getResult();
     }
 
-    public function finalizado()
+    public function finalizado($personaId)
     {
         $ln = $this->db->query("SELECT COUNT(*) as 'total', 
                                 (CASE
@@ -169,7 +171,56 @@ class GraficasModel extends Model
                                 ELSE 'Inactivo'
                                 END) as 'estado' 
                                 FROM wk_transaccion_actividades ta
-                                WHERE estado = 'F' AND MONTH (ta.fechaFin) = MONTH (NOW())");
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona p ON p.personaId = a.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                WHERE ta.estado = 'F' AND u.personaId = $personaId AND  MONTH (ta.fechaFin) = MONTH (NOW())");
+        return $ln->getResult();
+    }
+
+    public function progresoP($personaId)
+    {
+        $ln = $this->db->query("SELECT COUNT(*) as 'total', 
+                                (CASE
+                                WHEN t.estadoTransaccion = 'P' THEN 'En Progreso'
+                                WHEN t.estadoTransaccion = 'F' THEN 'Finalizado'
+                                ELSE 'Inactivo'
+                                END) as 'estado' 
+                                FROM wk_transaccion t
+                                INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+
+                                WHERE estadoTransaccion = 'P' AND u.personaId = $personaId AND MONTH (t.fechaInicio) = MONTH (NOW())");
+        return $ln->getResult();
+    }
+
+    public function inactivoP($personaId)
+    {
+        $ln = $this->db->query("SELECT COUNT(*) as 'total', 
+                                (CASE
+                                WHEN t.estadoTransaccion = 'P' THEN 'En Progreso'
+                                WHEN t.estadoTransaccion = 'F' THEN 'Finalizado'
+                                ELSE 'Inactivo'
+                                END) as 'estado' 
+                                FROM wk_transaccion t
+                                INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                WHERE estadoTransaccion = 'I' AND u.personaId = $personaId AND MONTH (t.fechaInicio) = MONTH (NOW())");
+        return $ln->getResult();
+    }
+
+    public function finalizadoP($personaId)
+    {
+        $ln = $this->db->query("SELECT COUNT(*) as 'total', 
+                                (CASE
+                                WHEN t.estadoTransaccion = 'P' THEN 'En Progreso'
+                                WHEN t.estadoTransaccion = 'F' THEN 'Finalizado'
+                                ELSE 'Inactivo'
+                                END) as 'estado' 
+                                FROM wk_transaccion t
+                                INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                INNER JOIN wk_usuario u ON p.personaId = u.personaId
+                                WHERE estadoTransaccion = 'F' AND u.personaId = $personaId AND MONTH (t.fechaFin) = MONTH (NOW())");
         return $ln->getResult();
     }
 }

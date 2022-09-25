@@ -2,13 +2,8 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
-
-//require_once APPPATH.'third_party/fpdf/fpdf.php';
-
+use App\Models\modReportes\ReportesModel;
 use \Mpdf\Mpdf;
-//use Fpdf;
-//require_once 'vendors/fpdf/fpdf.php';
 require_once 'vendors/mpdf/vendor/autoload.php';
 require_once '../sql/conexion.php';
 
@@ -16,9 +11,7 @@ class ProcesoUnicoController extends BaseController
 {
     public function index($procesoId)
     {   
-        $prueba = new PruebaModel();
-
-        //$procesoId = $_POST['procesoId'];
+        $prueba = new ReportesModel();
 
         $datos =  $prueba->reporteProceso($procesoId);
 
@@ -37,9 +30,10 @@ class ProcesoUnicoController extends BaseController
                     <td style="text-align:center;">'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
                     <td style="text-align:center;">'.$row->fechaInicio.'</td>
-                    <td style="text-align:center;">'.$row->horaInicio.'</td>
                     <td style="text-align:center;">'.$row->fechaFin.'</td>
+                    <td style="text-align:center;">'.$row->horaInicio.'</td>
                     <td style="text-align:center;">'.$row->horaFin.'</td>
+                    <td style="text-align:center;">'.$row->duracion.'</td>
                 </tr><br>
                 ';
                 $correlativo++;
@@ -60,14 +54,15 @@ class ProcesoUnicoController extends BaseController
                     <thead>
                         <tr>
                             <th style="width:3%;">#</th>
-                            <th style="width:25%;">Proceso</th>
-                            <th style="width:25%;">Etapa</th>
+                            <th style="width:18%;">Proceso</th>
+                            <th style="width:18%;">Etapa</th>
                             <th style="width:22%;">Actividad</th>
-                            <th style="width:12%;">Estado</th>
+                            <th style="width:10%;">Estado</th>
                             <th style="width:10%;">Fecha de Inicio</th>
-                            <th style="width:9%;">Hora de Inicio</th>
                             <th style="width:10%;">Fecha de Fin</th>
+                            <th style="width:9%;">Hora de Inicio</th>
                             <th style="width:9%;">Hora de Fin</th>
+                            <th style="width:9%;">Duración (días)</th>
                         </tr>
                     </thead><br>
                     <tbody>'.$contexto.'</tbody>
