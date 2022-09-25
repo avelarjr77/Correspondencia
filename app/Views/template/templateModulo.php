@@ -47,11 +47,7 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic center">
-                  <?php if ($foto['imagenPerfil'] === NULL): ?>
-                    <img src="images/user.png" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
-                  <?php elseif ($foto['imagenPerfil'] === $foto['imagenPerfil']): ?>
-                    <img src="uploads/<?php echo $foto['imagenPerfil']; ?>" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
-                  <?php endif ?>
+              <img src="images/logo.jpeg" alt="..." class="img" width="70" style="float: right; margin:0px auto; border-radius: 7px">
             </div>
             <div class="profile_info">
               <span>Bienvenido,</span>
