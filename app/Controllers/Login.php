@@ -113,6 +113,7 @@ class Login extends BaseController
                 $pass    = new UsuarioModel();
                 helper(['form']);
                 $clave = fraseAleatoria();
+                $claveCifrada = password_hash($clave, PASSWORD_BCRYPT); //JVSJV<SV<SVY32YIW2YEGUY2VDHQ
                 if ($user) {
                     $newReset = [
                         'email'      => $user['contacto'],
@@ -120,7 +121,7 @@ class Login extends BaseController
                     ];
 
                     $datos = [
-                        "clave"     => $clave,
+                        "clave"     => $claveCifrada,
                     ];
 
                     $respuesta = $usuario->actualizar($datos, $usuarioId);
