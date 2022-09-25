@@ -1,4 +1,6 @@
-<?php namespace App\Controllers\modTransaccion;
+<?php
+
+namespace App\Controllers\modTransaccion;
 
 use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
@@ -7,17 +9,19 @@ use App\Models\modProceso\ProcesoModel;
 use App\Models\modUsuario\ContactoModel;
 use App\Models\modTransaccion\TransaccionConfigModel;
 
-class TransaccionConfigController extends BaseController{
+class TransaccionConfigController extends BaseController
+{
 
     //LISTAR TRANSACCION
 
-    public function index(){
+    public function index()
+    {
         $nombreProceso = new TransaccionConfigModel();
         $datos = $nombreProceso->listarProceso();
         $institucion = $nombreProceso->listarInstitucion();
         $transaccion = $nombreProceso->transaccionData();
         $transaccionFin = $nombreProceso->transaccionDataFin();
-        $persona= $nombreProceso->listarPersona();
+        $persona = $nombreProceso->listarPersona();
 
         $mensaje = session('mensaje');
 
@@ -33,16 +37,19 @@ class TransaccionConfigController extends BaseController{
         return view('modTransaccion/transaccionConfig', $data);
     }
 
-    public function etapas(){
+    public function etapas()
+    {
 
         $etapa = new TransaccionConfigModel();
         $procesoId = $this->request->getVar('procesoId');
+
         $datos = $etapa->listarEtapa($procesoId);
-        
         echo json_encode($datos);
+
     }
 
-    public function tDetId(){
+    public function tDetId()
+    {
         $etapaDet = new TransaccionConfigModel();
 
         $etapaId = $etapaDet->obtenerTDID();
@@ -50,7 +57,8 @@ class TransaccionConfigController extends BaseController{
         echo json_encode($etapaId);
     }
 
-    public function tAcId(){
+    public function tAcId()
+    {
         $etapaDetA = new TransaccionConfigModel();
 
         $actividadId = $etapaDetA->obtenerTAID();
@@ -58,16 +66,18 @@ class TransaccionConfigController extends BaseController{
         echo json_encode($actividadId);
     }
 
-    public function actividad(){
+    public function actividad()
+    {
 
         $actividad = new TransaccionConfigModel();
         $etapaId = $this->request->getVar('etapaId');
         $datos = $actividad->listarActividad($etapaId);
-        
+
         echo json_encode($datos);
     }
 
-    public function tDetalle(){
+    public function tDetalle()
+    {
 
         $etapa = new TransaccionConfigModel();
         $transaccionId = $this->request->getVar('transaccionId');
@@ -76,14 +86,14 @@ class TransaccionConfigController extends BaseController{
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
-        $datos = [ 
+        $datos = [
             "estadoTransaccion" => 'P',
             "fechaInicio" => $porciones[0],
             "horaInicio" => $porciones[1]
         ];
 
         $data = [
-            'transaccionId' => $transaccionId, 
+            'transaccionId' => $transaccionId,
             'etapaId' => $etapaId,
             "estado" => 'P',
             "fechaInicio" => $porciones[0],
@@ -95,22 +105,24 @@ class TransaccionConfigController extends BaseController{
         $actalizarEstado = $etapa->actualizar($datos, $transaccionId);
 
         $tDetalle = $etapa->listarTransaccionDet($transaccionId);
-        
+
         echo json_encode($tDetalle);
     }
 
-    public function etapasList(){
+    public function etapasList()
+    {
 
         $etapaLista = new TransaccionConfigModel();
         $transaccionId = $this->request->getVar('transaccionId');
-        
+
 
         $tDetalleList = $etapaLista->listarTransaccionDet($transaccionId);
-        
+
         echo json_encode($tDetalleList);
     }
 
-    public function tActividades(){
+    public function tActividades()
+    {
 
         $actividad = new TransaccionConfigModel();
         $transaccionDetalleId = $this->request->getVar('transaccionDetalleId');
@@ -119,7 +131,7 @@ class TransaccionConfigController extends BaseController{
         $porciones = explode(" ", $fechaHora);
 
         $data = [
-            'transaccionDetalleId' => $transaccionDetalleId, 
+            'transaccionDetalleId' => $transaccionDetalleId,
             'actividadId' => $actividadId,
             "estado" => 'I',
             "fechaCreacion" => $porciones[0],
@@ -128,17 +140,17 @@ class TransaccionConfigController extends BaseController{
 
         //obtener persona encargado
         $personaId =  $actividad->asArray()->select('a.personaId')
-        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+            ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
 
         //obtener nombre de la actividad
         $nombreActividad =  $actividad->asArray()->select('a.nombreActividad')
-        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+            ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
 
         //obtener descripcion de la actividad
         $descripcion =  $actividad->asArray()->select('a.descripcion')
-        ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
+            ->from('wk_actividad a')->where('a.actividadId', $actividadId)->first();
 
-        $insertar = $actividad->insertarAct($data);//AQUI CREAR ACTIVIDAD
+        $insertar = $actividad->insertarAct($data); //AQUI CREAR ACTIVIDAD
 
         if ($insertar) {
 
@@ -146,9 +158,9 @@ class TransaccionConfigController extends BaseController{
             $anio = date('Y');
 
             $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
-            ->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
+                ->where('c.tipoContactoId', '1')->where('c.personaId', $personaId)->first();
 
-            $msm ='
+            $msm = '
             <tbody>
                 <tr>
                     <td style="background-color:#fff;text-align:left;padding:0">
@@ -161,59 +173,62 @@ class TransaccionConfigController extends BaseController{
                         <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
                         <p style="margin:2px;font-size:15px">
                             Se le ha asignado una actividad.<br><br>
-                            '.$nombreActividad['nombreActividad'].'<br>
                         </p>
-                        <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
-                        </p>Descripcion:</p>'.$descripcion['descripcion'].'<p></p>
+                        <h1 style="font-weight:bold;text-align:center">' . $nombreActividad['nombreActividad'] . '</h1><br>
+                        <h5 style="font-size:15px;font-weight:bold;text-align:center;">
+                        <b>Descripcion:</b>' . $descripcion['descripcion'] . '</h5><br>
                         <div style="width:100%;text-align:center;margin-top:10%">
-                            <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                            <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Correspondencia</a>
                         </div>
-                        <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                        <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - ' . $anio . '</p>
                     </div>
                     </td>
                 </tr>
             </tbody>
             ';
             $email = \Config\Services::email();
-            $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad['nombreActividad']);
+            $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: ' . $nombreActividad['nombreActividad']);
             $email->setTo($contactoA['contacto']);
             $email->setSubject('Nueva Actividad Asignada');
             $email->setMessage($msm);
             if ($email->send()) {
                 $mensaje = 12;
             }
-        }else{
+        } else {
             $mensaje = 13;
-        } 
+        }
 
         $tActDetalle = $actividad->listarTransaccionAct($transaccionDetalleId);
-        
+
         echo json_encode($tActDetalle);
     }
 
-    public function actividadList(){
+    public function actividadList()
+    {
 
         $actividadLista = new TransaccionConfigModel();
         $transaccionDetalleId = $this->request->getVar('transaccionDetalleId');
-        
+
 
         $tActividadList = $actividadLista->listarTransaccionAct($transaccionDetalleId);
-        
+
         echo json_encode($tActividadList);
     }
 
-    public function transaccionListado(){
+    public function transaccionListado()
+    {
 
         $transaccion = new TransaccionConfigModel();
         $list = $transaccion->transaccionData();
-        
+
         echo json_encode($list);
     }
 
-    public function transaccionObservaciones(){
+    public function transaccionObservaciones()
+    {
 
         $transaccionO = new TransaccionConfigModel();
-        
+
         $transaccionId = $this->request->getVar('transaccionId');
 
         $respuesta = $transaccionO->transaccionDataO($transaccionId);
@@ -222,10 +237,11 @@ class TransaccionConfigController extends BaseController{
     }
 
     //CREAR TRANSACCION
-    public function crear(){
+    public function crear()
+    {
 
         //Campos de auditoria
-        $hora=new Time('now');
+        $hora = new Time('now');
         $session = session('usuario');
 
         $datos = [
@@ -246,7 +262,7 @@ class TransaccionConfigController extends BaseController{
         $proceso = new ProcesoModel();
 
         $procesoNombre = $proceso->asArray()->select("nombreProceso")
-        ->where("procesoId", $procesoId)->first();
+            ->where("procesoId", $procesoId)->first();
 
         $respuesta = $transaccion->insertar($datos);
 
@@ -257,34 +273,36 @@ class TransaccionConfigController extends BaseController{
             'bitacoraId'    => null,
             'usuario'       => $session,
             'accion'        => 'Creó Transacción de proceso',
-            'descripcion'   => $procesoNombre['nombreProceso'].'<br>'.$observaciones,
+            'descripcion'   => $procesoNombre['nombreProceso'] . '<br>' . $observaciones,
             'hora'          => $hora,
         ]);
 
-        if ($respuesta > 0){
-            return redirect()->to(base_url(). '/transaccionConfig')->with('mensaje','0');
+        if ($respuesta > 0) {
+            return redirect()->to(base_url() . '/transaccionConfig')->with('mensaje', '0');
         } else {
-            return redirect()->to(base_url(). '/transaccionConfig')->with('mensaje','1');
-        } 
-    } 
+            return redirect()->to(base_url() . '/transaccionConfig')->with('mensaje', '1');
+        }
+    }
 
     //ELIMINAR TRANSACCION
-    public function eliminarT(){
+    public function eliminarT()
+    {
 
         $transaccion = new TransaccionConfigModel();
-        
+
         $transaccionId = $this->request->getVar('transaccionId');
 
         $data = ["transaccionId" => $transaccionId];
 
         $respuesta = $transaccion->eliminarP($data);
 
-        
+
 
         echo json_encode($respuesta);
     }
 
-    public function eliminarP(){
+    public function eliminarP()
+    {
 
         $transaccion = new TransaccionConfigModel();
 
@@ -297,15 +315,15 @@ class TransaccionConfigController extends BaseController{
         $respuesta = $transaccion->actualizar($datos, $transaccionId);
 
         $nombreTransaccion = $transaccion->asArray()->select("p.nombreProceso")
-        ->from('wk_transaccion t')
-        ->join('wk_proceso p', 'p.procesoId = t.procesoId')
-        ->where("t.transaccionId", $transaccionId)->first();
+            ->from('wk_transaccion t')
+            ->join('wk_proceso p', 'p.procesoId = t.procesoId')
+            ->where("t.transaccionId", $transaccionId)->first();
 
         $datos = ["datos" => $respuesta];
 
         //PARA REGISTRAR EN BITACORA QUE SE ANLÓ LA TRANSACCIÓN
         $this->bitacora  = new MovimientosModel();
-        $hora=new Time('now');
+        $hora = new Time('now');
         $session = session('usuario');
 
         $this->bitacora->save([
@@ -316,7 +334,7 @@ class TransaccionConfigController extends BaseController{
             'hora'          => $hora,
         ]);
         //END
-        
+
         echo json_encode($respuesta);
     }
 
@@ -345,7 +363,7 @@ class TransaccionConfigController extends BaseController{
     public function actualizarO()
     {
         //Campos de auditoria
-        $hora=new Time('now');
+        $hora = new Time('now');
         $session = session('usuario');
 
         $datos = [
@@ -360,22 +378,22 @@ class TransaccionConfigController extends BaseController{
         $respuesta = $transaccion->actualizar($datos, $transaccionId);
 
         $nombreTransaccion = $transaccion->asArray()->select("p.nombreProceso")
-        ->from('wk_transaccion t')
-        ->join('wk_proceso p', 'p.procesoId = t.procesoId')
-        ->where("t.transaccionId", $transaccionId)->first();
+            ->from('wk_transaccion t')
+            ->join('wk_proceso p', 'p.procesoId = t.procesoId')
+            ->where("t.transaccionId", $transaccionId)->first();
 
         $datos = ["datos" => $respuesta];
 
         //PARA REGISTRAR EN BITACORA QUIEN EDITÓ Las observaciones
         $this->bitacora  = new MovimientosModel();
-        $hora=new Time('now');
+        $hora = new Time('now');
         $session = session('usuario');
 
         $this->bitacora->save([
             'bitacoraId'    => null,
             'usuario'       => $session,
             'accion'        => 'Agregó observación',
-            'descripcion'   => $nombreTransaccion['nombreProceso'].': <br>'.$_POST['observaciones'],
+            'descripcion'   => $nombreTransaccion['nombreProceso'] . ': <br>' . $_POST['observaciones'],
             'hora'          => $hora,
         ]);
 
@@ -387,5 +405,3 @@ class TransaccionConfigController extends BaseController{
         }
     }
 }
-
-?>

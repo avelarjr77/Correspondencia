@@ -181,6 +181,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->post('crearUsuario', 'modUsuario/UsuarioController::crear');
     $routes->post('actualizarUsuario', 'modUsuario/UsuarioController::actualizar');
     $routes->post('eliminarUsuario', 'modUsuario/UsuarioController::eliminar');
+    $routes->post('subirFoto', 'modUsuario/UsuarioController::subir');
 
 });
 

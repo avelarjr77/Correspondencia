@@ -420,8 +420,7 @@ $(document).ready(function() {
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [[0, 0]],
-            "ordering":true,
+            "order": [[0, 'asc']],
         });
     });
 </script>

@@ -140,17 +140,17 @@
     let mensaje = '<?php echo $mensaje ?>';
 
     if (mensaje == '0') {
-        swal(':D', 'Agregado', 'success');
+        swal('', 'Agregado', 'success');
     } else if (mensaje == '1') {
-        swal(':c', 'No se agrego', 'error');
+        swal('', 'No se agrego', 'error');
     } else if (mensaje == '2') {
-        swal(':D', 'Eliminado', 'success');
+        swal('', 'Eliminado', 'success');
     } else if (mensaje == '3') {
-        swal(':c', 'No se Elimino Registro', 'error');
+        swal('', 'No se Elimino Registro', 'error');
     } else if (mensaje == '4') {
-        swal(':D', 'Actualizado con exito', 'success');
+        swal('', 'Actualizado con exito', 'success');
     } else if (mensaje == '5') {
-        swal(':c', 'No se actualizo', 'error');
+        swal('', 'No se actualizo', 'error');
     } else if (mensaje == '6') {
         swal({
             icon: "error",
@@ -198,8 +198,7 @@
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [[0, 0]],
-            "ordering":true,
+            "order": [[0, 'asc']],
         });
     });
 </script>

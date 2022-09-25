@@ -29,8 +29,8 @@
                             <td><?= $modulo->moduloId ?></td>
                             <td><?= $modulo->nombre ?></td>
                             <td>
-                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i>Editar</a>
-                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i>Eliminar</a>
+                                <a href="#" class="btn btn-warning btn-sm btn-edit" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                                <a href="#" class="btn btn-danger btn-sm btn-delete" data-id="<?= $modulo->moduloId ?>" data-nombremod="<?= $modulo->nombre ?>"><i class="fa fa-trash"></i> Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -198,8 +198,7 @@
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [[0, 0]],
-            "ordering":true,
+            "order": [[0, 'asc']],
         });
     });
 </script>

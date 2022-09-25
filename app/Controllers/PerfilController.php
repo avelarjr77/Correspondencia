@@ -104,23 +104,6 @@ class PerfilController extends BaseController
         return view('perfil', $data);
     }
 
-    public function editarPerfil()
-    {
-        $usuario    = new UsuarioModel();
-
-        $usuarioId  = $_POST['usuarioId'];
-
-
-        $datosU = [
-            "usuario"    => $_POST['usuario']
-        ];
-
-        $respuesta = $usuario->actualizar($datosU, $usuarioId);
-        $datos = ["datos" => $respuesta];
-
-        return redirect()->to(base_url(). '/perfil')->with('mensaje','0');
-
-    }
 
     public function nuevaContraseña()
     {

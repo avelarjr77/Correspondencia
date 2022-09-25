@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Usuarios;
 use App\Models\modUsuario\UsuarioModel;
 use App\Models\modAdministracion\RolModMenuModel;
 use App\Models\modAdministracion\MovimientosModel;
@@ -26,7 +25,7 @@ class Home extends BaseController
     {
         $session = session();
         $modulo = new RolModMenuModel();
-        $obtenerRol = new Usuarios();
+        $obtenerRol = new UsuarioModel();
         $rol =  $obtenerRol->asArray()->select('r.nombreRol')->from('wk_usuario u')
             ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $session->usuario)->first();
 

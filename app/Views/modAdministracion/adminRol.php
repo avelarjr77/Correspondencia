@@ -48,7 +48,7 @@
 <!-- Modal Agregar Rol-->
 <form action="<?php echo base_url() . '/crearRol' ?>" method="POST">
     <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar un nuevo Rol</h5>
@@ -77,7 +77,7 @@
 <!-- Modal Edit Rol-->
 <form action="<?php echo base_url() . '/actualizarRol' ?>" method="POST">
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Editar Rol</h5>
@@ -107,7 +107,7 @@
 <!-- Modal Delete Rol-->
 <form action="<?php echo base_url() . '/eliminarRol' ?>" method="POST">
     <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Eliminar Rol</h5>
@@ -200,10 +200,7 @@
             language: {
                 url: 'vendors/datatables.net/es.json'
             },
-            "order": [
-                [0, 0]
-            ],
-            "ordering": true,
+            "order": [[0, 'asc']],
         });
     });
 </script>

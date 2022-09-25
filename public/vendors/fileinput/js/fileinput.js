@@ -6266,7 +6266,7 @@
         defBtnCss1 = 'btn btn-sm btn-kv ' + $h.defaultButtonCss(), defBtnCss2 = 'btn ' + $h.defaultButtonCss();
 
     $.fn.fileinput.defaults = {
-        language: 'en',
+        language: 'es',
         bytesToKB: 1024,
         showCaption: true,
         showBrowse: true,

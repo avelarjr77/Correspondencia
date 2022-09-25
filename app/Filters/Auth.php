@@ -14,20 +14,9 @@ class Auth implements FilterInterface
             return redirect()->route('/');
         }
 
-     /*   $usuarios = model('Usuarios');
-        if(!$user=$usuarios->obtenerUsuario('usuario', session()->usuarioId)){
-
-            $data = array(
-                'usuario' => $usuario
-            );
-                
-            $session = session();
-            $session->destroy();
-
-            return redirect()->to(base_url('/Login'))->with('mensaje','0');
-
-        }
-        dd($user); */
+        /* if(!session()->modulo){
+            return redirect()->route('/homeModulos');
+        } */
 
     }
 
