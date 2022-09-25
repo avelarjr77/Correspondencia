@@ -41,8 +41,8 @@ class UsuarioController extends BaseController{
             $session = session('usuario');
 
             //Cifrado de contraseña
-            $clave = $_POST['clave'];
-            $claveCifrada = password_hash($clave, PASSWORD_BCRYPT);
+            $clave = $_POST['clave']; //123456
+            $claveCifrada = password_hash($clave, PASSWORD_BCRYPT); //JVSJV<SV<SVY32YIW2YEGUY2VDHQ
 
             $usuario->insertar(
                 [
@@ -161,6 +161,52 @@ class UsuarioController extends BaseController{
                 return redirect()->to(base_url() . '/usuario')->with('mensaje', '5');
         }
     }
+
+    //SUBIR FOTO DE PERFIL
+    public function subir()
+    {
+        $nombreDocumento = $this->request->getVar('imagenPerfil');
+
+        $file=$_FILES["imagenPerfil"];
+
+        $fileName=$_FILES['imagenPerfil']['name'];
+        $fileTmpName=$_FILES['imagenPerfil']['tmp_name'];
+        $fileSize=$_FILES['imagenPerfil']['size'];
+        $fileError=$_FILES['imagenPerfil']['error'];
+        $fileType=$_FILES['imagenPerfil']['type'];
+
+        $fileExt=explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+
+        $allowed = array('jpg','jpeg','png');
+
+        if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 100000000000) { 
+                    $fileDestination = 'uploads/'.$fileName;
+
+                    move_uploaded_file($fileTmpName, $fileDestination);
+
+                    $usuario = new UsuarioModel();
+
+                    $datos = [
+                        "imagenPerfil"    => $fileName
+                    ]; 
+
+                    $usuarioId = $_POST['usuarioId'];
+
+                    $respuesta = $usuario->actualizar($datos, $usuarioId);
+
+                    $datos = ["datos" => $respuesta];
+
+                    return redirect()->to(base_url() . '/perfil')->with('mensaje', '4');             
+                        
+                } return redirect()->to(base_url() . '/perfil')->with('mensaje', '5');
+            } return redirect()->to(base_url() . '/perfil')->with('mensaje', '1');
+        } return redirect()->to(base_url() . '/perfil')->with('mensaje', '6');    
+    }
+
+
 }
 
 ?>

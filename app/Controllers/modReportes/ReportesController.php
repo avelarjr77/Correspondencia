@@ -3,16 +3,17 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
+use App\Models\modReportes\ReportesModel;
 
 class ReportesController extends BaseController
 {
     //LISTADO DE ROL MODULO MENU
     public function index()
     {
-        $prueba = new PruebaModel();
+        $prueba = new ReportesModel();
 
         $datos =  $prueba->procesos();
+        $persona =  $prueba->persona();
 
         $mes = date("n");
 
@@ -64,7 +65,8 @@ class ReportesController extends BaseController
         $dato = [
             "mensaje"   => $mensaje,
             "mes"   => $mess,
-            "datos"   => $datos
+            "datos"   => $datos,
+            "persona"   => $persona
         ];
 
         return view('modReportes/reportes', $dato);

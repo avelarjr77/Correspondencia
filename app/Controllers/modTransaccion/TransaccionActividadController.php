@@ -22,26 +22,27 @@ class TransaccionActividadController extends BaseController{
         $personaId =  $tActividad->asArray()->select('p.personaId')->from('wk_usuario u')
             ->join('wk_persona p', 'u.personaId = p.personaId')->where('u.usuario', $session->usuario)->first();
 
-        $data = [
-            "datos" => $tActividad->asObject()->select('ta.transaccionActividadId as id, a.nombreActividad as actividad, ta.actividadId, 
-                ta.fechaInicio, ta.fechaFin, ta.horaInicio, ta.horaFin, ta.fechaCreacion, ta.horaCreacion, p.nombres as persona, a.personaId, 
-                (CASE
-                    WHEN ta.estado = "P" THEN "En Progreso"
-                    WHEN ta.estado = "F" THEN "Finalizado"
-                    ELSE "Inactivo"
-                END)  as estado, ta.transaccionDetalleId, a.etapaId, e.nombreEtapa, a.ordenActividad,
-                e.procesoId, pr.nombreProceso, e.orden as ordenEtapa, t.transaccionId, ta.observaciones, a.descripcion')
-                ->from('wk_transaccion_actividades ta')
-                ->join('wk_actividad a', 'a.actividadId = ta.actividadId')
-                ->join('wk_etapa e', 'e.etapaId = a.etapaId')
-                ->join('wk_proceso pr', 'pr.procesoId = e.procesoId')
-                ->join('wk_persona p', 'p.personaId = a.personaId')
-                ->join('wk_transaccion_detalle t', 't.transaccionDetalleId = ta.transaccionDetalleId')
-                ->where('p.personaId', $personaId)
-                ->where('t.etapaId', $etapaId)
-                ->orderBy('a.ordenActividad')
-                ->groupBy('ta.transaccionActividadId')
-                ->findAll(),
+            $data = [
+                "datos" => $tActividad->asObject()->select('ta.transaccionActividadId as id, a.nombreActividad as actividad, ta.actividadId, 
+                    ta.fechaInicio, ta.fechaFin, ta.horaInicio, ta.horaFin, ta.fechaCreacion, ta.horaCreacion, p.nombres as persona, p.primerApellido as apellido, a.personaId, 
+                    (CASE
+                        WHEN ta.estado = "P" THEN "En Progreso"
+                        WHEN ta.estado = "F" THEN "Finalizado"
+                        ELSE "Inactivo"
+                    END)  as estado, ta.transaccionDetalleId, a.etapaId, e.nombreEtapa, a.ordenActividad, t.personaId as encargado,
+                    e.procesoId, pr.nombreProceso, e.orden as ordenEtapa, t.transaccionId, ta.observaciones, a.descripcion')
+                    ->from('wk_transaccion_actividades ta')
+                    ->join('wk_actividad a', 'a.actividadId = ta.actividadId')
+                    ->join('wk_etapa e', 'e.etapaId = a.etapaId')
+                    ->join('wk_proceso pr', 'pr.procesoId = e.procesoId')
+                    ->join('wk_persona p', 'p.personaId = a.personaId')
+                    ->join('wk_transaccion_detalle td', 'td.transaccionDetalleId = ta.transaccionDetalleId')
+                    ->join('wk_transaccion t', 't.transaccionId = td.transaccionId')
+                    ->where('p.personaId', $personaId)
+                    ->where('td.etapaId', $etapaId)
+                    ->orderBy('a.ordenActividad')
+                    ->groupBy('ta.transaccionActividadId')
+                    ->findAll(),
             "doc" => $tActividad->asObject()->select('*')
                 ->from('wk_documento d')
                 ->orderBy('d.documentoId')
@@ -85,9 +86,6 @@ class TransaccionActividadController extends BaseController{
         $nombreProceso = $this->request->getVar('nombreProceso');
         $ordenActividad = $this->request->getVar('ordenActividad');
         $procesoId = $this->request->getVar('procesoId');
-        $nombreActividad = $this->request->getVar('nombreActividad');
-        $descripcion = $this->request->getVar('descripcion');
-        $personaId = $this->request->getVar('personaId');
         $ordenEtapa = $this->request->getVar('ordenEtapa');
         $transaccionId = $this->request->getVar('transaccionId');
         $transaccionDetalleId = $this->request->getVar('transaccionDetalleId');
@@ -110,11 +108,27 @@ class TransaccionActividadController extends BaseController{
         $actividad =  $transaccion->asArray()->select('vp.actividadId')
         ->from('vista_con_procesos vp')->where('vp.etapaId', $etapa)->orderBy('vp.ordenActividad')->first();
 
-        //obtener persona encargado
+        //obtener persona encargado del proceso
         $procesoPersona =  $transaccion->asArray()->select('t.personaId')
         ->from('wk_transaccion t')->where('t.transaccionId', $transaccionId)->first();
 
-        //$respuesta = $transaccion->obtenerActividadOrden($etapaId, $ordenActividad);
+        //obtener persona de la actividad a insertar en funcion insertar
+        $personaActA =  $transaccion->asArray()->select('vp.personaId')->from('vista_con_procesos vp')
+        ->where('vp.actividadId', $actividadId)->first();
+
+        //obtener datos de la actividad a insertar en funcion insertar
+        $datosCorreo1 =  $transaccion->asArray()->select('vp.nombreActividad as nombreActividadA,
+        vp.descripcion as descripcionA, vp.nombreProceso as nombreProcesoA')->from('vista_con_procesos vp')
+        ->where('vp.actividadId', $actividadId)->first();
+
+        //obtener persona de la actividad a insertar en funcion insertarAN
+        $personaActB =  $transaccion->asArray()->select('vp.personaId')->from('vista_con_procesos vp')
+        ->where('vp.actividadId', $actividad)->first();
+
+        //obtener datos de la actividad a insertar en funcion insertarAN
+        $datosCorreo2 =  $transaccion->asArray()->select('vp.nombreActividad as nombreActividadB,
+        vp.descripcion as descripcionB, vp.nombreProceso as nombreProcesoB')->from('vista_con_procesos vp')
+        ->where('vp.actividadId', $actividad)->first();
 
         //Campos de auditoria
         $hora=new Time('now');
@@ -170,6 +184,55 @@ class TransaccionActividadController extends BaseController{
             if ($etapa == '') {
                 $actalizarEstadoAc = $transaccionConfig->actualizarA($datos, $transaccionActividadId); // finalizo actividad
                 $actalizarEstadoE = $transaccionConfig->actualizarT($datos, $transaccionDetalleId);//finalizo etapa
+                
+                if ($actalizarEstadoE) {
+                    $model = new ContactoModel();
+                    $anio = date('Y');
+
+                    //obtener persona de la actividad a insertar en funcion insertar
+                    $nombreEtapa =  $transaccion->asArray()->select('vp.nombreEtapa')->from('vista_con_procesos vp')
+                    ->where('vp.etapaId', $etapaId)->first();
+        
+                    $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')
+                    ->where('c.tipoContactoId','1')->where('c.personaId', $procesoPersona)->first();
+        
+                    $msm ='
+                    <tbody>
+                        <tr>
+                            <td style="background-color:#fff;text-align:left;padding:0">
+                                <img width="100%" style="display:block" src="https://ci5.googleusercontent.com/proxy/P25cH7v50GgGMWFREqDuajcm2OkK3RY5n34zWsarDel-wtDsvs1Oljgt504DztdGajplibawaNrACXM7NVKg=s0-d-e1-ft#https://ucadvirtual.com/EduWS/encabezado.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 816px; top: 64px;"><div id=":vp" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Descargar el archivo adjunto " data-tooltip-class="a1V" data-tooltip="Descargar"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                            </td>
+                        <tr>
+                        <tr>
+                            <td style="background-color:#ffffff">
+                            <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
+                                <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
+                                <p style="margin:2px;font-size:15px">
+                                    Se le ha informa que ha finalizado la etapa:'.$nombreEtapa['nombreEtapa'].' del proceso: "'.$nombreProceso.'"<br>
+                                </p>
+                                <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
+                                
+                                <div style="width:100%;text-align:center;margin-top:10%">
+                                    <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                                </div>
+                                <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    ';
+                    $email = \Config\Services::email();
+                    $email->setFrom('correspondencia.ucad@gmail.com', 'Etapa finalizada: '.$nombreEtapa['nombreEtapa']);
+                    $email->setTo($contacto['contacto']);
+                    $email->setSubject('Etapa Finalizada');
+                    $email->setMessage($msm);
+                    if ($email->send()) {
+                        $mensaje = 12;
+                    }
+                }else{
+                    $mensaje = 12;
+                }
+
                 $actalizarEstadoP = $transaccionConfig->actualizar($datosP, $transaccionId);// finalizo proceso AQUI
                 
                 if ($actalizarEstadoP) {
@@ -218,17 +281,17 @@ class TransaccionActividadController extends BaseController{
 
             }else{
                 $actalizarEstadoE = $transaccionConfig->actualizarT($datos, $transaccionDetalleId);//finalizo etapa
-                $actalizarEstadoAc = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //finalizo actividad
-                $insertarEtapa = $transaccionConfig->insertarT($dataE); //insertar etapa
-                $insertarAN = $transaccionConfig->insertarAct($dataAN); //insertar actividad
 
-                if ($insertarAN) {
-
-                    $modelContacto = new ContactoModel();
+                if ($actalizarEstadoE) {
+                    $model = new ContactoModel();
                     $anio = date('Y');
+
+                    //obtener persona de la actividad a insertar en funcion insertar
+                    $nombreEtapa =  $transaccion->asArray()->select('vp.nombreEtapa')->from('vista_con_procesos vp')
+                    ->where('vp.etapaId', $etapaId)->first();
         
-                    $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
-                    ->where('c.tipoContactoId','1')->where('c.personaId', $personaId)->first();
+                    $contacto = $model->asArray()->select('c.contacto')->from('wk_contacto c')
+                    ->where('c.tipoContactoId','1')->where('c.personaId', $procesoPersona)->first();
         
                     $msm ='
                     <tbody>
@@ -242,11 +305,10 @@ class TransaccionActividadController extends BaseController{
                             <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
                                 <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
                                 <p style="margin:2px;font-size:15px">
-                                    Se le ha asignado una actividad.<br><br>
-                                    '.$nombreActividad.'<br>
+                                    Se le ha informa que ha finalizado la etapa:'.$nombreEtapa['nombreEtapa'].' del proceso: '.$nombreProceso.'<br>
                                 </p>
                                 <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
-                                </p>Descripcion:</p>'.$descripcion.'<p></p>
+                                
                                 <div style="width:100%;text-align:center;margin-top:10%">
                                     <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
                                 </div>
@@ -257,19 +319,121 @@ class TransaccionActividadController extends BaseController{
                     </tbody>
                     ';
                     $email = \Config\Services::email();
-                    $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$nombreActividad);
-                    $email->setTo($contactoA['contacto']);
-                    $email->setSubject('Nueva Actividad Asignada');
+                    $email->setFrom('correspondencia.ucad@gmail.com', 'Etapa finalizada: '.$nombreEtapa['nombreEtapa']);
+                    $email->setTo($contacto['contacto']);
+                    $email->setSubject('Etapa Finalizada');
                     $email->setMessage($msm);
                     if ($email->send()) {
                         $mensaje = 12;
                     }
                 }else{
-                    $mensaje = 13;
+                    $mensaje = 12;
                 }
+
+                $actalizarEstadoAc = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //finalizo actividad
+                $insertarEtapa = $transaccionConfig->insertarT($dataE); //insertar etapa
+                $insertarAN = $transaccionConfig->insertarAct($dataAN); //insertar actividad
+
+                if ($insertarAN) {
+
+                    $modelContacto = new ContactoModel();
+                    $anio = date('Y');
+        
+                    $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
+                    ->where('c.tipoContactoId','1')->where('c.personaId', $personaActB)->first();
+        
+                    $msmA ='
+                    <tbody>
+                        <tr>
+                            <td style="background-color:#fff;text-align:left;padding:0">
+                                <img width="100%" style="display:block" src="https://ci5.googleusercontent.com/proxy/P25cH7v50GgGMWFREqDuajcm2OkK3RY5n34zWsarDel-wtDsvs1Oljgt504DztdGajplibawaNrACXM7NVKg=s0-d-e1-ft#https://ucadvirtual.com/EduWS/encabezado.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 816px; top: 64px;"><div id=":vp" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Descargar el archivo adjunto " data-tooltip-class="a1V" data-tooltip="Descargar"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                            </td>
+                        <tr>
+                        <tr>
+                            <td style="background-color:#ffffff">
+                            <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
+                                <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
+                                <h5 style="margin:2px;font-size:15px">
+                                Se le ha asignado una actividad.<br><br>
+                                Actividad: '.$datosCorreo2['nombreActividadB'].'<br>
+                                </h5>
+                                <h5 style="margin:2px;font-size:15px">Descripcion: '.$datosCorreo2['descripcionB'].'</h5>
+                                <br>
+                                <h5 style="margin:2px;font-size:15px">Proceso: '.$datosCorreo2['nombreProcesoB'].'</h5><br>
+                                
+                                <div style="width:100%;text-align:center;margin-top:10%">
+                                    <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                                </div>
+                                <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    ';
+                    $email = \Config\Services::email();
+                    $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$datosCorreo2['nombreActividadB']);
+                    $email->setTo($contactoA['contacto']);
+                    $email->setSubject('Nueva Actividad Asignada');
+                    $email->setMessage($msmA);
+                    if ($email->send()) {
+                        $mensaje = 12;
+                    }
+                }else{
+                    $mensaje = 12;
+                }
+
             }
         }else{
             $insertar = $transaccionConfig->insertarAct($data); //insertar actividad
+
+            if ($insertar) {
+
+                $modelContacto = new ContactoModel();
+                $anio = date('Y');
+    
+                $contactoA = $modelContacto->asArray()->select('c.contacto')->from('wk_contacto c')
+                ->where('c.tipoContactoId','1')->where('c.personaId', $personaActA)->first();
+    
+                $msmA ='
+                <tbody>
+                    <tr>
+                        <td style="background-color:#fff;text-align:left;padding:0">
+                            <img width="100%" style="display:block" src="https://ci5.googleusercontent.com/proxy/P25cH7v50GgGMWFREqDuajcm2OkK3RY5n34zWsarDel-wtDsvs1Oljgt504DztdGajplibawaNrACXM7NVKg=s0-d-e1-ft#https://ucadvirtual.com/EduWS/encabezado.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 816px; top: 64px;"><div id=":vp" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Descargar el archivo adjunto " data-tooltip-class="a1V" data-tooltip="Descargar"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                        </td>
+                    <tr>
+                    <tr>
+                        <td style="background-color:#ffffff">
+                        <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
+                            <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
+                            <h5 style="margin:2px;font-size:15px">
+                                Se le ha asignado una actividad.<br><br>
+                                Actividad: '.$datosCorreo1['nombreActividadA'].'<br>
+                            </h5>
+                            <h5 style="margin:2px;font-size:15px">Descripcion: '.$datosCorreo1['descripcionA'].'</h5>
+                            <br>
+                            <h5 style="margin:2px;font-size:15px">Proceso: '.$datosCorreo1['nombreProcesoA'].'</h5><br>
+                            
+                            <div style="width:100%;text-align:center;margin-top:10%">
+                                <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                            </div>
+                            <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+                ';
+                $email = \Config\Services::email();
+                $email->setFrom('correspondencia.ucad@gmail.com', 'Nueva Actividad Asignada: '.$datosCorreo1['nombreActividadA']);
+                $email->setTo($contactoA['contacto']);
+                $email->setSubject('Nueva Actividad Asignada');
+                $email->setMessage($msmA);
+                if ($email->send()) {
+                    $mensaje = 12;
+                }
+            }else{
+                $mensaje = 12;
+            }
+
             $actalizarEstadoA = $transaccionConfig->actualizarA($datos, $transaccionActividadId); //actividad AQUI
         }
 
@@ -282,7 +446,15 @@ class TransaccionActividadController extends BaseController{
 
         $actividadI = new TransaccionConfigModel();
         $transaccionActividadId = $this->request->getVar('transaccionActividadId');
+        $transaccionDetalleId = $this->request->getVar('transaccionDetalleId');
+        $transaccionId = $this->request->getVar('transaccionId');
         $etapaId = $this->request->getVar('etapaId');
+        $procesoId = $this->request->getVar('procesoId');
+        $nombreProceso = $this->request->getVar('nombreProceso');
+        $encargado = $this->request->getVar('encargado');
+        $persona = $this->request->getVar('persona');
+        $apellido = $this->request->getVar('apellido');
+        $actividad = $this->request->getVar('actividad');
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
@@ -293,6 +465,59 @@ class TransaccionActividadController extends BaseController{
         ];
 
         $tActDetalle = $actividadI->actualizarA($datos, $transaccionActividadId);
+
+        //obtener persona el id de la primera actividad
+        $transaccionActId =  $actividadI->asArray()->select('MIN(ta.transaccionActividadId) as transaccionActId')
+        ->from('wk_transaccion_actividades ta')->join('wk_transaccion_detalle td', 'td.transaccionDetalleId = ta.transaccionDetalleId')
+        ->join('wk_transaccion t', 't.transaccionId = td.transaccionId')
+        ->where('t.transaccionId', $transaccionId )->first();
+
+        if ($tActDetalle) {
+            if ($transaccionActividadId == $transaccionActId['transaccionActId']) {
+                $model = new ContactoModel();
+                $anio = date('Y');
+
+                $contactoC = $model->asArray()->select('c.contacto')->from('wk_contacto c')
+                ->where('c.tipoContactoId','1')->where('c.personaId', $encargado)->first();
+
+                $msm ='
+                <tbody>
+                    <tr>
+                        <td style="background-color:#fff;text-align:left;padding:0">
+                            <img width="100%" style="display:block" src="https://ci5.googleusercontent.com/proxy/P25cH7v50GgGMWFREqDuajcm2OkK3RY5n34zWsarDel-wtDsvs1Oljgt504DztdGajplibawaNrACXM7NVKg=s0-d-e1-ft#https://ucadvirtual.com/EduWS/encabezado.png" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 816px; top: 64px;"><div id=":vp" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Descargar el archivo adjunto " data-tooltip-class="a1V" data-tooltip="Descargar"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                        </td>
+                    <tr>
+                    <tr>
+                        <td style="background-color:#ffffff">
+                        <div style="color:#34495e;margin:4% 10% 2%;text-align:justify;font-family:sans-serif">
+                            <h2 style="color:#003366;margin:0 0 7px">Buen día, estimado(a).</h2><br>
+                            <p style="margin:2px;font-size:15px">
+                                Ha iniciado el proceso: '.$nombreProceso.' a su cargo.
+                            </p><br><br>
+                            <p style="margin:2px;font-size:15px"></p><p style="margin:2px;font-size:15px;font-weight:bold;display:inline">
+                            </p>La primera actividad del proceso: " '.$actividad.' " a cargo de '.$persona.' '.$apellido.' ha iniciado.</p>
+                            <div style="width:100%;text-align:center;margin-top:10%">
+                                <a style="text-decoration:none;border-radius:5px;padding:11px 23px;color:white;background-color:#172d44" href="#">Ir a Login - Correspondencia</a>	
+                            </div>
+                            <p style="color:#b3b3b3;font-size:12px;text-align:center;margin:30px 0 0">Universidad Cristiana de las Asambleas de Dios - '.$anio.'</p>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+                ';
+
+                $email = \Config\Services::email();
+                $email->setFrom('correspondencia.ucad@gmail.com', 'Proceso Iniciado: '.$nombreProceso);
+                $email->setTo($contactoC['contacto']);
+                $email->setSubject('Proceso Iniciado');
+                $email->setMessage($msm);
+                if ($email->send()) {
+                    $mensaje = 12;
+                }
+            }
+        }else{
+            $mensaje = 12;
+        }
         
         echo json_encode($etapaId);
     }

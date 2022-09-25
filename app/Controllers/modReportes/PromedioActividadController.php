@@ -3,7 +3,7 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
+use App\Models\modReportes\ReportesModel;
 
 use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
@@ -13,7 +13,7 @@ class PromedioActividadController extends BaseController
 {
     public function index()
     {
-        $prueba = new PruebaModel();
+        $prueba = new ReportesModel();
 
         $datos =  $prueba->reporte2();
 

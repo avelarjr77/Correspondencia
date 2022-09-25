@@ -332,6 +332,8 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->match(['get', 'post'],'vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
     $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
     $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
+    $routes->match(['get', 'post'],'procesoTiempoAct', 'modReportes/ProcesoTiempoActController::index', ['as'=> 'procesoTiempoAct']);
+    $routes->match(['get', 'post'],'flujoEtapa', 'modReportes/FlujoEtapaController::index', ['as'=> 'flujoEtapa']);
     $routes->match(['get', 'post'],'flujoActividad', 'modReportes/FlujoActividadesController::index', ['as'=> 'flujoActividad']);
 });
 

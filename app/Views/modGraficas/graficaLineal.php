@@ -41,7 +41,7 @@
         <div class="col-md-12 col-sm-12  ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Actividades por mes</h2>
+                    <h2>Actividades por mes este año</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -63,7 +63,7 @@
         <div class="col-md-6 col-sm-6  ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Tiempo Promedio de finalización de actividades</h2>
+                    <h2>Tiempo de finalización de actividades</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
@@ -281,13 +281,14 @@ $(function() {
                         },
                         title: {
                             display: true,
-                            text: 'Tiempo promedio de finalización de actividades por persona'
+                            text: 'Tiempo de finalización de actividades por persona'
                         }
                     },
                     scales: {
                         y: {
                             ticks: {
                                 beginAtZero: true,
+                                type: 'integer',
                                 suggestedMin: 5,
                                 suggestedMax: 30
                             },
@@ -339,7 +340,7 @@ $(function() {
                 var data = {
                     labels: dataR['label'],
                     datasets: [{
-                        label: 'Persona',
+                        label: 'Actividades',
                         data: dataR['data'],
                         backgroundColor: [
                             "#26b99a",
@@ -389,7 +390,7 @@ $(function() {
                                 beginAtZero: true,
                                 type: 'integer',
                                 suggestedMin: 5,
-                                suggestedMax: 15
+                                suggestedMax: 30
                             },
                             title: {
                                 display: true,
@@ -463,7 +464,7 @@ $(function() {
             },
             title: {
                 display: true,
-                text: 'Total de actividades por mes'
+                text: 'Total de actividades por mes este año'
             }
         },
         scales: {
