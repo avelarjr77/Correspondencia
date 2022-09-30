@@ -346,7 +346,7 @@
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
-        maxFilePreviewSize: 10240,
+        maxFilePreviewSize: 500000,
         sobrescribirInitial: false,
         actionUpload: false,
         showZoom: false,
@@ -579,18 +579,13 @@
             $('#documento').hide();
         });
 
-        $('.btn-tDocumento').on('click', function() {
-            var id = $(this).data('id');
-            $('#transaccionActividadId').val(id);
-        });
-
         $('.btn-delete').on('click', function() {
             $( "#frmEliminarDoc" ).submit();
         });
 
     });
 
-    function verDoc(id){
+    function verDoc(id) {
 
         $('.nombreD').html(' ');
         $('iframe').attr("src", " ");
@@ -610,15 +605,20 @@
                 var nombre = dataListaDoc[0]['nombre'];
 
                 $('.nombreD').html(nombre);
-                $('iframe').attr("src", "uploads/"+nombre+"");
+                $('iframe').attr("src", "uploads/" + nombre + "");
 
+                $('.btn-descarga').on('click', function() {
+
+                    $('.nombreD').html(nombre);
+                    $('#btn-descarga').attr("href", "uploads/" + nombre + "");
+                    $('#btn-descarga').attr("download", nombre);
+                });
             }
         });
 
-        /* $('.nombreD').html(nombre);
-        $('iframe').attr("src", "uploads/"+nombre+""); */
         $('#modalArchivo').modal('show');
-        /* location.href = "<= base_url() . route_to('listadoDocumentos') ?>?transaccionActividadId=" +id; */
+        $('#btn-descarga').attr("href", "#");
+        $('#btn-descarga').removeAttr("download");
     }
 
     function eliminar(id, nombre, transaccionActividadId){

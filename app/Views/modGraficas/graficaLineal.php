@@ -288,9 +288,9 @@ $(function() {
                         y: {
                             ticks: {
                                 beginAtZero: true,
-                                type: 'integer',
                                 suggestedMin: 5,
-                                suggestedMax: 30
+                                suggestedMax: 30,
+                                callback: function(value) {if (value % 1 === 0) {return value;}}
                             },
                             title: {
                                 display: true,
@@ -388,9 +388,9 @@ $(function() {
                         y: {
                             ticks: {
                                 beginAtZero: true,
-                                type: 'integer',
                                 suggestedMin: 5,
-                                suggestedMax: 30
+                                suggestedMax: 30,
+                                callback: function(value) {if (value % 1 === 0) {return value;}}
                             },
                             title: {
                                 display: true,
@@ -473,7 +473,8 @@ $(function() {
                 ticks: {
                     beginAtZero: true,
                     suggestedMin: 5,
-                    suggestedMax: 15
+                    suggestedMax: 15,
+                    callback: function(value) {if (value % 1 === 0) {return value;}}
                 },
                 title: {
                     display: true,

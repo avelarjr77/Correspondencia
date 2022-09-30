@@ -1,5 +1,13 @@
 <?= $this->extend('template/admin_template') ?>
 <?= $this->section('content') ?>
+<?php
+    use App\Models\modUsuario\UsuarioModel;
+    $session = session();
+    $usuario  = new UsuarioModel();
+    $foto =$usuario->asArray()->select('u.imagenPerfil')->from('wk_usuario u')->where('u.usuario', $session->usuario)->first();
+
+
+?>
 
 <!-- page content -->
 <br>
@@ -33,7 +41,7 @@
                 <?php foreach ($persona as $key) : ?>
                     <input type="hidden" name="usuarioId" class="usuarioId" id="moduloId" value="<?= $key->usuarioId ?> ">
                 <?php endforeach; ?>
-                <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Guardar</button>
+                <button type="submit" name="submit"  class="btn btn-primary btn-tDocumnto">Cambiar imagen</button>
             </form>
             </div>
             <?php foreach ($persona as $key) : ?>
@@ -324,8 +332,9 @@
 <script src="vendors/jquery/dist/jquery.min.js"></script>
 <script src="vendors/sweetalert2/sweetalert.min.js"></script>
 <script src="vendors/fileinput/js/fileinput.min.js"></script>
+<script src="vendors/fileinput/themes/explorer-fa6/theme.js" type="text/javascript"></script>
+<script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
 
-<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script> 
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable({
@@ -360,26 +369,31 @@
 </script>
 
 <script>
-var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" </button>'; 
-$("#imagenPerfil").fileinput({
-    language: 'es',
-    uploadUrl: "http://localhost/correspondencia-ucad/imagenPerfil.php",
-    overwriteInitial: true,
-    maxFileSize: 1500,
-    showClose: false,
-    removeZoom: true,
-    showCaption: false,
-    browseLabel: '',
-    removeLabel: '',
-    browseIcon: '<i class="bi bi-camera-fill"></i>',
-    removeIcon: '<i class="bi-x-lg"></i>',
-    removeTitle: 'Cancel or reset changes',
-    elErrorContainer: '#kv-avatar-errors-1',
-    msgErrorClass: 'alert alert-block alert-danger',
-    defaultPreviewContent: '<img src="images/user.png" style="width: 100%;" alt="Your Avatar">',
-    layoutTemplates: {main2: '{preview} {remove} {browse} '},
-    allowedFileExtensions: ["jpg", "png", "gif"]
-});
+    $("#imagenPerfil").fileinput({
+        language: 'es',
+        uploadUrl: "http://localhost/correspondencia-ucad/imagenPerfil.php",
+        overwriteInitial: false,
+        maxFileSize: 1500,
+        showClose: false,
+        removeZoom: true,
+        showCaption: false,
+        showUpload: null,
+        showZoom: false,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="bi bi-camera-fill"></i>',
+        removeIcon: '<i class="bi-trash"></i>',
+        defaultPreviewContent: '<img src="uploads/<?php 
+        if (empty($foto['imagenPerfil']) || $foto['imagenPerfil'] == NULL) {
+            $x='user.png';
+        }else{
+            $x=$foto['imagenPerfil'];
+        }
+
+        echo $x; ?>" style="width: 100%;" alt="Your Avatar">',
+        layoutTemplates: {main2: '{preview} {remove} {browse} '},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
 </script>
 
 

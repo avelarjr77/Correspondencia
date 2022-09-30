@@ -158,8 +158,8 @@ class TransaccionActividadController extends BaseController{
             "estado" => 'I',
             "fechaCreacion" => $porciones[0],
             "horaCreacion" => $porciones[1],
-            "usuarioModifica"   => $session,
-            "fechaModifica"     => $hora,
+            "usuarioCrea" => $session,
+            "fechaCrea" => $hora
         ]; //actividad
 
         $dataAN = [
@@ -167,7 +167,9 @@ class TransaccionActividadController extends BaseController{
             'actividadId' => $actividad,
             "estado" => 'I',
             "fechaCreacion" => $porciones[0],
-            "horaCreacion" => $porciones[1]
+            "horaCreacion" => $porciones[1],
+            "usuarioCrea" => $session,
+            "fechaCrea" => $hora
         ]; //actividad etapa nueva
 
         $dataE = [
@@ -176,8 +178,8 @@ class TransaccionActividadController extends BaseController{
             "estado" => 'I',
             "fechaInicio" => $porciones[0],
             "horaInicio" => $porciones[1],
-            "usuarioModifica"   => $session,
-            "fechaModifica"     => $hora,
+            "usuarioCrea"   => $session,
+            "fechaCrea"     => $hora,
         ]; //etapa
 
         if ($actividadId == '') {
@@ -458,10 +460,16 @@ class TransaccionActividadController extends BaseController{
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $datos = [ 
             "estado" => 'P',
             "fechaInicio" => $porciones[0],
-            "horaInicio" => $porciones[1]
+            "horaInicio" => $porciones[1],
+            "usuarioModifica"   => $session,
+            "fechaModifica"     => $hora
         ];
 
         $tActDetalle = $actividadI->actualizarA($datos, $transaccionActividadId);
