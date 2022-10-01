@@ -9,7 +9,7 @@ use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
 require_once '../sql/conexion.php';
 
-class ProcesoTiempoController extends BaseController
+class ProcesoTiempoActController extends BaseController
 {
     public function index($fecha)
     {
@@ -22,7 +22,7 @@ class ProcesoTiempoController extends BaseController
 
         //print_r($fechaF.$fechaI);
 
-        $datos =  $prueba->reporteProcesoTiempo($fecha);
+        $datos =  $prueba->reporteProcesoTiempoAct($fecha);
 
         //print_r($datos);
 
@@ -37,8 +37,9 @@ class ProcesoTiempoController extends BaseController
                 <tr style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
                     <td style="text-align:center;">'.$row->proceso.'</td>
+                    <td style="text-align:center;">'.$row->etapa.'</td>
+                    <td style="text-align:center;">'.$row->actividad.'</td>
                     <td style="text-align:center;">'.$row->persona.'</td>
-                    <td style="text-align:center;">'.$row->nombreInstitucion.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
                     <td style="text-align:center;">'.$row->fechaInicio.'</td>
                     <td style="text-align:center;">'.$row->fechaFin.'</td>
@@ -58,17 +59,18 @@ class ProcesoTiempoController extends BaseController
                         border: 0px;
                     }
                 </style>
-                <p style="text-align:center; font-size:16;"><b>Listado de Procesos entre '.$fechaI.' y '.$fechaF.'</b></p><br>
+                <p style="text-align:center; font-size:16;"><b>Flujo de actividades entre '.$fechaI.' y '.$fechaF.'</b></p><br>
                 <table style="width:100%;">
                     <thead>
                         <tr>
                             <th style="width:5%;">#</th>
                             <th style="width:22%;">Proceso</th>
-                            <th style="width:18%;">Encargado</th>
-                            <th style="width:15%;">Institución</th>
-                            <th style="width:13%;">Estado del Proceso</th>
+                            <th style="width:17%;">Etapa</th>
+                            <th style="width:15%;">Actividad</th>
+                            <th style="width:12%;">Encargado</th>
+                            <th style="width:12%;">Estado de la actividad</th>
                             <th style="width:10%;">Fecha de Inicio</th>
-                            <th style="width:10%;">Fecha Fin</th>
+                            <th style="width:9%;">Fecha Fin</th>
                             <th style="width:9%;">Duración (días)</th>
                         </tr>
                     </thead><br>
@@ -95,7 +97,7 @@ class ProcesoTiempoController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table class="estilo" style="width=100%; height=70%;">
+                <table class="estilo" style="width=100%;">
                     <tr class="estilo">
                         <td class="estilo" style="float:left;width:63%;">Página {PAGENO} de {nb}</td>
                         <td class="estilo" style="float:right;width:27%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>

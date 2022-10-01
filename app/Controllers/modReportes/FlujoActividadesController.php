@@ -3,7 +3,7 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
+use App\Models\modReportes\ReportesModel;
 
 use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
@@ -17,9 +17,9 @@ class FlujoActividadesController extends BaseController
 
         //$procesoId = $this->request->getVar('procesoId');
 
-        $prueba = new PruebaModel();
+        $reportes = new ReportesModel();
 
-        $datos =  $prueba->reporteProcesoAct($procesoId);
+        $datos =  $reportes->reporteProcesoAct($procesoId);
 
         $contexto="";
         $correlativo=1;
@@ -39,6 +39,7 @@ class FlujoActividadesController extends BaseController
                     <td style="text-align:center;">'.$row->horaInicio.'</td>
                     <td style="text-align:center;">'.$row->fechaFin.'</td>
                     <td style="text-align:center;">'.$row->horaFin.'</td>
+                    <td style="text-align:center;">'.$row->duracion.'</td>
                 </tr><br>
                 ';
                 $correlativo++;
@@ -59,14 +60,15 @@ class FlujoActividadesController extends BaseController
                     <thead>
                         <tr>
                             <th style="width:3%;">#</th>
-                            <th style="width:25%;">Etapa</th>
-                            <th style="width:20%;">Actividad</th>
+                            <th style="width:20%;">Etapa</th>
+                            <th style="width:15%;">Actividad</th>
                             <th style="width:18%;">Encargado</th>
-                            <th style="width:12%;">Estado</th>
+                            <th style="width:10%;">Estado</th>
                             <th style="width:10%;">Fecha Inicio</th>
                             <th style="width:9%;">Hora Inicio</th>
-                            <th style="width:10%;">Fecha Fin</th>
+                            <th style="width:9%;">Fecha Fin</th>
                             <th style="width:9%;">Hora Fin</th>
+                            <th style="width:9%;">Duración (días)</th>
                         </tr>
                     </thead><br>
                     <tbody>'.$contexto.'</tbody>

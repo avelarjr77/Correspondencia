@@ -9,39 +9,32 @@ use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
 require_once '../sql/conexion.php';
 
-class ProcesoTiempoController extends BaseController
+class FlujoEtapaController extends BaseController
 {
-    public function index($fecha)
+    public function index($procesoId)
     {
-        $prueba = new ReportesModel();
+        $reportes = new ReportesModel();
 
-        $fechas = explode("a", $fecha);
-
-        $fechaI = $fechas[0];
-        $fechaF = $fechas[1]; 
-
-        //print_r($fechaF.$fechaI);
-
-        $datos =  $prueba->reporteProcesoTiempo($fecha);
-
-        //print_r($datos);
+        $datos =  $reportes->reporteProcesoEt($procesoId);
 
         $contexto="";
         $correlativo=1;
 
         if (empty($datos)){
-            return redirect()->to(base_url(). '/reportes')->with('mensaje','0');
+            return redirect()->to(base_url(). '/reportes')->with('mensaje','1');
         }else if ($datos>0) {
             foreach($datos as $row) {
                 $contexto = $contexto . '
                 <tr style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
                     <td style="text-align:center;">'.$row->proceso.'</td>
-                    <td style="text-align:center;">'.$row->persona.'</td>
-                    <td style="text-align:center;">'.$row->nombreInstitucion.'</td>
+                    <td style="text-align:center;">'.$row->encargado.'</td>
+                    <td style="text-align:center;">'.$row->etapa.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
                     <td style="text-align:center;">'.$row->fechaInicio.'</td>
+                    <td style="text-align:center;">'.$row->horaInicio.'</td>
                     <td style="text-align:center;">'.$row->fechaFin.'</td>
+                    <td style="text-align:center;">'.$row->horaFin.'</td>
                     <td style="text-align:center;">'.$row->duracion.'</td>
                 </tr><br>
                 ';
@@ -58,19 +51,21 @@ class ProcesoTiempoController extends BaseController
                         border: 0px;
                     }
                 </style>
-                <p style="text-align:center; font-size:16;"><b>Listado de Procesos entre '.$fechaI.' y '.$fechaF.'</b></p><br>
+                <p style="text-align:center; font-size:16;"><b>Flujo de Etapas del Proceso: '.$row->proceso.'</b></p><br>
                 <table style="width:100%;">
                     <thead>
                         <tr>
-                            <th style="width:5%;">#</th>
-                            <th style="width:22%;">Proceso</th>
+                            <th style="width:3%;">#</th>
+                            <th style="width:20%;">Proceso</th>
                             <th style="width:18%;">Encargado</th>
-                            <th style="width:15%;">Institución</th>
-                            <th style="width:13%;">Estado del Proceso</th>
-                            <th style="width:10%;">Fecha de Inicio</th>
+                            <th style="width:22%;">Etapa</th>
+                            <th style="width:12%;">Estado</th>
+                            <th style="width:10%;">Fecha Inicio</th>
+                            <th style="width:9%;">Hora Inicio</th>
                             <th style="width:10%;">Fecha Fin</th>
+                            <th style="width:9%;">Hora Fin</th>
                             <th style="width:9%;">Duración (días)</th>
-                        </tr>
+                            </tr>
                     </thead><br>
                     <tbody>'.$contexto.'</tbody>
                 </table>';
@@ -95,7 +90,7 @@ class ProcesoTiempoController extends BaseController
             $mpdf->setHTMLFooter(
                 '
                 <img src="images/Sin-título-1.jpg">
-                <table class="estilo" style="width=100%; height=70%;">
+                <table class="estilo" style="width=100%;">
                     <tr class="estilo">
                         <td class="estilo" style="float:left;width:63%;">Página {PAGENO} de {nb}</td>
                         <td class="estilo" style="float:right;width:27%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
@@ -107,10 +102,10 @@ class ProcesoTiempoController extends BaseController
             $mpdf->charset_in='utf8';
         
             $mpdf->writeHTML($tabla_a_imprimir);
-        
-            $file_ruta="ProcesoTiempo.pdf";
 
-            $mpdf->Output($file_ruta,'I');
+            $file="procesoEtapas.pdf";
+
+            $mpdf->Output($file,'I');
             $this->response->setHeader('Content-Type', 'application/pdf');
         
         }else{

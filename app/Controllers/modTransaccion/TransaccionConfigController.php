@@ -46,11 +46,6 @@ class TransaccionConfigController extends BaseController
         $datos = $etapa->listarEtapa($procesoId);
         echo json_encode($datos);
 
-        //obtener persona encargado
-        $personaId = $etapa->asArray()->select('t.personaId')
-            ->from('wk_transaccion_actividades t')->where('t.procesoId', $procesoId)->first();
-
-        
     }
 
     public function tDetId()
@@ -135,12 +130,18 @@ class TransaccionConfigController extends BaseController
         $fechaHora = date('Y-m-d H:i:s');
         $porciones = explode(" ", $fechaHora);
 
+        //Campos de auditoria
+        $hora=new Time('now');
+        $session = session('usuario');
+
         $data = [
             'transaccionDetalleId' => $transaccionDetalleId,
             'actividadId' => $actividadId,
             "estado" => 'I',
             "fechaCreacion" => $porciones[0],
-            "horaCreacion" => $porciones[1]
+            "horaCreacion" => $porciones[1],
+            "usuarioCrea" => $session,
+            "fechaCrea" => $hora
         ];
 
         //obtener persona encargado
@@ -256,7 +257,7 @@ class TransaccionConfigController extends BaseController
             "observaciones" => $_POST['observaciones'],
             "estadoTransaccion" => 'I',
             "usuarioCrea"   => $session,
-            "fechaCrea"     => $hora,
+            "fechaCrea"     => $hora
         ];
 
         $transaccion = new TransaccionConfigModel();

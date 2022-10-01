@@ -6,27 +6,7 @@
     <div class="clearfix"></div>
 </div>
 <div class="row">
-    <div class="col-md-8">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Usuarios por departamento</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div class="row justify-content-center">
-                    <div class="col-md-12" id="barChart2">
-                        <canvas id="departamentoChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-2">
+    <div class="col-md-6 col-sm-2">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Género</h2>
@@ -44,6 +24,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-6 col-sm-2">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Estado</h2>
@@ -55,8 +37,28 @@
             </div>
             <div class="x_content">
                 <div class="row justify-content-center">
-                    <div class="col-md-5" id="pastelE">
+                    <div class="col-md-6" id="pastelE">
                         <canvas id="pastelEChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Usuarios por departamento</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row justify-content-center">
+                    <div class="col-md-12" id="barChart2">
+                        <canvas id="departamentoChart"></canvas>
                     </div>
                 </div>
             </div>

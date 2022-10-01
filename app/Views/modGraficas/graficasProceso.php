@@ -9,6 +9,36 @@
 
     <div class="clearfix"></div>
 
+    <!-- top tiles -->
+    <div class="row row justify-content-center text-center">
+        <div class="tile_count">
+            <div class="col-md-12 col-sm-12  ">
+                <div class="col-md-4 col-sm-4  tile_stats_count">
+                    <?php foreach($iP as $inP): ?>
+                    <h6 class="count_top"><i class="fa fa-clock-o"></i> Total Procesos Inactivos</h6>
+                    <div class="count"><?= $inP->total ?></div>
+                    <span class="count_bottom">En este mes</span>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-md-4 col-sm-4 tile_stats_count">
+                    <?php foreach($pP as $prP): ?>
+                    <h6 class="count_top"><i class="fa fa-angle-double-right"></i> Total Procesos En Progreso</h6>
+                    <div class="count"><?= $prP->total ?></div>
+                    <span class="count_bottom">En este mes</span>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-md-4 col-sm-4 tile_stats_count">
+                    <?php foreach($fP as $fiP): ?>
+                    <h6 class="count_top"><i class="fa fa-check-square-o"></i> Total Procesos Finalizados</h6>
+                    <div class="count"><?= $fiP->total ?></div>
+                    <span class="count_bottom">En este mes</span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /top tiles -->
+
     <div class="row justify-content-center">
         <div class="col-md-12 col-sm-12  ">
             <div class="x_panel">
@@ -334,7 +364,7 @@
                     labels: dataP['label'],
                     datasets: [
                     {
-                        label: 'Tiempo',
+                        label: 'días',
                         data: dataP['data'],
                         backgroundColor: [
                         "#26b99a",
@@ -389,7 +419,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Cantidad de Tiempo (minutos)'
+                                text: 'Cantidad de Tiempo (días)'
                             }
                         }
                     }
