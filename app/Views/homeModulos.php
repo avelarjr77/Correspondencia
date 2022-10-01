@@ -17,21 +17,21 @@
         <?php endif; ?>
     </div>
 </div>
-<div class="col-md-12 col-sm-12  text-center">
-    <div class="jumbotron1 jumbotron-fluid shadow" style="border-radius: 10PX;">
-        <div class="container text1-jumbotron">
-            <h3 class="display-5" style="font-weight: 100;"><b>Sistema de Correspondencia</b></h3>
-            <p class="lead" style="font-style: italic; ">
-                <b> Universidad Cristiana de las Asambleas de Dios</b>
-            </p>
-        </div>
-    </div>
-</div>
 <div class="x_panel">
     <div class="x_content"><br><br>
+        <div class="col-md-12 col-sm-12  text-center">
+            <div class="jumbotron1 jumbotron-fluid shadow" style="border-radius: 10PX;">
+                <div class="container text1-jumbotron">
+                    <h3 class="display-5" style="font-weight: 100;"><b>Sistema de Correspondencia</b></h3>
+                    <p class="lead" style="font-style: italic; ">
+                        <b> Universidad Cristiana de las Asambleas de Dios</b>
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <?php foreach ($modulo as $key) : ?><br>
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding: 1em;">
                     <div class="card shadow text-center" style="max-width: 400px;">
                         <div class="row no-gutters">
                             <div class="col-md-5">

@@ -411,3 +411,5 @@ class TransaccionConfigController extends BaseController
         }
     }
 }
+
+?>

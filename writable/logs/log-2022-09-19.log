@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+ERROR - 2022-09-19 18:48:04 --> Email: sendWithSmtp throwed stream_socket_enable_crypto(): SSL: La operación se completó correctamente.
+
+ERROR - 2022-09-19 18:48:05 --> Email: sendWithSmtp throwed fwrite(): send of 12 bytes failed with errno=10053 Se ha anulado una conexión establecida por el software en su equipo host..
+
+=======
 CRITICAL - 2022-09-19 09:44:09 --> Undefined index: moduloId
 #0 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\wamp64\\www\\c...', 16, Array)
 #1 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->index()
@@ -129,3 +135,4 @@ CRITICAL - 2022-09-19 10:08:56 --> Trying to access array offset on value of typ
 #8 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+>>>>>>> a8a34201c6b20bd28f4450bc5889df8e8b34eb04

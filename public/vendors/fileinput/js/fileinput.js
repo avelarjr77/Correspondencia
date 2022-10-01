@@ -1,5 +1,5 @@
 /*!
- * bootstrap-fileinput v5.5.0
+ * bootstrap-fileinput v5.5.1
  * http://plugins.krajee.com/file-input
  *
  * Author: Kartik Visweswaran
@@ -1777,7 +1777,7 @@
                 '</div>';
             tActions = '<div class="file-actions">\n' +
                 '    <div class="file-footer-buttons">\n' +
-                '        {download} {upload} {delete} {zoom} {other}' +
+                '        {rotate} {download}  {delete}  {other}' +
                 '    </div>\n' +
                 '</div>\n' +
                 '{drag}\n' +
@@ -1785,8 +1785,6 @@
             //noinspection HtmlUnknownAttribute
             tActionDelete = '<button type="button" class="kv-file-remove {removeClass}" ' +
                 'title="{removeTitle}" {dataUrl}{dataKey}>{removeIcon}</button>\n';
-            tActionUpload = '<button type="button" class="kv-file-upload {uploadClass}" title="{uploadTitle}">' +
-                '{uploadIcon}</button>';
             tActionRotate = '<button type="button" class="kv-file-rotate {rotateClass}" title="{rotateTitle}">' +
                 '{rotateIcon}</button>';
             tActionDownload = '<a class="kv-file-download {downloadClass}" title="{downloadTitle}" ' +
@@ -1961,7 +1959,6 @@
                 },
                 fileActionSettings: {
                     showRemove: true,
-                    showUpload: true,
                     showDownload: true,
                     showZoom: true,
                     showDrag: true,
@@ -1970,11 +1967,6 @@
                     removeClass: defBtnCss1,
                     removeErrorClass: 'btn btn-sm btn-kv btn-danger',
                     removeTitle: 'Remove file',
-                    uploadIcon: '<i class="bi-upload"></i>',
-                    uploadClass: defBtnCss1,
-                    uploadTitle: 'Upload file',
-                    uploadRetryIcon: '<i class="bi-cloud-arrow-up-fill"></i>',
-                    uploadRetryTitle: 'Retry upload',
                     downloadIcon: '<i class="bi-download"></i>',
                     downloadClass: defBtnCss1,
                     downloadTitle: 'Download file',
@@ -2752,18 +2744,6 @@
         _submitForm: function () {
             var self = this;
             return self._isFileSelectionValid() && !self._abort({});
-        },
-        _clearPreview: function () {
-            var self = this,
-                $thumbs = self.showUploadedThumbs ? self.getFrames(':not(.file-preview-success)') : self.getFrames();
-            $thumbs.each(function () {
-                var $thumb = $(this);
-                $thumb.remove();
-            });
-            if (!self.getFrames().length || !self.showPreview) {
-                self._resetUpload();
-            }
-            self._validateDefaultPreview();
         },
         _initSortable: function () {
             var self = this, $el = self.$preview, settings, selector = '.' + $h.SORT_CSS, $cont, $body = $('body'),
@@ -4623,20 +4603,6 @@
             self.$container.removeClass('file-input-new');
             $h.addCss(self.$container, 'file-input-ajax-new');
         },
-        _getStats: function (stats) {
-            var self = this, pendingTime, t;
-            if (!self.showUploadStats || !stats || !stats.bitrate) {
-                return '';
-            }
-            t = self._getLayoutTemplate('stats');
-            pendingTime = (!stats.elapsed || !stats.bps) ? self.msgCalculatingTime :
-                self.msgPendingTime.setTokens({time: $h.getElapsed(Math.ceil(stats.pendingBytes / stats.bps))});
-
-            return t.setTokens({
-                uploadSpeed: stats.bitrate,
-                pendingTime: pendingTime
-            });
-        },
         _setResumableProgress: function (pct, stats, $thumb) {
             var self = this, rm = self.resumableManager, obj = $thumb ? rm : self,
                 $prog = $thumb ? $thumb.find('.file-thumb-progress') : null;
@@ -5111,7 +5077,6 @@
                 'preview': preview,
                 'close': close,
                 'caption': caption,
-                'upload': self._renderButton('upload'),
                 'remove': self._renderButton('remove'),
                 'cancel': self._renderButton('cancel'),
                 'pause': self._renderButton('pause'),
@@ -5141,16 +5106,6 @@
                     }
                     css += ' kv-hidden';
                     break;
-                case 'upload':
-                    if (!self.showUpload) {
-                        return '';
-                    }
-                    if (self.isAjaxUpload && !self.isDisabled) {
-                        tmplt = self._getLayoutTemplate('btnLink').replace('{href}', self.uploadUrl);
-                    } else {
-                        btnType = 'submit';
-                    }
-                    break;
                 case 'browse':
                     if (!self.showBrowse) {
                         return '';
@@ -5178,7 +5133,7 @@
         },
         _renderFileFooter: function (cat, caption, size, width, isError) {
             var self = this, config = self.fileActionSettings, rem = config.showRemove, drg = config.showDrag,
-                upl = config.showUpload, rot = config.showRotate, zoom = config.showZoom, out, params,
+                rot = config.showRotate, zoom = config.showZoom, out, params,
                 template = self._getLayoutTemplate('footer'), tInd = self._getLayoutTemplate('indicator'),
                 ind = isError ? config.indicatorError : config.indicatorNew,
                 title = isError ? config.indicatorErrorTitle : config.indicatorNewTitle,
@@ -5259,13 +5214,6 @@
                     'rotateClass': config.rotateClass,
                     'rotateIcon': config.rotateIcon,
                     'rotateTitle': config.rotateTitle
-                });
-            }
-            if (showUpl) {
-                btnUpload = self._getLayoutTemplate('actionUpload').setTokens({
-                    'uploadClass': config.uploadClass,
-                    'uploadIcon': config.uploadIcon,
-                    'uploadTitle': config.uploadTitle
                 });
             }
             if (showDwn) {
@@ -5551,10 +5499,10 @@
                 }).on('focusin.fileinput', function () {
                     setTimeout(function () {
                         if (!$el.val()) {
-                            self._toggleLoading('hide');
                             self._setFileDropZoneTitle();
                         }
                         $body.off(ev);
+                        self._toggleLoading('hide');
                     }, 2500);
                 });
             } else {
@@ -6272,12 +6220,9 @@
         showBrowse: true,
         showPreview: true,
         showRemove: true,
-        showUpload: true,
-        showUploadStats: true,
         showCancel: null,
         showPause: null,
         showClose: true,
-        showUploadedThumbs: true,
         showConsoleLogs: false,
         browseOnZoneClick: false,
         autoReplace: false,
@@ -6370,24 +6315,6 @@
         cancelClass: defBtnCss2,
         pauseIcon: '<i class="bi-pause-fill"></i>',
         pauseClass: defBtnCss2,
-        uploadIcon: '<i class="bi-upload"></i>',
-        uploadClass: defBtnCss2,
-        uploadUrl: null,
-        uploadUrlThumb: null,
-        uploadAsync: true,
-        uploadParamNames: {
-            chunkCount: 'chunkCount',
-            chunkIndex: 'chunkIndex',
-            chunkSize: 'chunkSize',
-            chunkSizeStart: 'chunkSizeStart',
-            chunksUploaded: 'chunksUploaded',
-            fileBlob: 'fileBlob',
-            fileId: 'fileId',
-            fileName: 'fileName',
-            fileRelativePath: 'fileRelativePath',
-            fileSize: 'fileSize',
-            retryCount: 'retryCount'
-        },
         maxAjaxThreads: 5,
         fadeDelay: 800,
         processDelay: 100,
@@ -6475,12 +6402,12 @@
     $.fn.fileinputLocales.en = {
         sizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
         bitRateUnits: ['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s', 'EB/s', 'ZB/s', 'YB/s'],
-        fileSingle: 'archivo',
-        filePlural: 'archivos',
-        browseLabel: 'Seleccionar archivos&hellip;',
-        removeLabel: 'Eliminar',
+        fileSingle: 'file',
+        filePlural: 'files',
+        browseLabel: 'Browse &hellip;',
+        removeLabel: 'Remove',
         removeTitle: 'Clear all unprocessed files',
-        cancelLabel: 'Cancelar',
+        cancelLabel: 'Cancel',
         cancelTitle: 'Abort ongoing upload',
         pauseLabel: 'Pause',
         pauseTitle: 'Pause ongoing upload',
@@ -6490,7 +6417,7 @@
         msgNoFilesSelected: 'No files selected',
         msgCancelled: 'Cancelled',
         msgPaused: 'Paused',
-        msgPlaceholder: 'Seleccionar archivos...',
+        msgPlaceholder: 'Select {files} ...',
         msgZoomModalHeading: 'Detailed Preview',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size}</b>) is too small and must be larger than <b>{minSize}</b>.',
@@ -6500,7 +6427,7 @@
         msgTotalFilesTooMany: 'You can upload a maximum of <b>{m}</b> files (<b>{n}</b> files detected).',
         msgFileNotFound: 'File "{name}" not found!',
         msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
-        msgFileNotReadable: 'Archivo "{name}" is not readable.',
+        msgFileNotReadable: 'File "{name}" is not readable.',
         msgFilePreviewAborted: 'File preview aborted for "{name}".',
         msgFilePreviewError: 'An error occurred while reading the file "{name}".',
         msgInvalidFileName: 'Invalid or unsupported characters in file name "{name}".',
@@ -6530,7 +6457,7 @@
         msgProgress: 'Loading file {index} of {files} - {name} - {percent}% completed.',
         msgSelected: '{n} {files} selected',
         msgProcessing: 'Processing ...',
-        msgFoldersNotAllowed: 'Solo arrastrar y soltar archivos! {n} folder(s) dropped were skipped.',
+        msgFoldersNotAllowed: 'Drag & drop files only! {n} folder(s) dropped were skipped.',
         msgImageWidthSmall: 'Width of image file "{name}" must be at least <b>{size} px</b> (detected <b>{dimension} px</b>).',
         msgImageHeightSmall: 'Height of image file "{name}" must be at least <b>{size} px</b> (detected <b>{dimension} px</b>).',
         msgImageWidthLarge: 'Width of image file "{name}" cannot exceed <b>{size} px</b> (detected <b>{dimension} px</b>).',
@@ -6549,8 +6476,8 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-        dropZoneTitle: 'Arrastra y suelta archivos aquí &hellip;',
-        dropZoneClickTitle: '<br>(o has click aquí para seleccionar {files})',
+        dropZoneTitle: 'Drag & drop files here &hellip;',
+        dropZoneClickTitle: '<br>(or click to select {files})',
         previewZoomButtonTitles: {
             prev: 'View previous file',
             next: 'View next file',

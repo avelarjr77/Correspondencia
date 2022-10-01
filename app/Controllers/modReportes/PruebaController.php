@@ -3,7 +3,7 @@
 namespace App\Controllers\modReportes;
 
 use App\Controllers\BaseController;
-use App\Models\modReportes\PruebaModel;
+use App\Models\modReportes\ReportesModel;
 
 //use Fpdf;
 use \Mpdf\Mpdf;
@@ -15,7 +15,7 @@ class PruebaController extends BaseController
 {
     public function index()
     {
-        $prueba = new PruebaModel();
+        $prueba = new ReportesModel();
 
         $datos =  $prueba->reporte();
 
@@ -33,6 +33,9 @@ class PruebaController extends BaseController
                     <td style="text-align:center;">'.$row->persona.'</td>
                     <td style="text-align:center;">'.$row->institucion.'</td>
                     <td style="text-align:center;">'.$row->estado.'</td>
+                    <td style="text-align:center;">'.$row->fechaInicio.'</td>
+                    <td style="text-align:center;">'.$row->fechaFin.'</td>
+                    <td style="text-align:center;">'.$row->duracion.'</td>
                 </tr>
                 ';
                 $correlativo++;
@@ -53,17 +56,20 @@ class PruebaController extends BaseController
                     <thead>
                         <tr>
                             <th style="width:5%;">#</th>
-                            <th style="width:30%;">Proceso</th>
-                            <th style="width:25%;">Encargado</th>
-                            <th style="width:25%;">Institución</th>
-                            <th style="width:20%;">Estado</th>
+                            <th style="width:22%;">Proceso</th>
+                            <th style="width:20%;">Encargado</th>
+                            <th style="width:17%;">Institución</th>
+                            <th style="width:13%;">Estado</th>
+                            <th style="width:10%;">Fecha de Inicio</th>
+                            <th style="width:10%;">Fecha de Fin</th>
+                            <th style="width:9%;">Duración (días)</th>
                         </tr>
                     </thead><br>
                     <tbody>'.$contexto.'</tbody>
                 </table>';
             }
             
-            $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-P', 'setAutoTopMargin'=>'stretch']);
+            $mpdf = new \Mpdf\Mpdf(['mode'=>'utf8', 'format'=>'Letter-L', 'setAutoTopMargin'=>'stretch']);
         
             $mpdf->allow_charset_conversion=true;
 
@@ -83,8 +89,8 @@ class PruebaController extends BaseController
                 <img src="images/Sin-título-1.jpg">
                 <table class="estilo" style="width=100%;">
                     <tr class="estilo">
-                        <td class="estilo" style="float:left;width:55%;">Página {PAGENO} de {nb}</td>
-                        <td class="estilo" style="float:right;width:35%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
+                        <td class="estilo" style="float:left;width:63%;">Página {PAGENO} de {nb}</td>
+                        <td class="estilo" style="float:right;width:27%;">Fecha de Impresión: '.date('d/m/Y H:i:s').'</td>
                     </tr>
                 </table>
                 '

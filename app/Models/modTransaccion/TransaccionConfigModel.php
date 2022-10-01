@@ -59,7 +59,7 @@ class TransaccionConfigModel extends Model
                                 INNER JOIN wk_proceso p ON p.procesoId = t.procesoId
                                 INNER JOIN wk_institucion i ON i.institucionId = t.institucionId
                                 INNER JOIN wk_persona pe ON pe.personaId = t.personaId
-                                WHERE t.estadoTransaccion != 'A' AND t.transaccionId= $transaccionId
+                                WHERE t.transaccionId= $transaccionId
                                 ORDER BY t.transaccionId");
         return $tr->getResult();
     }
@@ -80,12 +80,7 @@ class TransaccionConfigModel extends Model
     public function listarProceso()
     {
         $proceso =  $this->db->query("SELECT*
-                                    FROM  wk_proceso p
-                                    INNER JOIN wk_etapa e ON e.procesoId = p.procesoId
-                                    INNER JOIN wk_actividad a ON a.etapaId = e.etapaId
-                                    INNER JOIN wk_transaccion t ON t.procesoId = p.procesoId
-                                    WHERE a.actividadId != '' 
-                                    GROUP BY p.procesoId");
+                                    FROM  wk_proceso p");
         return $proceso->getResult();
     }
 

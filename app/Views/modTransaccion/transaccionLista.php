@@ -29,7 +29,8 @@
                             WHEN MONTH(ta.fechaInicio) = 9 THEN "Septiembre"
                             WHEN MONTH(ta.fechaInicio) = 10 THEN "Octubre"
                             WHEN MONTH(ta.fechaInicio) = 11 THEN "Noviembre"
-                            ELSE "Diciembre"
+                            WHEN MONTH(ta.fechaInicio) = 12 THEN "Diciembre"
+                            ELSE "-"
                         END) as mes, DAY(ta.fechaInicio) as dia')->from('wk_transaccion_actividades ta')
                         ->join('wk_transaccion_detalle td', 'td.transaccionDetalleId = ta.transaccionDetalleId')
                         ->join('wk_transaccion t', 't.transaccionId = td.transaccionId')

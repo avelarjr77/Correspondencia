@@ -234,6 +234,27 @@ class ReportesModel extends Model
         return $tr->getResult();
     }
 
+    public function reporteUsuarioD()
+    {
+        $tr = $this->db->query("SELECT 
+                                concat_ws(
+                                    ' ',
+                                    pe.nombres,
+                                    pe.primerApellido
+                                ) as 'persona', 
+                                COUNT(*) as 'totalActividades', ROUND(AVG(DATEDIFF(ta.fechaFin, ta.fechaInicio))) as 'tiempoP', 
+                                MAX(DATEDIFF(ta.fechaFin, ta.fechaInicio)) as 'mayor', MIN(DATEDIFF(ta.fechaFin, ta.fechaInicio)) as 'menor'
+                                FROM  wk_transaccion_actividades ta
+                                INNER JOIN wk_transaccion_detalle td ON td.transaccionDetalleId = ta.transaccionDetalleId 
+                                INNER JOIN wk_transaccion t ON t.transaccionId = td.transaccionId
+                                INNER JOIN wk_proceso p ON t.procesoId = p.procesoId
+                                INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
+                                INNER JOIN wk_persona pe ON pe.personaId = a.personaId
+                                WHERE ta.estado = 'F'
+                                GROUP BY a.personaId");
+        return $tr->getResult();
+    }
+
     public function reporteProcesoAct($procesoId)
     {
         $tr = $this->db->query("SELECT  p.nombreProceso as 'proceso', e.nombreEtapa as 'etapa', a.nombreActividad as 'actividad',

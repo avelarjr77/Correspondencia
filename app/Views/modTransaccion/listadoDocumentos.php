@@ -50,18 +50,17 @@
 
 
 <!-- MODAL PARA VISUALIZAR EL ARCHIVO -->
-<div class="modal fade" id="modalArchivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalArchivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header kv-zoom-header">
-                <h5 class="modal-title kv-zoom-title nombreD" id="kvFileinputModalLabel"><span class="kv-zoom-caption"
-                        title="Marco legal.docx"></span> <span class="kv-zoom-size prueba"> 
+                <h5 class="modal-title kv-zoom-title nombreD" id="kvFileinputModalLabel"><span class="kv-zoom-caption" title=""></span> <span class="kv-zoom-size prueba">
                     </span>
                 </h5>
                 <div class="">
-                    <button type="button" class="btn btn-sm btn-kv btn-default btn-outline-secondary btn-kv-close"
-                        title="Close detailed preview" data-dismiss="modal" aria-hidden="true">
+                    <a class="btn btn-sm btn-default btn-outline-secondary btn-descarga" id="btn-descarga"><i class="fa fa-download"></i>
+                    </a>
+                    <button type="button" class="btn btn-sm btn-kv btn-default btn-outline-secondary btn-kv-close" title="Close detailed preview" data-dismiss="modal" aria-hidden="true">
                         <i class="bi-x-lg"></i>
                     </button>
                 </div>
@@ -69,16 +68,10 @@
             <div class="floating-buttons"></div>
             <div class="" style="height: 450px;">
                 <div class="kv-preview-data kv-zoom-body file-zoom-content krajee-default" width="100%">
-                    <iframe id="iframePDF" width="100%" height="450px" class="kv-preview-data file-preview-office file-zoom-detail"
-                        src="uploads/Readme.txt" frameborder="0">
+                    <iframe id="iframePDF" width="100%" height="450px" class="kv-preview-data file-preview-office file-zoom-detail" src="" frameborder="0">
                     </iframe>
                 </div>
             </div>
-            <!-- <button type="button" class="btn btn-default btn-outline-secondary btn-navigate btn-kv-prev"
-                  style="display: none;"><i class="bi-chevron-left"></i></button> <button
-                type="button" class="btn btn-default btn-outline-secondary btn-navigate btn-kv-next"
-                title="View next file" style="display: none;"><i class="bi-chevron-right"></i></button>
-            <div class="kv-zoom-description" style="display: none;"></div> -->
         </div>
     </div>
 </div>
@@ -90,20 +83,29 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
-        $('.btn-abrir').on('click',function(){
-            
+        $('.btn-abrir').on('click', function() {
+
             var id = $(this).data('id');
             var nombre = $(this).data('nombre');
 
             console.log(id, nombre);
 
             $('.nombreD').html(nombre);
-            $('iframe').attr("src", "uploads/"+nombre+"");
+            $('iframe').attr("src", "uploads/" + nombre + "");
+
+            $('.btn-descarga').on('click', function() {
+
+                $('.nombreD').html(nombre);
+                $('#btn-descarga').attr("href", "uploads/" + nombre + "");
+                $('#btn-descarga').attr("download", nombre);
+            });
+
+            $('#btn-descarga').attr("href", "#");
+            $('#btn-descarga').removeAttr("download");
         });
     });
-
 </script>
 
 

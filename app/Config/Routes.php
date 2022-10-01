@@ -316,6 +316,7 @@ $routes->group('/',['filter'=>'auth'],function($routes){
 $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('graficas', 'modGraficas/GraficasController::index', ['as'=> 'graficas']);
     $routes->match(['get', 'post'],'gBarraFecha', 'modGraficas/GraficasController::barraF', ['as'=> 'gBarraFecha']);
+    $routes->match(['get', 'post'],'gBarraE', 'modGraficas/GraficasController::barraE', ['as'=> 'gBarraE']);
     $routes->match(['get', 'post'],'gBarraProceso', 'modGraficas/GraficasController::barraP', ['as'=> 'gBarraProceso']);    
     $routes->match(['get', 'post'],'gBarraPromedio', 'modGraficas/GraficasController::barraProm', ['as'=> 'gBarraPromedio']);    
     $routes->match(['get', 'post'],'gPastelG', 'modGraficas/GraficasController::pastelG', ['as'=> 'gPastelG']);
@@ -331,8 +332,11 @@ $routes->group('/',['filter'=>'auth'],function($routes){
     $routes->get('promedioActividad', 'modReportes/PromedioActividadController::index', ['as'=> 'promedioActividad']);
     $routes->get('procesoDetalle', 'modReportes/ProcesoDetalleController::index', ['as'=> 'procesoDetalle']);
     $routes->match(['get', 'post'],'vistaDetalle', 'modReportes/VistaController::index', ['as'=> 'vistaDetalle']);
+    $routes->match(['get', 'post'],'usuarioD', 'modReportes/UsuarioDController::index', ['as'=> 'usuarioD']);
     $routes->match(['get', 'post'],'procesoUnico', 'modReportes/ProcesoUnicoController::index', ['as'=> 'procesoUnico']);
     $routes->match(['get', 'post'],'procesoTiempo', 'modReportes/ProcesoTiempoController::index', ['as'=> 'procesoTiempo']);
+    $routes->match(['get', 'post'],'procesoTiempoAct', 'modReportes/ProcesoTiempoActController::index', ['as'=> 'procesoTiempoAct']);
+    $routes->match(['get', 'post'],'flujoEtapa', 'modReportes/FlujoEtapaController::index', ['as'=> 'flujoEtapa']);
     $routes->match(['get', 'post'],'flujoActividad', 'modReportes/FlujoActividadesController::index', ['as'=> 'flujoActividad']);
 });
 

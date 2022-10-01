@@ -48,7 +48,7 @@
                                         <a href="#" id="estadoActividad" class="btn btn-info btn-sm" data-estado="<?= $key->estado ?>" disable><?= $key->estado ?></a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>"><i class="fa fa-play"></i> </a>
+                                        <a href="#" class="btn btn-success btn-sm btn-iniciarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-apellido="<?= $key->apellido ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>" data-encargado="<?= $key->encargado ?>"><i class="fa fa-play"></i> </a>
                                         <a href="#" class="btn btn-danger btn-sm btn-finalizarActividad" data-id="<?= $key->id ?>" data-actividad="<?= $key->actividad ?>" data-persona="<?= $key->persona ?>" data-estado="<?= $key->estado ?>" data-transacciond="<?= $key->transaccionDetalleId ?>" data-etapaid="<?= $key->etapaId ?>" data-ordenactividad="<?= $key->ordenActividad ?>" data-ordenetapa="<?= $key->ordenEtapa ?>" data-procesoid="<?= $key->procesoId ?>" data-transaccionid="<?= $key->transaccionId ?>" data-nombreproceso="<?= $key->nombreProceso ?>" data-actividadid="<?= $key->actividadId ?>" data-personaid="<?= $key->personaId ?>" data-descripcion="<?= $key->descripcion ?>"><i class="fa fa-stop"></i> </a>
                                         <a href="#" class="btn btn-secondary btn-sm btn-editarO" data-id="<?= $key->id ?>" data-observaciones="<?= $key->observaciones ?>" data-etapaid="<?= $key->etapaId ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     </td>
@@ -346,7 +346,7 @@
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
-        maxFilePreviewSize: 10240,
+        maxFilePreviewSize: 500000,
         sobrescribirInitial: false,
         actionUpload: false,
         showZoom: false,
@@ -383,7 +383,7 @@
             var transaccionId = $(this).data('transaccionid');
 
             console.log(id, actividad, etapaId, actividadId, persona, estado, transacciond, ordenActividad, ordenEtapa,
-                procesoId, transaccionId, nombreProceso);
+                procesoId, transaccionId, nombreProceso, descripcion, personaId);
 
             if (estado == 'En Progreso') {
                 Swal.fire({
@@ -448,6 +448,14 @@
             var actividad = $(this).data('actividad'); //actividad
             var estado = $(this).data('estado');
             var etapaId = $(this).data('etapaid');
+            var ordenActividad = $(this).data('ordenactividad');
+            var procesoId = $(this).data('procesoid');
+            var nombreProceso = $(this).data('nombreproceso');
+            var encargado = $(this).data('encargado');
+            var transacciond = $(this).data('transacciond');
+            var persona = $(this).data('persona');
+            var apellido = $(this).data('apellido');
+            var transaccionId = $(this).data('transaccionid');
 
             console.log(id);
 
@@ -467,7 +475,16 @@
                             url: "<?= base_url() . route_to('actividadI') ?>",
                             data: {
                                 transaccionActividadId: id,
-                                etapaId: etapaId
+                                etapaId: etapaId,
+                                ordenActividad: ordenActividad,
+                                procesoId: procesoId,
+                                nombreProceso:nombreProceso, 
+                                encargado: encargado,
+                                transaccionDetalleId: transacciond,
+                                persona: persona,
+                                apellido: apellido,
+                                transaccionId: transaccionId,
+                                actividad: actividad
                             },
                             success: function(data) {
 
@@ -493,7 +510,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'No es posible iniciar una actividad Activa o Finalizada'
+                    text: 'No es posible iniciar una actividad En Progreso o Finalizada'
                 })
             } 
         });
@@ -562,18 +579,13 @@
             $('#documento').hide();
         });
 
-        $('.btn-tDocumento').on('click', function() {
-            var id = $(this).data('id');
-            $('#transaccionActividadId').val(id);
-        });
-
         $('.btn-delete').on('click', function() {
             $( "#frmEliminarDoc" ).submit();
         });
 
     });
 
-    function verDoc(id){
+    function verDoc(id) {
 
         $('.nombreD').html(' ');
         $('iframe').attr("src", " ");
@@ -593,15 +605,20 @@
                 var nombre = dataListaDoc[0]['nombre'];
 
                 $('.nombreD').html(nombre);
-                $('iframe').attr("src", "uploads/"+nombre+"");
+                $('iframe').attr("src", "uploads/" + nombre + "");
 
+                $('.btn-descarga').on('click', function() {
+
+                    $('.nombreD').html(nombre);
+                    $('#btn-descarga').attr("href", "uploads/" + nombre + "");
+                    $('#btn-descarga').attr("download", nombre);
+                });
             }
         });
 
-        /* $('.nombreD').html(nombre);
-        $('iframe').attr("src", "uploads/"+nombre+""); */
         $('#modalArchivo').modal('show');
-        /* location.href = "<= base_url() . route_to('listadoDocumentos') ?>?transaccionActividadId=" +id; */
+        $('#btn-descarga').attr("href", "#");
+        $('#btn-descarga').removeAttr("download");
     }
 
     function eliminar(id, nombre, transaccionActividadId){

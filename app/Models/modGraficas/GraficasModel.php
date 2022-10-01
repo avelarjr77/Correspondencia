@@ -34,6 +34,18 @@ class GraficasModel extends Model
         return $tr->getResult();
     }
 
+    public function barraE($fechaI, $fechaF)
+    {
+        $tr = $this->db->query("SELECT COUNT(*) as 'total',p.nombres as 'persona'
+                                FROM wk_transaccion t
+                                INNER JOIN wk_persona p ON p.personaId = t.personaId
+                                WHERE t.fechaInicio BETWEEN STR_TO_DATE('$fechaI', '%d/%m/%Y') 
+                                AND  STR_TO_DATE('$fechaF', '%d/%m/%Y')
+                                GROUP BY p.personaId
+                                ORDER BY p.personaId");
+        return $tr->getResult();
+    }
+
     public function barraP($fechaI, $fechaF)
     {
         $tr = $this->db->query("SELECT p.nombreProceso as 'proceso', ROUND(DATEDIFF(t.fechaFin, t.fechaInicio)) as 'tiempo'
