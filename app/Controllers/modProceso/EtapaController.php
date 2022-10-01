@@ -72,11 +72,11 @@ class EtapaController extends BaseController{
             'hora'          => $hora,
         ]);
         //END
+        if ($this->validate('validarEtapa')) {
 
-        $respuesta = $etapa->insertar($datos);
-
-        if ($respuesta > 0){
+            $respuesta = $etapa->insertar($datos);
             $mensaje = 6;
+
         } else {
             $mensaje = 7;
         }

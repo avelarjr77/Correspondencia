@@ -369,31 +369,31 @@
 </script>
 
 <script>
-    $("#imagenPerfil").fileinput({
-        language: 'es',
-        uploadUrl: "http://localhost/correspondencia-ucad/imagenPerfil.php",
-        overwriteInitial: false,
-        maxFileSize: 1500,
-        showClose: false,
-        removeZoom: true,
-        showCaption: false,
-        showUpload: null,
-        showZoom: false,
-        browseLabel: '',
-        removeLabel: '',
-        browseIcon: '<i class="bi bi-camera-fill"></i>',
-        removeIcon: '<i class="bi-trash"></i>',
-        defaultPreviewContent: '<img src="uploads/<?php 
-        if (empty($foto['imagenPerfil']) || $foto['imagenPerfil'] == NULL) {
-            $x='user.png';
-        }else{
-            $x=$foto['imagenPerfil'];
-        }
+$("#imagenPerfil").fileinput({
+    language: 'es',
+    uploadUrl: "http://localhost/correspondencia-ucad/imagenPerfil.php",
+    overwriteInitial: false,
+    maxFileSize: 1500,
+    showClose: false,
+    removeZoom: true,
+    showCaption: false,
+    showUpload: null,
+    showZoom: false,
+    browseLabel: '',
+    removeLabel: '',
+    browseIcon: '<i class="bi bi-camera-fill"></i>',
+    removeIcon: '<i class="bi-trash"></i>',
+    defaultPreviewContent: '<img src="uploads/<?php 
+    if (empty($foto['imagenPerfil']) || $foto['imagenPerfil'] == NULL) {
+        $x='user.png';
+    }else{
+        $x=$foto['imagenPerfil'];
+    }
 
-        echo $x; ?>" style="width: 100%;" alt="Your Avatar">',
-        layoutTemplates: {main2: '{preview} {remove} {browse} '},
-        allowedFileExtensions: ["jpg", "png", "gif"]
-    });
+    echo $x; ?>" style="width: 100%;" alt="Your Avatar">',
+    layoutTemplates: {main2: '{preview} {remove} {browse} '},
+    allowedFileExtensions: ["jpg", "png", "gif"]
+});
 </script>
 
 

@@ -288,6 +288,7 @@ $(function() {
                         y: {
                             ticks: {
                                 beginAtZero: true,
+                                type: 'integer',
                                 suggestedMin: 5,
                                 suggestedMax: 30,
                                 callback: function(value) {if (value % 1 === 0) {return value;}}
@@ -389,8 +390,7 @@ $(function() {
                             ticks: {
                                 beginAtZero: true,
                                 suggestedMin: 5,
-                                suggestedMax: 30,
-                                callback: function(value) {if (value % 1 === 0) {return value;}}
+                                suggestedMax: 30
                             },
                             title: {
                                 display: true,

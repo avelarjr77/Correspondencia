@@ -163,10 +163,16 @@
                     <br><br>
                     <form id="frmusuarioP" method="POST">
                         <div class="col-md-12 col-sm-12 offset-md-12 right">
+<<<<<<< HEAD
+                            <p>Al dar clic en Generar se mostará un reporte con información general sobre los usuarios del sistema</p>
+                            <div class="col-md-3 col-sm-3 "> 
+                                <button type="button" class="btn btn-primary btn-xs btn-reporte">Generar</button>
+=======
                             <p>Al dar clic en cada botón se generará un reporte con la información respectiva.</p>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary btn-reporte">Información General</button>
                                 <button type="button" class="btn btn-secondary btn-reporteD">Desempeño de usuarios por proceso</button>
+>>>>>>> 3cd60b32cff485671e3543d6cfe3c39c8e24c24c
                             </div>
                         </div>
                     </form>
@@ -175,6 +181,10 @@
             </div>
 
             <br><br><br>
+<<<<<<< HEAD
+            <a href="#" class="btn btn-outline-secondary mb-2 volver"><i class="fa fa-angle-double-left"></i> Volver</a>
+=======
+>>>>>>> 3cd60b32cff485671e3543d6cfe3c39c8e24c24c
         </div>
     
     </div>
