@@ -327,9 +327,8 @@
                                     <td><?= $fin->institucion ?></td>
                                     <td><?= $fin->persona ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-danger btn-sm btn-eliminarProceso" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>"><i class="fa fa-trash"></i></a>
-                                        <a href="#" class="btn btn-warning btn-sm btn-editarO" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm btn-verO" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm btn-editarOFin" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm btn-verOFin" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>" data-observaciones="<?= $fin->observaciones ?>"><i class="fa fa-eye"></i></a>
                                         <a href="#" class="btn btn-success btn-sm btn-iniciarProcesoFin" data-id="<?= $fin->id ?>" data-proceso="<?= $fin->proceso ?>" data-procesoid="<?= $fin->procesoId ?>" data-estado="<?= $fin->estado ?>"><i class="fa fa-long-arrow-right"></i> Ver</a>
                                     </td>
                                     <td>
@@ -346,6 +345,80 @@
             <a href="#" class="btn btn-outline-secondary mb-2 volver-procesoFin"><i class="fa fa-angle-double-left"></i> Volver</a>
         </div>
         <!--FIN LISTADO PROCESO-->
+
+        <!-- Modal Edit Observaciones-->
+        <form action="<?php echo base_url() . '/actualizarO' ?>" method="POST">
+            <div class="modal fade" id="editModalFin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar Observaciones</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label>Observaciones</label>
+                                <textarea class="form-control" name="observaciones" id="observacionesAF" rows="3" required></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="transaccionId" class="transaccionId">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End Modal Edit Observaciones-->
+
+        <!-- Modal ver Observaciones-->
+        <div class="modal fade" id="verModalFin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ver Observaciones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Observaciones de proceso</h2>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Proceso</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="procesoOListFin">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="transaccionId" class="transaccionId">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal ver Observaciones-->
+
     </div>
     <div class="x_content" id="etapaFin" style="display: none">
         <br>
@@ -479,10 +552,6 @@
 <script>
     $(document).ready(function() {
 
-        /* $('.select-proceso').select2();
-        $('.select-institucion').select2();
-        $('.select-persona').select2(); */
-
         // Eliminar Proceso
         $('.btn-eliminarProceso').on('click', function() {
             // get data from button edit
@@ -578,6 +647,20 @@
             //$('.modal-backdrop').remove(); 
         });
 
+        $('.btn-editarOFin').on('click', function() {
+            // get data from button edit
+            const id = $(this).data('id');
+            const observaciones = $(this).data('observaciones');
+
+            // Set data to Form Edit
+            $('.transaccionId').val(id);
+            $('#observacionesAF').val(observaciones);
+            // Call Modal Edit
+            $('#editModalFin').modal('show');
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
+        });
+
         $('.btn-procesosFin').on('click', function() {
             $('#procesoFinalizado').css("display", "block");
             $('#proceso').hide();
@@ -620,8 +703,73 @@
             //$('.modal-backdrop').remove(); 
         });
 
+        $('.btn-verOFin').on('click', function() {
+            // get data from button edit
+            const id = $(this).data('id');
+            const observaciones = $(this).data('observaciones');
+
+            var obDataFin = $("#procesoOListFin");
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('transaccionObservaciones') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
+
+                    var dataDetOFin = JSON.parse(data);
+                    console.log(dataDetOFin);
+
+                    $("#procesoOListFin").empty();
+
+                    $.each(dataDetOFin, function(index, val) {
+                        obDataFin.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.proceso + "</td>" +
+                            "<td>" + val.observaciones + "</td>" +
+                            "</tr>")
+                    });
+                }
+            });
+
+            //verObservacionesActFin(id);
+            $('#verModalFin').modal('show');
+            $('body').removeClass('modal-open'); 
+            //$('.modal-backdrop').remove(); 
+        });
+
         function verObservacionesAct(id) {
             var etData = $("#etapasData");
+            var obData = $("#procesoOList");
+
+            //console.log(list, id);
+
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() . route_to('transaccionObservaciones') ?>",
+                data: {
+                    transaccionId: id
+                },
+                success: function(data) {
+
+                    var dataDetO = JSON.parse(data);
+                    console.log(dataDetO);
+
+                    $("#etapasData").empty();
+
+                    $.each(dataDetO, function(index, val) {
+                        obData.append("<tr><td>" + val.id + "</td>" +
+                            "<td>" + val.proceso + "</td>" +
+                            "<td>" + val.observaciones + "</td>" +
+                            "</tr>")
+                    });
+                }
+            });
+        }
+
+        function verObservacionesActFin(id) {
+            var etData = $("#etapasData");
+            var obData = $("#procesoOListFin");
 
             //console.log(list, id);
 

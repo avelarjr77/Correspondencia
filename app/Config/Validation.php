@@ -39,7 +39,7 @@ class Validation
     ];
 
     public $menuValidation = [
-        'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]|alpha_space',
+        'nombreMenu' => 'required|is_unique[co_menu.nombreMenu]',
         'iconoId' => 'required',
     ];
 

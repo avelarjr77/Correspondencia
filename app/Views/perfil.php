@@ -220,15 +220,6 @@
                 </div>
                 <div class="modal-body">
 
-                    <!--<div class="field item form-group">
-                        <label class="col-form-label col-md-4 col-sm-4  label-align">Usuario<span
-                                class="required ">*</span></label>
-                        <div class="col-md-7">
-                            <input type="text" minlength="6" maxlength="70" class="form-control " id="usuario"
-                                name="usuario" required autocomplete="off">
-                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                        </div>
-                    </div> -->
                     <div class="field item form-group">
                         <label class="col-form-label col-md-4 col-sm-4  label-align">Nombres<span class="required ">*</span></label>
                         <div class="col-md-7">

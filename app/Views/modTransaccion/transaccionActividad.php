@@ -297,17 +297,7 @@
 
 <!-- Input file -->
 
-<script src="vendors/fileinput/js/fileinput.min.js"></script>
-<script src="vendors/fileinput/js/plugins/buffer.min.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/plugins/filetype.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/plugins/filetype.min.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/plugins/piexif.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/fileinput.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/locales/fr.js" type="text/javascript"></script>
-<script src="vendors/fileinput/js/locales/es.js" type="text/javascript"></script>
-<script src="vendors/fileinput/themes/fa5/theme.js" type="text/javascript"></script>
-<script src="vendors/fileinput/themes/explorer-fa5/theme.js" type="text/javascript"></script> 
+<script src="vendors/fileinput/js/fileinput.min.js"></script> 
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
@@ -346,7 +336,7 @@
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
-        maxFilePreviewSize: 10240,
+        maxFilePreviewSize: 500000000,
         sobrescribirInitial: false,
         actionUpload: false,
         showZoom: false,
@@ -590,7 +580,7 @@
 
     });
 
-    function verDoc(id){
+    function verDoc(id) {
 
         $('.nombreD').html(' ');
         $('iframe').attr("src", " ");
@@ -610,15 +600,20 @@
                 var nombre = dataListaDoc[0]['nombre'];
 
                 $('.nombreD').html(nombre);
-                $('iframe').attr("src", "uploads/"+nombre+"");
+                $('iframe').attr("src", "uploads/" + nombre + "");
 
+                $('.btn-descarga').on('click', function() {
+
+                    $('.nombreD').html(nombre);
+                    $('#btn-descarga').attr("href", "uploads/" + nombre + "");
+                    $('#btn-descarga').attr("download", nombre);
+                });
             }
         });
 
-        /* $('.nombreD').html(nombre);
-        $('iframe').attr("src", "uploads/"+nombre+""); */
         $('#modalArchivo').modal('show');
-        /* location.href = "<= base_url() . route_to('listadoDocumentos') ?>?transaccionActividadId=" +id; */
+        $('#btn-descarga').attr("href", "#");
+        $('#btn-descarga').removeAttr("download");
     }
 
     function eliminar(id, nombre, transaccionActividadId){

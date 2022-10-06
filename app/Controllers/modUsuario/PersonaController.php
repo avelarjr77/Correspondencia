@@ -119,6 +119,7 @@ class PersonaController extends BaseController
 
         $persona = new PersonaModel();
         if ($this->validate([
+            'dui'                => 'is_unique[wk_persona.dui]',
             'nombres'           => 'alpha_space',
             'primerApellido'    => 'alpha',
             'segundoApellido'   => 'alpha'
@@ -128,6 +129,7 @@ class PersonaController extends BaseController
             $session = session('usuario');
 
             $datos = [
+                "dui"               => $_POST['dui'],
                 "nombres"           => $_POST['nombres'],
                 "primerApellido"    => $_POST['primerApellido'],
                 "segundoApellido"   => $_POST['segundoApellido'],
