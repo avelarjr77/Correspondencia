@@ -9,17 +9,17 @@ use \Mpdf\Mpdf;
 require_once 'vendors/mpdf/vendor/autoload.php';
 require_once '../sql/conexion.php';
 
-class ProcesoDetalleController extends BaseController
+class UsuarioDController extends BaseController
 {
-    public function index($persona)
+    public function index()
     {
         $prueba = new ReportesModel();
 
-        $datos =  $prueba->reporte3($persona);
+        $datos =  $prueba->reporteUsuarioD();
 
         $contexto="";
         $correlativo=1;
-        
+
         if (empty($datos)){
             return redirect()->to(base_url(). '/reportes')->with('mensaje','1');
         }else if ($datos>0) {
@@ -27,10 +27,11 @@ class ProcesoDetalleController extends BaseController
                 $contexto = $contexto . '
                 <tr style="font-size:12;">
                     <td style="text-align:center;">'.$correlativo.'</td>
-                    <td style="text-align:center;">'.$row->proceso.'</td>
-                    <td style="text-align:center;">'.$row->etapa.'</td>
-                    <td style="text-align:center;">'.$row->actividad.'</td>
-                    <td style="text-align:center;">'.$row->estado.'</td>
+                    <td style="text-align:center;">'.$row->persona.'</td>
+                    <td style="text-align:center;">'.$row->totalActividades.'</td>
+                    <td style="text-align:center;">'.$row->tiempoP.'</td>
+                    <td style="text-align:center;">'.$row->mayor.'</td>
+                    <td style="text-align:center;">'.$row->menor.'</td>
                 </tr><br>
                 ';
                 $correlativo++;
@@ -46,15 +47,16 @@ class ProcesoDetalleController extends BaseController
                         border: 0px;
                     }
                 </style>
-                <p style="text-align:center; font-size:16;"><b>Rendimiento de '.$row->persona.'</b></p><br>
+                <p style="text-align:center; font-size:16;"><b>Rendimiento de personas del sistema</b></p><br>
                 <table style="width:100%;">
                     <thead>
                         <tr>
                             <th style="width:5%;">#</th>
-                            <th style="width:30%;">Proceso</th>
-                            <th style="width:30%;">Etapa</th>
-                            <th style="width:25%;">Actividad</th>
-                            <th style="width:15%;">Estado</th>
+                            <th style="width:26%;">Persona</th>
+                            <th style="width:3%;">Total de Actividades</th>
+                            <th style="width:18%;">Tiempo promedio de duración (días)</th>
+                            <th style="width:15%;">Máximo de duración (días)</th>
+                            <th style="width:15%;">Mínimo de duración (días)</th>
                         </tr>
                     </thead><br>
                     <tbody>'.$contexto.'</tbody>
@@ -93,7 +95,7 @@ class ProcesoDetalleController extends BaseController
         
             $mpdf->writeHTML($tabla_a_imprimir);
         
-            $file="FlujoDeProcesos.pdf";
+            $file="UsuariosDesempeño.pdf";
 
             $mpdf->Output($file,'I');
             $this->response->setHeader('Content-Type', 'application/pdf');

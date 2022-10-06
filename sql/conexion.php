@@ -1,8 +1,12 @@
 <?php
 
-error_reporting('E_ERROR'); 
+error_reporting(E_ERROR); 
 
+<<<<<<< HEAD
     $host="localhost";
+=======
+    $host="localhost:3306";
+>>>>>>> 278bfd9499dbd37b229dc65db8da662022f67dc1
     $user="root";
     $password="";
     $bd="correspondencia";

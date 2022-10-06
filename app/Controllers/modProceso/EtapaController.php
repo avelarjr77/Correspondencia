@@ -1,10 +1,7 @@
 <?php namespace App\Controllers\modProceso;
 
-use CodeIgniter\I18n\Time;
 use App\Controllers\BaseController;
 use App\Models\modProceso\EtapaModel;
-use App\Models\modProceso\ProcesoModel;
-use App\Models\modAdministracion\MovimientosModel;
 
 class EtapaController extends BaseController{
 
@@ -12,28 +9,19 @@ class EtapaController extends BaseController{
 
     public function etapa(){
 
-        $nombreEtapa= new EtapaModel();
-        $procesoId  = $this->request->getVar('procesoId');
-        $datos      = $nombreEtapa->listarEtapa($procesoId);
-
-        echo json_encode($datos);
-    }
-
-    public function etapaC(){
-
-        $nombreEtapa= new EtapaModel();
-        $procesoId  = $this->request->getVar('procesoId');
-        $datos      = $nombreEtapa->listarEtapaC($procesoId);
-
+        $nombreEtapa = new EtapaModel();
+        $procesoId = $this->request->getVar('procesoId');
+        $datos = $nombreEtapa->listarEtapa($procesoId);
+       
         echo json_encode($datos);
     }
 
     //list
     public function etapaList(){
 
-        $nombreEtapa= new EtapaModel();
-        $procesoId  = $this->request->getVar('procesoId');
-        $datos      = $nombreEtapa->listarEtapa($procesoId);
+        $nombreEtapa = new EtapaModel();
+        $procesoId = $this->request->getVar('procesoId');
+        $datos = $nombreEtapa->listarEtapa($procesoId);
 
         echo json_encode($datos);
     }
@@ -42,133 +30,62 @@ class EtapaController extends BaseController{
     //CREAR PROCESO
     public function crear(){
 
-        $etapa = new EtapaModel();
-
-        $nombreEtapa    = $this->request->getVar('nombreEtapa');
-        $orden          = $this->request->getVar('orden');
-        $procesoId      = $this->request->getVar('procesoId');
-
         $datos = [
-            "nombreEtapa" => $nombreEtapa,
-            "orden" => $orden,
-            "procesoId" => $procesoId
+            "nombreEtapa" => $_POST['nombreEtapa'],
+            "orden" => $_POST['orden'],
+            "procesoId" => $_POST['procesoId']
         ];
 
-        $proceso = new ProcesoModel();
-
-        $nombreProceso  = $proceso->asArray()->select("nombreProceso")
-        ->where("procesoId", $procesoId)->first();
-
-        //PARA REGISTRAR EN BITACORA QUIEN CREÓ ETAPA
-        $this->bitacora  = new MovimientosModel();
-        $hora=new Time('now');
-        $session = session('usuario');
-
-        $this->bitacora->save([
-            'bitacoraId'    => null,
-            'usuario'       => $session,
-            'accion'        => 'Agregó configuración de Etapa',
-            'descripcion'   => $nombreProceso['nombreProceso'].': '.$nombreEtapa,
-            'hora'          => $hora,
-        ]);
-        //END
-
+        $etapa = new EtapaModel();
         $respuesta = $etapa->insertar($datos);
 
         if ($respuesta > 0){
-            $mensaje = 6;
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','6');
         } else {
-            $mensaje = 7;
-        }
-
-        echo json_encode($mensaje); 
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','7');
+        } 
     } 
 
     //ELIMINAR PROCESO
     public function eliminar(){
 
+        $etapaId = $_POST['etapaId'];
+
         $etapa = new EtapaModel();
-
-        $etapaId = $this->request->getVar('etapaId');
-
         $data = ["etapaId" => $etapaId];
-
-        $nombreEtapa = $etapa->asArray()->select("nombreEtapa")
-        ->where("etapaId", $etapaId)->first();
 
         $respuesta = $etapa->eliminar($data);
 
         if ($respuesta > 0){
-            //PARA REGISTRAR EN BITACORA QUIEN ELIMINÓ ETAPA
-            $this->bitacora  = new MovimientosModel();
-            $hora=new Time('now');
-            $session = session('usuario');
-
-            $this->bitacora->save([
-                'bitacoraId'    => null,
-                'usuario'       => $session,
-                'accion'        => 'Eliminó configuración de etapa',
-                'descripcion'   => $nombreEtapa,
-                'hora'          => $hora,
-            ]);
-            //END
-            $mensaje = 8;
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','8');
         } else {
-            $mensaje = 9;
+            return redirect()->to(base_url(). '/proceso')->with('mensaje','9');
         }
-
-        echo json_encode($mensaje);
     }
 
     //ELIMINAR PROCESO
     public function actualizar()
     {
-        $etapa = new EtapaModel();
-
-        $etapaId = $this->request->getVar('etapaId');
-        $nombreEtapa = $this->request->getVar('nombreEtapa');
-        $orden = $this->request->getVar('orden');
-        $procesoId = $this->request->getVar('procesoId');
-
         $datos = [
-            "nombreEtapa" => $nombreEtapa,
-            "orden" => $orden,
-            "procesoId" => $procesoId
+            "nombreEtapa" => $_POST['nombreEtapa'],
+            "orden" => $_POST['orden'],
+            "procesoId" => $_POST['procesoId']
         ];
 
-        $etapaId = $etapaId;
+        $etapaId = $_POST['etapaId'];
 
-        $proceso = new ProcesoModel();
-
+        $etapa = new EtapaModel();
         $respuesta = $etapa->actualizar($datos, $etapaId);
-
-        $nombreProceso  = $proceso->asArray()->select("nombreProceso")
-        ->where("procesoId", $procesoId)->first();
 
         $datos = ["datos" => $respuesta];
 
-        //PARA REGISTRAR EN BITACORA QUIEN EDITÓ ETAPA
-        $this->bitacora  = new MovimientosModel();
-        $hora=new Time('now');
-        $session = session('usuario');
-
-        $this->bitacora->save([
-            'bitacoraId'    => null,
-            'usuario'       => $session,
-            'accion'        => 'Editó configuración de etapa',
-            'descripcion'   => $nombreProceso['nombreProceso'].': '.$nombreEtapa,
-            'hora'          => $hora,
-        ]);
-        //END
-
-        if ($respuesta){
-            $mensaje = 10;
+        if ($respuesta) {
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '10');
         } else {
-            $mensaje = 11;
+            return redirect()->to(base_url() . '/proceso')->with('mensaje', '11');
         }
-
-        echo json_encode($mensaje);
     }
+    
 }
 
 ?>

@@ -101,6 +101,31 @@ class GraficasController extends BaseController{
     //return view('modGraficas/graficas', $data);
   }
 
+  public function barraE(){
+
+    $grafica = new GraficasModel();
+    
+    $fecha = $this->request->getVar('fecha');
+
+    $fechas = explode(" - ", $fecha);
+
+    $fechaI = $fechas[0];
+    $fechaF = $fechas[1];
+
+    $query =  $grafica->barraE($fechaI, $fechaF); 
+
+    //$record = $query->result();
+    $data = [];
+
+    foreach($query as $row) {
+        $data['label'][] = $row->persona;
+        $data['data'][] = (int) $row->total;
+    }
+    
+
+    echo json_encode($data);
+  }
+
   public function barraProm(){
 
     $grafica = new GraficasModel();
