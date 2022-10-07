@@ -143,7 +143,7 @@
           </nav>
         </div>
       </div>
-      <!-- /top navigation -->
+      <!-- /top navigationn -->
 
       <!-- page content -->
       <div class="right_col" role="main">
@@ -155,7 +155,6 @@
               <?php
               $modulo = new ModuloModel();
               $mod = $modulo->asArray()->select('m.nombre')->from('co_modulo m')->where('m.moduloId', $session->modulo)->first();
-
               echo $mod['nombre'] ?>
             </a>
           </h6>
