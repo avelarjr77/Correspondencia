@@ -48,7 +48,7 @@ class Login extends BaseController
             ->join('wk_rol r', 'u.rolId=r.rolId')->where('u.usuario', $usuario)->first();
 
 
-        if ($clave ==$clave/*$claveDesencriptada == 1*/) {
+        if ($claveDesencriptada == 1) {
 
             $data = array(
                 'usuario' => $usuario,
