@@ -336,7 +336,7 @@
 
         language: 'es',
         uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
-        maxFilePreviewSize: 10240,
+        maxFilePreviewSize: 500000000,
         sobrescribirInitial: false,
         actionUpload: false,
         showZoom: false,

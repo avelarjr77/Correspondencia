@@ -63,6 +63,7 @@ class DocumentoController extends BaseController{
         ->from('wk_transaccion_actividades ta')
         ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
         ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
+        return  $etapaId['etapaId'];
         $etapa = $etapaId['etapaId'];
 
         $file=$_FILES["nombreDocumento"];
@@ -81,8 +82,12 @@ class DocumentoController extends BaseController{
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 
+<<<<<<< HEAD
+                if ($fileSize) { 
+=======
                 // 500  MB de capacidad
                 if ($fileSize < 500000000) { 
+>>>>>>> 278bfd9499dbd37b229dc65db8da662022f67dc1
 
                     $fileDestination = 'uploads/'.$fileName;
 
