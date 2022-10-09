@@ -86,7 +86,6 @@ class GraficasController extends BaseController{
 
     $query =  $grafica->barra($fechaI, $fechaF); 
 
-    //$record = $query->result();
     $data = [];
 
     foreach($query as $row) {
@@ -94,11 +93,8 @@ class GraficasController extends BaseController{
         $data['data'][] = (int) $row->total;
     }
     
-    //$data['chart_data'] = json_encode($data); 
-
     echo json_encode($data);
 
-    //return view('modGraficas/graficas', $data);
   }
 
   public function barraE(){
