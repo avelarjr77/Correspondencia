@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+CRITICAL - 2022-09-27 23:32:36 --> Undefined variable: totalTime
+#0 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar\Views\toolbar.tpl.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\wamp64\\www\\c...', 40, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(501): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Debug\Toolbar.php(464): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#3 C:\wamp64\www\correspondencia-ucad\app\Config\Events.php(48): CodeIgniter\Debug\Toolbar->respond()
+#4 C:\wamp64\www\correspondencia-ucad\system\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(302): CodeIgniter\Events\Events::trigger('pre_system')
+#6 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2022-09-27 23:56:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY d.documentoId' at line 5
+CRITICAL - 2022-09-27 23:56:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY d.documentoId' at line 5
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT d.docume...', 0)
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT d.docume...')
+#2 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT d.docume...')
+#3 C:\wamp64\www\correspondencia-ucad\app\Models\modTransaccion\TransaccionActividadModel.php(56): CodeIgniter\Database\BaseConnection->query('SELECT d.docume...')
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(540): App\Models\modTransaccion\TransaccionActividadModel->docVista(' + val.document...')
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->docVista()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-09-27 23:58:32 --> Undefined property: stdClass::$documentoId
+#0 C:\wamp64\www\correspondencia-ucad\app\Views\modTransaccion\transaccionActividad.php(231): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\wamp64\\www\\c...', 231, Array)
+#1 C:\wamp64\www\correspondencia-ucad\system\View\View.php(210): include('C:\\wamp64\\www\\c...')
+#2 C:\wamp64\www\correspondencia-ucad\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\wamp64\www\correspondencia-ucad\system\Common.php(1089): CodeIgniter\View\View->render('modTransaccion/...', Array, true)
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\modTransaccion\TransaccionActividadController.php(74): view('modTransaccion/...', Array)
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\modTransaccion\TransaccionActividadController->index()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\modTransaccion\TransaccionActividadController))
+=======
 ERROR - 2022-09-27 19:49:42 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
 
 CRITICAL - 2022-09-27 19:49:42 --> Unable to connect to the database.
@@ -25,6 +56,7 @@ Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo 
 #4 C:\wamp64\www\correspondencia-ucad\app\Controllers\HomeMenusController.php(63): CodeIgniter\BaseModel->first()
 #5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\HomeMenusController->homeMenu()
 #6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeMenusController))
+>>>>>>> 278bfd9499dbd37b229dc65db8da662022f67dc1
 #7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #9 {main}

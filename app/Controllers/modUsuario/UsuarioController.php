@@ -42,7 +42,7 @@ class UsuarioController extends BaseController{
 
             //Cifrado de contraseña
             $clave = $_POST['clave']; //123456
-            $claveCifrada = password_hash($clave, PASSWORD_BCRYPT); //JVSJV<SV<SVY32YIW2YEGUY2VDHQ
+            $claveCifrada = password_hash($clave, PASSWORD_BCRYPT); 
 
             $usuario->insertar(
                 [

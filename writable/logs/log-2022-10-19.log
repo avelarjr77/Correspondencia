@@ -1,0 +1,13 @@
+ERROR - 2022-10-19 12:12:07 --> Error connecting to the database: Unknown database 'correspondencia'
+CRITICAL - 2022-10-19 12:12:07 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'correspondencia'
+#0 C:\wamp64\www\correspondencia-ucad\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\wamp64\www\correspondencia-ucad\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`usu...', Array, false)
+#2 C:\wamp64\www\correspondencia-ucad\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\wamp64\www\correspondencia-ucad\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\wamp64\www\correspondencia-ucad\app\Controllers\Login.php(32): CodeIgniter\BaseModel->first()
+#5 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(825): App\Controllers\Login->login()
+#6 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\wamp64\www\correspondencia-ucad\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\correspondencia-ucad\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
