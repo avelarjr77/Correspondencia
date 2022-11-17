@@ -62,8 +62,12 @@ class DocumentoController extends BaseController{
         $etapaId =  $transaccion->asArray()->select('td.etapaId')
         ->from('wk_transaccion_actividades ta')
         ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
+<<<<<<< HEAD
         ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
         
+=======
+        ->where('ta.transaccionActividadId', $transaccionActividadId)->first();
+>>>>>>> 684b0e7739402ebff2f48f47db85777362404ef0
         $etapa = $etapaId['etapaId'];
 
         $file=$_FILES["nombreDocumento"];
@@ -96,8 +100,7 @@ class DocumentoController extends BaseController{
                         "tipoDocumentoId" => $tipoDocumentoId,
                         "tipoEnvioId" => $tipoEnvioId,
                         "transaccionActividadId" => $transaccionActividadId
-                    ]; 
-                                    
+                    ];
                     $respuesta = $nombreDoc->insertar($datos);
 
                     //PARA REGISTRAR EN BITACORA QUIEN CREÓ EL DOCUMENTO

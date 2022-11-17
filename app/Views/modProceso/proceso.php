@@ -616,29 +616,7 @@
             }
         });
 
-        /* $.ajax({
-            type: "GET",
-            url: "<= base_url().route_to('etapaC') ?>",
-            data: {procesoId: idProcesoC},
-            success:function(data){
-
-                var dataEtapaCE = JSON.parse(data);
-                console.log(dataEtapaCE);
-                
-                $("#etapaData").empty();
-
-                $.each(dataEtapaCE, function(index, val) {
-                    datosC.append("<tr><td>"+val.id+"</td>"+
-                    "<td>"+val.nombre+"</td>"+
-                    "<td>"+val.orden+"</td>"+
-                    "<td>"+val.proceso+"</td>"+
-                    "<td><a href='#' onclick='actualizarEtapa("+val.procesoId+" , "+val.id+")' class='btn btn-warning btn-sm btn-editEtapa' ><i class='fa fa-pencil-square-o'></i> Editar</a>"+
-                    "<a href='#' onclick='borrarEtapa("+val.id+", "+val.procesoId+")' class='btn btn-danger btn-sm btn-deleteEtapa' ><i class='fa fa-trash'></i> Eliminar</a>"+
-                    "<a href='#' onclick='actividad("+val.id+")' class='btn btn-primary btn-sm btn-actividad' data-i='"+val.id+"' data-n='"+val.nombre+"'><i class='fa fa-tasks'></i> Actividades</a>"+
-                    "</td></tr>")
-                });
-            }
-        }); */
+      
 
         //recargarEtapa(idProcesoC);
 
