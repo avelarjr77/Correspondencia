@@ -62,12 +62,8 @@ class DocumentoController extends BaseController{
         $etapaId =  $transaccion->asArray()->select('td.etapaId')
         ->from('wk_transaccion_actividades ta')
         ->join('wk_transaccion_detalle td', 'ta.transaccionDetalleId = td.transaccionDetalleId')
-<<<<<<< HEAD
         ->where('ta.transaccionActividadId', $transaccionActividadId)->first(); 
         
-=======
-        ->where('ta.transaccionActividadId', $transaccionActividadId)->first();
->>>>>>> 684b0e7739402ebff2f48f47db85777362404ef0
         $etapa = $etapaId['etapaId'];
 
         $file=$_FILES["nombreDocumento"];
@@ -86,8 +82,8 @@ class DocumentoController extends BaseController{
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 
-                // 500  MB de capacidad
-                if ($fileSize < 500000000) { 
+                // 20  MB de capacidad
+                if ($fileSize < 20971520) { 
 
                     $fileDestination = 'uploads/'.$fileName;
 
@@ -117,9 +113,14 @@ class DocumentoController extends BaseController{
                     ]);
                     //END     
 
-                    return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
+                    if ($respuesta > 0 ) {
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');
+                    }else{
+                        return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','8');
+                    }
+
                 } else {
-                    return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','6');
+                    return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','14');
                 }
             } else {
                 return redirect()->to(base_url() . '/transaccionActividades?etapaId='.$etapa)->with('mensaje','0');

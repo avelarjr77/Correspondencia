@@ -318,9 +318,15 @@
         swal('', 'Este documento ya existe en la base de datos', 'error');
     }else if (mensaje == '7') {
         swal('', 'Tipo de documento no admitido en la base de datos', 'error');
+    }else if (mensaje == '8') {
+        swal('', 'No se agrego el documento', 'error');
     }else if (mensaje == '12') {
         swal('', 'No se envio correo proceso', 'error');
     }else if (mensaje == '13') {
+        swal('', 'No se envio correo actividad', 'error');
+    }else if (mensaje == '14') {
+        swal('', 'El documento sobrepasa la capacidad permitida (20MB)', 'error');
+    }else if (mensaje == '15') {
         swal('', 'No se envio correo actividad', 'error');
     }
 
