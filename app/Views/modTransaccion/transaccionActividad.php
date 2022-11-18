@@ -296,8 +296,9 @@
 <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Input file -->
-
-<script src="vendors/fileinput/js/fileinput.min.js"></script> 
+<script src="vendors/fileinput/js/fileinput.min.js"></script>
+<script src="vendors/fileinput/js/locales/es.js"></script>
+<script src="vendors/script.js"></script>
 
 <script type="text/javascript">
     let mensaje = '<?php echo $mensaje ?>';
@@ -325,33 +326,6 @@
     }
 
 </script>
-
-<script>
-    var footerTemplate = '<div class="file-thumbnail-footer" style ="height:94px">\n' +
-        '  <input class="kv-input kv-new form-control input-sm form-control-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
-        '   <div class="small" style="margin:15px 0 2px 0">{size}</div> {progress}\n{indicator}\n{actions}\n' +
-        '</div>';
-
-    $("#fileUpload").fileinput({
-
-        language: 'es',
-        uploadUrl: "http://localhost/correspondencia-ucad/upload.php",
-        maxFilePreviewSize: 500000000,
-        sobrescribirInitial: false,
-        actionUpload: false,
-        showZoom: false,
-        initialPreviewAsData: true,
-        layoutTemplates: {
-            footer: footerTemplate
-        },
-        previewThumbTags: {
-            '{TAG_VALUE}': '', // no value
-            '{TAG_CSS_NEW}': '', // new thumbnail input
-            '{TAG_CSS_INIT}': 'kv-hidden' // hide the initial input
-        },
-    });
-</script>
-
 <script>
     $(document).ready(function() {
 
