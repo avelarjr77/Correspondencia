@@ -83,7 +83,7 @@ class DocumentoController extends BaseController{
             if ($fileError === 0) {
                 
                 // 20  MB de capacidad
-                if ($fileSize < 20971520) { 
+                if ($fileSize < 21000) { 
 
                     $fileDestination = 'uploads/'.$fileName;
 

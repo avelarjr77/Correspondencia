@@ -280,6 +280,29 @@
                         </div>
                     </div><br>
                 </div>
+                <div class="col-md-12">
+                    <p>
+                        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-eye"></i> Observaciones
+                        </button>
+                    </p>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Actividad</th>
+                                        <th>Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="obsList">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><br>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -516,6 +539,29 @@
                                     </tr>
                                 </thead>
                                 <tbody id="infoList2">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><br>
+                </div>
+                <div class="col-md-12">
+                    <p>
+                        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-eye"></i> Observaciones
+                        </button>
+                    </p>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Actividad</th>
+                                        <th>Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="obsList2">
 
                                 </tbody>
                             </table>
@@ -1093,6 +1139,7 @@
 
         var actData = $("#actividadData");
         var infoData = $("#infoList");
+        var obsData = $("#obsList");
 
         $.ajax({
             type: "POST",
@@ -1108,6 +1155,7 @@
 
                 $("#actividadData").empty();
                 $("#infoList").empty();
+                $("#obsList").empty();
 
                 $.each(dataActividadList, function(index, val) {
                     actData.append("<tr><td>" + val.id + "</td>" +
@@ -1125,6 +1173,10 @@
                         "<td>" + val.horaInicio + "</td>" +
                         "<td>" + val.fechaFin + "</td>" +
                         "<td>" + val.horaFin + "</td></tr>")
+                    
+                    obsData.append("<tr><td>" + val.id + "</td>" +
+                    "<td>" + val.actividad + "</td>" +
+                    "<td>" + val.observaciones + "</td></tr>")
                 });
             }
         });
@@ -1144,6 +1196,7 @@
 
         var actData = $("#actividadData2");
         var infoData = $("#infoList2");
+        var obssData = $("#obsList2");
 
         $.ajax({
             type: "POST",
@@ -1159,6 +1212,7 @@
 
                 $("#actividadData2").empty();
                 $("#infoList2").empty();
+                $("#obsList2").empty();
 
                 $.each(dataActividadList, function(index, val) {
                     actData.append("<tr><td>" + val.id + "</td>" +
@@ -1176,6 +1230,10 @@
                         "<td>" + val.horaInicio + "</td>" +
                         "<td>" + val.fechaFin + "</td>" +
                         "<td>" + val.horaFin + "</td></tr>")
+
+                    obssData.append("<tr><td>" + val.id + "</td>" +
+                    "<td>" + val.actividad + "</td>" +
+                    "<td>" + val.observaciones + "</td></tr>")
                 });
             }
         });

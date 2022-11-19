@@ -177,7 +177,7 @@ class TransaccionConfigModel extends Model
                                             WHEN ta.estado = 'P' THEN 'En Progreso'
                                             WHEN ta.estado = 'F' THEN 'Finalizado'
                                             ELSE 'Inactivo'
-                                        END) as 'estado'
+                                        END) as 'estado', if(ta.observaciones IS NULL, '-', ta.observaciones) as 'observaciones'
                                         FROM wk_transaccion_actividades ta
                                         INNER JOIN wk_actividad a ON a.actividadId = ta.actividadId
                                         INNER JOIN wk_persona p ON p.personaId = a.personaId

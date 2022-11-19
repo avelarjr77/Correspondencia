@@ -318,7 +318,7 @@
     }else if (mensaje == '6') {
         swal('', 'Este documento ya existe en la base de datos', 'error');
     }else if (mensaje == '7') {
-        swal('', 'Tipo de documento no admitido en la base de datos', 'error');
+        swal('', 'Documento no admitido', 'error');
     }else if (mensaje == '8') {
         swal('', 'No se agrego el documento', 'error');
     }else if (mensaje == '12') {
